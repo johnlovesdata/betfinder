@@ -1,15 +1,16 @@
 Package: betfinder
-Title: What the Package Does (One Line, Title Case)
+Title: Find Bets
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Jim",
            family = "Kloet",
            role = c("aut", "cre"),
            email = "jim.kloet@gmail.com")
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: Finds bets. C'mon.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    jsonlite

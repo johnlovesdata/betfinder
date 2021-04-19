@@ -1,3 +1,11 @@
+#' Get odds on prop bets for popular sports from popular betting sites
+#'
+#' @param site character site, e.g. 'draftkings' or 'fanduel'
+#' @param sport character sport, e.g. 'nba'
+#' @param prop character name of prop, e.g. 'first team to score'
+#'
+#' @return data.frame of props
+#' @export
 get_props <- function(site, sport, prop) {
 
   # fix case errors for users
