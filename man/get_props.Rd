@@ -2,12 +2,12 @@
 % Please edit documentation in R/get_props.R
 \name{get_props}
 \alias{get_props}
-\title{Get odds on prop bets for popular sports from popular betting sites}
+\title{Get lines on prop bets for popular sports from popular betting sites}
 \usage{
 get_props(site, sport, prop)
 }
 \arguments{
-\item{site}{character site, e.g. 'draftkings' or 'fanduel'}
+\item{site}{character book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'}
 
 \item{sport}{character sport, e.g. 'nba'}
 
@@ -17,5 +17,5 @@ get_props(site, sport, prop)
 data.frame of props
 }
 \description{
-Get odds on prop bets for popular sports from popular betting sites
+Get lines on prop bets for popular sports from popular betting sites
 }
