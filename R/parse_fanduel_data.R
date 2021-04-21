@@ -59,8 +59,8 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       output_list[[length(output_list) + 1]] <- first_basket
     }
 
-    if (prop %in% c('points_player_alt', 'points_player_ou', 'points_threshold',
-                    'pts_player_alt', 'pts_player_ou', 'pts_threshold')) {
+    if (prop %in% c('player points alt', 'player points ou', 'player points tiers',
+                    'player pts alt', 'player pts ou', 'player points tiers')) {
 
       # skip if no player points props available
       market_label <- 'Player Points'
@@ -72,9 +72,9 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
 
       # get correct props
-      prop_type <- ifelse(grepl('_alt', prop), 'alt',
-                   ifelse(grepl('_ou', prop), 'ou',
-                   ifelse(grepl('_threshold', prop), 'threshold', NA_character_
+      prop_type <- ifelse(grepl('alt', prop), 'alt',
+                   ifelse(grepl('ou', prop), 'ou',
+                   ifelse(grepl('tiers', prop), 'tiers', NA_character_
                    )))
 
       # handle the different kinds of player points bets
@@ -97,7 +97,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
           }
       }
 
-      if (prop_type == 'threshold') {
+      if (prop_type == 'tiers') {
         if (length(player_points$name[grepl('To Score', player_points$name)]) < 1) {
           next
         } else {
@@ -115,10 +115,12 @@ parse_fanduel_data <- function(fanduel_data, prop) {
           }
         }
         points_df <- do.call(rbind, points_list)
+        points_df$prop_type <- prop_type
       }
 
       # extract the description, which has the matchup, and stash in the output_list
       points_df$description <- game_event$externaldescription
+      points_df$prop_type <- prop_type
       output_list[[length(output_list) + 1]] <- points_df
     }
   }
