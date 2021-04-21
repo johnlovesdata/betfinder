@@ -38,9 +38,19 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
     }
   }
 
-  if (grepl('points', tolower(prop))) {
+  if (grepl('points| pts', tolower(prop))) {
+    # the ou props still have over and under in them, so nuke those
+    if (grepl('ou', tolower(prop))) {
+      output_df$name <- gsub(' Over| Under', '', output_df$name)
+    }
+    # this looks like other player props but the name is going to be whatever the site calls it, for now
     hacky_tidyplayer <- hacky_tidyup_player_names(output_df$name)
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    # get the actual of points
+    output_df$tidyline <- output_df$currenthandicap
+    fractional_odds <- output_df$currentpriceup / output_df$currentpricedown
+    output_df$tidyamericanodds <- ifelse(fractional_odds < 1, -100 / fractional_odds,
+                                         fractional_odds * 100)
   }
 
   # filter out the cols we don't need, i.e. not tidy ones
@@ -51,7 +61,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
   output_df$site <- 'fanduel'
   output_df$sport <- sport
   if (!'prop' %in% names(output_df)) {
-    output$prop <- prop
+    output_df$prop <- prop
   }
 
   # deliver

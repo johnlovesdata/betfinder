@@ -2,8 +2,8 @@
 #'
 #' @param site character book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'
 #' @param sport character sport, e.g. 'nba'
-#' @param prop character name of prop, e.g. 'first team to score'
-#'
+#' @param prop character name of prop, e.g. 'first team to score'; see details for available props
+#' @details available props include: 'player points alt', 'player points ou', 'player points tiers', 'first team to score', 'first player to score'
 #' @return data.frame of props with tidy columns
 #' @export
 get_props <- function(site, sport, prop) {

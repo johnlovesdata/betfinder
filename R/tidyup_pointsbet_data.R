@@ -26,17 +26,17 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
   }
 
   if (prop %in% c('first player to score', 'fpts')) {
-    # TODO: MAKE AN ACTUAL LOOKUP FOR PLAYERS
-    # output_df$tidyplayer <- normalize_names(output_df$participant, key = key)
-    # in the meantime, make a hacky field that should be consistent-ish across platforms
-    output_df$tidyplayer <- hacky_tidyup_player_names(output_df$name)
+    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$name)
+    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     # TODO: get player teams, hopefully in that same big-ass json of players? idk...
     ## odds are decimal
     output_df$tidyamericanodds <- ifelse(output_df$price - 1 < 1,
                                          -100 / (output_df$price - 1),
                                          (output_df$price - 1) * 100)
     # since prop arg is flexible, set it here for output
-    output_df$prop <- 'first player to score'
+    if (prop == 'fpts') {
+      output_df$prop <- 'first player to score'
+      }
   }
 
   # keep the tidy columns
