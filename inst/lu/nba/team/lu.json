@@ -130,6 +130,8 @@
     "name": "MEM",
     "aliases": [
       "MEM",
+      "Grizzlies",
+      "MEM Grizzlies",
       "Memphis Grizzlies"
     ]
   },
@@ -137,6 +139,7 @@
     "name": "MIA",
     "aliases": [
       "MIA",
+      "MIA Heat",
       "Miami Heat"
     ]
   },
@@ -178,7 +181,10 @@
   {
     "name": "OKC",
     "aliases": [
-      "OKC"
+      "OKC",
+      "OKC Thunder",
+      "Thunder",
+      "Oklahoma City Thunder"
     ]
   },
   {
@@ -193,7 +199,10 @@
   {
     "name": "PHI",
     "aliases": [
-      "PHI"
+      "PHI",
+      "PHI 76ers",
+      "76ers",
+      "Philadelphia 76ers"
     ]
   },
   {
@@ -229,6 +238,8 @@
     "aliases": [
       "SAS",
       "SA",
+      "SA Spurs",
+      "SAS Spurs",
       "San Antonio Spurs"
     ]
   },
@@ -255,6 +266,7 @@
     "aliases": [
       "WAS",
       "WSH",
+      "WAS Wizards",
       "Washington Wizards"
     ]
   }

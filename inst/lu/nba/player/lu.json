@@ -1,0 +1,3274 @@
+[
+  {
+    "name": "Danilo Gallinari",
+    "aliases": ["danilogallinari", "danilo gallinari", "DANILO GALLINARI"]
+  },
+  {
+    "name": "Nikola Vucevic",
+    "aliases": ["nikolavucevic", "nikola vucevic", "NIKOLA VUCEVIC"]
+  },
+  {
+    "name": "Evan Fournier",
+    "aliases": ["evanfournier", "evan fournier", "EVAN FOURNIER"]
+  },
+  {
+    "name": "Michael Carter-Williams",
+    "aliases": ["michaelcarterwilliams", "michael carter-williams", "MICHAEL CARTER-WILLIAMS"]
+  },
+  {
+    "name": "Solomon Hill",
+    "aliases": ["solomonhill", "solomon hill", "SOLOMON HILL"]
+  },
+  {
+    "name": "Khem Birch",
+    "aliases": ["khembirch", "khem birch", "KHEM BIRCH"]
+  },
+  {
+    "name": "Aaron Gordon",
+    "aliases": ["aarongordon", "aaron gordon", "AARON GORDON"]
+  },
+  {
+    "name": "Clint Capela",
+    "aliases": ["clintcapela", "clint capela", "CLINT CAPELA"]
+  },
+  {
+    "name": "Bogdan Bogdanovic",
+    "aliases": ["bogdanbogdanovic", "bogdan bogdanovic", "BOGDAN BOGDANOVIC"]
+  },
+  {
+    "name": "Markelle Fultz",
+    "aliases": ["markellefultz", "markelle fultz", "MARKELLE FULTZ"]
+  },
+  {
+    "name": "John Collins",
+    "aliases": ["johncollins", "john collins", "JOHN COLLINS"]
+  },
+  {
+    "name": "Dwayne Bacon",
+    "aliases": ["dwaynebacon", "dwayne bacon", "DWAYNE BACON"]
+  },
+  {
+    "name": "Bruno Fernando",
+    "aliases": ["brunofernando", "bruno fernando", "BRUNO FERNANDO"]
+  },
+  {
+    "name": "Kevin Huerter",
+    "aliases": ["kevinhuerter", "kevin huerter", "KEVIN HUERTER"]
+  },
+  {
+    "name": "Trae Young",
+    "aliases": ["traeyoung", "trae young", "TRAE YOUNG"]
+  },
+  {
+    "name": "Gary Clark",
+    "aliases": ["garyclark", "gary clark", "GARY CLARK"]
+  },
+  {
+    "name": "Brandon Goodwin",
+    "aliases": ["brandongoodwin", "brandon goodwin", "BRANDON GOODWIN"]
+  },
+  {
+    "name": "Robert Franks",
+    "aliases": ["robertfranks", "robert franks", "ROBERT FRANKS"]
+  },
+  {
+    "name": "Cam Reddish",
+    "aliases": ["camreddish", "cam reddish", "CAM REDDISH"]
+  },
+  {
+    "name": "De'Andre Hunter",
+    "aliases": ["deandrehunter", "de'andre hunter", "DE'ANDRE HUNTER"]
+  },
+  {
+    "name": "Chuma Okeke",
+    "aliases": ["chumaokeke", "chuma okeke", "CHUMA OKEKE"]
+  },
+  {
+    "name": "Jordan Bone",
+    "aliases": ["jordanbone", "jordan bone", "JORDAN BONE"]
+  },
+  {
+    "name": "Devin Cannady",
+    "aliases": ["devincannady", "devin cannady", "DEVIN CANNADY"]
+  },
+  {
+    "name": "Cole Anthony",
+    "aliases": ["coleanthony", "cole anthony", "COLE ANTHONY"]
+  },
+  {
+    "name": "Karim Mane",
+    "aliases": ["karimmane", "karim mane", "KARIM MANE"]
+  },
+  {
+    "name": "Skylar Mays",
+    "aliases": ["skylarmays", "skylar mays", "SKYLAR MAYS"]
+  },
+  {
+    "name": "Nathan Knight",
+    "aliases": ["nathanknight", "nathan knight", "NATHAN KNIGHT"]
+  },
+  {
+    "name": "Jon Teske",
+    "aliases": ["jonteske", "jon teske", "JON TESKE"]
+  },
+  {
+    "name": "Derrick Rose",
+    "aliases": ["derrickrose", "derrick rose", "DERRICK ROSE"]
+  },
+  {
+    "name": "Blake Griffin",
+    "aliases": ["blakegriffin", "blake griffin", "BLAKE GRIFFIN"]
+  },
+  {
+    "name": "Wayne Ellington",
+    "aliases": ["wayneellington", "wayne ellington", "WAYNE ELLINGTON"]
+  },
+  {
+    "name": "Alec Burks",
+    "aliases": ["alecburks", "alec burks", "ALEC BURKS"]
+  },
+  {
+    "name": "Nerlens Noel",
+    "aliases": ["nerlensnoel", "nerlens noel", "NERLENS NOEL"]
+  },
+  {
+    "name": "Mason Plumlee",
+    "aliases": ["masonplumlee", "mason plumlee", "MASON PLUMLEE"]
+  },
+  {
+    "name": "Reggie Bullock",
+    "aliases": ["reggiebullock", "reggie bullock", "REGGIE BULLOCK"]
+  },
+  {
+    "name": "Rodney McGruder",
+    "aliases": ["rodneymcgruder", "rodney mcgruder", "RODNEY MCGRUDER"]
+  },
+  {
+    "name": "Elfrid Payton",
+    "aliases": ["elfridpayton", "elfrid payton", "ELFRID PAYTON"]
+  },
+  {
+    "name": "Jerami Grant",
+    "aliases": ["jeramigrant", "jerami grant", "JERAMI GRANT"]
+  },
+  {
+    "name": "Julius Randle",
+    "aliases": ["juliusrandle", "julius randle", "JULIUS RANDLE"]
+  },
+  {
+    "name": "Jahlil Okafor",
+    "aliases": ["jahlilokafor", "jahlil okafor", "JAHLIL OKAFOR"]
+  },
+  {
+    "name": "Delon Wright",
+    "aliases": ["delonwright", "delon wright", "DELON WRIGHT"]
+  },
+  {
+    "name": "Josh Jackson",
+    "aliases": ["joshjackson", "josh jackson", "JOSH JACKSON"]
+  },
+  {
+    "name": "Dennis Smith Jr.",
+    "aliases": ["dennissmith", "dennis smith jr.", "DENNIS SMITH JR."]
+  },
+  {
+    "name": "Frank Ntilikina",
+    "aliases": ["frankntilikina", "frank ntilikina", "FRANK NTILIKINA"]
+  },
+  {
+    "name": "Kevin Knox II",
+    "aliases": ["kevinknox", "kevin knox ii", "KEVIN KNOX II"]
+  },
+  {
+    "name": "Svi Mykhailiuk",
+    "aliases": ["svimykhailiuk", "svi mykhailiuk", "SVI MYKHAILIUK"]
+  },
+  {
+    "name": "Mitchell Robinson",
+    "aliases": ["mitchellrobinson", "mitchell robinson", "MITCHELL ROBINSON"]
+  },
+  {
+    "name": "RJ Barrett",
+    "aliases": ["rjbarrett", "rj barrett", "RJ BARRETT"]
+  },
+  {
+    "name": "Sekou Doumbouya",
+    "aliases": ["sekoudoumbouya", "sekou doumbouya", "SEKOU DOUMBOUYA"]
+  },
+  {
+    "name": "Killian Hayes",
+    "aliases": ["killianhayes", "killian hayes", "KILLIAN HAYES"]
+  },
+  {
+    "name": "Obi Toppin",
+    "aliases": ["obitoppin", "obi toppin", "OBI TOPPIN"]
+  },
+  {
+    "name": "Saddiq Bey",
+    "aliases": ["saddiqbey", "saddiq bey", "SADDIQ BEY"]
+  },
+  {
+    "name": "Isaiah Stewart",
+    "aliases": ["isaiahstewart", "isaiah stewart", "ISAIAH STEWART"]
+  },
+  {
+    "name": "Saben Lee",
+    "aliases": ["sabenlee", "saben lee", "SABEN LEE"]
+  },
+  {
+    "name": "Gerald Green",
+    "aliases": ["geraldgreen", "gerald green", "GERALD GREEN"]
+  },
+  {
+    "name": "Eric Gordon",
+    "aliases": ["ericgordon", "eric gordon", "ERIC GORDON"]
+  },
+  {
+    "name": "John Wall",
+    "aliases": ["johnwall", "john wall", "JOHN WALL"]
+  },
+  {
+    "name": "DeMarcus Cousins",
+    "aliases": ["demarcuscousins", "demarcus cousins", "DEMARCUS COUSINS"]
+  },
+  {
+    "name": "Tomas Satoransky",
+    "aliases": ["tomassatoransky", "tomas satoransky", "TOMAS SATORANSKY"]
+  },
+  {
+    "name": "Ben McLemore",
+    "aliases": ["benmclemore", "ben mclemore", "BEN MCLEMORE"]
+  },
+  {
+    "name": "Otto Porter Jr.",
+    "aliases": ["ottoporter", "otto porter jr.", "OTTO PORTER JR."]
+  },
+  {
+    "name": "Zach LaVine",
+    "aliases": ["zachlavine", "zach lavine", "ZACH LAVINE"]
+  },
+  {
+    "name": "Noah Vonleh",
+    "aliases": ["noahvonleh", "noah vonleh", "NOAH VONLEH"]
+  },
+  {
+    "name": "Bruno Caboclo",
+    "aliases": ["brunocaboclo", "bruno caboclo", "BRUNO CABOCLO"]
+  },
+  {
+    "name": "Jerian Grant",
+    "aliases": ["jeriangrant", "jerian grant", "JERIAN GRANT"]
+  },
+  {
+    "name": "Ryan Arcidiacono",
+    "aliases": ["ryanarcidiacono", "ryan arcidiacono", "RYAN ARCIDIACONO"]
+  },
+  {
+    "name": "Danuel House Jr.",
+    "aliases": ["danuelhouse", "danuel house jr.", "DANUEL HOUSE JR."]
+  },
+  {
+    "name": "David Nwaba",
+    "aliases": ["davidnwaba", "david nwaba", "DAVID NWABA"]
+  },
+  {
+    "name": "Lauri Markkanen",
+    "aliases": ["laurimarkkanen", "lauri markkanen", "LAURI MARKKANEN"]
+  },
+  {
+    "name": "Luke Kornet",
+    "aliases": ["lukekornet", "luke kornet", "LUKE KORNET"]
+  },
+  {
+    "name": "Wendell Carter Jr.",
+    "aliases": ["wendellcarter", "wendell carter jr.", "WENDELL CARTER JR."]
+  },
+  {
+    "name": "Chandler Hutchison",
+    "aliases": ["chandlerhutchison", "chandler hutchison", "CHANDLER HUTCHISON"]
+  },
+  {
+    "name": "Chris Clemons",
+    "aliases": ["chrisclemons", "chris clemons", "CHRIS CLEMONS"]
+  },
+  {
+    "name": "Kenny Wooten",
+    "aliases": ["kennywooten", "kenny wooten", "KENNY WOOTEN"]
+  },
+  {
+    "name": "Coby White",
+    "aliases": ["cobywhite", "coby white", "COBY WHITE"]
+  },
+  {
+    "name": "Devon Dotson",
+    "aliases": ["devondotson", "devon dotson", "DEVON DOTSON"]
+  },
+  {
+    "name": "Daniel Gafford",
+    "aliases": ["danielgafford", "daniel gafford", "DANIEL GAFFORD"]
+  },
+  {
+    "name": "Zach Norvell Jr.",
+    "aliases": ["zachnorvell", "zach norvell jr.", "ZACH NORVELL JR."]
+  },
+  {
+    "name": "Patrick Williams",
+    "aliases": ["patrickwilliams", "patrick williams", "PATRICK WILLIAMS"]
+  },
+  {
+    "name": "Mason Jones",
+    "aliases": ["masonjones", "mason jones", "MASON JONES"]
+  },
+  {
+    "name": "Kenyon Martin Jr.",
+    "aliases": ["kenyonmartin", "kenyon martin jr.", "KENYON MARTIN JR."]
+  },
+  {
+    "name": "Trevelin Queen",
+    "aliases": ["trevelinqueen", "trevelin queen", "TREVELIN QUEEN"]
+  },
+  {
+    "name": "Jae'Sean Tate",
+    "aliases": ["jaeseantate", "jae'sean tate", "JAE'SEAN TATE"]
+  },
+  {
+    "name": "Brodric Thomas",
+    "aliases": ["brodricthomas", "brodric thomas", "BRODRIC THOMAS"]
+  },
+  {
+    "name": "Lou Williams",
+    "aliases": ["louwilliams", "lou williams", "LOU WILLIAMS"]
+  },
+  {
+    "name": "Serge Ibaka",
+    "aliases": ["sergeibaka", "serge ibaka", "SERGE IBAKA"]
+  },
+  {
+    "name": "Nicolas Batum",
+    "aliases": ["nicolasbatum", "nicolas batum", "NICOLAS BATUM"]
+  },
+  {
+    "name": "Patrick Beverley",
+    "aliases": ["patrickbeverley", "patrick beverley", "PATRICK BEVERLEY"]
+  },
+  {
+    "name": "Wesley Matthews",
+    "aliases": ["wesleymatthews", "wesley matthews", "WESLEY MATTHEWS"]
+  },
+  {
+    "name": "Paul George",
+    "aliases": ["paulgeorge", "paul george", "PAUL GEORGE"]
+  },
+  {
+    "name": "Patrick Patterson",
+    "aliases": ["patrickpatterson", "patrick patterson", "PATRICK PATTERSON"]
+  },
+  {
+    "name": "Kawhi Leonard",
+    "aliases": ["kawhileonard", "kawhi leonard", "KAWHI LEONARD"]
+  },
+  {
+    "name": "Reggie Jackson",
+    "aliases": ["reggiejackson", "reggie jackson", "REGGIE JACKSON"]
+  },
+  {
+    "name": "Dennis Schroder",
+    "aliases": ["dennisschroder", "dennis schroder", "DENNIS SCHRODER"]
+  },
+  {
+    "name": "Montrezl Harrell",
+    "aliases": ["montrezlharrell", "montrezl harrell", "MONTREZL HARRELL"]
+  },
+  {
+    "name": "Quinn Cook",
+    "aliases": ["quinncook", "quinn cook", "QUINN COOK"]
+  },
+  {
+    "name": "Ivica Zubac",
+    "aliases": ["ivicazubac", "ivica zubac", "IVICA ZUBAC"]
+  },
+  {
+    "name": "Alex Caruso",
+    "aliases": ["alexcaruso", "alex caruso", "ALEX CARUSO"]
+  },
+  {
+    "name": "Luke Kennard",
+    "aliases": ["lukekennard", "luke kennard", "LUKE KENNARD"]
+  },
+  {
+    "name": "Kyle Kuzma",
+    "aliases": ["kylekuzma", "kyle kuzma", "KYLE KUZMA"]
+  },
+  {
+    "name": "Kostas Antetokounmpo",
+    "aliases": ["kostasantetokounmpo", "kostas antetokounmpo", "KOSTAS ANTETOKOUNMPO"]
+  },
+  {
+    "name": "Ky Bowman",
+    "aliases": ["kybowman", "ky bowman", "KY BOWMAN"]
+  },
+  {
+    "name": "Amir Coffey",
+    "aliases": ["amircoffey", "amir coffey", "AMIR COFFEY"]
+  },
+  {
+    "name": "Terance Mann",
+    "aliases": ["terancemann", "terance mann", "TERANCE MANN"]
+  },
+  {
+    "name": "Talen Horton-Tucker",
+    "aliases": ["talenhortontucker", "talen horton-tucker", "TALEN HORTON-TUCKER"]
+  },
+  {
+    "name": "Mfiondu Kabengele",
+    "aliases": ["mfiondukabengele", "mfiondu kabengele", "MFIONDU KABENGELE"]
+  },
+  {
+    "name": "Devontae Cacok",
+    "aliases": ["devontaecacok", "devontae cacok", "DEVONTAE CACOK"]
+  },
+  {
+    "name": "Rayjon Tucker",
+    "aliases": ["rayjontucker", "rayjon tucker", "RAYJON TUCKER"]
+  },
+  {
+    "name": "Daniel Oturu",
+    "aliases": ["danieloturu", "daniel oturu", "DANIEL OTURU"]
+  },
+  {
+    "name": "Malik Fitts",
+    "aliases": ["malikfitts", "malik fitts", "MALIK FITTS"]
+  },
+  {
+    "name": "Jordan Ford",
+    "aliases": ["jordanford", "jordan ford", "JORDAN FORD"]
+  },
+  {
+    "name": "Carmelo Anthony",
+    "aliases": ["carmeloanthony", "carmelo anthony", "CARMELO ANTHONY"]
+  },
+  {
+    "name": "Nemanja Bjelica",
+    "aliases": ["nemanjabjelica", "nemanja bjelica", "NEMANJA BJELICA"]
+  },
+  {
+    "name": "Enes Kanter",
+    "aliases": ["eneskanter", "enes kanter", "ENES KANTER"]
+  },
+  {
+    "name": "Cory Joseph",
+    "aliases": ["coryjoseph", "cory joseph", "CORY JOSEPH"]
+  },
+  {
+    "name": "Damian Lillard",
+    "aliases": ["damianlillard", "damian lillard", "DAMIAN LILLARD"]
+  },
+  {
+    "name": "Harrison Barnes",
+    "aliases": ["harrisonbarnes", "harrison barnes", "HARRISON BARNES"]
+  },
+  {
+    "name": "CJ McCollum",
+    "aliases": ["cjmccollum", "cj mccollum", "CJ MCCOLLUM"]
+  },
+  {
+    "name": "Robert Covington",
+    "aliases": ["robertcovington", "robert covington", "ROBERT COVINGTON"]
+  },
+  {
+    "name": "Glenn Robinson III",
+    "aliases": ["glennrobinson", "glenn robinson iii", "GLENN ROBINSON III"]
+  },
+  {
+    "name": "Jabari Parker",
+    "aliases": ["jabariparker", "jabari parker", "JABARI PARKER"]
+  },
+  {
+    "name": "Richaun Holmes",
+    "aliases": ["richaunholmes", "richaun holmes", "RICHAUN HOLMES"]
+  },
+  {
+    "name": "Frank Kaminsky",
+    "aliases": ["frankkaminsky", "frank kaminsky", "FRANK KAMINSKY"]
+  },
+  {
+    "name": "Buddy Hield",
+    "aliases": ["buddyhield", "buddy hield", "BUDDY HIELD"]
+  },
+  {
+    "name": "Derrick Jones Jr.",
+    "aliases": ["derrickjones", "derrick jones jr.", "DERRICK JONES JR."]
+  },
+  {
+    "name": "De'Aaron Fox",
+    "aliases": ["deaaronfox", "de'aaron fox", "DE'AARON FOX"]
+  },
+  {
+    "name": "Harry Giles III",
+    "aliases": ["harrygiles", "harry giles iii", "HARRY GILES III"]
+  },
+  {
+    "name": "Chimezie Metu",
+    "aliases": ["chimeziemetu", "chimezie metu", "CHIMEZIE METU"]
+  },
+  {
+    "name": "Anfernee Simons",
+    "aliases": ["anferneesimons", "anfernee simons", "ANFERNEE SIMONS"]
+  },
+  {
+    "name": "Gary Trent Jr.",
+    "aliases": ["garytrent", "gary trent jr.", "GARY TRENT JR."]
+  },
+  {
+    "name": "CJ Elleby",
+    "aliases": ["cjelleby", "cj elleby", "CJ ELLEBY"]
+  },
+  {
+    "name": "DaQuan Jeffries",
+    "aliases": ["daquanjeffries", "daquan jeffries", "DAQUAN JEFFRIES"]
+  },
+  {
+    "name": "Kyle Guy",
+    "aliases": ["kyleguy", "kyle guy", "KYLE GUY"]
+  },
+  {
+    "name": "Justin James",
+    "aliases": ["justinjames", "justin james", "JUSTIN JAMES"]
+  },
+  {
+    "name": "Keljin Blevins",
+    "aliases": ["keljinblevins", "keljin blevins", "KELJIN BLEVINS"]
+  },
+  {
+    "name": "Tyrese Haliburton",
+    "aliases": ["tyresehaliburton", "tyrese haliburton", "TYRESE HALIBURTON"]
+  },
+  {
+    "name": "Jahmi'us Ramsey",
+    "aliases": ["jahmiusramsey", "jahmi'us ramsey", "JAHMI'US RAMSEY"]
+  },
+  {
+    "name": "Robert Woodard II",
+    "aliases": ["robertwoodard", "robert woodard ii", "ROBERT WOODARD II"]
+  },
+  {
+    "name": "Gordon Hayward",
+    "aliases": ["gordonhayward", "gordon hayward", "GORDON HAYWARD"]
+  },
+  {
+    "name": "Bismack Biyombo",
+    "aliases": ["bismackbiyombo", "bismack biyombo", "BISMACK BIYOMBO"]
+  },
+  {
+    "name": "Aron Baynes",
+    "aliases": ["aronbaynes", "aron baynes", "ARON BAYNES"]
+  },
+  {
+    "name": "Alex Len",
+    "aliases": ["alexlen", "alex len", "ALEX LEN"]
+  },
+  {
+    "name": "Cody Zeller",
+    "aliases": ["codyzeller", "cody zeller", "CODY ZELLER"]
+  },
+  {
+    "name": "Stanley Johnson",
+    "aliases": ["stanleyjohnson", "stanley johnson", "STANLEY JOHNSON"]
+  },
+  {
+    "name": "Terry Rozier",
+    "aliases": ["terryrozier", "terry rozier", "TERRY ROZIER"]
+  },
+  {
+    "name": "Norman Powell",
+    "aliases": ["normanpowell", "norman powell", "NORMAN POWELL"]
+  },
+  {
+    "name": "Henry Ellenson",
+    "aliases": ["henryellenson", "henry ellenson", "HENRY ELLENSON"]
+  },
+  {
+    "name": "DeAndre' Bembry",
+    "aliases": ["deandrebembry", "deandre' bembry", "DEANDRE' BEMBRY"]
+  },
+  {
+    "name": "Pascal Siakam",
+    "aliases": ["pascalsiakam", "pascal siakam", "PASCAL SIAKAM"]
+  },
+  {
+    "name": "Fred VanVleet",
+    "aliases": ["fredvanvleet", "fred vanvleet", "FRED VANVLEET"]
+  },
+  {
+    "name": "OG Anunoby",
+    "aliases": ["oganunoby", "og anunoby", "OG ANUNOBY"]
+  },
+  {
+    "name": "Chris Boucher",
+    "aliases": ["chrisboucher", "chris boucher", "CHRIS BOUCHER"]
+  },
+  {
+    "name": "Paul Watson",
+    "aliases": ["paulwatson", "paul watson", "PAUL WATSON"]
+  },
+  {
+    "name": "Miles Bridges",
+    "aliases": ["milesbridges", "miles bridges", "MILES BRIDGES"]
+  },
+  {
+    "name": "Devonte' Graham",
+    "aliases": ["devontegraham", "devonte' graham", "DEVONTE' GRAHAM"]
+  },
+  {
+    "name": "Alize Johnson",
+    "aliases": ["alizejohnson", "alize johnson", "ALIZE JOHNSON"]
+  },
+  {
+    "name": "Caleb Martin",
+    "aliases": ["calebmartin", "caleb martin", "CALEB MARTIN"]
+  },
+  {
+    "name": "Cody Martin",
+    "aliases": ["codymartin", "cody martin", "CODY MARTIN"]
+  },
+  {
+    "name": "P.J. Washington",
+    "aliases": ["pjwashington", "p.j. washington", "P.J. WASHINGTON"]
+  },
+  {
+    "name": "Terence Davis",
+    "aliases": ["terencedavis", "terence davis", "TERENCE DAVIS"]
+  },
+  {
+    "name": "Yuta Watanabe",
+    "aliases": ["yutawatanabe", "yuta watanabe", "YUTA WATANABE"]
+  },
+  {
+    "name": "Jalen McDaniels",
+    "aliases": ["jalenmcdaniels", "jalen mcdaniels", "JALEN MCDANIELS"]
+  },
+  {
+    "name": "Matt Thomas",
+    "aliases": ["mattthomas", "matt thomas", "MATT THOMAS"]
+  },
+  {
+    "name": "LaMelo Ball",
+    "aliases": ["lameloball", "lamelo ball", "LAMELO BALL"]
+  },
+  {
+    "name": "Vernon Carey Jr.",
+    "aliases": ["vernoncarey", "vernon carey jr.", "VERNON CAREY JR."]
+  },
+  {
+    "name": "Malachi Flynn",
+    "aliases": ["malachiflynn", "malachi flynn", "MALACHI FLYNN"]
+  },
+  {
+    "name": "Grant Riller",
+    "aliases": ["grantriller", "grant riller", "GRANT RILLER"]
+  },
+  {
+    "name": "Nick Richards",
+    "aliases": ["nickrichards", "nick richards", "NICK RICHARDS"]
+  },
+  {
+    "name": "Jalen Harris",
+    "aliases": ["jalenharris", "jalen harris", "JALEN HARRIS"]
+  },
+  {
+    "name": "Nate Darling",
+    "aliases": ["natedarling", "nate darling", "NATE DARLING"]
+  },
+  {
+    "name": "Xavier Sneed",
+    "aliases": ["xaviersneed", "xavier sneed", "XAVIER SNEED"]
+  },
+  {
+    "name": "Kevin Love",
+    "aliases": ["kevinlove", "kevin love", "KEVIN LOVE"]
+  },
+  {
+    "name": "Andre Drummond",
+    "aliases": ["andredrummond", "andre drummond", "ANDRE DRUMMOND"]
+  },
+  {
+    "name": "Justin Holiday",
+    "aliases": ["justinholiday", "justin holiday", "JUSTIN HOLIDAY"]
+  },
+  {
+    "name": "Victor Oladipo",
+    "aliases": ["victoroladipo", "victor oladipo", "VICTOR OLADIPO"]
+  },
+  {
+    "name": "Matthew Dellavedova",
+    "aliases": ["matthewdellavedova", "matthew dellavedova", "MATTHEW DELLAVEDOVA"]
+  },
+  {
+    "name": "Doug McDermott",
+    "aliases": ["dougmcdermott", "doug mcdermott", "DOUG MCDERMOTT"]
+  },
+  {
+    "name": "Dante Exum",
+    "aliases": ["danteexum", "dante exum", "DANTE EXUM"]
+  },
+  {
+    "name": "JaKarr Sampson",
+    "aliases": ["jakarrsampson", "jakarr sampson", "JAKARR SAMPSON"]
+  },
+  {
+    "name": "T.J. McConnell",
+    "aliases": ["tjmcconnell", "t.j. mcconnell", "T.J. MCCONNELL"]
+  },
+  {
+    "name": "Myles Turner",
+    "aliases": ["mylesturner", "myles turner", "MYLES TURNER"]
+  },
+  {
+    "name": "Larry Nance Jr.",
+    "aliases": ["larrynance", "larry nance jr.", "LARRY NANCE JR."]
+  },
+  {
+    "name": "Cedi Osman",
+    "aliases": ["cediosman", "cedi osman", "CEDI OSMAN"]
+  },
+  {
+    "name": "Domantas Sabonis",
+    "aliases": ["domantassabonis", "domantas sabonis", "DOMANTAS SABONIS"]
+  },
+  {
+    "name": "Thon Maker",
+    "aliases": ["thonmaker", "thon maker", "THON MAKER"]
+  },
+  {
+    "name": "Malcolm Brogdon",
+    "aliases": ["malcolmbrogdon", "malcolm brogdon", "MALCOLM BROGDON"]
+  },
+  {
+    "name": "Edmond Sumner",
+    "aliases": ["edmondsumner", "edmond sumner", "EDMOND SUMNER"]
+  },
+  {
+    "name": "Damyean Dotson",
+    "aliases": ["damyeandotson", "damyean dotson", "DAMYEAN DOTSON"]
+  },
+  {
+    "name": "Aaron Holiday",
+    "aliases": ["aaronholiday", "aaron holiday", "AARON HOLIDAY"]
+  },
+  {
+    "name": "Kelan Martin",
+    "aliases": ["kelanmartin", "kelan martin", "KELAN MARTIN"]
+  },
+  {
+    "name": "Darius Garland",
+    "aliases": ["dariusgarland", "darius garland", "DARIUS GARLAND"]
+  },
+  {
+    "name": "Dylan Windler",
+    "aliases": ["dylanwindler", "dylan windler", "DYLAN WINDLER"]
+  },
+  {
+    "name": "Marques Bolden",
+    "aliases": ["marquesbolden", "marques bolden", "MARQUES BOLDEN"]
+  },
+  {
+    "name": "Dean Wade",
+    "aliases": ["deanwade", "dean wade", "DEAN WADE"]
+  },
+  {
+    "name": "Isaac Okoro",
+    "aliases": ["isaacokoro", "isaac okoro", "ISAAC OKORO"]
+  },
+  {
+    "name": "Cassius Stanley",
+    "aliases": ["cassiusstanley", "cassius stanley", "CASSIUS STANLEY"]
+  },
+  {
+    "name": "Rayshaun Hammonds",
+    "aliases": ["rayshaunhammonds", "rayshaun hammonds", "RAYSHAUN HAMMONDS"]
+  },
+  {
+    "name": "LaMarcus Aldridge",
+    "aliases": ["lamarcusaldridge", "lamarcus aldridge", "LAMARCUS ALDRIDGE"]
+  },
+  {
+    "name": "Rudy Gay",
+    "aliases": ["rudygay", "rudy gay", "RUDY GAY"]
+  },
+  {
+    "name": "George Hill",
+    "aliases": ["georgehill", "george hill", "GEORGE HILL"]
+  },
+  {
+    "name": "DeMar DeRozan",
+    "aliases": ["demarderozan", "demar derozan", "DEMAR DEROZAN"]
+  },
+  {
+    "name": "Patty Mills",
+    "aliases": ["pattymills", "patty mills", "PATTY MILLS"]
+  },
+  {
+    "name": "Mike Muscala",
+    "aliases": ["mikemuscala", "mike muscala", "MIKE MUSCALA"]
+  },
+  {
+    "name": "Trey Lyles",
+    "aliases": ["treylyles", "trey lyles", "TREY LYLES"]
+  },
+  {
+    "name": "Dejounte Murray",
+    "aliases": ["dejountemurray", "dejounte murray", "DEJOUNTE MURRAY"]
+  },
+  {
+    "name": "Jakob Poeltl",
+    "aliases": ["jakobpoeltl", "jakob poeltl", "JAKOB POELTL"]
+  },
+  {
+    "name": "T.J. Leaf",
+    "aliases": ["tjleaf", "t.j. leaf", "T.J. LEAF"]
+  },
+  {
+    "name": "Frank Jackson",
+    "aliases": ["frankjackson", "frank jackson", "FRANK JACKSON"]
+  },
+  {
+    "name": "Keita Bates-Diop",
+    "aliases": ["keitabatesdiop", "keita bates-diop", "KEITA BATES-DIOP"]
+  },
+  {
+    "name": "Hamidou Diallo",
+    "aliases": ["hamidoudiallo", "hamidou diallo", "HAMIDOU DIALLO"]
+  },
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "aliases": ["shaigilgeousalexander", "shai gilgeous-alexander", "SHAI GILGEOUS-ALEXANDER"]
+  },
+  {
+    "name": "Lonnie Walker IV",
+    "aliases": ["lonniewalkeriv", "lonnie walker iv", "LONNIE WALKER IV"]
+  },
+  {
+    "name": "Kenrich Williams",
+    "aliases": ["kenrichwilliams", "kenrich williams", "KENRICH WILLIAMS"]
+  },
+  {
+    "name": "Drew Eubanks",
+    "aliases": ["dreweubanks", "drew eubanks", "DREW EUBANKS"]
+  },
+  {
+    "name": "Cameron Reynolds",
+    "aliases": ["cameronreynolds", "cameron reynolds", "CAMERON REYNOLDS"]
+  },
+  {
+    "name": "Moses Brown",
+    "aliases": ["mosesbrown", "moses brown", "MOSES BROWN"]
+  },
+  {
+    "name": "Isaiah Roby",
+    "aliases": ["isaiahroby", "isaiah roby", "ISAIAH ROBY"]
+  },
+  {
+    "name": "Luka Samanic",
+    "aliases": ["lukasamanic", "luka samanic", "LUKA SAMANIC"]
+  },
+  {
+    "name": "Admiral Schofield",
+    "aliases": ["admiralschofield", "admiral schofield", "ADMIRAL SCHOFIELD"]
+  },
+  {
+    "name": "Devin Vassell",
+    "aliases": ["devinvassell", "devin vassell", "DEVIN VASSELL"]
+  },
+  {
+    "name": "Theo Maledon",
+    "aliases": ["theomaledon", "theo maledon", "THEO MALEDON"]
+  },
+  {
+    "name": "Aleksej Pokusevski",
+    "aliases": ["aleksejpokusevski", "aleksej pokusevski", "ALEKSEJ POKUSEVSKI"]
+  },
+  {
+    "name": "Tre Jones",
+    "aliases": ["trejones", "tre jones", "TRE JONES"]
+  },
+  {
+    "name": "D.J. Augustin",
+    "aliases": ["djaugustin", "d.j. augustin", "D.J. AUGUSTIN"]
+  },
+  {
+    "name": "Brook Lopez",
+    "aliases": ["brooklopez", "brook lopez", "BROOK LOPEZ"]
+  },
+  {
+    "name": "James Johnson",
+    "aliases": ["jamesjohnson", "james johnson", "JAMES JOHNSON"]
+  },
+  {
+    "name": "Jrue Holiday",
+    "aliases": ["jrueholiday", "jrue holiday", "JRUE HOLIDAY"]
+  },
+  {
+    "name": "Khris Middleton",
+    "aliases": ["khrismiddleton", "khris middleton", "KHRIS MIDDLETON"]
+  },
+  {
+    "name": "Tim Hardaway Jr.",
+    "aliases": ["timhardaway", "tim hardaway jr.", "TIM HARDAWAY JR."]
+  },
+  {
+    "name": "Trey Burke",
+    "aliases": ["treyburke", "trey burke", "TREY BURKE"]
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "aliases": ["giannisantetokounmpo", "giannis antetokounmpo", "GIANNIS ANTETOKOUNMPO"]
+  },
+  {
+    "name": "Thanasis Antetokounmpo",
+    "aliases": ["thanasisantetokounmpo", "thanasis antetokounmpo", "THANASIS ANTETOKOUNMPO"]
+  },
+  {
+    "name": "Dwight Powell",
+    "aliases": ["dwightpowell", "dwight powell", "DWIGHT POWELL"]
+  },
+  {
+    "name": "Willie Cauley-Stein",
+    "aliases": ["williecauleystein", "willie cauley-stein", "WILLIE CAULEY-STEIN"]
+  },
+  {
+    "name": "Bobby Portis",
+    "aliases": ["bobbyportis", "bobby portis", "BOBBY PORTIS"]
+  },
+  {
+    "name": "Pat Connaughton",
+    "aliases": ["patconnaughton", "pat connaughton", "PAT CONNAUGHTON"]
+  },
+  {
+    "name": "Josh Richardson",
+    "aliases": ["joshrichardson", "josh richardson", "JOSH RICHARDSON"]
+  },
+  {
+    "name": "Boban Marjanovic",
+    "aliases": ["bobanmarjanovic", "boban marjanovic", "BOBAN MARJANOVIC"]
+  },
+  {
+    "name": "Dorian Finney-Smith",
+    "aliases": ["dorianfinneysmith", "dorian finney-smith", "DORIAN FINNEY-SMITH"]
+  },
+  {
+    "name": "Bryn Forbes",
+    "aliases": ["brynforbes", "bryn forbes", "BRYN FORBES"]
+  },
+  {
+    "name": "D.J. Wilson",
+    "aliases": ["djwilson", "d.j. wilson", "D.J. WILSON"]
+  },
+  {
+    "name": "Wes Iwundu",
+    "aliases": ["wesiwundu", "wes iwundu", "WES IWUNDU"]
+  },
+  {
+    "name": "Maxi Kleber",
+    "aliases": ["maxikleber", "maxi kleber", "MAXI KLEBER", "maximiliankleber", "Maximilian Kleber", "maximilian kleber", "MAXIMILIAN KLEBER"]
+  },
+  {
+    "name": "Torrey Craig",
+    "aliases": ["torreycraig", "torrey craig", "TORREY CRAIG"]
+  },
+  {
+    "name": "Jalen Brunson",
+    "aliases": ["jalenbrunson", "jalen brunson", "JALEN BRUNSON"]
+  },
+  {
+    "name": "Donte DiVincenzo",
+    "aliases": ["dontedivincenzo", "donte divincenzo", "DONTE DIVINCENZO"]
+  },
+  {
+    "name": "Luka Doncic",
+    "aliases": ["lukadoncic", "luka doncic", "LUKA DONCIC"]
+  },
+  {
+    "name": "Jaylen Adams",
+    "aliases": ["jaylenadams", "jaylen adams", "JAYLEN ADAMS"]
+  },
+  {
+    "name": "Mamadi Diakite",
+    "aliases": ["mamadidiakite", "mamadi diakite", "MAMADI DIAKITE"]
+  },
+  {
+    "name": "Jordan Nwora",
+    "aliases": ["jordannwora", "jordan nwora", "JORDAN NWORA"]
+  },
+  {
+    "name": "Tyrell Terry",
+    "aliases": ["tyrellterry", "tyrell terry", "TYRELL TERRY"]
+  },
+  {
+    "name": "Josh Green",
+    "aliases": ["joshgreen", "josh green", "JOSH GREEN"]
+  },
+  {
+    "name": "Tyler Bey",
+    "aliases": ["tylerbey", "tyler bey", "TYLER BEY"]
+  },
+  {
+    "name": "Nate Hinton",
+    "aliases": ["natehinton", "nate hinton", "NATE HINTON"]
+  },
+  {
+    "name": "Sam Merrill",
+    "aliases": ["sammerrill", "sam merrill", "SAM MERRILL"]
+  },
+  {
+    "name": "Freddie Gillespie",
+    "aliases": ["freddiegillespie", "freddie gillespie", "FREDDIE GILLESPIE"]
+  },
+  {
+    "name": "",
+    "aliases": ["", "", ""]
+  },
+  {
+    "name": "Ricky Rubio",
+    "aliases": ["rickyrubio", "ricky rubio", "RICKY RUBIO"]
+  },
+  {
+    "name": "Ed Davis",
+    "aliases": ["eddavis", "ed davis", "ED DAVIS"]
+  },
+  {
+    "name": "Jonas Valanciunas",
+    "aliases": ["jonasvalanciunas", "jonas valanciunas", "JONAS VALANCIUNAS"]
+  },
+  {
+    "name": "Gorgui Dieng",
+    "aliases": ["gorguidieng", "gorgui dieng", "GORGUI DIENG"]
+  },
+  {
+    "name": "Kyle Anderson",
+    "aliases": ["kyleanderson", "kyle anderson", "KYLE ANDERSON"]
+  },
+  {
+    "name": "Tyus Jones",
+    "aliases": ["tyusjones", "tyus jones", "TYUS JONES"]
+  },
+  {
+    "name": "D'Angelo Russell",
+    "aliases": ["dangelorussell", "d'angelo russell", "D'ANGELO RUSSELL"]
+  },
+  {
+    "name": "Karl-Anthony Towns",
+    "aliases": ["karlanthonytowns", "karl-anthony towns", "KARL-ANTHONY TOWNS"]
+  },
+  {
+    "name": "Rondae Hollis-Jefferson",
+    "aliases": ["rondaehollisjefferson", "rondae hollis-jefferson", "RONDAE HOLLIS-JEFFERSON"]
+  },
+  {
+    "name": "Malik Beasley",
+    "aliases": ["malikbeasley", "malik beasley", "MALIK BEASLEY"]
+  },
+  {
+    "name": "Jake Layman",
+    "aliases": ["jakelayman", "jake layman", "JAKE LAYMAN"]
+  },
+  {
+    "name": "Juancho Hernangomez",
+    "aliases": ["juanchohernangomez", "juancho hernangomez", "JUANCHO HERNANGOMEZ"]
+  },
+  {
+    "name": "Dillon Brooks",
+    "aliases": ["dillonbrooks", "dillon brooks", "DILLON BROOKS"]
+  },
+  {
+    "name": "Grayson Allen",
+    "aliases": ["graysonallen", "grayson allen", "GRAYSON ALLEN"]
+  },
+  {
+    "name": "De'Anthony Melton",
+    "aliases": ["deanthonymelton", "de'anthony melton", "DE'ANTHONY MELTON"]
+  },
+  {
+    "name": "Josh Okogie",
+    "aliases": ["joshokogie", "josh okogie", "JOSH OKOGIE"]
+  },
+  {
+    "name": "Jarred Vanderbilt",
+    "aliases": ["jarredvanderbilt", "jarred vanderbilt", "JARRED VANDERBILT"]
+  },
+  {
+    "name": "Tyler Cook",
+    "aliases": ["tylercook", "tyler cook", "TYLER COOK"]
+  },
+  {
+    "name": "Ja Morant",
+    "aliases": ["jamorant", "ja morant", "JA MORANT"]
+  },
+  {
+    "name": "Jarrett Culver",
+    "aliases": ["jarrettculver", "jarrett culver", "JARRETT CULVER"]
+  },
+  {
+    "name": "Jaylen Nowell",
+    "aliases": ["jaylennowell", "jaylen nowell", "JAYLEN NOWELL"]
+  },
+  {
+    "name": "John Konchar",
+    "aliases": ["johnkonchar", "john konchar", "JOHN KONCHAR"]
+  },
+  {
+    "name": "Ahmad Caver",
+    "aliases": ["ahmadcaver", "ahmad caver", "AHMAD CAVER"]
+  },
+  {
+    "name": "Anthony Edwards",
+    "aliases": ["anthonyedwards", "anthony edwards", "ANTHONY EDWARDS"]
+  },
+  {
+    "name": "Jaden McDaniels",
+    "aliases": ["jadenmcdaniels", "jaden mcdaniels", "JADEN MCDANIELS"]
+  },
+  {
+    "name": "Ashton Hagans",
+    "aliases": ["ashtonhagans", "ashton hagans", "ASHTON HAGANS"]
+  },
+  {
+    "name": "Xavier Tillman",
+    "aliases": ["xaviertillman", "xavier tillman", "XAVIER TILLMAN"]
+  },
+  {
+    "name": "Desmond Bane",
+    "aliases": ["desmondbane", "desmond bane", "DESMOND BANE"]
+  },
+  {
+    "name": "Sean McDermott",
+    "aliases": ["seanmcdermott", "sean mcdermott", "SEAN MCDERMOTT"]
+  },
+  {
+    "name": "Jahlil Tripp",
+    "aliases": ["jahliltripp", "jahlil tripp", "JAHLIL TRIPP"]
+  },
+  {
+    "name": "Ade Murkey",
+    "aliases": ["ademurkey", "ade murkey", "ADE MURKEY"]
+  },
+  {
+    "name": "Paul Millsap",
+    "aliases": ["paulmillsap", "paul millsap", "PAUL MILLSAP"]
+  },
+  {
+    "name": "Stephen Curry",
+    "aliases": ["stephencurry", "stephen curry", "STEPHEN CURRY"]
+  },
+  {
+    "name": "Brad Wanamaker",
+    "aliases": ["bradwanamaker", "brad wanamaker", "BRAD WANAMAKER"]
+  },
+  {
+    "name": "Kent Bazemore",
+    "aliases": ["kentbazemore", "kent bazemore", "KENT BAZEMORE"]
+  },
+  {
+    "name": "JaMychal Green",
+    "aliases": ["jamychalgreen", "jamychal green", "JAMYCHAL GREEN"]
+  },
+  {
+    "name": "Gary Harris",
+    "aliases": ["garyharris", "gary harris", "GARY HARRIS"]
+  },
+  {
+    "name": "Andrew Wiggins",
+    "aliases": ["andrewwiggins", "andrew wiggins", "ANDREW WIGGINS"]
+  },
+  {
+    "name": "Nikola Jokic",
+    "aliases": ["nikolajokic", "nikola jokic", "NIKOLA JOKIC"]
+  },
+  {
+    "name": "Kelly Oubre Jr.",
+    "aliases": ["kellyoubre", "kelly oubre jr.", "KELLY OUBRE JR."]
+  },
+  {
+    "name": "Kevon Looney",
+    "aliases": ["kevonlooney", "kevon looney", "KEVON LOONEY"]
+  },
+  {
+    "name": "Axel Toupane",
+    "aliases": ["axeltoupane", "axel toupane", "AXEL TOUPANE"]
+  },
+  {
+    "name": "Marquese Chriss",
+    "aliases": ["marquesechriss", "marquese chriss", "MARQUESE CHRISS"]
+  },
+  {
+    "name": "Jamal Murray",
+    "aliases": ["jamalmurray", "jamal murray", "JAMAL MURRAY"]
+  },
+  {
+    "name": "Damion Lee",
+    "aliases": ["damionlee", "damion lee", "DAMION LEE"]
+  },
+  {
+    "name": "Isaiah Hartenstein",
+    "aliases": ["isaiahhartenstein", "isaiah hartenstein", "ISAIAH HARTENSTEIN"]
+  },
+  {
+    "name": "PJ Dozier",
+    "aliases": ["pjdozier", "pj dozier", "PJ DOZIER"]
+  },
+  {
+    "name": "Monte Morris",
+    "aliases": ["montemorris", "monte morris", "MONTE MORRIS"]
+  },
+  {
+    "name": "Vlatko Cancar",
+    "aliases": ["vlatkocancar", "vlatko cancar", "VLATKO CANCAR"]
+  },
+  {
+    "name": "Mychal Mulder",
+    "aliases": ["mychalmulder", "mychal mulder", "MYCHAL MULDER"]
+  },
+  {
+    "name": "Michael Porter Jr.",
+    "aliases": ["michaelporter", "michael porter jr.", "MICHAEL PORTER JR."]
+  },
+  {
+    "name": "Juan Toscano-Anderson",
+    "aliases": ["juantoscanoanderson", "juan toscano-anderson", "JUAN TOSCANO-ANDERSON"]
+  },
+  {
+    "name": "Alen Smailagic",
+    "aliases": ["alensmailagic", "alen smailagic", "ALEN SMAILAGIC"]
+  },
+  {
+    "name": "Bol Bol",
+    "aliases": ["bolbol", "bol bol", "BOL BOL"]
+  },
+  {
+    "name": "Eric Paschall",
+    "aliases": ["ericpaschall", "eric paschall", "ERIC PASCHALL"]
+  },
+  {
+    "name": "Jordan Poole",
+    "aliases": ["jordanpoole", "jordan poole", "JORDAN POOLE"]
+  },
+  {
+    "name": "Kaleb Wesson",
+    "aliases": ["kalebwesson", "kaleb wesson", "KALEB WESSON"]
+  },
+  {
+    "name": "R.J. Hampton",
+    "aliases": ["rjhampton", "r.j. hampton", "R.J. HAMPTON"]
+  },
+  {
+    "name": "Nico Mannion",
+    "aliases": ["nicomannion", "nico mannion", "NICO MANNION"]
+  },
+  {
+    "name": "Zeke Nnaji",
+    "aliases": ["zekennaji", "zeke nnaji", "ZEKE NNAJI"]
+  },
+  {
+    "name": "Dwayne Sutton",
+    "aliases": ["dwaynesutton", "dwayne sutton", "DWAYNE SUTTON"]
+  },
+  {
+    "name": "Facundo Campazzo",
+    "aliases": ["facundocampazzo", "facundo campazzo", "FACUNDO CAMPAZZO"]
+  },
+  {
+    "name": "Derrick Favors",
+    "aliases": ["derrickfavors", "derrick favors", "DERRICK FAVORS"]
+  },
+  {
+    "name": "Bojan Bogdanovic",
+    "aliases": ["bojanbogdanovic", "bojan bogdanovic", "BOJAN BOGDANOVIC"]
+  },
+  {
+    "name": "E'Twaun Moore",
+    "aliases": ["etwaunmoore", "e'twaun moore", "E'TWAUN MOORE"]
+  },
+  {
+    "name": "Rudy Gobert",
+    "aliases": ["rudygobert", "rudy gobert", "RUDY GOBERT"]
+  },
+  {
+    "name": "Jordan Clarkson",
+    "aliases": ["jordanclarkson", "jordan clarkson", "JORDAN CLARKSON"]
+  },
+  {
+    "name": "Langston Galloway",
+    "aliases": ["langstongalloway", "langston galloway", "LANGSTON GALLOWAY"]
+  },
+  {
+    "name": "Joe Ingles",
+    "aliases": ["joeingles", "joe ingles", "JOE INGLES"]
+  },
+  {
+    "name": "Devin Booker",
+    "aliases": ["devinbooker", "devin booker", "DEVIN BOOKER"]
+  },
+  {
+    "name": "Cameron Payne",
+    "aliases": ["cameronpayne", "cameron payne", "CAMERON PAYNE"]
+  },
+  {
+    "name": "Damian Jones",
+    "aliases": ["damianjones", "damian jones", "DAMIAN JONES"]
+  },
+  {
+    "name": "Georges Niang",
+    "aliases": ["georgesniang", "georges niang", "GEORGES NIANG"]
+  },
+  {
+    "name": "Abdel Nader",
+    "aliases": ["abdelnader", "abdel nader", "ABDEL NADER"]
+  },
+  {
+    "name": "Donovan Mitchell",
+    "aliases": ["donovanmitchell", "donovan mitchell", "DONOVAN MITCHELL"]
+  },
+  {
+    "name": "Johnathan Motley",
+    "aliases": ["johnathanmotley", "johnathan motley", "JOHNATHAN MOTLEY"]
+  },
+  {
+    "name": "Nigel Williams-Goss",
+    "aliases": ["nigelwilliamsgoss", "nigel williams-goss", "NIGEL WILLIAMS-GOSS"]
+  },
+  {
+    "name": "Udoka Azubuike",
+    "aliases": ["udokaazubuike", "udoka azubuike", "UDOKA AZUBUIKE"]
+  },
+  {
+    "name": "Mikal Bridges",
+    "aliases": ["mikalbridges", "mikal bridges", "MIKAL BRIDGES"]
+  },
+  {
+    "name": "Jevon Carter",
+    "aliases": ["jevoncarter", "jevon carter", "JEVON CARTER"]
+  },
+  {
+    "name": "Deandre Ayton",
+    "aliases": ["deandreayton", "deandre ayton", "DEANDRE AYTON"]
+  },
+  {
+    "name": "Cameron Johnson",
+    "aliases": ["cameronjohnson", "cameron johnson", "CAMERON JOHNSON"]
+  },
+  {
+    "name": "Miye Oni",
+    "aliases": ["miyeoni", "miye oni", "MIYE ONI"]
+  },
+  {
+    "name": "Jarrell Brantley",
+    "aliases": ["jarrellbrantley", "jarrell brantley", "JARRELL BRANTLEY"]
+  },
+  {
+    "name": "Juwan Morgan",
+    "aliases": ["juwanmorgan", "juwan morgan", "JUWAN MORGAN"]
+  },
+  {
+    "name": "Jalen Smith",
+    "aliases": ["jalensmith", "jalen smith", "JALEN SMITH"]
+  },
+  {
+    "name": "Elijah Hughes",
+    "aliases": ["elijahhughes", "elijah hughes", "ELIJAH HUGHES"]
+  },
+  {
+    "name": "Ty-Shon Alexander",
+    "aliases": ["tyshonalexander", "ty-shon alexander", "TY-SHON ALEXANDER"]
+  },
+  {
+    "name": "Trent Forrest",
+    "aliases": ["trentforrest", "trent forrest", "TRENT FORREST"]
+  },
+  {
+    "name": "Jake Toolson",
+    "aliases": ["jaketoolson", "jake toolson", "JAKE TOOLSON"]
+  },
+  {
+    "name": "Kevin Durant",
+    "aliases": ["kevindurant", "kevin durant", "KEVIN DURANT"]
+  },
+  {
+    "name": "Jeff Green",
+    "aliases": ["jeffgreen", "jeff green", "JEFF GREEN"]
+  },
+  {
+    "name": "Robin Lopez",
+    "aliases": ["robinlopez", "robin lopez", "ROBIN LOPEZ"]
+  },
+  {
+    "name": "DeAndre Jordan",
+    "aliases": ["deandrejordan", "deandre jordan", "DEANDRE JORDAN"]
+  },
+  {
+    "name": "Kyrie Irving",
+    "aliases": ["kyrieirving", "kyrie irving", "KYRIE IRVING"]
+  },
+  {
+    "name": "Raul Neto",
+    "aliases": ["raulneto", "raul neto", "RAUL NETO"]
+  },
+  {
+    "name": "Spencer Dinwiddie",
+    "aliases": ["spencerdinwiddie", "spencer dinwiddie", "SPENCER DINWIDDIE"]
+  },
+  {
+    "name": "Joe Harris",
+    "aliases": ["joeharris", "joe harris", "JOE HARRIS"]
+  },
+  {
+    "name": "Tyler Johnson",
+    "aliases": ["tylerjohnson", "tyler johnson", "TYLER JOHNSON"]
+  },
+  {
+    "name": "Taurean Prince",
+    "aliases": ["taureanprince", "taurean prince", "TAUREAN PRINCE"]
+  },
+  {
+    "name": "Timothe Luwawu-Cabarrot",
+    "aliases": ["timotheluwawucabarrot", "timothe luwawu-cabarrot", "TIMOTHE LUWAWU-CABARROT"]
+  },
+  {
+    "name": "Jarrett Allen",
+    "aliases": ["jarrettallen", "jarrett allen", "JARRETT ALLEN"]
+  },
+  {
+    "name": "Anzejs Pasecniks",
+    "aliases": ["anzejspasecniks", "anzejs pasecniks", "ANZEJS PASECNIKS"]
+  },
+  {
+    "name": "Thomas Bryant",
+    "aliases": ["thomasbryant", "thomas bryant", "THOMAS BRYANT"]
+  },
+  {
+    "name": "Troy Brown Jr.",
+    "aliases": ["troybrown", "troy brown jr.", "TROY BROWN JR."]
+  },
+  {
+    "name": "Landry Shamet",
+    "aliases": ["landryshamet", "landry shamet", "LANDRY SHAMET"]
+  },
+  {
+    "name": "Moritz Wagner",
+    "aliases": ["moritzwagner", "moritz wagner", "MORITZ WAGNER"]
+  },
+  {
+    "name": "Rui Hachimura",
+    "aliases": ["ruihachimura", "rui hachimura", "RUI HACHIMURA"]
+  },
+  {
+    "name": "Rodions Kurucs",
+    "aliases": ["rodionskurucs", "rodions kurucs", "RODIONS KURUCS"]
+  },
+  {
+    "name": "Isaac Bonga",
+    "aliases": ["isaacbonga", "isaac bonga", "ISAAC BONGA"]
+  },
+  {
+    "name": "Chris Chiozza",
+    "aliases": ["chrischiozza", "chris chiozza", "CHRIS CHIOZZA"]
+  },
+  {
+    "name": "Reggie Perry",
+    "aliases": ["reggieperry", "reggie perry", "REGGIE PERRY"]
+  },
+  {
+    "name": "Garrison Mathews",
+    "aliases": ["garrisonmathews", "garrison mathews", "GARRISON MATHEWS"]
+  },
+  {
+    "name": "Deni Avdija",
+    "aliases": ["deniavdija", "deni avdija", "DENI AVDIJA"]
+  },
+  {
+    "name": "Yoeli Childs",
+    "aliases": ["yoelichilds", "yoeli childs", "YOELI CHILDS"]
+  },
+  {
+    "name": "Cassius Winston",
+    "aliases": ["cassiuswinston", "cassius winston", "CASSIUS WINSTON"]
+  },
+  {
+    "name": "Caleb Homesley",
+    "aliases": ["calebhomesley", "caleb homesley", "CALEB HOMESLEY"]
+  },
+  {
+    "name": "Marlon Taylor",
+    "aliases": ["marlontaylor", "marlon taylor", "MARLON TAYLOR"]
+  },
+  {
+    "name": "Anthony Gill",
+    "aliases": ["anthonygill", "anthony gill", "ANTHONY GILL"]
+  },
+  {
+    "name": "Louis King",
+    "aliases": ["louisking", "louis king", "LOUIS KING"]
+  },
+  {
+    "name": "Immanuel Quickley",
+    "aliases": ["immanuelquickley", "immanuel quickley", "IMMANUEL QUICKLEY"]
+  },
+  {
+    "name": "Anthony Lamb",
+    "aliases": ["anthonylamb", "anthony lamb", "ANTHONY LAMB"]
+  },
+  {
+    "name": "Cristiano Felicio",
+    "aliases": ["cristianofelicio", "cristiano felicio", "CRISTIANO FELICIO"]
+  },
+  {
+    "name": "Simisola Shittu",
+    "aliases": ["simisolashittu", "simisola shittu", "SIMISOLA SHITTU"]
+  },
+  {
+    "name": "Rodney Hood",
+    "aliases": ["rodneyhood", "rodney hood", "RODNEY HOOD"]
+  },
+  {
+    "name": "Jusuf Nurkic",
+    "aliases": ["jusufnurkic", "jusuf nurkic", "JUSUF NURKIC"]
+  },
+  {
+    "name": "Jared Dudley",
+    "aliases": ["jareddudley", "jared dudley", "JARED DUDLEY"]
+  },
+  {
+    "name": "Marc Gasol",
+    "aliases": ["marcgasol", "marc gasol", "MARC GASOL"]
+  },
+  {
+    "name": "Markieff Morris",
+    "aliases": ["markieffmorris", "markieff morris", "MARKIEFF MORRIS"]
+  },
+  {
+    "name": "Kentavious Caldwell-Pope",
+    "aliases": ["kentaviouscaldwellpope", "kentavious caldwell-pope", "KENTAVIOUS CALDWELL-POPE"]
+  },
+  {
+    "name": "Levi Randolph",
+    "aliases": ["levirandolph", "levi randolph", "LEVI RANDOLPH"]
+  },
+  {
+    "name": "Jalen Lecque",
+    "aliases": ["jalenlecque", "jalen lecque", "JALEN LECQUE"]
+  },
+  {
+    "name": "Matt Mooney",
+    "aliases": ["mattmooney", "matt mooney", "MATT MOONEY"]
+  },
+  {
+    "name": "Lamar Stevens",
+    "aliases": ["lamarstevens", "lamar stevens", "LAMAR STEVENS"]
+  },
+  {
+    "name": "Malik Monk",
+    "aliases": ["malikmonk", "malik monk", "MALIK MONK"]
+  },
+  {
+    "name": "Oshae Brissett",
+    "aliases": ["oshaebrissett", "oshae brissett", "OSHAE BRISSETT"]
+  },
+  {
+    "name": "Avery Bradley",
+    "aliases": ["averybradley", "avery bradley", "AVERY BRADLEY"]
+  },
+  {
+    "name": "Meyers Leonard",
+    "aliases": ["meyersleonard", "meyers leonard", "MEYERS LEONARD"]
+  },
+  {
+    "name": "Maurice Harkless",
+    "aliases": ["mauriceharkless", "maurice harkless", "MAURICE HARKLESS", "moeharkless", "moe harkless", "MOE HARKLESS", "Moe Harkless"]
+  },
+  {
+    "name": "Steven Adams",
+    "aliases": ["stevenadams", "steven adams", "STEVEN ADAMS"]
+  },
+  {
+    "name": "Brandon Ingram",
+    "aliases": ["brandoningram", "brandon ingram", "BRANDON INGRAM"]
+  },
+  {
+    "name": "Lonzo Ball",
+    "aliases": ["lonzoball", "lonzo ball", "LONZO BALL"]
+  },
+  {
+    "name": "Bam Adebayo",
+    "aliases": ["bamadebayo", "bam adebayo", "BAM ADEBAYO"]
+  },
+  {
+    "name": "Josh Hart",
+    "aliases": ["joshhart", "josh hart", "JOSH HART"]
+  },
+  {
+    "name": "Sindarius Thornwell",
+    "aliases": ["sindariusthornwell", "sindarius thornwell", "SINDARIUS THORNWELL"]
+  },
+  {
+    "name": "Duncan Robinson",
+    "aliases": ["duncanrobinson", "duncan robinson", "DUNCAN ROBINSON"]
+  },
+  {
+    "name": "Kendrick Nunn",
+    "aliases": ["kendricknunn", "kendrick nunn", "KENDRICK NUNN"]
+  },
+  {
+    "name": "BJ Johnson",
+    "aliases": ["bjjohnson", "bj johnson", "BJ JOHNSON"]
+  },
+  {
+    "name": "Max Strus",
+    "aliases": ["maxstrus", "max strus", "MAX STRUS"]
+  },
+  {
+    "name": "Zion Williamson",
+    "aliases": ["zionwilliamson", "zion williamson", "ZION WILLIAMSON"]
+  },
+  {
+    "name": "Jaxson Hayes",
+    "aliases": ["jaxsonhayes", "jaxson hayes", "JAXSON HAYES"]
+  },
+  {
+    "name": "Nickeil Alexander-Walker",
+    "aliases": ["nickeilalexanderwalker", "nickeil alexander-walker", "NICKEIL ALEXANDER-WALKER"]
+  },
+  {
+    "name": "Tyler Herro",
+    "aliases": ["tylerherro", "tyler herro", "TYLER HERRO"]
+  },
+  {
+    "name": "KZ Okpala",
+    "aliases": ["kzokpala", "kz okpala", "KZ OKPALA"]
+  },
+  {
+    "name": "Nicolo Melli",
+    "aliases": ["nicolomelli", "nicolo melli", "NICOLO MELLI"]
+  },
+  {
+    "name": "Precious Achiuwa",
+    "aliases": ["preciousachiuwa", "precious achiuwa", "PRECIOUS ACHIUWA"]
+  },
+  {
+    "name": "Kira Lewis Jr.",
+    "aliases": ["kiralewis", "kira lewis jr.", "KIRA LEWIS JR."]
+  },
+  {
+    "name": "Breein Tyree",
+    "aliases": ["breeintyree", "breein tyree", "BREEIN TYREE"]
+  },
+  {
+    "name": "Chris Paul",
+    "aliases": ["chrispaul", "chris paul", "CHRIS PAUL"]
+  },
+  {
+    "name": "Mike Conley",
+    "aliases": ["mikeconley", "mike conley", "MIKE CONLEY"]
+  },
+  {
+    "name": "Dwight Howard",
+    "aliases": ["dwighthoward", "dwight howard", "DWIGHT HOWARD"]
+  },
+  {
+    "name": "Jeff Teague",
+    "aliases": ["jeffteague", "jeff teague", "JEFF TEAGUE"]
+  },
+  {
+    "name": "Danny Green",
+    "aliases": ["dannygreen", "danny green", "DANNY GREEN"]
+  },
+  {
+    "name": "Tobias Harris",
+    "aliases": ["tobiasharris", "tobias harris", "TOBIAS HARRIS"]
+  },
+  {
+    "name": "Mike Scott",
+    "aliases": ["mikescott", "mike scott", "MIKE SCOTT"]
+  },
+  {
+    "name": "Seth Curry",
+    "aliases": ["sethcurry", "seth curry", "SETH CURRY"]
+  },
+  {
+    "name": "Marcus Smart",
+    "aliases": ["marcussmart", "marcus smart", "MARCUS SMART"]
+  },
+  {
+    "name": "Joel Embiid",
+    "aliases": ["joelembiid", "joel embiid", "JOEL EMBIID"]
+  },
+  {
+    "name": "Justin Anderson",
+    "aliases": ["justinanderson", "justin anderson", "JUSTIN ANDERSON"]
+  },
+  {
+    "name": "Ben Simmons",
+    "aliases": ["bensimmons", "ben simmons", "BEN SIMMONS"]
+  },
+  {
+    "name": "Jaylen Brown",
+    "aliases": ["jaylenbrown", "jaylen brown", "JAYLEN BROWN"]
+  },
+  {
+    "name": "Furkan Korkmaz",
+    "aliases": ["furkankorkmaz", "furkan korkmaz", "FURKAN KORKMAZ"]
+  },
+  {
+    "name": "Jayson Tatum",
+    "aliases": ["jaysontatum", "jayson tatum", "JAYSON TATUM"]
+  },
+  {
+    "name": "Tony Bradley",
+    "aliases": ["tonybradley", "tony bradley", "TONY BRADLEY"]
+  },
+  {
+    "name": "Semi Ojeleye",
+    "aliases": ["semiojeleye", "semi ojeleye", "SEMI OJELEYE"]
+  },
+  {
+    "name": "Shake Milton",
+    "aliases": ["shakemilton", "shake milton", "SHAKE MILTON"]
+  },
+  {
+    "name": "Carsen Edwards",
+    "aliases": ["carsenedwards", "carsen edwards", "CARSEN EDWARDS"]
+  },
+  {
+    "name": "Robert Williams III",
+    "aliases": ["robertwilliams", "robert williams iii", "ROBERT WILLIAMS III"]
+  },
+  {
+    "name": "Tacko Fall",
+    "aliases": ["tackofall", "tacko fall", "TACKO FALL"]
+  },
+  {
+    "name": "Matisse Thybulle",
+    "aliases": ["matissethybulle", "matisse thybulle", "MATISSE THYBULLE"]
+  },
+  {
+    "name": "Tremont Waters",
+    "aliases": ["tremontwaters", "tremont waters", "TREMONT WATERS"]
+  },
+  {
+    "name": "Grant Williams",
+    "aliases": ["grantwilliams", "grant williams", "GRANT WILLIAMS"]
+  },
+  {
+    "name": "Vincent Poirier",
+    "aliases": ["vincentpoirier", "vincent poirier", "VINCENT POIRIER"]
+  },
+  {
+    "name": "Javonte Green",
+    "aliases": ["javontegreen", "javonte green", "JAVONTE GREEN"]
+  },
+  {
+    "name": "Dakota Mathias",
+    "aliases": ["dakotamathias", "dakota mathias", "DAKOTA MATHIAS"]
+  },
+  {
+    "name": "Aaron Nesmith",
+    "aliases": ["aaronnesmith", "aaron nesmith", "AARON NESMITH"]
+  },
+  {
+    "name": "Tyrese Maxey",
+    "aliases": ["tyresemaxey", "tyrese maxey", "TYRESE MAXEY"]
+  },
+  {
+    "name": "Isaiah Joe",
+    "aliases": ["isaiahjoe", "isaiah joe", "ISAIAH JOE"]
+  },
+  {
+    "name": "Payton Pritchard",
+    "aliases": ["paytonpritchard", "payton pritchard", "PAYTON PRITCHARD"]
+  },
+  {
+    "name": "P.J. Tucker",
+    "aliases": ["pjtucker", "p.j. tucker", "P.J. TUCKER"]
+  },
+  {
+    "name": "James Harden",
+    "aliases": ["jamesharden", "james harden", "JAMES HARDEN"]
+  },
+  {
+    "name": "Sterling Brown",
+    "aliases": ["sterlingbrown", "sterling brown", "STERLING BROWN"]
+  },
+  {
+    "name": "Hassan Whiteside",
+    "aliases": ["hassanwhiteside", "hassan whiteside", "HASSAN WHITESIDE"]
+  },
+  {
+    "name": "Marvin Bagley III",
+    "aliases": ["marvinbagley", "marvin bagley iii", "MARVIN BAGLEY III"]
+  },
+  {
+    "name": "Omari Spellman",
+    "aliases": ["omarispellman", "omari spellman", "OMARI SPELLMAN"]
+  },
+  {
+    "name": "Al Horford",
+    "aliases": ["alhorford", "al horford", "AL HORFORD"]
+  },
+  {
+    "name": "Justin Jackson",
+    "aliases": ["justinjackson", "justin jackson", "JUSTIN JACKSON"]
+  },
+  {
+    "name": "Darius Bazley",
+    "aliases": ["dariusbazley", "darius bazley", "DARIUS BAZLEY"]
+  },
+  {
+    "name": "Luguentz Dort",
+    "aliases": ["luguentzdort", "luguentz dort", "LUGUENTZ DORT"]
+  },
+  {
+    "name": "Will Barton",
+    "aliases": ["willbarton", "will barton", "WILL BARTON"]
+  },
+  {
+    "name": "Markus Howard",
+    "aliases": ["markushoward", "markus howard", "MARKUS HOWARD"]
+  },
+  {
+    "name": "LeBron James",
+    "aliases": ["lebronjames", "lebron james", "LEBRON JAMES"]
+  },
+  {
+    "name": "Anthony Davis",
+    "aliases": ["anthonydavis", "anthony davis", "ANTHONY DAVIS"]
+  },
+  {
+    "name": "Jae Crowder",
+    "aliases": ["jaecrowder", "jae crowder", "JAE CROWDER"]
+  },
+  {
+    "name": "Terrence Ross",
+    "aliases": ["terrenceross", "terrence ross", "TERRENCE ROSS"]
+  },
+  {
+    "name": "Ish Smith",
+    "aliases": ["ishsmith", "ish smith", "ISH SMITH"]
+  },
+  {
+    "name": "Bradley Beal",
+    "aliases": ["bradleybeal", "bradley beal", "BRADLEY BEAL"]
+  },
+  {
+    "name": "Jerome Robinson",
+    "aliases": ["jeromerobinson", "jerome robinson", "JEROME ROBINSON"]
+  },
+  {
+    "name": "Dzanan Musa",
+    "aliases": ["dzananmusa", "dzanan musa", "DZANAN MUSA"]
+  },
+  {
+    "name": "Christian Wood",
+    "aliases": ["christianwood", "christian wood", "CHRISTIAN WOOD"]
+  },
+  {
+    "name": "Rajon Rondo",
+    "aliases": ["rajonrondo", "rajon rondo", "RAJON RONDO"]
+  },
+  {
+    "name": "Bennie Boatwright",
+    "aliases": ["bennieboatwright", "bennie boatwright", "BENNIE BOATWRIGHT"]
+  },
+  {
+    "name": "Brandon Clarke",
+    "aliases": ["brandonclarke", "brandon clarke", "BRANDON CLARKE"]
+  },
+  {
+    "name": "Shaq Buchanan",
+    "aliases": ["shaqbuchanan", "shaq buchanan", "SHAQ BUCHANAN"]
+  },
+  {
+    "name": "Courtney Lee",
+    "aliases": ["courtneylee", "courtney lee", "COURTNEY LEE"]
+  },
+  {
+    "name": "Naz Reid",
+    "aliases": ["nazreid", "naz reid", "NAZ REID"]
+  },
+  {
+    "name": "Royce O'Neale",
+    "aliases": ["royceoneale", "royce o'neale", "ROYCE O'NEALE"]
+  },
+  {
+    "name": "Shaquille Harrison",
+    "aliases": ["shaquilleharrison", "shaquille harrison", "SHAQUILLE HARRISON"]
+  },
+  {
+    "name": "Terrance Ferguson",
+    "aliases": ["terranceferguson", "terrance ferguson", "TERRANCE FERGUSON"]
+  },
+  {
+    "name": "Naz Mitrou-Long",
+    "aliases": ["nazmitroulong", "naz mitrou-long", "NAZ MITROU-LONG"]
+  },
+  {
+    "name": "Goga Bitadze",
+    "aliases": ["gogabitadze", "goga bitadze", "GOGA BITADZE"]
+  },
+  {
+    "name": "Paul Reed",
+    "aliases": ["paulreed", "paul reed", "PAUL REED"]
+  },
+  {
+    "name": "Andre Iguodala",
+    "aliases": ["andreiguodala", "andre iguodala", "ANDRE IGUODALA"]
+  },
+  {
+    "name": "Kyle Lowry",
+    "aliases": ["kylelowry", "kyle lowry", "KYLE LOWRY"]
+  },
+  {
+    "name": "Goran Dragic",
+    "aliases": ["gorandragic", "goran dragic", "GORAN DRAGIC"]
+  },
+  {
+    "name": "Kelly Olynyk",
+    "aliases": ["kellyolynyk", "kelly olynyk", "KELLY OLYNYK"]
+  },
+  {
+    "name": "Chris Silva",
+    "aliases": ["chrissilva", "chris silva", "CHRIS SILVA"]
+  },
+  {
+    "name": "Caris LeVert",
+    "aliases": ["carislevert", "caris levert", "CARIS LEVERT"]
+  },
+  {
+    "name": "Daniel Theis",
+    "aliases": ["danieltheis", "daniel theis", "DANIEL THEIS"]
+  },
+  {
+    "name": "Amile Jefferson",
+    "aliases": ["amilejefferson", "amile jefferson", "AMILE JEFFERSON"]
+  },
+  {
+    "name": "Bruce Brown",
+    "aliases": ["brucebrown", "bruce brown", "BRUCE BROWN"]
+  },
+  {
+    "name": "JaVale McGee",
+    "aliases": ["javalemcgee", "javale mcgee", "JAVALE MCGEE"]
+  },
+  {
+    "name": "Collin Sexton",
+    "aliases": ["collinsexton", "collin sexton", "COLLIN SEXTON"]
+  },
+  {
+    "name": "Theo Pinson",
+    "aliases": ["theopinson", "theo pinson", "THEO PINSON"]
+  },
+  {
+    "name": "Bryce Brown",
+    "aliases": ["brycebrown", "bryce brown", "BRYCE BROWN"]
+  },
+  {
+    "name": "Jared Harper",
+    "aliases": ["jaredharper", "jared harper", "JARED HARPER"]
+  },
+  {
+    "name": "Myles Powell",
+    "aliases": ["mylespowell", "myles powell", "MYLES POWELL"]
+  },
+  {
+    "name": "Ignas Brazdeikis",
+    "aliases": ["ignasbrazdeikis", "ignas brazdeikis", "IGNAS BRAZDEIKIS"]
+  },
+  {
+    "name": "Charles Matthews",
+    "aliases": ["charlesmatthews", "charles matthews", "CHARLES MATTHEWS"]
+  },
+  {
+    "name": "JJ Redick",
+    "aliases": ["jjredick", "jj redick", "JJ REDICK"]
+  },
+  {
+    "name": "Eric Bledsoe",
+    "aliases": ["ericbledsoe", "eric bledsoe", "ERIC BLEDSOE"]
+  },
+  {
+    "name": "Nik Stauskas",
+    "aliases": ["nikstauskas", "nik stauskas", "NIK STAUSKAS"]
+  },
+  {
+    "name": "Willy Hernangomez",
+    "aliases": ["willyhernangomez", "willy hernangomez", "WILLY HERNANGOMEZ"]
+  },
+  {
+    "name": "Treveon Graham",
+    "aliases": ["treveongraham", "treveon graham", "TREVEON GRAHAM"]
+  },
+  {
+    "name": "Alfonzo McKinnie",
+    "aliases": ["alfonzomckinnie", "alfonzo mckinnie", "ALFONZO MCKINNIE"]
+  },
+  {
+    "name": "Javin DeLaurier",
+    "aliases": ["javindelaurier", "javin delaurier", "JAVIN DELAURIER"]
+  },
+  {
+    "name": "Kahlil Whitney",
+    "aliases": ["kahlilwhitney", "kahlil whitney", "KAHLIL WHITNEY"]
+  },
+  {
+    "name": "Keandre Cook",
+    "aliases": ["keandrecook", "keandre cook", "KEANDRE COOK"]
+  },
+  {
+    "name": "Russell Westbrook",
+    "aliases": ["russellwestbrook", "russell westbrook", "RUSSELL WESTBROOK"]
+  },
+  {
+    "name": "Davis Bertans",
+    "aliases": ["davisbertans", "davis bertans", "DAVIS BERTANS"]
+  },
+  {
+    "name": "James Wiseman",
+    "aliases": ["jameswiseman", "james wiseman", "JAMES WISEMAN"]
+  },
+  {
+    "name": "Tristan Thompson",
+    "aliases": ["tristanthompson", "tristan thompson", "TRISTAN THOMPSON"]
+  },
+  {
+    "name": "Jimmy Butler",
+    "aliases": ["jimmybutler", "jimmy butler", "JIMMY BUTLER"]
+  },
+  {
+    "name": "T.J. Warren",
+    "aliases": ["tjwarren", "t.j. warren", "T.J. WARREN"]
+  },
+  {
+    "name": "Adam Mokoka",
+    "aliases": ["adammokoka", "adam mokoka", "ADAM MOKOKA"]
+  },
+  {
+    "name": "Kevin Porter Jr.",
+    "aliases": ["kevinporter", "kevin porter jr.", "KEVIN PORTER JR."]
+  },
+  {
+    "name": "Ty Jerome",
+    "aliases": ["tyjerome", "ty jerome", "TY JEROME"]
+  },
+  {
+    "name": "Keldon Johnson",
+    "aliases": ["keldonjohnson", "keldon johnson", "KELDON JOHNSON"]
+  },
+  {
+    "name": "Garrett Temple",
+    "aliases": ["garretttemple", "garrett temple", "GARRETT TEMPLE"]
+  },
+  {
+    "name": "Denzel Valentine",
+    "aliases": ["denzelvalentine", "denzel valentine", "DENZEL VALENTINE"]
+  },
+  {
+    "name": "Jordan McLaughlin",
+    "aliases": ["jordanmclaughlin", "jordan mclaughlin", "JORDAN MCLAUGHLIN"]
+  },
+  {
+    "name": "Josh Hall",
+    "aliases": ["joshhall", "josh hall", "JOSH HALL"]
+  },
+  {
+    "name": "Dario Saric",
+    "aliases": ["dariosaric", "dario saric", "DARIO SARIC"]
+  },
+  {
+    "name": "Gabe Vincent",
+    "aliases": ["gabevincent", "gabe vincent", "GABE VINCENT"]
+  },
+  {
+    "name": "Thaddeus Young",
+    "aliases": ["thaddeusyoung", "thaddeus young", "THADDEUS YOUNG"]
+  },
+  {
+    "name": "Austin Rivers",
+    "aliases": ["austinrivers", "austin rivers", "AUSTIN RIVERS"]
+  },
+  {
+    "name": "Derrick White",
+    "aliases": ["derrickwhite", "derrick white", "DERRICK WHITE"]
+  },
+  {
+    "name": "Draymond Green",
+    "aliases": ["draymondgreen", "draymond green", "DRAYMOND GREEN"]
+  },
+  {
+    "name": "Mo Bamba",
+    "aliases": ["mobamba", "mo bamba", "MO BAMBA"]
+  },
+  {
+    "name": "Darius Miller",
+    "aliases": ["dariusmiller", "darius miller", "DARIUS MILLER"]
+  },
+  {
+    "name": "James Ennis III",
+    "aliases": ["jamesennis", "james ennis iii", "JAMES ENNIS III"]
+  },
+  {
+    "name": "Deividas Sirvydis",
+    "aliases": ["deividassirvydis", "deividas sirvydis", "DEIVIDAS SIRVYDIS"]
+  },
+  {
+    "name": "Marcus Morris Sr.",
+    "aliases": ["marcusmorris", "marcus morris sr.", "MARCUS MORRIS SR."]
+  },
+  {
+    "name": "Nassir Little",
+    "aliases": ["nassirlittle", "nassir little", "NASSIR LITTLE"]
+  },
+  {
+    "name": "Tim Frazier",
+    "aliases": ["timfrazier", "tim frazier", "TIM FRAZIER"]
+  },
+  {
+    "name": "Yogi Ferrell",
+    "aliases": ["yogiferrell", "yogi ferrell", "YOGI FERRELL"]
+  },
+  {
+    "name": "Tony Snell",
+    "aliases": ["tonysnell", "tony snell", "TONY SNELL"]
+  },
+  {
+    "name": "Kristaps Porzingis",
+    "aliases": ["kristapsporzingis", "kristaps porzingis", "KRISTAPS PORZINGIS"]
+  },
+  {
+    "name": "Al-Farouq Aminu",
+    "aliases": ["alfarouqaminu", "al-farouq aminu", "AL-FAROUQ AMINU"]
+  },
+  {
+    "name": "Kemba Walker",
+    "aliases": ["kembawalker", "kemba walker", "KEMBA WALKER"]
+  },
+  {
+    "name": "Chasson Randle",
+    "aliases": ["chassonrandle", "chasson randle", "CHASSON RANDLE"]
+  },
+  {
+    "name": "Onyeka Okongwu",
+    "aliases": ["onyekaokongwu", "onyeka okongwu", "ONYEKA OKONGWU"]
+  },
+  {
+    "name": "Naji Marshall",
+    "aliases": ["najimarshall", "naji marshall", "NAJI MARSHALL"]
+  },
+  {
+    "name": "Justin Robinson",
+    "aliases": ["justinrobinson", "justin robinson", "JUSTIN ROBINSON"]
+  },
+  {
+    "name": "Jaylen Hoard",
+    "aliases": ["jaylenhoard", "jaylen hoard", "JAYLEN HOARD"]
+  },
+  {
+    "name": "Brian Bowen II",
+    "aliases": ["brianbowen", "brian bowen ii", "BRIAN BOWEN II"]
+  },
+  {
+    "name": "Jeremy Lamb",
+    "aliases": ["jeremylamb", "jeremy lamb", "JEREMY LAMB"]
+  },
+  {
+    "name": "Jordan Bell",
+    "aliases": ["jordanbell", "jordan bell", "JORDAN BELL"]
+  },
+  {
+    "name": "Taj Gibson",
+    "aliases": ["tajgibson", "taj gibson", "TAJ GIBSON"]
+  },
+  {
+    "name": "Quinndary Weatherspoon",
+    "aliases": ["quinndaryweatherspoon", "quinndary weatherspoon", "QUINNDARY WEATHERSPOON"]
+  },
+  {
+    "name": "Wenyen Gabriel",
+    "aliases": ["wenyengabriel", "wenyen gabriel", "WENYEN GABRIEL"]
+  },
+  {
+    "name": "Frank Mason",
+    "aliases": ["frankmason", "frank mason", "FRANK MASON"]
+  },
+  {
+    "name": "Norvel Pelle",
+    "aliases": ["norvelpelle", "norvel pelle", "NORVEL PELLE"]
+  },
+  {
+    "name": "Ray Spalding",
+    "aliases": ["rayspalding", "ray spalding", "RAY SPALDING"]
+  },
+  {
+    "name": "Andre Roberson",
+    "aliases": ["andreroberson", "andre roberson", "ANDRE ROBERSON"]
+  },
+  {
+    "name": "Patrick McCaw",
+    "aliases": ["patrickmccaw", "patrick mccaw", "PATRICK MCCAW"]
+  },
+  {
+    "name": "Armoni Brooks",
+    "aliases": ["armonibrooks", "armoni brooks", "ARMONI BROOKS"]
+  },
+  {
+    "name": "Justise Winslow",
+    "aliases": ["justisewinslow", "justise winslow", "JUSTISE WINSLOW"]
+  },
+  {
+    "name": "Justin Patton",
+    "aliases": ["justinpatton", "justin patton", "JUSTIN PATTON"]
+  },
+  {
+    "name": "Iman Shumpert",
+    "aliases": ["imanshumpert", "iman shumpert", "IMAN SHUMPERT"]
+  },
+  {
+    "name": "Nicolas Claxton",
+    "aliases": ["nicolasclaxton", "nicolas claxton", "NICOLAS CLAXTON"]
+  },
+  {
+    "name": "Greg Whittington",
+    "aliases": ["gregwhittington", "greg whittington", "GREG WHITTINGTON"]
+  },
+  {
+    "name": "Killian Tillie",
+    "aliases": ["killiantillie", "killian tillie", "KILLIAN TILLIE"]
+  },
+  {
+    "name": "Jontay Porter",
+    "aliases": ["jontayporter", "jontay porter", "JONTAY PORTER"]
+  },
+  {
+    "name": "Trevor Ariza",
+    "aliases": ["trevorariza", "trevor ariza", "TREVOR ARIZA"]
+  },
+  {
+    "name": "Ersan Ilyasova",
+    "aliases": ["ersanilyasova", "ersan ilyasova", "ERSAN ILYASOVA"]
+  },
+  {
+    "name": "Will Magnay",
+    "aliases": ["willmagnay", "will magnay", "WILL MAGNAY"]
+  },
+  {
+    "name": "Romeo Langford",
+    "aliases": ["romeolangford", "romeo langford", "ROMEO LANGFORD"]
+  },
+  {
+    "name": "Isaiah Thomas",
+    "aliases": ["isaiahthomas", "isaiah thomas", "ISAIAH THOMAS"]
+  },
+  {
+    "name": "Gary Payton II",
+    "aliases": ["garypayton", "gary payton ii", "GARY PAYTON II"]
+  },
+  {
+    "name": "Donta Hall",
+    "aliases": ["dontahall", "donta hall", "DONTA HALL"]
+  },
+  {
+    "name": "James Nunnally",
+    "aliases": ["jamesnunnally", "james nunnally", "JAMES NUNNALLY"]
+  },
+  {
+    "name": "Dewayne Dedmon",
+    "aliases": ["dewaynededmon", "dewayne dedmon", "DEWAYNE DEDMON"]
+  },
+  {
+    "name": "Anthony Tolliver",
+    "aliases": ["anthonytolliver", "anthony tolliver", "ANTHONY TOLLIVER"]
+  },
+  {
+    "name": "Mingxin Ju",
+    "aliases": ["mingxinju", "mingxin ju", "MINGXIN JU"]
+  },
+  {
+    "name": "Cai Liang",
+    "aliases": ["cailiang", "cai liang", "CAI LIANG"]
+  },
+  {
+    "name": "Huang Xu",
+    "aliases": ["huangxu", "huang xu", "HUANG XU"]
+  },
+  {
+    "name": "Luo Xudong",
+    "aliases": ["luoxudong", "luo xudong", "LUO XUDONG"]
+  },
+  {
+    "name": "Dong Hanlin",
+    "aliases": ["donghanlin", "dong hanlin", "DONG HANLIN"]
+  },
+  {
+    "name": "Zhu Ying",
+    "aliases": ["zhuying", "zhu ying", "ZHU YING"]
+  },
+  {
+    "name": "Zhang Zhaoxu",
+    "aliases": ["zhangzhaoxu", "zhang zhaoxu", "ZHANG ZHAOXU"]
+  },
+  {
+    "name": "Wang Tong",
+    "aliases": ["wangtong", "wang tong", "WANG TONG"]
+  },
+  {
+    "name": "Thabo Sefolosha",
+    "aliases": ["thabosefolosha", "thabo sefolosha", "THABO SEFOLOSHA"]
+  },
+  {
+    "name": "Ryan Anderson",
+    "aliases": ["ryananderson", "ryan anderson", "RYAN ANDERSON"]
+  },
+  {
+    "name": "Donatas Motiejunas",
+    "aliases": ["donatasmotiejunas", "donatas motiejunas", "DONATAS MOTIEJUNAS"]
+  },
+  {
+    "name": "Jaron Blossomgame",
+    "aliases": ["jaronblossomgame", "jaron blossomgame", "JARON BLOSSOMGAME"]
+  },
+  {
+    "name": "Shi Yuchen",
+    "aliases": ["shiyuchen", "shi yuchen", "SHI YUCHEN"]
+  },
+  {
+    "name": "Chunjun Zhang",
+    "aliases": ["chunjunzhang", "chunjun zhang", "CHUNJUN ZHANG"]
+  },
+  {
+    "name": "Yongsheng Wu",
+    "aliases": ["yongshengwu", "yongsheng wu", "YONGSHENG WU"]
+  },
+  {
+    "name": "Qunfei Deng",
+    "aliases": ["qunfeideng", "qunfei deng", "QUNFEI DENG"]
+  },
+  {
+    "name": "Hanchen Luo",
+    "aliases": ["hanchenluo", "hanchen luo", "HANCHEN LUO"]
+  },
+  {
+    "name": "Tyson Chandler",
+    "aliases": ["tysonchandler", "tyson chandler", "TYSON CHANDLER"]
+  },
+  {
+    "name": "Derrick Walton Jr.",
+    "aliases": ["derrickwalton", "derrick walton jr.", "DERRICK WALTON JR."]
+  },
+  {
+    "name": "Shamorie Ponds",
+    "aliases": ["shamorieponds", "shamorie ponds", "SHAMORIE PONDS"]
+  },
+  {
+    "name": "James Palmer Jr.",
+    "aliases": ["jamespalmer", "james palmer jr.", "JAMES PALMER JR."]
+  },
+  {
+    "name": "Amida Brimah",
+    "aliases": ["amidabrimah", "amida brimah", "AMIDA BRIMAH"]
+  },
+  {
+    "name": "Lance Thomas",
+    "aliases": ["lancethomas", "lance thomas", "LANCE THOMAS"]
+  },
+  {
+    "name": "Elio Netto",
+    "aliases": ["elionetto", "elio netto", "ELIO NETTO"]
+  },
+  {
+    "name": "Lucas Dias",
+    "aliases": ["lucasdias", "lucas dias", "LUCAS DIAS"]
+  },
+  {
+    "name": "Lucas Cipolini",
+    "aliases": ["lucascipolini", "lucas cipolini", "LUCAS CIPOLINI"]
+  },
+  {
+    "name": "Jimmy De Oliveira",
+    "aliases": ["jimmydeoliveira", "jimmy de oliveira", "JIMMY DE OLIVEIRA"]
+  },
+  {
+    "name": "Carlos Schattmann",
+    "aliases": ["carlosschattmann", "carlos schattmann", "CARLOS SCHATTMANN"]
+  },
+  {
+    "name": "Luciano Parodi",
+    "aliases": ["lucianoparodi", "luciano parodi", "LUCIANO PARODI"]
+  },
+  {
+    "name": "Augusto Alcassa",
+    "aliases": ["augustoalcassa", "augusto alcassa", "AUGUSTO ALCASSA"]
+  },
+  {
+    "name": "Rafael Hettsheimeir",
+    "aliases": ["rafaelhettsheimeir", "rafael hettsheimeir", "RAFAEL HETTSHEIMEIR"]
+  },
+  {
+    "name": "Lucas Batista",
+    "aliases": ["lucasbatista", "lucas batista", "LUCAS BATISTA"]
+  },
+  {
+    "name": "David Jackson",
+    "aliases": ["davidjackson", "david jackson", "DAVID JACKSON"]
+  },
+  {
+    "name": "Guilherme Braga",
+    "aliases": ["guilhermebraga", "guilherme braga", "GUILHERME BRAGA"]
+  },
+  {
+    "name": "Tyler Lydon",
+    "aliases": ["tylerlydon", "tyler lydon", "TYLER LYDON"]
+  },
+  {
+    "name": "Caleb Swanigan",
+    "aliases": ["calebswanigan", "caleb swanigan", "CALEB SWANIGAN"]
+  },
+  {
+    "name": "JaKeenan Gant",
+    "aliases": ["jakeenangant", "jakeenan gant", "JAKEENAN GANT"]
+  },
+  {
+    "name": "Troy Daniels",
+    "aliases": ["troydaniels", "troy daniels", "TROY DANIELS"]
+  },
+  {
+    "name": "Devyn Marble",
+    "aliases": ["devynmarble", "devyn marble", "DEVYN MARBLE"]
+  },
+  {
+    "name": "David Stockton",
+    "aliases": ["davidstockton", "david stockton", "DAVID STOCKTON"]
+  },
+  {
+    "name": "Andrew Harrison",
+    "aliases": ["andrewharrison", "andrew harrison", "ANDREW HARRISON"]
+  },
+  {
+    "name": "Demetrius Jackson",
+    "aliases": ["demetriusjackson", "demetrius jackson", "DEMETRIUS JACKSON"]
+  },
+  {
+    "name": "Jacob Evans",
+    "aliases": ["jacobevans", "jacob evans", "JACOB EVANS"]
+  },
+  {
+    "name": "Josh Magette",
+    "aliases": ["joshmagette", "josh magette", "JOSH MAGETTE"]
+  },
+  {
+    "name": "Jonathan Isaac",
+    "aliases": ["jonathanisaac", "jonathan isaac", "JONATHAN ISAAC"]
+  },
+  {
+    "name": "Melvin Frazier Jr.",
+    "aliases": ["melvinfrazier", "melvin frazier jr.", "MELVIN FRAZIER JR."]
+  },
+  {
+    "name": "Isaac Humphries",
+    "aliases": ["isaachumphries", "isaac humphries", "ISAAC HUMPHRIES"]
+  },
+  {
+    "name": "Dedric Lawson",
+    "aliases": ["dedriclawson", "dedric lawson", "DEDRIC LAWSON"]
+  },
+  {
+    "name": "Vic Law",
+    "aliases": ["viclaw", "vic law", "VIC LAW"]
+  },
+  {
+    "name": "Daulton Hommes",
+    "aliases": ["daultonhommes", "daulton hommes", "DAULTON HOMMES"]
+  },
+  {
+    "name": "Deshon Taylor",
+    "aliases": ["deshontaylor", "deshon taylor", "DESHON TAYLOR"]
+  },
+  {
+    "name": "Brendan Teys",
+    "aliases": ["brendanteys", "brendan teys", "BRENDAN TEYS"]
+  },
+  {
+    "name": "Daniel Johnson",
+    "aliases": ["danieljohnson", "daniel johnson", "DANIEL JOHNSON"]
+  },
+  {
+    "name": "Anthony Drmic",
+    "aliases": ["anthonydrmic", "anthony drmic", "ANTHONY DRMIC"]
+  },
+  {
+    "name": "Ramone Moore",
+    "aliases": ["ramonemoore", "ramone moore", "RAMONE MOORE"]
+  },
+  {
+    "name": "Eric Griffin",
+    "aliases": ["ericgriffin", "eric griffin", "ERIC GRIFFIN"]
+  },
+  {
+    "name": "Harry Froling",
+    "aliases": ["harryfroling", "harry froling", "HARRY FROLING"]
+  },
+  {
+    "name": "Jack McVeigh",
+    "aliases": ["jackmcveigh", "jack mcveigh", "JACK MCVEIGH"]
+  },
+  {
+    "name": "Justin Wright-Foreman",
+    "aliases": ["justinwrightforeman", "justin wright-foreman", "JUSTIN WRIGHT-FOREMAN"]
+  },
+  {
+    "name": "William Howard",
+    "aliases": ["williamhoward", "william howard", "WILLIAM HOWARD"]
+  },
+  {
+    "name": "Stanton Kidd",
+    "aliases": ["stantonkidd", "stanton kidd", "STANTON KIDD"]
+  },
+  {
+    "name": "Obi Kyei",
+    "aliases": ["obikyei", "obi kyei", "OBI KYEI"]
+  },
+  {
+    "name": "Kevin White",
+    "aliases": ["kevinwhite", "kevin white", "KEVIN WHITE"]
+  },
+  {
+    "name": "Alex Mudronja",
+    "aliases": ["alexmudronja", "alex mudronja", "ALEX MUDRONJA"]
+  },
+  {
+    "name": "Daniel Dillon",
+    "aliases": ["danieldillon", "daniel dillon", "DANIEL DILLON"]
+  },
+  {
+    "name": "Jerome Randall",
+    "aliases": ["jeromerandall", "jerome randall", "JEROME RANDALL"]
+  },
+  {
+    "name": "Daniel Koperberg",
+    "aliases": ["danielkoperberg", "daniel koperberg", "DANIEL KOPERBERG"]
+  },
+  {
+    "name": "Roman Sorkin",
+    "aliases": ["romansorkin", "roman sorkin", "ROMAN SORKIN"]
+  },
+  {
+    "name": "Willy Workman",
+    "aliases": ["willyworkman", "willy workman", "WILLY WORKMAN"]
+  },
+  {
+    "name": "Brandon Rush",
+    "aliases": ["brandonrush", "brandon rush", "BRANDON RUSH"]
+  },
+  {
+    "name": "Norris Cole",
+    "aliases": ["norriscole", "norris cole", "NORRIS COLE"]
+  },
+  {
+    "name": "Miles Plumlee",
+    "aliases": ["milesplumlee", "miles plumlee", "MILES PLUMLEE"]
+  },
+  {
+    "name": "James Young",
+    "aliases": ["jamesyoung", "james young", "JAMES YOUNG"]
+  },
+  {
+    "name": "Ivan Rabb",
+    "aliases": ["ivanrabb", "ivan rabb", "IVAN RABB"]
+  },
+  {
+    "name": "Jaren Jackson Jr.",
+    "aliases": ["jarenjackson", "jaren jackson jr.", "JAREN JACKSON JR."]
+  },
+  {
+    "name": "Marko Guduric",
+    "aliases": ["markoguduric", "marko guduric", "MARKO GUDURIC"]
+  },
+  {
+    "name": "Gil Amitay",
+    "aliases": ["gilamitay", "gil amitay", "GIL AMITAY"]
+  },
+  {
+    "name": "Eric Anderson",
+    "aliases": ["ericanderson", "eric anderson", "ERIC ANDERSON"]
+  },
+  {
+    "name": "David Cohn",
+    "aliases": ["davidcohn", "david cohn", "DAVID COHN"]
+  },
+  {
+    "name": "Jonathan Mor",
+    "aliases": ["jonathanmor", "jonathan mor", "JONATHAN MOR"]
+  },
+  {
+    "name": "Scott Suggs",
+    "aliases": ["scottsuggs", "scott suggs", "SCOTT SUGGS"]
+  },
+  {
+    "name": "Gregory Vargas",
+    "aliases": ["gregoryvargas", "gregory vargas", "GREGORY VARGAS"]
+  },
+  {
+    "name": "Marvin Williams",
+    "aliases": ["marvinwilliams", "marvin williams", "MARVIN WILLIAMS"]
+  },
+  {
+    "name": "Kobi Simmons",
+    "aliases": ["kobisimmons", "kobi simmons", "KOBI SIMMONS"]
+  },
+  {
+    "name": "Ahmed Hill",
+    "aliases": ["ahmedhill", "ahmed hill", "AHMED HILL"]
+  },
+  {
+    "name": "Donte Grantham",
+    "aliases": ["dontegrantham", "donte grantham", "DONTE GRANTHAM"]
+  },
+  {
+    "name": "Terry Larrier",
+    "aliases": ["terrylarrier", "terry larrier", "TERRY LARRIER"]
+  },
+  {
+    "name": "Brandon Knight",
+    "aliases": ["brandonknight", "brandon knight", "BRANDON KNIGHT"]
+  },
+  {
+    "name": "Jarell Martin",
+    "aliases": ["jarellmartin", "jarell martin", "JARELL MARTIN"]
+  },
+  {
+    "name": "Daniel Hamilton",
+    "aliases": ["danielhamilton", "daniel hamilton", "DANIEL HAMILTON"]
+  },
+  {
+    "name": "J.P. Macura",
+    "aliases": ["jpmacura", "j.p. macura", "J.P. MACURA"]
+  },
+  {
+    "name": "Gustavo Aguirre",
+    "aliases": ["gustavoaguirre", "gustavo aguirre", "GUSTAVO AGUIRRE"]
+  },
+  {
+    "name": "Esteban Batista",
+    "aliases": ["estebanbatista", "esteban batista", "ESTEBAN BATISTA"]
+  },
+  {
+    "name": "Christian Bihurriet",
+    "aliases": ["christianbihurriet", "christian bihurriet", "CHRISTIAN BIHURRIET"]
+  },
+  {
+    "name": "Agustin Caffaro",
+    "aliases": ["agustincaffaro", "agustin caffaro", "AGUSTIN CAFFARO"]
+  },
+  {
+    "name": "Maximo Fjelurup",
+    "aliases": ["maximofjelurup", "maximo fjelurup", "MAXIMO FJELURUP"]
+  },
+  {
+    "name": "Luciano Gonzalez",
+    "aliases": ["lucianogonzalez", "luciano gonzalez", "LUCIANO GONZALEZ"]
+  },
+  {
+    "name": "Marcus Mata",
+    "aliases": ["marcusmata", "marcus mata", "MARCUS MATA"]
+  },
+  {
+    "name": "Facundo Pinero",
+    "aliases": ["facundopinero", "facundo pinero", "FACUNDO PINERO"]
+  },
+  {
+    "name": "Firmin Thygesen",
+    "aliases": ["firminthygesen", "firmin thygesen", "FIRMIN THYGESEN"]
+  },
+  {
+    "name": "Darquavis Tucker",
+    "aliases": ["darquavistucker", "darquavis tucker", "DARQUAVIS TUCKER"]
+  },
+  {
+    "name": "Jose Vildoza",
+    "aliases": ["josevildoza", "jose vildoza", "JOSE VILDOZA"]
+  },
+  {
+    "name": "Justin Wiliams",
+    "aliases": ["justinwiliams", "justin wiliams", "JUSTIN WILIAMS"]
+  },
+  {
+    "name": "Joe Johnson",
+    "aliases": ["joejohnson", "joe johnson", "JOE JOHNSON"]
+  },
+  {
+    "name": "Khyri Thomas",
+    "aliases": ["khyrithomas", "khyri thomas", "KHYRI THOMAS"]
+  },
+  {
+    "name": "Jordan McRae",
+    "aliases": ["jordanmcrae", "jordan mcrae", "JORDAN MCRAE"]
+  },
+  {
+    "name": "Allonzo Trier",
+    "aliases": ["allonzotrier", "allonzo trier", "ALLONZO TRIER"]
+  },
+  {
+    "name": "Jemerrio Jones",
+    "aliases": ["jemerriojones", "jemerrio jones", "JEMERRIO JONES"]
+  },
+  {
+    "name": "Phil Booth",
+    "aliases": ["philbooth", "phil booth", "PHIL BOOTH"]
+  },
+  {
+    "name": "Vince Carter",
+    "aliases": ["vincecarter", "vince carter", "VINCE CARTER"]
+  },
+  {
+    "name": "Tahjere McCall",
+    "aliases": ["tahjeremccall", "tahjere mccall", "TAHJERE MCCALL"]
+  },
+  {
+    "name": "Marcus Derrickson",
+    "aliases": ["marcusderrickson", "marcus derrickson", "MARCUS DERRICKSON"]
+  },
+  {
+    "name": "Zylan Cheatham",
+    "aliases": ["zylancheatham", "zylan cheatham", "ZYLAN CHEATHAM"]
+  },
+  {
+    "name": "Charlie Brown Jr.",
+    "aliases": ["charliebrown", "charlie brown jr.", "CHARLIE BROWN JR."]
+  },
+  {
+    "name": "Dragan Bender",
+    "aliases": ["draganbender", "dragan bender", "DRAGAN BENDER"]
+  },
+  {
+    "name": "Kris Dunn",
+    "aliases": ["krisdunn", "kris dunn", "KRIS DUNN"]
+  },
+  {
+    "name": "Luke Maye",
+    "aliases": ["lukemaye", "luke maye", "LUKE MAYE"]
+  },
+  {
+    "name": "Justin Simon",
+    "aliases": ["justinsimon", "justin simon", "JUSTIN SIMON"]
+  },
+  {
+    "name": "Malcolm Miller",
+    "aliases": ["malcolmmiller", "malcolm miller", "MALCOLM MILLER"]
+  },
+  {
+    "name": "Yuezhou Gu",
+    "aliases": ["yuezhougu", "yuezhou gu", "YUEZHOU GU"]
+  },
+  {
+    "name": "Kai Guo",
+    "aliases": ["kaiguo", "kai guo", "KAI GUO"]
+  },
+  {
+    "name": "Yifeng Heng",
+    "aliases": ["yifengheng", "yifeng heng", "YIFENG HENG"]
+  },
+  {
+    "name": "Yongpeng Zhang",
+    "aliases": ["yongpengzhang", "yongpeng zhang", "YONGPENG ZHANG"]
+  },
+  {
+    "name": "Tianyi Yao",
+    "aliases": ["tianyiyao", "tianyi yao", "TIANYI YAO"]
+  },
+  {
+    "name": "Zhun Zheng",
+    "aliases": ["zhunzheng", "zhun zheng", "ZHUN ZHENG"]
+  },
+  {
+    "name": "Kun Si",
+    "aliases": ["kunsi", "kun si", "KUN SI"]
+  },
+  {
+    "name": "Ying-Chun Chen",
+    "aliases": ["yingchunchen", "ying-chun chen", "YING-CHUN CHEN"]
+  },
+  {
+    "name": "Andrew Nicholson",
+    "aliases": ["andrewnicholson", "andrew nicholson", "ANDREW NICHOLSON"]
+  },
+  {
+    "name": "Kyle O'Quinn",
+    "aliases": ["kyleoquinn", "kyle o'quinn", "KYLE O'QUINN"]
+  },
+  {
+    "name": "Keifer Sykes",
+    "aliases": ["keifersykes", "keifer sykes", "KEIFER SYKES"]
+  },
+  {
+    "name": "Marcus Georges-Hunt",
+    "aliases": ["marcusgeorgeshunt", "marcus georges-hunt", "MARCUS GEORGES-HUNT"]
+  },
+  {
+    "name": "Jonah Bolden",
+    "aliases": ["jonahbolden", "jonah bolden", "JONAH BOLDEN"]
+  },
+  {
+    "name": "Zhaire Smith",
+    "aliases": ["zhairesmith", "zhaire smith", "ZHAIRE SMITH"]
+  },
+  {
+    "name": "Haywood Highsmith",
+    "aliases": ["haywoodhighsmith", "haywood highsmith", "HAYWOOD HIGHSMITH"]
+  },
+  {
+    "name": "Marial Shayok",
+    "aliases": ["marialshayok", "marial shayok", "MARIAL SHAYOK"]
+  },
+  {
+    "name": "Christ Koumadje",
+    "aliases": ["christkoumadje", "christ koumadje", "CHRIST KOUMADJE"]
+  },
+  {
+    "name": "CJ Harris",
+    "aliases": ["cjharris", "cj harris", "CJ HARRIS"]
+  },
+  {
+    "name": "Fengbo Liu",
+    "aliases": ["fengboliu", "fengbo liu", "FENGBO LIU"]
+  },
+  {
+    "name": "Marco Belinelli",
+    "aliases": ["marcobelinelli", "marco belinelli", "MARCO BELINELLI"]
+  },
+  {
+    "name": "DeMarre Carroll",
+    "aliases": ["demarrecarroll", "demarre carroll", "DEMARRE CARROLL"]
+  },
+  {
+    "name": "Dion Waiters",
+    "aliases": ["dionwaiters", "dion waiters", "DION WAITERS"]
+  },
+  {
+    "name": "Daryl Macon",
+    "aliases": ["darylmacon", "daryl macon", "DARYL MACON"]
+  },
+  {
+    "name": "Jarrad Weeks",
+    "aliases": ["jarradweeks", "jarrad weeks", "JARRAD WEEKS"]
+  },
+  {
+    "name": "Scotty Hopson",
+    "aliases": ["scottyhopson", "scotty hopson", "SCOTTY HOPSON"]
+  },
+  {
+    "name": "Brandon Ashley",
+    "aliases": ["brandonashley", "brandon ashley", "BRANDON ASHLEY"]
+  },
+  {
+    "name": "Corey Webster",
+    "aliases": ["coreywebster", "corey webster", "COREY WEBSTER"]
+  },
+  {
+    "name": "Tom Abercrombie",
+    "aliases": ["tomabercrombie", "tom abercrombie", "TOM ABERCROMBIE"]
+  },
+  {
+    "name": "Robert Loe",
+    "aliases": ["robertloe", "robert loe", "ROBERT LOE"]
+  },
+  {
+    "name": "Sek Henry",
+    "aliases": ["sekhenry", "sek henry", "SEK HENRY"]
+  },
+  {
+    "name": "Ater Majok",
+    "aliases": ["atermajok", "ater majok", "ATER MAJOK"]
+  },
+  {
+    "name": "Tom Vodanovich",
+    "aliases": ["tomvodanovich", "tom vodanovich", "TOM VODANOVICH"]
+  },
+  {
+    "name": "Ethan Rusbatch",
+    "aliases": ["ethanrusbatch", "ethan rusbatch", "ETHAN RUSBATCH"]
+  },
+  {
+    "name": "Antonius Cleveland",
+    "aliases": ["antoniuscleveland", "antonius cleveland", "ANTONIUS CLEVELAND"]
+  },
+  {
+    "name": "Devon Hall",
+    "aliases": ["devonhall", "devon hall", "DEVON HALL"]
+  },
+  {
+    "name": "Deonte Burton",
+    "aliases": ["deonteburton", "deonte burton", "DEONTE BURTON"]
+  },
+  {
+    "name": "Ryan Broekhoff",
+    "aliases": ["ryanbroekhoff", "ryan broekhoff", "RYAN BROEKHOFF"]
+  },
+  {
+    "name": "Aric Holman",
+    "aliases": ["aricholman", "aric holman", "ARIC HOLMAN"]
+  },
+  {
+    "name": "Josh Reaves",
+    "aliases": ["joshreaves", "josh reaves", "JOSH REAVES"]
+  },
+  {
+    "name": "Yudai Baba",
+    "aliases": ["yudaibaba", "yudai baba", "YUDAI BABA"]
+  },
+  {
+    "name": "Shabazz Napier",
+    "aliases": ["shabazznapier", "shabazz napier", "SHABAZZ NAPIER"]
+  },
+  {
+    "name": "Cheick Diallo",
+    "aliases": ["cheickdiallo", "cheick diallo", "CHEICK DIALLO"]
+  },
+  {
+    "name": "Tyrone Wallace",
+    "aliases": ["tyronewallace", "tyrone wallace", "TYRONE WALLACE"]
+  },
+  {
+    "name": "Elie Okobo",
+    "aliases": ["elieokobo", "elie okobo", "ELIE OKOBO"]
+  },
+  {
+    "name": "Tariq Owens",
+    "aliases": ["tariqowens", "tariq owens", "TARIQ OWENS"]
+  },
+  {
+    "name": "Tyler Zeller",
+    "aliases": ["tylerzeller", "tyler zeller", "TYLER ZELLER"]
+  },
+  {
+    "name": "Mario Hezonja",
+    "aliases": ["mariohezonja", "mario hezonja", "MARIO HEZONJA"]
+  },
+  {
+    "name": "Skal Labissiere",
+    "aliases": ["skallabissiere", "skal labissiere", "SKAL LABISSIERE"]
+  },
+  {
+    "name": "Zach Collins",
+    "aliases": ["zachcollins", "zach collins", "ZACH COLLINS"]
+  },
+  {
+    "name": "Troy Caupain",
+    "aliases": ["troycaupain", "troy caupain", "TROY CAUPAIN"]
+  },
+  {
+    "name": "London Perrantes",
+    "aliases": ["londonperrantes", "london perrantes", "LONDON PERRANTES"]
+  },
+  {
+    "name": "Yuheng Tian",
+    "aliases": ["yuhengtian", "yuheng tian", "YUHENG TIAN"]
+  },
+  {
+    "name": "Tianyo Yao",
+    "aliases": ["tianyoyao", "tianyo yao", "TIANYO YAO"]
+  },
+  {
+    "name": "Michael Kidd-Gilchrist",
+    "aliases": ["michaelkiddgilchrist", "michael kidd-gilchrist", "MICHAEL KIDD-GILCHRIST"]
+  },
+  {
+    "name": "Davon Reed",
+    "aliases": ["davonreed", "davon reed", "DAVON REED"]
+  },
+  {
+    "name": "Thomas Welsh",
+    "aliases": ["thomaswelsh", "thomas welsh", "THOMAS WELSH"]
+  },
+  {
+    "name": "Joe Chealey",
+    "aliases": ["joechealey", "joe chealey", "JOE CHEALEY"]
+  },
+  {
+    "name": "Josh Perkins",
+    "aliases": ["joshperkins", "josh perkins", "JOSH PERKINS"]
+  },
+  {
+    "name": "Jeremiah Martin",
+    "aliases": ["jeremiahmartin", "jeremiah martin", "JEREMIAH MARTIN"]
+  },
+  {
+    "name": "Kyle Alexander",
+    "aliases": ["kylealexander", "kyle alexander", "KYLE ALEXANDER"]
+  },
+  {
+    "name": "Kyle Korver",
+    "aliases": ["kylekorver", "kyle korver", "KYLE KORVER"]
+  },
+  {
+    "name": "Trevon Bluiett",
+    "aliases": ["trevonbluiett", "trevon bluiett", "TREVON BLUIETT"]
+  },
+  {
+    "name": "Isaiah Taylor",
+    "aliases": ["isaiahtaylor", "isaiah taylor", "ISAIAH TAYLOR"]
+  },
+  {
+    "name": "Dewan Hernandez",
+    "aliases": ["dewanhernandez", "dewan hernandez", "DEWAN HERNANDEZ"]
+  },
+  {
+    "name": "Wilson Chandler",
+    "aliases": ["wilsonchandler", "wilson chandler", "WILSON CHANDLER"]
+  },
+  {
+    "name": "Jordan Ngatai",
+    "aliases": ["jordanngatai", "jordan ngatai", "JORDAN NGATAI"]
+  },
+  {
+    "name": "Abdul Gaddy",
+    "aliases": ["abdulgaddy", "abdul gaddy", "ABDUL GADDY"]
+  },
+  {
+    "name": "Eric Mika",
+    "aliases": ["ericmika", "eric mika", "ERIC MIKA"]
+  },
+  {
+    "name": "Isaiah Pineiro",
+    "aliases": ["isaiahpineiro", "isaiah pineiro", "ISAIAH PINEIRO"]
+  },
+  {
+    "name": "Kavion Pippen",
+    "aliases": ["kavionpippen", "kavion pippen", "KAVION PIPPEN"]
+  },
+  {
+    "name": "Milton Doyle",
+    "aliases": ["miltondoyle", "milton doyle", "MILTON DOYLE"]
+  },
+  {
+    "name": "Perrion Callandret",
+    "aliases": ["perrioncallandret", "perrion callandret", "PERRION CALLANDRET"]
+  },
+  {
+    "name": "Josh Gray",
+    "aliases": ["joshgray", "josh gray", "JOSH GRAY"]
+  },
+  {
+    "name": "Javon Bess",
+    "aliases": ["javonbess", "javon bess", "JAVON BESS"]
+  },
+  {
+    "name": "Jalen Adams",
+    "aliases": ["jalenadams", "jalen adams", "JALEN ADAMS"]
+  },
+  {
+    "name": "J.J. Barea",
+    "aliases": ["jjbarea", "j.j. barea", "J.J. BAREA"]
+  },
+  {
+    "name": "C.J. Williams",
+    "aliases": ["cjwilliams", "c.j. williams", "C.J. WILLIAMS"]
+  },
+  {
+    "name": "Deng Adel",
+    "aliases": ["dengadel", "deng adel", "DENG ADEL"]
+  },
+  {
+    "name": "Norense Odiase",
+    "aliases": ["norenseodiase", "norense odiase", "NORENSE ODIASE"]
+  },
+  {
+    "name": "Yante Maten",
+    "aliases": ["yantematen", "yante maten", "YANTE MATEN"]
+  },
+  {
+    "name": "Kaiser Gates",
+    "aliases": ["kaisergates", "kaiser gates", "KAISER GATES"]
+  },
+  {
+    "name": "Dillon Stith",
+    "aliases": ["dillonstith", "dillon stith", "DILLON STITH"]
+  },
+  {
+    "name": "Sam Short",
+    "aliases": ["samshort", "sam short", "SAM SHORT"]
+  },
+  {
+    "name": "Mitch McCarron",
+    "aliases": ["mitchmccarron", "mitch mccarron", "MITCH MCCARRON"]
+  },
+  {
+    "name": "Tohi Smith-Milner",
+    "aliases": ["tohismithmilner", "tohi smith-milner", "TOHI SMITH-MILNER"]
+  },
+  {
+    "name": "Alex Pledger",
+    "aliases": ["alexpledger", "alex pledger", "ALEX PLEDGER"]
+  },
+  {
+    "name": "Chris Goulding",
+    "aliases": ["chrisgoulding", "chris goulding", "CHRIS GOULDING"]
+  },
+  {
+    "name": "Shea Ili",
+    "aliases": ["sheaili", "shea ili", "SHEA ILI"]
+  },
+  {
+    "name": "Anthony Brown",
+    "aliases": ["anthonybrown", "anthony brown", "ANTHONY BROWN"]
+  },
+  {
+    "name": "Shawn Long",
+    "aliases": ["shawnlong", "shawn long", "SHAWN LONG"]
+  },
+  {
+    "name": "Melo Trimble",
+    "aliases": ["melotrimble", "melo trimble", "MELO TRIMBLE"]
+  },
+  {
+    "name": "Quincy Miller",
+    "aliases": ["quincymiller", "quincy miller", "QUINCY MILLER"]
+  },
+  {
+    "name": "Jo Lual-Acuil Jr",
+    "aliases": ["jolualacuil", "jo lual-acuil jr", "JO LUAL-ACUIL JR"]
+  },
+  {
+    "name": "Kavell Bigby-Williams",
+    "aliases": ["kavellbigbywilliams", "kavell bigby-williams", "KAVELL BIGBY-WILLIAMS"]
+  },
+  {
+    "name": "Isaiah Miles",
+    "aliases": ["isaiahmiles", "isaiah miles", "ISAIAH MILES"]
+  },
+  {
+    "name": "Devin Robinson",
+    "aliases": ["devinrobinson", "devin robinson", "DEVIN ROBINSON"]
+  },
+  {
+    "name": "Sagaba Konate",
+    "aliases": ["sagabakonate", "sagaba konate", "SAGABA KONATE"]
+  },
+  {
+    "name": "Lindell Wigginton",
+    "aliases": ["lindellwigginton", "lindell wigginton", "LINDELL WIGGINTON"]
+  },
+  {
+    "name": "Jordan Murphy",
+    "aliases": ["jordanmurphy", "jordan murphy", "JORDAN MURPHY"]
+  },
+  {
+    "name": "Evan Turner",
+    "aliases": ["evanturner", "evan turner", "EVAN TURNER"]
+  },
+  {
+    "name": "Dusty Hannahs",
+    "aliases": ["dustyhannahs", "dusty hannahs", "DUSTY HANNAHS"]
+  },
+  {
+    "name": "Myke Henry",
+    "aliases": ["mykehenry", "myke henry", "MYKE HENRY"]
+  },
+  {
+    "name": "DeVaughn Akoon-Purcell",
+    "aliases": ["devaughnakoonpurcell", "devaughn akoon-purcell", "DEVAUGHN AKOON-PURCELL"]
+  },
+  {
+    "name": "Emmanuel Mudiay",
+    "aliases": ["emmanuelmudiay", "emmanuel mudiay", "EMMANUEL MUDIAY"]
+  },
+  {
+    "name": "Todd Withers",
+    "aliases": ["toddwithers", "todd withers", "TODD WITHERS"]
+  },
+  {
+    "name": "Jarrod Uthoff",
+    "aliases": ["jarroduthoff", "jarrod uthoff", "JARROD UTHOFF"]
+  },
+  {
+    "name": "Reggie Hearn",
+    "aliases": ["reggiehearn", "reggie hearn", "REGGIE HEARN"]
+  },
+  {
+    "name": "Jordan Sibert",
+    "aliases": ["jordansibert", "jordan sibert", "JORDAN SIBERT"]
+  },
+  {
+    "name": "Jalen Jones",
+    "aliases": ["jalenjones", "jalen jones", "JALEN JONES"]
+  },
+  {
+    "name": "Marcus Allen",
+    "aliases": ["marcusallen", "marcus allen", "MARCUS ALLEN"]
+  },
+  {
+    "name": "Joakim Noah",
+    "aliases": ["joakimnoah", "joakim noah", "JOAKIM NOAH"]
+  },
+  {
+    "name": "Corey Brewer",
+    "aliases": ["coreybrewer", "corey brewer", "COREY BREWER"]
+  },
+  {
+    "name": "JR Smith",
+    "aliases": ["jrsmith", "jr smith", "JR SMITH"]
+  },
+  {
+    "name": "Kevin Hervey",
+    "aliases": ["kevinhervey", "kevin hervey", "KEVIN HERVEY"]
+  },
+  {
+    "name": "Johnathan Williams",
+    "aliases": ["johnathanwilliams", "johnathan williams", "JOHNATHAN WILLIAMS"]
+  },
+  {
+    "name": "Michael Frazier II",
+    "aliases": ["michaelfrazier", "michael frazier ii", "MICHAEL FRAZIER II"]
+  },
+  {
+    "name": "John Henson",
+    "aliases": ["johnhenson", "john henson", "JOHN HENSON"]
+  },
+  {
+    "name": "CJ Miles",
+    "aliases": ["cjmiles", "cj miles", "CJ MILES"]
+  },
+  {
+    "name": "Udonis Haslem",
+    "aliases": ["udonishaslem", "udonis haslem", "UDONIS HASLEM"]
+  },
+  {
+    "name": "Allen Crabbe",
+    "aliases": ["allencrabbe", "allen crabbe", "ALLEN CRABBE"]
+  },
+  {
+    "name": "Ante Zizic",
+    "aliases": ["antezizic", "ante zizic", "ANTE ZIZIC"]
+  },
+  {
+    "name": "Chandler Parsons",
+    "aliases": ["chandlerparsons", "chandler parsons", "CHANDLER PARSONS"]
+  },
+  {
+    "name": "Kadeem Allen",
+    "aliases": ["kadeemallen", "kadeem allen", "KADEEM ALLEN"]
+  },
+  {
+    "name": "Ian Mahinmi",
+    "aliases": ["ianmahinmi", "ian mahinmi", "IAN MAHINMI"]
+  },
+  {
+    "name": "Jeremy Pargo",
+    "aliases": ["jeremypargo", "jeremy pargo", "JEREMY PARGO"]
+  },
+  {
+    "name": "Malik Newman",
+    "aliases": ["maliknewman", "malik newman", "MALIK NEWMAN"]
+  },
+  {
+    "name": "Jamal Crawford",
+    "aliases": ["jamalcrawford", "jamal crawford", "JAMAL CRAWFORD"]
+  },
+  {
+    "name": "Luc Mbah a Moute",
+    "aliases": ["lucmbahamoute", "luc mbah a moute", "LUC MBAH A MOUTE"]
+  }
+]

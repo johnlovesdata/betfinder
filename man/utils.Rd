@@ -18,11 +18,11 @@ hacky_tidyup_player_names(player_names)
 
 \item{key}{List of elements containing fields "name" and "aliases" in \code{normalize_names}}
 
-\item{warn}{Optional, Boolean -- warn if a name in X was not found in the Key names in n\code{normalize_names}}
+\item{warn}{Optional, Boolean -- warn if a name in X was not found in the Key names in \code{normalize_names}}
 }
 \description{
 Utility functions to make things work better
 }
 \note{
-\code{normalize_names} was sniped from jimtheflash/gambling_stuff and written by anthonyshook (to be clear, it was written by a hook owned by some fella named anthony)
+\code{normalize_names} was sniped from \code{jimtheflash/gambling_stuff} and written by anthonyshook (to be clear, it was written by a hook owned by some fella named anthony)
 }

@@ -1,8 +1,8 @@
 #' Utility functions to make things work better
 #' @param x Vector of strings to normalize in \code{normalize_names}
 #' @param key List of elements containing fields "name" and "aliases" in \code{normalize_names}
-#' @param warn Optional, Boolean -- warn if a name in X was not found in the Key names in n\code{normalize_names}
-#' @note \code{normalize_names} was sniped from jimtheflash/gambling_stuff and written by anthonyshook (to be clear, it was written by a hook owned by some fella named anthony)
+#' @param warn Optional, Boolean -- warn if a name in X was not found in the Key names in \code{normalize_names}
+#' @note \code{normalize_names} was sniped from \code{jimtheflash/gambling_stuff} and written by anthonyshook (to be clear, it was written by a hook owned by some fella named anthony)
 #' @name utils
 NULL
 
@@ -60,9 +60,9 @@ get_key_path <- function(sport, prop) {
   # set the list of props for different key_types
   # TODO: set this via a config probably (another json)
   key_type <- character()
-  if (prop %in% c('first team to score', 'ftts')) {
+  if (grepl('team|ftts', prop)) {
     key_type <- 'team'
-  } else if (prop %in% c('first player to score', 'fpts')) {
+  } else if (grepl('player|fpts', prop)) {
     key_type <- 'player'
   }
 
