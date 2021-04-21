@@ -1,0 +1,261 @@
+[
+  {
+    "name": "ATL",
+    "aliases": [
+      "ATL",
+      "ATL Hawks",
+      "Hawks",
+      "Atlanta Hawks"
+    ]
+  },
+  {
+    "name": "BKN",
+    "aliases": [
+      "BKN",
+      "BKN Nets",
+      "Nets",
+      "Brooklyn Nets"
+    ]
+  },
+  {
+    "name": "BOS",
+    "aliases": [
+      "BOS",
+      "BOS Celtics",
+      "Boston Celtics"
+    ]
+  },
+  {
+    "name": "CHA",
+    "aliases": [
+      "CHA",
+      "CHA Hornets",
+      "Hornets",
+      "Charlotte Hornets"
+    ]
+  },
+  {
+    "name": "CHI",
+    "aliases": [
+      "CHI",
+      "CHI Bulls",
+      "Bulls",
+      "Chicago Bulls"
+    ]
+  },
+  {
+    "name": "CLE",
+    "aliases": [
+      "CLE",
+      "CLE Cavaliers",
+      "Cavaliers",
+      "Cleveland Cavaliers"
+    ]
+  },
+  {
+    "name": "DAL",
+    "aliases": [
+      "DAL",
+      "DAL Mavericks",
+      "Mavericks",
+      "Dallas Mavericks"
+    ]
+  },
+  {
+    "name": "DEN",
+    "aliases": [
+      "DEN",
+      "DEN Nuggets",
+      "Nuggets",
+      "Denver Nuggets"
+    ]
+  },
+  {
+    "name": "DET",
+    "aliases": [
+      "DET",
+      "DET Pistons",
+      "Pistons",
+      "Detroit Pistons"
+    ]
+  },
+  {
+    "name": "GSW",
+    "aliases": [
+      "GSW",
+      "GS",
+      "GS Warriors",
+      "GSW Warriors",
+      "Warriors",
+      "Golden State Warriors"
+    ]
+  },
+  {
+    "name": "HOU",
+    "aliases": [
+      "HOU",
+      "HOU Rockets",
+      "Rockets",
+      "Houston Rockets"
+    ]
+  },
+  {
+    "name": "IND",
+    "aliases": [
+      "IND",
+      "Pacers",
+      "IND Pacers",
+      "Indiana Pacers"
+    ]
+  },
+  {
+    "name": "LAC",
+    "aliases": [
+      "LAC",
+      "LA Clippers",
+      "Clippers",
+      "LA Clippers",
+      "Los Angeles Clippers"
+    ]
+  },
+  {
+    "name": "LAL",
+    "aliases": [
+      "LAL",
+      "LA Lakers",
+      "Los Angeles Lakers"
+    ]
+  },
+  {
+    "name": "MEM",
+    "aliases": [
+      "MEM",
+      "Memphis Grizzlies"
+    ]
+  },
+  {
+    "name": "MIA",
+    "aliases": [
+      "MIA",
+      "Miami Heat"
+    ]
+  },
+  {
+    "name": "MIL",
+    "aliases": [
+      "MIL",
+      "Milwaukee Bucks"
+    ]
+  },
+  {
+    "name": "MIN",
+    "aliases": [
+      "MIN",
+      "MIN Timberwolves",
+      "Timberwolves",
+      "Minnesota Timberwolves"
+    ]
+  },
+  {
+    "name": "NOP",
+    "aliases": [
+      "NOP",
+      "NO",
+      "NO Pelicans",
+      "Pelicans",
+      "New Orleans Pelicans"
+    ]
+  },
+  {
+    "name": "NYK",
+    "aliases": [
+      "NYK",
+      "NY",
+      "NY Knicks",
+      "New York Knicks"
+    ]
+  },
+  {
+    "name": "OKC",
+    "aliases": [
+      "OKC"
+    ]
+  },
+  {
+    "name": "ORL",
+    "aliases": [
+      "ORL",
+      "ORL Magic",
+      "Magic",
+      "Orlando Magic"
+    ]
+  },
+  {
+    "name": "PHI",
+    "aliases": [
+      "PHI"
+    ]
+  },
+  {
+    "name": "PHX",
+    "aliases": [
+      "PHX",
+      "PHO",
+      "PHX Suns",
+      "PHO Suns",
+      "Phoenix Suns"
+    ]
+  },
+  {
+    "name": "POR",
+    "aliases": [
+      "POR",
+      "POR Trail Blazers",
+      "Trail Blazers",
+      "Portland Trail Blazers"
+    ]
+  },
+  {
+    "name": "SAC",
+    "aliases": [
+      "SAC",
+      "SAC Kings",
+      "Kings",
+      "Sacramento Kings"
+    ]
+  },
+  {
+    "name": "SAS",
+    "aliases": [
+      "SAS",
+      "SA",
+      "San Antonio Spurs"
+    ]
+  },
+  {
+    "name": "TOR",
+    "aliases": [
+      "TOR",
+      "TO",
+      "TOR Raptors",
+      "Toronto Raptors"
+    ]
+  },
+  {
+    "name": "UTA",
+    "aliases": [
+      "UTA",
+      "UTA Jazz",
+      "Jazz",
+      "Utah Jazz"
+    ]
+  },
+  {
+    "name": "WAS",
+    "aliases": [
+      "WAS",
+      "WSH",
+      "Washington Wizards"
+    ]
+  }
+]

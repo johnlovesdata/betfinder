@@ -1,0 +1,53 @@
+tidyup_fanduel_data <- function(fanduel_data, sport, prop,
+                                key = get_key_path(sport = sport, prop = prop)) {
+
+  # make the output using the input
+  output_df <- fanduel_data
+
+  # for each prop, append whatever tidy fields we can, which should make thte data useful across datasets
+  if (prop %in% c('first team to score', 'ftts')) {
+
+    # generate tidy names and odds
+    output_df$tidyteam <- normalize_names(output_df$name, key = key)
+    ## need to parse the description to get the opponent
+    splitted <- strsplit(output_df$description, ' At ')
+    home <- sapply(splitted, '[[', 1)
+    away <- sapply(splitted, '[[', 2)
+    output_df$opponent <- ifelse(output_df$name == home, away, home)
+    output_df$tidyopponent <- normalize_names(output_df$opponent, key = key)
+    ## odds are actually in fractional across 2 fields
+    fractional_odds <- output_df$currentpriceup / output_df$currentpricedown
+    output_df$tidyamericanodds <- ifelse(fractional_odds < 1, -100 / fractional_odds,
+                                         fractional_odds * 100)
+    # since prop arg is flexible, set it here for output
+    output_df$prop <- 'first team to score'
+  }
+
+  if (prop %in% c('first player to score', 'fpts')) {
+
+    # TODO: MAKE AN ACTUAL LOOKUP FOR PLAYERS
+    # output_df$tidyplayer <- normalize_names(output_df$participant, key = key)
+    # in the meantime, make a hacky field that should be consistent-ish across platforms
+    output_df$tidyplayer <- hacky_tidyup_player_names(output_df$name)
+    # TODO: get player teams, hopefully in that same big-ass json of players? idk...
+    fractional_odds <- output_df$currentpriceup / output_df$currentpricedown
+    output_df$tidyamericanodds <- ifelse(fractional_odds < 1, -100 / fractional_odds,
+                                         fractional_odds * 100)
+    # since prop arg is flexible, set it here for output
+    output_df$prop <- 'first player to score'
+  }
+
+  # filter out the cols we don't need, i.e. not tidy ones
+  names_to_keep <- names(output_df)[grepl('tidy|prop', names(output_df))]
+  output_df <- output_df[, names(output_df) %in% names_to_keep]
+
+  # stamp it up
+  output_df$site <- 'fanduel'
+  output_df$sport <- sport
+  if (!'prop' %in% names(output_df)) {
+    output$prop <- prop
+  }
+
+  # deliver
+  return(output_df)
+}

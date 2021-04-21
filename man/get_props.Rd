@@ -14,7 +14,7 @@ get_props(site, sport, prop)
 \item{prop}{character name of prop, e.g. 'first team to score'}
 }
 \value{
-data.frame of props
+data.frame of props with tidy columns
 }
 \description{
 Get lines on prop bets for popular sports from popular betting sites
