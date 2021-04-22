@@ -9,14 +9,15 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
 
     # generate tidy names and odds
     output_df$tidyteam <- normalize_names(output_df$name, key = key)
-    ## need to infer opponent by using the groupByCode
-    splitted <- split.data.frame(output_df, output_df$groupByCode)
-    dfs_with_opps <- list()
-    for (group in splitted) {
-      group$tidyopponent <- rev(group$tidyteam)
-      dfs_with_opps[[length(dfs_with_opps) + 1]] <- group
-    }
-    output_df <- do.call(rbind, dfs_with_opps)
+    # TODO: gonna delete this section cuz we'll get opponent data elsewhere
+    # ## need to infer opponent by using the groupByCode
+    # splitted <- split.data.frame(output_df, output_df$groupByCode)
+    # dfs_with_opps <- list()
+    # for (group in splitted) {
+    #   group$tidyopponent <- rev(group$tidyteam)
+    #   dfs_with_opps[[length(dfs_with_opps) + 1]] <- group
+    # }
+    # output_df <- do.call(rbind, dfs_with_opps)
     ## odds are decimal
     output_df$tidyamericanodds <- ifelse(output_df$price - 1 < 1,
                                          -100 / (output_df$price - 1),

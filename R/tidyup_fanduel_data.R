@@ -9,12 +9,12 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
 
     # generate tidy names and odds
     output_df$tidyteam <- normalize_names(output_df$name, key = key)
-    ## need to parse the description to get the opponent
-    splitted <- strsplit(output_df$description, ' At ')
-    home <- sapply(splitted, '[[', 1)
-    away <- sapply(splitted, '[[', 2)
-    output_df$opponent <- ifelse(output_df$name == home, away, home)
-    output_df$tidyopponent <- normalize_names(output_df$opponent, key = key)
+    # ## need to parse the description to get the opponent
+    # splitted <- strsplit(output_df$description, ' At ')
+    # home <- sapply(splitted, '[[', 1)
+    # away <- sapply(splitted, '[[', 2)
+    # output_df$opponent <- ifelse(output_df$name == home, away, home)
+    # output_df$tidyopponent <- normalize_names(output_df$opponent, key = key)
     ## odds are actually in fractional across 2 fields
     fractional_odds <- output_df$currentpriceup / output_df$currentpricedown
     output_df$tidyamericanodds <- ifelse(fractional_odds < 1, -100 / fractional_odds,

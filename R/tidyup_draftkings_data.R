@@ -9,7 +9,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
 
     # generate tidy names and odds
     output_df$tidyteam <- normalize_names(output_df$team, key = key)
-    output_df$tidyopponent <- normalize_names(output_df$opponent, key = key)
+    # output_df$tidyopponent <- normalize_names(output_df$opponent, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$odds)
 
     # for flexible prop names, specify the value explicitly here

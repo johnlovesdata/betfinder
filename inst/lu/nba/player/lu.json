@@ -169,7 +169,7 @@
   },
   {
     "name": "Dennis Smith Jr.",
-    "aliases": ["dennissmith", "dennis smith jr.", "DENNIS SMITH JR."]
+    "aliases": ["dennissmith", "dennis smith jr.", "DENNIS SMITH JR.", "Dennis Smith", "DENNIS SMITH", "dennis smith"]
   },
   {
     "name": "Frank Ntilikina",
@@ -241,7 +241,7 @@
   },
   {
     "name": "Otto Porter Jr.",
-    "aliases": ["ottoporter", "otto porter jr.", "OTTO PORTER JR."]
+    "aliases": ["ottoporter", "otto porter jr.", "OTTO PORTER JR.", "Otto Porter", "OTTO PORTER", "otto porter"]
   },
   {
     "name": "Zach LaVine",
@@ -281,7 +281,7 @@
   },
   {
     "name": "Wendell Carter Jr.",
-    "aliases": ["wendellcarter", "wendell carter jr.", "WENDELL CARTER JR."]
+    "aliases": ["wendellcarter", "wendell carter jr.", "WENDELL CARTER JR.", "Wendell Carter", "WENDELL CARTER", "wendell carter"]
   },
   {
     "name": "Chandler Hutchison",
@@ -657,7 +657,7 @@
   },
   {
     "name": "Vernon Carey Jr.",
-    "aliases": ["vernoncarey", "vernon carey jr.", "VERNON CAREY JR."]
+    "aliases": ["vernoncarey", "vernon carey jr.", "VERNON CAREY JR.", "Vernon Carey", "VERNON CAREY", "vernon carey"]
   },
   {
     "name": "Malachi Flynn",
@@ -845,7 +845,7 @@
   },
   {
     "name": "Lonnie Walker IV",
-    "aliases": ["lonniewalkeriv", "lonnie walker iv", "LONNIE WALKER IV"]
+    "aliases": ["lonniewalkeriv", "lonnie walker iv", "LONNIE WALKER IV", "Lonnie Walker", "lonnie walker", "LONNIE WALKER"]
   },
   {
     "name": "Kenrich Williams",
@@ -1445,7 +1445,7 @@
   },
   {
     "name": "Troy Brown Jr.",
-    "aliases": ["troybrown", "troy brown jr.", "TROY BROWN JR."]
+    "aliases": ["troybrown", "troy brown jr.", "TROY BROWN JR.", "Troy Brown", "troy brown", "TROY BROWN"]
   },
   {
     "name": "Landry Shamet",
@@ -1737,7 +1737,7 @@
   },
   {
     "name": "Robert Williams III",
-    "aliases": ["robertwilliams", "robert williams iii", "ROBERT WILLIAMS III"]
+    "aliases": ["robertwilliams", "robert williams iii", "ROBERT WILLIAMS III", "Robert Williams", "ROBERT WILLIAMS", "robert williams"]
   },
   {
     "name": "Tacko Fall",
@@ -2109,7 +2109,7 @@
   },
   {
     "name": "James Ennis III",
-    "aliases": ["jamesennis", "james ennis iii", "JAMES ENNIS III"]
+    "aliases": ["jamesennis", "james ennis iii", "JAMES ENNIS III", "James Ennis", "JAMES ENNIS", "james ennis"]
   },
   {
     "name": "Deividas Sirvydis",
@@ -3270,5 +3270,9 @@
   {
     "name": "Luc Mbah a Moute",
     "aliases": ["lucmbahamoute", "luc mbah a moute", "LUC MBAH A MOUTE"]
+  },
+  {
+    "name": "Didi Louzada",
+    "aliases": ["didilouzada", "didi louzada", "DIDI LOUZADA"]
   }
 ]
