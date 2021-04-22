@@ -63,6 +63,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
                     'player pts alt', 'player pts ou', 'player pts tiers')) {
 
       # skip if no player points props available
+      prop <- gsub(' pts ', 'points ', prop)
       market_label <- 'Player Points'
       if (!market_label %in% unique(game_event_market_groups$name)) {
         next
@@ -74,7 +75,8 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       # get correct props
       prop_type <- ifelse(grepl('alt', prop), 'points alt',
                    ifelse(grepl('ou', prop), 'points ou',
-                   ifelse(grepl('tiers', prop), 'points tiers', NA_character_
+                   ifelse(grepl('tiers', prop), 'points tiers',
+                          NA_character_
                    )))
 
       # handle the different kinds of player points bets
@@ -126,6 +128,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
                     'player rebs alt', 'player rebs ou', 'player rebs tiers')) {
 
       # skip if no player rebounds props available
+      prop <- gsub(' rebs ', ' rebounds ', prop)
       market_label <- 'Player Rebounds'
       if (!market_label %in% unique(game_event_market_groups$name)) {
         next
@@ -136,8 +139,9 @@ parse_fanduel_data <- function(fanduel_data, prop) {
 
       # get correct props
       prop_type <- ifelse(grepl('alt$', prop), 'rebounds alt',
-                          ifelse(grepl('ou$', prop), 'rebounds ou',
-                                 ifelse(grepl('tiers$', prop), 'rebounds tiers', NA_character_
+                   ifelse(grepl('ou$', prop), 'rebounds ou',
+                   ifelse(grepl('tiers$', prop), 'rebounds tiers',
+                          NA_character_
                                  )))
 
       # handle the different kinds of player rebounds bets
@@ -189,6 +193,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
                     'player asts alt', 'player asts ou', 'player asts tiers')) {
 
       # skip if no player assists props available
+      prop <- gsub(' asts ', ' assists ', prop)
       market_label <- 'Player Assists'
       if (!market_label %in% unique(game_event_market_groups$name)) {
         next
@@ -199,8 +204,9 @@ parse_fanduel_data <- function(fanduel_data, prop) {
 
       # get correct props
       prop_type <- ifelse(grepl('alt$', prop), 'assists alt',
-                          ifelse(grepl('ou$', prop), 'assists ou',
-                                 ifelse(grepl('tiers$', prop), 'assists tiers', NA_character_
+                   ifelse(grepl('ou$', prop), 'assists ou',
+                   ifelse(grepl('tiers$', prop), 'assists tiers',
+                          NA_character_
                                  )))
 
       # handle the different kinds of player assists bets
