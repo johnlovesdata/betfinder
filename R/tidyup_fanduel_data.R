@@ -38,19 +38,55 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
     }
   }
 
-  if (grepl('points| pts', tolower(prop))) {
-    # the ou props still have over and under in them, so nuke those
-    if (grepl('ou', tolower(prop))) {
+  if (grepl('points|rebounds|assists| pts| rebs| asts', tolower(prop))) {
+    # handle special cases by prop type
+    ## alt lines can be over or under, but need to extract direction and line from names
+    if (grepl('alt$', tolower(prop))) {
+      ## set the over/under column values
+      output_df$tidyou <- ifelse(grepl('Over', output_df$name), 'over', 'under')
+      ## get the name AND line out of the name; split everything first to make this easier
+      split_string <- gsub(' Over | Under ', 'XX', output_df$name)
+      splitted <- strsplit(split_string, 'XX')
+      splitted_name <- sapply(splitted, '[[', 1)
+      splitted_name <- hacky_tidyup_player_names(splitted_name)
+      splitted_line <- sapply(splitted, '[[', 2)
+
+      output_df$tidyplayer <- normalize_names(splitted_name, key = key)
+      output_df$tidyline <- as.numeric(splitted_line)
+    }
+    if (grepl('ou$', tolower(prop))) {
+      ## set the over/under column values
+      output_df$tidyou <- ifelse(grepl('Over', output_df$name), 'over', 'under')
+      ## the ou player names still have over and under in them, so nuke those
       output_df$name <- gsub(' Over| Under', '', output_df$name)
     }
-    # this looks like other player props but the name is going to be whatever the site calls it, for now
-    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$name)
-    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
-    # get the actual of points
-    output_df$tidyline <- output_df$currenthandicap
+
+    ## tiers are always overs, but the lines are in the prop_details, not the handicap
+    if (grepl('tiers', tolower(prop))) {
+      output_df$tidyou <- 'over'
+      output_df$tidyline <- as.numeric(gsub('[A-Za-z| |+]', '', output_df$prop_details))
+      output_df$prop_details <- NULL
+    }
+
+    # convert the odds
     fractional_odds <- output_df$currentpriceup / output_df$currentpricedown
     output_df$tidyamericanodds <- ifelse(fractional_odds < 1, -100 / fractional_odds,
                                          fractional_odds * 100)
+
+    # handle any tidy values that weren't already handled
+    ## if tidyplayer isn't set, set it
+    if (!'tidyplayer' %in% names(output_df)) {
+      hacky_tidyplayer <- hacky_tidyup_player_names(output_df$name)
+      output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    }
+    ## if tidyline isn't set, set it
+    if (!'tidyline' %in% names(output_df)) {
+      output_df$tidyline <- output_df$currenthandicap
+    }
+    ## if the ou column doesn't exist, make it exist but NA_character
+    if (!'tidyou' %in% names(output_df)) {
+      output_df$tidyou <- NA_character_
+    }
   }
 
   # filter out the cols we don't need, i.e. not tidy ones
