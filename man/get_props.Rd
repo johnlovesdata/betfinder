@@ -4,17 +4,19 @@
 \alias{get_props}
 \title{Get lines on prop bets for popular sports from popular betting sites}
 \usage{
-get_props(site, sport, prop)
+get_props(site, sport, prop, save_path = NULL)
 }
 \arguments{
-\item{site}{character book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'}
+\item{site}{\code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'}
 
-\item{sport}{character sport, e.g. 'nba'}
+\item{sport}{\code{character} sport, e.g. 'nba'}
 
-\item{prop}{character name of prop, e.g. 'first team to score'; see details for available props}
+\item{prop}{\code{character} name of prop, e.g. 'first team to score'; see details for available props}
+
+\item{save_path}{\code{character} path to save jsons, if not \code{NULL}}
 }
 \value{
-data.frame of props with tidy columns
+\code{data.frame} tidy props with tidy columns
 }
 \description{
 Get lines on prop bets for popular sports from popular betting sites

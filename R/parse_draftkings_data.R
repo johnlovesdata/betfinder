@@ -5,7 +5,6 @@ parse_draftkings_data <- function(draftkings_data, prop) {
   offer_categories <- draftkings_data$eventGroup$offerCategories
 
   if (prop %in% c('first team to score', 'ftts')) {
-
     # if there are no game props, error
     if (!('Game Props' %in% offer_categories$name)) {
       stop('no Game Props available')
@@ -58,6 +57,81 @@ parse_draftkings_data <- function(draftkings_data, prop) {
     for (i in 1:length(ffg)) {
       outcomes <- ffg[[i]]$outcomes[[1]]
       output_list[[i]] <- outcomes
+    }
+  }
+
+  if (prop %in% c('player points ou', 'player pts ou')) {
+
+    # error if no player props
+    if (!'Player Props' %in% offer_categories$name) {
+      stop('no Player Props available')
+    } else {
+      player_props <-
+        offer_categories[offer_categories$name == 'Player Props',]$offerSubcategoryDescriptors[[1]]$offerSubcategory
+    }
+
+    # error if no Points props
+    if (!'Points' %in% player_props$name) {
+      stop('no Points props available')
+    } else {
+      pp <-
+        player_props$offers[player_props$name == 'Points'][[1]]
+    }
+    # all of the player props are in these outcomes objects, so grab em all
+    output_list <- list()
+    for (p in seq_along(pp)) {
+      outcomes <- pp[[p]]$outcomes
+      output_list[[length(output_list) + 1]] <- do.call(rbind, outcomes)
+    }
+  }
+
+  if (prop %in% c('player rebounds ou', 'player rebs ou')) {
+
+    # error if no player props
+    if (!'Player Props' %in% offer_categories$name) {
+      stop('no Player Props available')
+    } else {
+      player_props <-
+        offer_categories[offer_categories$name == 'Player Props',]$offerSubcategoryDescriptors[[1]]$offerSubcategory
+    }
+
+    # error if no Rebounds props
+    if (!'Rebounds' %in% player_props$name) {
+      stop('no Rebounds props available')
+    } else {
+      pp <-
+        player_props$offers[player_props$name == 'Rebounds'][[1]]
+    }
+    # all of the player props are in these outcomes objects, so grab em all
+    output_list <- list()
+    for (p in seq_along(pp)) {
+      outcomes <- pp[[p]]$outcomes
+      output_list[[length(output_list) + 1]] <- do.call(rbind, outcomes)
+    }
+  }
+
+  if (prop %in% c('player assists ou', 'player asts ou')) {
+
+    # error if no player props
+    if (!'Player Props' %in% offer_categories$name) {
+      stop('no Player Props available')
+    } else {
+      player_props <-
+        offer_categories[offer_categories$name == 'Player Props',]$offerSubcategoryDescriptors[[1]]$offerSubcategory
+    }
+
+    # error if no Assists props
+    if (!'Assists' %in% player_props$name) {
+      stop('no Assists props available')
+    } else {
+      pp <-
+        player_props$offers[player_props$name == 'Assists'][[1]]
+    }
+    # all of the player props are in these outcomes objects, so grab em all
+    output_list <- list()
+    for (p in seq_along(pp)) {
+      outcomes <- pp[[p]]$outcomes
+      output_list[[length(output_list) + 1]] <- do.call(rbind, outcomes)
     }
   }
 

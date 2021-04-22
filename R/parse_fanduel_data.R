@@ -60,9 +60,10 @@ parse_fanduel_data <- function(fanduel_data, prop) {
     }
 
     if (prop %in% c('player points alt', 'player points ou', 'player points tiers',
-                    'player pts alt', 'player pts ou', 'player points tiers')) {
+                    'player pts alt', 'player pts ou', 'player pts tiers')) {
 
       # skip if no player points props available
+      prop <- gsub(' pts ', 'points ', prop)
       market_label <- 'Player Points'
       if (!market_label %in% unique(game_event_market_groups$name)) {
         next
@@ -72,23 +73,24 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
 
       # get correct props
-      prop_type <- ifelse(grepl('alt', prop), 'alt',
-                   ifelse(grepl('ou', prop), 'ou',
-                   ifelse(grepl('tiers', prop), 'tiers', NA_character_
+      prop_type <- ifelse(grepl('alt', prop), 'points alt',
+                   ifelse(grepl('ou', prop), 'points ou',
+                   ifelse(grepl('tiers', prop), 'points tiers',
+                          NA_character_
                    )))
 
       # handle the different kinds of player points bets
-      if (prop_type == 'alt') {
+      if (prop_type == 'points alt') {
 
-        # if there aren't any alt props yet, move on
-        if (length(player_points$name[grepl('alt', player_points$name)]) < 1) {
+        if (length(player_points$name[grepl('Alt', player_points$name)]) < 1) {
           next
           } else {
-          points_df <- data.frame()
+          alt_props <- player_points[grepl('Alt', player_points$name), ]
+          points_df <- do.call(rbind, alt_props$selections)
           }
         }
 
-      if (prop_type == 'ou') {
+      if (prop_type == 'points ou') {
           if (length(player_points$name[grepl('- Points', player_points$name)]) < 1) {
             next
           } else {
@@ -97,7 +99,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
           }
       }
 
-      if (prop_type == 'tiers') {
+      if (prop_type == 'points tiers') {
         if (length(player_points$name[grepl('To Score', player_points$name)]) < 1) {
           next
         } else {
@@ -110,19 +112,148 @@ parse_fanduel_data <- function(fanduel_data, prop) {
           if (nrow(selections) < 1) {
             next
           }  else {
-            selections$prop <- thresh_props$name[[n]]
+            selections$prop_details <- thresh_props$name[[n]]
             points_list[[length(points_list) + 1]] <- selections
           }
         }
         points_df <- do.call(rbind, points_list)
-        points_df$prop_type <- prop_type
       }
 
       # extract the description, which has the matchup, and stash in the output_list
       points_df$description <- game_event$externaldescription
-      points_df$prop_type <- prop_type
       output_list[[length(output_list) + 1]] <- points_df
     }
+
+    if (prop %in% c('player rebounds alt', 'player rebounds ou', 'player rebounds tiers',
+                    'player rebs alt', 'player rebs ou', 'player rebs tiers')) {
+
+      # skip if no player rebounds props available
+      prop <- gsub(' rebs ', ' rebounds ', prop)
+      market_label <- 'Player Rebounds'
+      if (!market_label %in% unique(game_event_market_groups$name)) {
+        next
+      } else {
+        player_rebounds <-
+          game_event_market_groups$markets[game_event_market_groups$name == market_label][[1]]
+      }
+
+      # get correct props
+      prop_type <- ifelse(grepl('alt$', prop), 'rebounds alt',
+                   ifelse(grepl('ou$', prop), 'rebounds ou',
+                   ifelse(grepl('tiers$', prop), 'rebounds tiers',
+                          NA_character_
+                                 )))
+
+      # handle the different kinds of player rebounds bets
+      if (prop_type == 'rebounds alt') {
+
+        if (length(player_rebounds$name[grepl('Alt', player_rebounds$name)]) < 1) {
+          next
+        } else {
+          alt_props <- player_rebounds[grepl('Alt', player_rebounds$name), ]
+          rebounds_df <- do.call(rbind, alt_props$selections)
+        }
+      }
+
+      if (prop_type == 'rebounds ou') {
+        if (length(player_rebounds$name[grepl('- Rebounds', player_rebounds$name)]) < 1) {
+          next
+        } else {
+          ou_props <- player_rebounds[grepl('- Rebounds', player_rebounds$name), ]
+          rebounds_df <- do.call(rbind, ou_props$selections)
+        }
+      }
+
+      if (prop_type == 'rebounds tiers') {
+        if (length(player_rebounds$name[grepl('^To Record*.*Rebounds$', player_rebounds$name)]) < 1) {
+          next
+        } else {
+          thresh_props <- player_rebounds[grepl('^To Record*.*Rebounds$', player_rebounds$name), ]
+        }
+        # gotta label the rebounds values somehow, which is to use the name of the field, requiring a loop i think
+        rebounds_list <- list()
+        for (n  in 1:nrow(thresh_props)) {
+          selections <- thresh_props$selections[[n]]
+          if (nrow(selections) < 1) {
+            next
+          }  else {
+            selections$prop_details <- thresh_props$name[[n]]
+            rebounds_list[[length(rebounds_list) + 1]] <- selections
+          }
+        }
+        rebounds_df <- do.call(rbind, rebounds_list)
+      }
+
+      # extract the description, which has the matchup, and stash in the output_list
+      rebounds_df$description <- game_event$externaldescription
+      output_list[[length(output_list) + 1]] <- rebounds_df
+    }
+
+    if (prop %in% c('player assists alt', 'player assists ou', 'player assists tiers',
+                    'player asts alt', 'player asts ou', 'player asts tiers')) {
+
+      # skip if no player assists props available
+      prop <- gsub(' asts ', ' assists ', prop)
+      market_label <- 'Player Assists'
+      if (!market_label %in% unique(game_event_market_groups$name)) {
+        next
+      } else {
+        player_assists <-
+          game_event_market_groups$markets[game_event_market_groups$name == market_label][[1]]
+      }
+
+      # get correct props
+      prop_type <- ifelse(grepl('alt$', prop), 'assists alt',
+                   ifelse(grepl('ou$', prop), 'assists ou',
+                   ifelse(grepl('tiers$', prop), 'assists tiers',
+                          NA_character_
+                                 )))
+
+      # handle the different kinds of player assists bets
+      if (prop_type == 'assists alt') {
+
+        if (length(player_assists$name[grepl('Alt', player_assists$name)]) < 1) {
+          next
+        } else {
+          alt_props <- player_assists[grepl('Alt', player_assists$name), ]
+          assists_df <- do.call(rbind, alt_props$selections)
+        }
+      }
+
+      if (prop_type == 'assists ou') {
+        if (length(player_assists$name[grepl('- Assists', player_assists$name)]) < 1) {
+          next
+        } else {
+          ou_props <- player_assists[grepl('- Assists', player_assists$name), ]
+          assists_df <- do.call(rbind, ou_props$selections)
+        }
+      }
+
+      if (prop_type == 'assists tiers') {
+        if (length(player_assists$name[grepl('^To Record*.*Assists$', player_assists$name)]) < 1) {
+          next
+        } else {
+          thresh_props <- player_assists[grepl('^To Record*.*Assists$', player_assists$name), ]
+        }
+        # gotta label the assists values somehow, which is to use the name of the field, requiring a loop i think
+        assists_list <- list()
+        for (n  in 1:nrow(thresh_props)) {
+          selections <- thresh_props$selections[[n]]
+          if (nrow(selections) < 1) {
+            next
+          }  else {
+            selections$prop_details <- thresh_props$name[[n]]
+            assists_list[[length(assists_list) + 1]] <- selections
+          }
+        }
+        assists_df <- do.call(rbind, assists_list)
+      }
+
+      # extract the description, which has the matchup, and stash in the output_list
+      assists_df$description <- game_event$externaldescription
+      output_list[[length(output_list) + 1]] <- assists_df
+    }
+
   }
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) {

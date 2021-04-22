@@ -23,13 +23,31 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     # get a tidy player name, using the hacky name and then matching to the key
     hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
-    # TODO:should we add teams here? if so, should we
+    # convert odds
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
 
     # for flexible props, specify the value explicitly here
     if (prop == 'fpts') {
       output_df$prop <- 'first player to score'
     }
+  }
+
+  if (grepl('points|rebounds|assists| pts| rebs| asts', tolower(prop))) {
+
+    # get names
+    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)
+    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    # get tidy ou from label
+    output_df$tidyou <- ifelse(grepl('Over', output_df$label), 'over',
+                        ifelse(grepl('Under', output_df$label), 'under',
+                               NA_character_
+                               ))
+    # get tidy line from the label
+    num_part <- as.numeric(gsub('[A-Za-z| ]', '', output_df$label))
+    output_df$tidyline <- num_part
+    # get the tidy odds
+    output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
+
   }
 
   # filter out the cols we don't need, i.e. not tidy ones
@@ -40,7 +58,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
   output_df$site <- 'draftkings'
   output_df$sport <- sport
   if (!'prop' %in% names(output_df)) {
-    output$prop <- prop
+    output_df$prop <- prop
   }
 
   # deliver
