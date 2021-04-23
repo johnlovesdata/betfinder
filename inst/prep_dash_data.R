@@ -32,6 +32,9 @@ pb_points_tiers <- try(get_props('pb', 'nba', 'player points tiers'))
 pb_rebounds_tiers <- try(get_props('pb', 'nba', 'player rebounds tiers'))
 pb_assists_tiers <- try(get_props('pb', 'nba', 'player assists tiers'))
 
+# purge the try-errors
+test = Filter( function(x) 'try-error' %in% class( get(x) ), ls() )
+
 # get the latest schedule and lineup info, and tidy it up
 schedule <-
   read.csv(
