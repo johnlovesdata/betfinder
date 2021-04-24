@@ -181,7 +181,7 @@
   },
   {
     "name": "Svi Mykhailiuk",
-    "aliases": ["svimykhailiuk", "svi mykhailiuk", "SVI MYKHAILIUK"]
+    "aliases": ["svimykhailiuk", "svi mykhailiuk", "SVI MYKHAILIUK", "Sviatoslav Mykhailiuk", "sviatoslav mykhailiuk", "sviatoslavmykhailiuk"]
   },
   {
     "name": "Mitchell Robinson",
@@ -265,7 +265,7 @@
   },
   {
     "name": "Danuel House Jr.",
-    "aliases": ["danuelhouse", "danuel house jr.", "DANUEL HOUSE JR."]
+    "aliases": ["danuelhouse", "danuel house jr.", "DANUEL HOUSE JR.", "Danuel House", "danuel house", "DANUEL HOUSE"]
   },
   {
     "name": "David Nwaba",
@@ -497,7 +497,7 @@
   },
   {
     "name": "Derrick Jones Jr.",
-    "aliases": ["derrickjones", "derrick jones jr.", "DERRICK JONES JR."]
+    "aliases": ["derrickjones", "derrick jones jr.", "DERRICK JONES JR.", "Derrick Jones", "derrick jones", "DERRICK JONES"]
   },
   {
     "name": "De'Aaron Fox",
@@ -1185,7 +1185,7 @@
   },
   {
     "name": "Kelly Oubre Jr.",
-    "aliases": ["kellyoubre", "kelly oubre jr.", "KELLY OUBRE JR."]
+    "aliases": ["kellyoubre", "kelly oubre jr.", "KELLY OUBRE JR.", "Kelly Oubre", "kelly oubre", "KELLY OUBRE"]
   },
   {
     "name": "Kevon Looney",
@@ -1229,7 +1229,7 @@
   },
   {
     "name": "Michael Porter Jr.",
-    "aliases": ["michaelporter", "michael porter jr.", "MICHAEL PORTER JR."]
+    "aliases": ["michaelporter", "michael porter jr.", "MICHAEL PORTER JR.", "Michael Porter", "michael porter", "MICHAEL PORTER"]
   },
   {
     "name": "Juan Toscano-Anderson",
@@ -2049,7 +2049,7 @@
   },
   {
     "name": "Kevin Porter Jr.",
-    "aliases": ["kevinporter", "kevin porter jr.", "KEVIN PORTER JR."]
+    "aliases": ["kevinporter", "kevin porter jr.", "KEVIN PORTER JR.", "Kevin Porter", "kevin porter", "kevinporterjr"]
   },
   {
     "name": "Ty Jerome",
@@ -3274,5 +3274,17 @@
   {
     "name": "Didi Louzada",
     "aliases": ["didilouzada", "didi louzada", "DIDI LOUZADA"]
+  },
+  {
+    "name": "Mike James",
+    "aliases": ["mikejames", "mike james", "MIKE JAMES"]
+  },
+  {
+    "name": "Jay Scrubb",
+    "aliases": ["jayscrubb", "jay scrubb", "JAY SCRUBB"]
+  },
+  {
+    "name": "Gabriel Deck",
+    "aliases": ["gabrieldeck", "gabriel deck", "GABRIEL DECK"]
   }
 ]
