@@ -102,6 +102,7 @@ stacked <- bind_rows(df_list) %>%
 #   vals[[length(vals) + 1]] <- paste0(sort(names(sel_row)[grepl(best, sel_row)]), collapse = ', ')
 # }
 # stacked$best_books <- vals
+
 # save dash output
 saveRDS(stacked, 'inst/dash_data.rds')
 

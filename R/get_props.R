@@ -22,13 +22,13 @@ get_props <- function(site, sport, prop, save_path = NULL) {
   }
 
   if (site %in% c('fd', 'fanduel')) {
-    fd_raw <- get_fanduel_data(sport = sport, sleep_time = .1, save_path = save_path)
+    fd_raw <- get_fanduel_data(sport = sport, sleep_time = .01, save_path = save_path)
     fd_parsed <- parse_fanduel_data(fd_raw, prop = prop)
     output_df <- tidyup_fanduel_data(fd_parsed, sport = sport, prop = prop)
   }
 
   if (site %in% c('pb', 'pointsbet')) {
-    pb_raw <- get_pointsbet_data(sport = sport, sleep_time = .1, save_path = save_path)
+    pb_raw <- get_pointsbet_data(sport = sport, sleep_time = .01, save_path = save_path)
     pb_parsed <- parse_pointsbet_data(pb_raw, prop = prop)
     output_df <- tidyup_pointsbet_data(pb_parsed, sport = sport, prop = prop)
   }

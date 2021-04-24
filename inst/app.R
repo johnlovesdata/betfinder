@@ -129,13 +129,25 @@ server <- function(input, output) {
         count_books = colDef(show = FALSE),
         draftkings = colDef(name = "Draftkings",
                             sortNALast = TRUE,
-                            format = colFormat(digits = 0)),
+                            format = colFormat(digits = 0),
+                            style = function(value, index) {
+                              if (!is.na(value) & value == table_data()$best_odds[[index]]) list(background = "green", color = "white")
+                              else list(background = "white")
+                            }),
         fanduel = colDef(name = "Fanduel",
                          sortNALast = TRUE,
-                         format = colFormat(digits = 0)),
+                         format = colFormat(digits = 0),
+                         style = function(value, index) {
+                           if (!is.na(value) & value == table_data()$best_odds[[index]]) list(background = "green", color = "white")
+                           else list(background = "white")
+                         }),
         pointsbet = colDef(name = "PointsBet",
                            sortNALast = TRUE,
-                           format = colFormat(digits = 0)),
+                           format = colFormat(digits = 0),
+                           style = function(value, index) {
+                             if (!is.na(value) & value == table_data()$best_odds[[index]]) list(background = "green", color = "white")
+                             else list(background = "white")
+                           }),
         mean_odds = colDef(name = "AvgOdds",
                            sortNALast = TRUE,
                            format = colFormat(digits = 1)),
