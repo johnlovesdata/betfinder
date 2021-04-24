@@ -35,11 +35,11 @@ pb_assists_tiers <- try(get_props('pb', 'nba', 'player assists tiers'))
 # purge the try-errors
 try_errors <- Filter(function(x) 'try-error' %in% class(get(x)), ls())
 rm(list = try_errors)
-# get the latest schedule and lineup info, and tidy it up
-schedule <-
-  read.csv(
-    'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_lineups/rotowire.csv'
-  ) %>%
+
+# get the rosters for team info (for filtering at the very least)
+rosters <- read.csv(
+  '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_rosters/current.csv.gz'
+) %>%
   transmute(
     tidyplayer = normalize_names(
       PLAYER_NAME,
@@ -48,31 +48,18 @@ schedule <-
     tidyteam = normalize_names(
       TEAM_ABBREVIATION,
       key = system.file('lu', 'nba', 'team', 'lu.json', package = 'betfinder')
-    ),
-    home_away = HOME_AWAY,
-    matchup = MATCHUP,
-    starter = LINEUP_DESC,
-    active = TO_PLAY_DESC
-  ) %>%
-  group_by(tidyplayer, tidyteam, home_away, matchup) %>%
-  summarise(starter = if_else(all(starter == ''), '', 'expected'),
-            active = first(active)) %>%
-  ungroup()
+    ))
 
 # make a list of data.frames for each main metric
 df_list <- list()
 for (metric in c('points', 'rebounds', 'assists', 'fpts', 'ftts')) {
-  df_long <- do.call(rbind, lapply(ls(pattern = metric), get))
-
-  if (metric == 'ftts') {
-    schedule_to_join <- schedule %>%
-      select(tidyteam, home_away, matchup) %>%
-      distinct()
-  } else {
-    schedule_to_join <- schedule
+  if (length(ls(pattern = metric)) == 0) {
+    next
   }
 
-  df_long <- merge(df_long, schedule_to_join, all.x = TRUE)
+  df_long <- do.call(rbind, lapply(ls(pattern = metric), get))
+
+  df_long <- merge(df_long, rosters, all.x = TRUE)
   if (!'tidyline' %in% names(df_long)) {
     df_long$tidyline <- NA
   }
@@ -97,11 +84,25 @@ for (metric in c('points', 'rebounds', 'assists', 'fpts', 'ftts')) {
 
 # combine the list elements, and tidy up for dash output
 stacked <- bind_rows(df_list) %>%
-  mutate(tidyou = if_else(is.na(tidyou), 'N/A', tidyou)) %>%
+  mutate(tidyou = if_else(is.na(tidyou), 'N/A', tidyou),
+         pointsbet = round(pointsbet)) %>%
   rowwise() %>%
-  mutate(count_odds = sum(!is.na(c(draftkings, fanduel, pointsbet))),
-         mean_odds = mean(c(draftkings, fanduel, pointsbet), na.rm = TRUE))
+  mutate(count_books = sum(!is.na(c(draftkings, fanduel, pointsbet))),
+         mean_odds = mean(c(draftkings, fanduel, pointsbet), na.rm = TRUE),
+         best_odds = min(c(draftkings, fanduel, pointsbet), na.rm = TRUE))
 
+
+# find the best books for each bet
+# vals <- list()
+# for (i in 1:nrow(stacked)) {
+#   sel_row <- stacked[i, ]
+#   best <- sel_row$best_odds
+#   sel_row$mean_odds <- NULL
+#   sel_row$best_odds <- NULL
+#   vals[[length(vals) + 1]] <- paste0(sort(names(sel_row)[grepl(best, sel_row)]), collapse = ', ')
+# }
+# stacked$best_books <- vals
+# save dash output
 saveRDS(stacked, 'inst/dash_data.rds')
 
 t2 <- Sys.time()

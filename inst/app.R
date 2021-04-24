@@ -10,17 +10,18 @@ library(reactable)
 # load data
 dash_data <- readRDS("dash_data.rds")
 
-# make a function
-fmt_plus <- function(value, digits) {
-    if (value >= 0) {
-      paste0("+", round(value, digits))
-    } else
-      if (value < 0) {
-        paste0(round(value, digits))
-      } else {
-        paste0('')
-      }
-}
+# make a function to make plus signs in formatted text
+# TODO: FIGURE OUT WHY THIS DOESN'T WORK AS EXPECTED
+# fmt_plus <- function(value, digits) {
+#     if (value >= 0) {
+#       paste0("+", round(value, digits))
+#     } else
+#       if (value < 0) {
+#         paste0(round(value, digits))
+#       } else {
+#         paste0('')
+#       }
+# }
 
 
 # ui ----------------------------------------------------------------------
@@ -29,13 +30,13 @@ ui <- fluidPage(
   br(),
   fluidRow(
     # select a bunch of stuff
-    column(width = 3,
+    column(width = 2,
            pickerInput('sport', 'Sport',
                        choices = sort(unique(dash_data$sport)),
                        selected = sort(unique(dash_data$sport)),
                        multiple = TRUE))),
   fluidRow(
-    column(width = 3,
+    column(width = 2,
            pickerInput('player', 'Player',
                        options = list(`actions-box` = TRUE,
                                       `live-search` = TRUE),
@@ -49,7 +50,7 @@ ui <- fluidPage(
                        choices = sort(unique(dash_data$tidyteam)),
                        selected = sort(unique(dash_data$tidyteam)),
                        multiple = TRUE)),
-    column(width = 3,
+    column(width = 2,
            pickerInput('prop', 'Prop',
                        options = list(`actions-box` = TRUE,
                                       `live-search` = TRUE),
@@ -62,9 +63,13 @@ ui <- fluidPage(
                                       `live-search` = TRUE),
                        choices = c('over', 'under', 'N/A'),
                        selected = c('over', 'under', 'N/A'),
-                       multiple = TRUE))),
+                       multiple = TRUE)),
+    column(width = 2,
+           pickerInput('count_books', 'Minimum Books',
+                       choices = sort(unique(dash_data$count_books)),
+                       selected = 1))),
   fluidRow(
-    column(width = 10,
+    column(width = 12,
            reactableOutput('prop_table'))
   ))
 
@@ -80,7 +85,8 @@ server <- function(input, output) {
              if_else(is.na(tidyplayer), TRUE, tidyplayer %in% input$player),
              prop %in% input$prop,
              tidyteam %in% input$team,
-             tidyou %in% input$ou) %>%
+             tidyou %in% input$ou,
+             count_books >= input$count_books) %>%
       select(
         sport,
         tidyplayer,
@@ -88,11 +94,12 @@ server <- function(input, output) {
         prop,
         tidyou,
         tidyline,
-        count_odds,
+        count_books,
         draftkings,
         fanduel,
         pointsbet,
-        mean_odds
+        mean_odds,
+        best_odds
       )
 
     })
@@ -119,7 +126,7 @@ server <- function(input, output) {
                           format = colFormat(digits = 1),
                           sortNALast = TRUE,
                           minWidth = 50),
-        count_odds = colDef(show = FALSE),
+        count_books = colDef(show = FALSE),
         draftkings = colDef(name = "Draftkings",
                             sortNALast = TRUE,
                             format = colFormat(digits = 0)),
@@ -131,7 +138,8 @@ server <- function(input, output) {
                            format = colFormat(digits = 0)),
         mean_odds = colDef(name = "AvgOdds",
                            sortNALast = TRUE,
-                           format = colFormat(digits = 1))),
+                           format = colFormat(digits = 1)),
+        best_odds = colDef(show = FALSE)),
       columnGroups = list(
         colGroup(name = "Odds", columns = c("draftkings", "fanduel", "pointsbet", "mean_odds"))
       ))
