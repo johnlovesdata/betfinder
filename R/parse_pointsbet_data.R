@@ -140,6 +140,40 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
 
     }
 
+    if (prop %in% c('player three-pointers alt', 'player three-pointers ou', 'player three-pointers tiers',
+                    'player 3pts alt', 'player 3pts ou', 'player 3pts tiers')) {
+
+      # skip if no 3 pointer props
+      if (!'Player Three Pointer Wagers' %in% fixed_odds_markets$groupName) {
+        next
+      } else {
+        threes_markets <-
+          fixed_odds_markets[fixed_odds_markets$groupName == 'Player Three Pointer Wagers', ]
+      }
+
+      # skip if no player assists props available
+      prop <- gsub(' 3pts ', 'three-pointers ', prop)
+
+      # get correct props
+      prop_type <- ifelse(grepl('alt$', prop), 'three-pointers alt',
+                          ifelse(grepl('ou$', prop), 'three-pointers ou',
+                                 ifelse(grepl('tiers$', prop), 'three-pointers tiers',
+                                        NA_character_
+                                 )))
+
+      # handle the different kinds of player assists bets
+      if (prop_type == 'three-pointers ou') {
+        ous <- threes_markets[grepl('Threes Over/Under', threes_markets$eventName), ]
+        output_list[[length(output_list) + 1]] <- do.call(rbind, ous$outcomes)
+      }
+
+      if (prop_type == 'three-pointers tiers') {
+        tiers <- threes_markets[grepl('Pick', threes_markets$eventName), ]
+        output_list[[length(output_list) + 1]] <- do.call(rbind, tiers$outcomes)
+      }
+
+    }
+
   }
 
   # if output_list is empty, error, else return as a data.frame

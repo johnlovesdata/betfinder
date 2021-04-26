@@ -254,6 +254,76 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       output_list[[length(output_list) + 1]] <- assists_df
     }
 
+    if (prop %in% c('player three-pointers alt', 'player three-pointers ou', 'player three-pointers tiers',
+                    'player 3pts alt', 'player 3pts ou', 'player 3pts tiers')) {
+
+      # skip if no player threes props available
+      prop <- gsub(' 3pts ', ' three-pointers ', prop)
+      market_label <- 'Player Threes'
+      if (!market_label %in% unique(game_event_market_groups$name)) {
+        next
+      } else {
+        player_threes <-
+          game_event_market_groups$markets[game_event_market_groups$name == market_label][[1]]
+      }
+
+      # get correct props
+      prop_type <- ifelse(grepl('alt$', prop), 'three-pointers alt',
+                          ifelse(grepl('ou$', prop), 'three-pointers ou',
+                                 ifelse(grepl('tiers$', prop), 'three-pointers tiers',
+                                        NA_character_
+                                 )))
+
+      # handle the different kinds of player threes bets
+      if (prop_type == 'three-pointers alt') {
+
+        if (length(player_threes$name[grepl('Alt', player_threes$name)]) < 1) {
+          next
+        } else {
+          alt_props <- player_threes[grepl('Alt', player_threes$name), ]
+          if (nrow(alt_props) < 1) {
+            next
+          } else {
+            threes_df <- do.call(rbind, alt_props$selections)
+          }
+
+        }
+      }
+
+      if (prop_type == 'three-pointers ou') {
+        if (length(player_threes$name[grepl('- Made Threes', player_threes$name)]) < 1) {
+          next
+        } else {
+          ou_props <- player_threes[grepl('- Made Threes', player_threes$name), ]
+          threes_df <- do.call(rbind, ou_props$selections)
+        }
+      }
+
+      if (prop_type == 'three-pointers tiers') {
+        if (length(player_threes$name[grepl('\\+ Made Threes', player_threes$name)]) < 1) {
+          next
+        } else {
+          thresh_props <- player_threes[grepl('\\+ Made Threes', player_threes$name), ]
+        }
+        # gotta label the threes values somehow, which is to use the name of the field, requiring a loop i think
+        threes_list <- list()
+        for (n  in 1:nrow(thresh_props)) {
+          selections <- thresh_props$selections[[n]]
+          if (nrow(selections) < 1) {
+            next
+          }  else {
+            selections$prop_details <- thresh_props$name[[n]]
+            threes_list[[length(threes_list) + 1]] <- selections
+          }
+        }
+        threes_df <- do.call(rbind, threes_list)
+      }
+
+      # extract the description, which has the matchup, and stash in the output_list
+      threes_df$description <- game_event$externaldescription
+      output_list[[length(output_list) + 1]] <- threes_df
+    }
+
   }
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) {

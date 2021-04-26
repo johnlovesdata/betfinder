@@ -38,7 +38,7 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
       }
   }
 
-  if (grepl('points|rebounds|assists| pts| rebs| asts', tolower(prop))) {
+  if (grepl('points|rebounds|assists|three| 3pts| pts| rebs| asts', tolower(prop))) {
     # handle special cases by prop type
     ## alt lines can be over or under, but need to extract direction and line from names
     if (grepl('alt$', tolower(prop))) {
@@ -71,16 +71,18 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
     }
     ## tiers are always overs, but the lines are in the prop_details, not the handicap
     if (grepl('tiers', tolower(prop))) {
+
       output_df$tidyou <- 'over'
       ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' To Get ', 'XX', output_df$name)
+      split_string <- gsub(' To Make | To Get ', 'XX', output_df$name)
       splitted <- strsplit(split_string, 'XX')
       splitted_name <- sapply(splitted, '[[', 1)
       splitted_name <- hacky_tidyup_player_names(splitted_name)
       splitted_line <- sapply(splitted, '[[', 2)
 
       output_df$tidyplayer <- normalize_names(splitted_name, key = key)
-      output_df$tidyline <- as.numeric(gsub('[^0-9]', '', splitted_line))
+      # as kyle pointed out, tiers are "score at least lines" so need to cut half a point from them
+      output_df$tidyline <- as.numeric(gsub('[^0-9]', '', splitted_line)) - .5
     }
 
     # set the odds

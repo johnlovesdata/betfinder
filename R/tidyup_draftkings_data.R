@@ -9,7 +9,6 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
 
     # generate tidy names and odds
     output_df$tidyteam <- normalize_names(output_df$team, key = key)
-    # output_df$tidyopponent <- normalize_names(output_df$opponent, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$odds)
 
     # for flexible prop names, specify the value explicitly here
@@ -32,7 +31,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     }
   }
 
-  if (grepl('points|rebounds|assists| pts| rebs| asts', tolower(prop))) {
+  if (grepl('points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts', tolower(prop))) {
 
     # get names
     hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)

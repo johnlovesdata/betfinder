@@ -81,7 +81,11 @@ parse_draftkings_data <- function(draftkings_data, prop) {
     output_list <- list()
     for (p in seq_along(pp)) {
       outcomes <- pp[[p]]$outcomes
-      output_list[[length(output_list) + 1]] <- do.call(rbind, outcomes)
+      binded_outcomes <- do.call(rbind, outcomes)
+      if (!'participant' %in% names(binded_outcomes)) {
+        next
+      }
+      output_list[[length(output_list) + 1]] <- binded_outcomes
     }
   }
 
@@ -126,6 +130,31 @@ parse_draftkings_data <- function(draftkings_data, prop) {
     } else {
       pp <-
         player_props$offers[player_props$name == 'Assists'][[1]]
+    }
+    # all of the player props are in these outcomes objects, so grab em all
+    output_list <- list()
+    for (p in seq_along(pp)) {
+      outcomes <- pp[[p]]$outcomes
+      output_list[[length(output_list) + 1]] <- do.call(rbind, outcomes)
+    }
+  }
+
+  if (prop %in% c('player three-pointers ou', 'player 3pts ou')) {
+
+    # error if no player props
+    if (!'Player Props' %in% offer_categories$name) {
+      stop('no Player Props available')
+    } else {
+      player_props <-
+        offer_categories[offer_categories$name == 'Player Props',]$offerSubcategoryDescriptors[[1]]$offerSubcategory
+    }
+
+    # error if no Assists props
+    if (!'3-Pointers' %in% player_props$name) {
+      stop('no 3-Pointers props available')
+    } else {
+      pp <-
+        player_props$offers[player_props$name == '3-Pointers'][[1]]
     }
     # all of the player props are in these outcomes objects, so grab em all
     output_list <- list()
