@@ -47,6 +47,15 @@ pb_threes_tiers <- try(get_props('pb', 'nba', 'player 3pts tiers'))
 
 # get gambling_stuff data ----
 
+# get fpts and fpts
+first_player_to_score <- read.csv(
+  '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_first_to_score/first_player_to_score.csv.gz'
+)
+
+first_team_to_score <- read.csv(
+  '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_first_to_score/first_team_to_score.csv.gz'
+)
+
 # get the rosters for player-team info
 rosters <- read.csv(
   '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_rosters/current.csv.gz'
@@ -116,12 +125,13 @@ for (prop in prop_list) {
   # store output
   props_df_list[[prop]] <- df_wide
 }
+
 # combine the list elements, and tidy up for dash output
 props_df <- bind_rows(props_df_list) %>%
   mutate(
     # rename players in team-level props as 'team'
     tidyplayer = if_else(prop == 'first team to score', 'team', tidyplayer),
-    # make the OU string tidier
+    # recode NAs in tidyou (KEEP IT THIS WAY, YOU CHANGED IT ONCE ALREADY AND IT WAS A BAD DECISION)
     tidyou = if_else(is.na(tidyou), 'N/A', tidyou),
     # pointsbet rounding else the best odds calc is jacked up
     pointsbet = round(pointsbet),
@@ -146,6 +156,25 @@ props_df <- bind_rows(props_df_list) %>%
 props_df <- props_df %>%
   left_join(schedule)
 
+# add projections
+props_df <- props_df %>%
+  left_join(first_player_to_score %>%
+              mutate(fpts_projected_prob = projected_prob) %>%
+              select(-projected_prob, -projected_line)) %>%
+  left_join(first_team_to_score %>%
+              mutate(ftts_projected_prob = projected_prob) %>%
+              select(-tidyplayer, -projected_prob, -projected_line) %>%
+              distinct()) %>%
+  mutate(projected_prob = coalesce(ftts_projected_prob, fpts_projected_prob),
+         dk_delta = projected_prob - dk_prob,
+         fd_delta = projected_prob - fd_prob,
+         pb_delta = projected_prob - pb_prob) %>%
+  rowwise() %>%
+  mutate(best_delta = max(c(dk_delta, fd_delta, pb_delta), na.rm = TRUE),
+         best_delta = if_else(is.infinite(best_delta), NA_real_, best_delta)) %>%
+  select(-ftts_projected_prob, -fpts_projected_prob) %>%
+  ungroup()
+
 # additional row-wise calculations
 best_books <- list()
 next_best_probs <- list()
@@ -166,9 +195,8 @@ for (i in 1:nrow(props_df)) {
   sel_row$odds_list <- NULL
   bb <- sort(as.character(na.omit(names(sel_row)[unlist(sel_row) == best])))
   best_books[[length(best_books) + 1]] <- paste0(bb, collapse = ', ')
-}
 
-# append to props_df
+}
 props_df <- props_df %>%
   select(-probs_list,
          -odds_list) %>%
@@ -176,9 +204,10 @@ props_df <- props_df %>%
          next_best_prob = unlist(next_best_probs),
          next_best_ratio = case_when(count_books == 1 ~ NA_real_,
                                      count_books == 2 ~ best_prob / worst_prob,
-                                     count_books > 2 ~ best_prob / next_best_prob))
+                                     count_books > 2 ~ best_prob / next_best_prob),
+         projected_odds = bettoR::convert_odds(projected_prob, input = 'prob', output = 'us'))
 
-# stash the datetime when these data were last updataed
+# stash the datetime when these data were last updated
 attr(props_df, 'timestamp') <- t1
 # save dash output
 saveRDS(props_df, 'inst/props.rds')

@@ -45,8 +45,8 @@ ui <- fluidPage(
            pickerInput('ou', 'Over/Under',
                        options = list(`actions-box` = TRUE,
                                       `live-search` = TRUE),
-                       choices = c('over', 'under', 'N/A'),
-                       selected = c('over', 'under', 'N/A'),
+                       choices = sort(unique(search_props_raw$tidyou)),
+                       selected = sort(unique(search_props_raw$tidyou)),
                        multiple = TRUE)),
     column(width = 2,
            pickerInput('count_books', 'Minimum Books',
@@ -54,32 +54,38 @@ ui <- fluidPage(
                        selected = 1))),
   br(),
   tabsetPanel(
-    tabPanel('Search Props',
+    tabPanel('All Props',
              br(),
              fluidRow(
                column(width = 12,
-                      reactableOutput('prop_table')))),
-    tabPanel('Evaluate',
+                      reactableOutput('search_props')))),
+    tabPanel('Projections',
              br(),
              fluidRow(
-               column(width = 12)
-             ))))
+               column(width = 12,
+                      reactableOutput('projections'))))))
 
 # server ------------------------------------------------------------------
 
 server <- function(input, output) {
   #### get data for table ####
 
-  search_props_data <- reactive({
-    td <- search_props_raw %>%
+  filtered_data <- reactive({
+
+    search_props_raw %>%
       filter(
         sport == input$sport,
-        if_else(is.na(tidyplayer), TRUE, tidyplayer %in% input$player),
+        tidyplayer %in% input$player,
         prop %in% input$prop,
         tidyteam %in% input$team,
         tidyou %in% input$ou,
         count_books >= input$count_books
-      ) %>%
+      )
+  })
+
+  search_props_data <- reactive({
+
+    filtered_data() %>%
       select(
         sport,
         tidyplayer,
@@ -99,21 +105,43 @@ server <- function(input, output) {
       )
   })
 
-  #### make the reactable ####
-  output$prop_table <- renderReactable({
+  # for the finder, only keep values with projected_prob values
+  find_bets_data <- reactive({
+    filtered_data() %>%
+      filter(
+        !is.na(projected_prob)
+      ) %>%
+      select(
+        sport,
+        tidyplayer,
+        tidyteam,
+        home_away,
+        tidyopp,
+        prop,
+        projected_odds,
+        best_odds,
+        best_delta,
+        best_books
+      )
+  })
+
+  #### make the table to search props ####
+  output$search_props <- renderReactable({
     validate(need(nrow(search_props_data()) > 0, "waiting for input..."))
 
     reactable(
       search_props_data(),
-      pagination = FALSE,
+      pagination = TRUE,
+      defaultPageSize = 20,
       rownames = FALSE,
       sortable = TRUE,
+      defaultSorted = list(next_best_ratio = 'asc'),
       columns = list(
         sport = colDef(show = FALSE),
         tidyplayer = colDef(
           name = "Player",
           sortNALast = TRUE,
-          minWidth = 125
+          minWidth = 100
         ),
         tidyteam = colDef(
           name = "Team",
@@ -141,6 +169,11 @@ server <- function(input, output) {
         tidyou = colDef(
           name = "OU",
           sortNALast = TRUE,
+          cell = function(value) {
+            if (is.na(value)) 'N/A'
+            else if (value == 'NA') 'N/A'
+            else value
+          },
           style = function(value, index) {
             if (value == 'N/A') list(color = "lightgray", fontStyle = "italic")
             else return()
@@ -187,8 +220,7 @@ server <- function(input, output) {
             if (is.na(value)) ''
             else if (value > 0) paste0('+', round(value))
             else if (value <= 0) as.character(round(value))
-            else
-              list(background = "white")
+            else value
           },
           style = function(value, index) {
             if (round(value) == round(search_props_data()$best_odds[[index]]) && !is.na(value))
@@ -204,7 +236,7 @@ server <- function(input, output) {
             if (is.na(value)) ''
             else if (value > 0) paste0('+', round(value))
             else if (value <= 0) as.character(round(value))
-            else TRUE
+            else value
           },
           style = function(value, index) {
             if (round(value) == round(search_props_data()$best_odds[[index]]) && !is.na(value))
@@ -220,24 +252,108 @@ server <- function(input, output) {
             if (is.na(value)) ''
             else if (value > 0) paste0('+', round(value))
             else if (value <= 0) as.character(round(value))
-            else TRUE
+            else value
           },
           format = colFormat(digits = 1)
         ),
         best_odds = colDef(show = FALSE),
         next_best_ratio = colDef(
-          name = "Odds 1:2 Ratio",
+          name = "Best Odds Ratio",
           sortNALast = TRUE,
-          format = colFormat(digits = 2))
+          format = colFormat(digits = 2)
+          )
       ),
       columnGroups = list(colGroup(
         name = "Odds",
         columns = c("draftkings", "fanduel", "pointsbet")
-      ))
-    )
-
+      )))
   })
 
+  #### make the table to show projections vs props ####
+  output$projections <- renderReactable({
+    validate(need(nrow(find_bets_data()) > 0, "waiting for input..."))
+
+    reactable(
+      find_bets_data(),
+      pagination = FALSE,
+      rownames = FALSE,
+      sortable = TRUE,
+      defaultSorted = list(best_delta = 'desc'),
+      columns = list(
+        sport = colDef(show = FALSE),
+        tidyplayer = colDef(
+          name = "Player",
+          sortNALast = TRUE,
+          minWidth = 100
+        ),
+        tidyteam = colDef(
+          name = "Team",
+          sortNALast = TRUE,
+          width = 60
+        ),
+        home_away = colDef(
+          name = "",
+          cell = function(value) {
+            if (grepl('home', value)) 'vs'
+            else '@'
+          },
+          style = list(color = 'gray'),
+          width = 45
+        ),
+        tidyopp = colDef(
+          name = "Opp",
+          width = 60
+        ),
+        prop = colDef(
+          name = "Prop",
+          sortNALast = TRUE,
+          minWidth = 125
+        ),
+        projected_odds = colDef(
+          name = "Projected Odds",
+          sortNALast = TRUE,
+          format = colFormat(digits = 0),
+          cell = function(value) {
+            if (is.na(value)) ''
+            else if (value > 0) paste0('+', round(value))
+            else if (value <= 0) as.character(round(value))
+            else value
+          }
+        ),
+        best_odds = colDef(
+          name = 'Best Odds',
+          sortNALast = TRUE,
+          format = colFormat(digits = 0),
+          cell = function(value) {
+            if (is.na(value)) ''
+            else if (value > 0) paste0('+', round(value))
+            else if (value <= 0) as.character(round(value))
+            else value
+          }
+        ),
+        best_delta = colDef(
+          name = 'Best Edge',
+          sortNALast = TRUE,
+          cell = function(value) {
+            v <- paste0(round(value, 3) * 100, '%')
+            if (value > 0) paste0('+', v)
+            else v
+          },
+          style = function(value, index) {
+            if (value > 0 && !is.na(value))
+              list(background = "green", color = "white", fontWeight = "bold")
+            else return()
+          }
+          ),
+        best_books = colDef(
+          name = 'Best Books',
+          sortNALast = TRUE,
+          style = function(value, index) {
+            if (find_bets_data()$best_delta[[index]] > 0 && !is.na(find_bets_data()$best_delta[[index]])) list(background = "green", color = "white", fontWeight = "bold")
+            else return()
+          }
+        )))
+    })
 }
 
 # RUN ----
