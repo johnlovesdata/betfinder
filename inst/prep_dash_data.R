@@ -20,18 +20,18 @@ dk_threes_ou <- try(get_props('dk', 'nba', 'player 3pts ou'))
 # fanduel
 fd_ftts <- try(get_props('fd', 'nba', 'ftts'))
 fd_fpts <- try(get_props('fd', 'nba', 'fpts'))
-fd_points_alt <- try(get_props('fd', 'nba', 'player points alt'))
-fd_rebounds_alt <- try(get_props('fd', 'nba', 'player rebounds alt'))
-fd_assists_alt <- try(get_props('fd', 'nba', 'player assists alt'))
-fd_threes_alt <- try(get_props('fd', 'nba', 'player 3pts alt'))
-fd_points_ou <- try(get_props('fd', 'nba', 'player points ou'))
-fd_rebounds_ou <- try(get_props('fd', 'nba', 'player rebounds ou'))
-fd_assists_ou <- try(get_props('fd', 'nba', 'player assists ou'))
-fd_threes_ou <- try(get_props('fd', 'nba', 'player 3pts ou'))
-fd_points_tiers <- try(get_props('fd', 'nba', 'player points tiers'))
-fd_rebounds_tiers <- try(get_props('fd', 'nba', 'player rebounds tiers'))
-fd_assists_tiers <- try(get_props('fd', 'nba', 'player assists tiers'))
-fd_threes_tiers <- try(get_props('fd', 'nba', 'player 3pts tiers'))
+# fd_points_alt <- try(get_props('fd', 'nba', 'player points alt'))
+# fd_rebounds_alt <- try(get_props('fd', 'nba', 'player rebounds alt'))
+# fd_assists_alt <- try(get_props('fd', 'nba', 'player assists alt'))
+# fd_threes_alt <- try(get_props('fd', 'nba', 'player 3pts alt'))
+# fd_points_ou <- try(get_props('fd', 'nba', 'player points ou'))
+# fd_rebounds_ou <- try(get_props('fd', 'nba', 'player rebounds ou'))
+# fd_assists_ou <- try(get_props('fd', 'nba', 'player assists ou'))
+# fd_threes_ou <- try(get_props('fd', 'nba', 'player 3pts ou'))
+# fd_points_tiers <- try(get_props('fd', 'nba', 'player points tiers'))
+# fd_rebounds_tiers <- try(get_props('fd', 'nba', 'player rebounds tiers'))
+# fd_assists_tiers <- try(get_props('fd', 'nba', 'player assists tiers'))
+# fd_threes_tiers <- try(get_props('fd', 'nba', 'player 3pts tiers'))
 
 # pointsbet
 pb_ftts <- try(get_props('pb', 'nba', 'ftts'))
@@ -48,14 +48,12 @@ pb_threes_tiers <- try(get_props('pb', 'nba', 'player 3pts tiers'))
 # get gambling_stuff data ----
 
 # get fpts and fpts
+first_team_to_score <- read.csv(
+  'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_first_to_score/first_team_to_score.csv.gz'
+)
 first_player_to_score <- read.csv(
   '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_first_to_score/first_player_to_score.csv.gz'
 )
-
-first_team_to_score <- read.csv(
-  '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_first_to_score/first_team_to_score.csv.gz'
-)
-
 # get the rosters for player-team info
 rosters <- read.csv(
   '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_rosters/current.csv.gz'

@@ -8,17 +8,8 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
   if (prop %in% c('first team to score', 'ftts')) {
 
     # generate tidy names and odds
-    output_df$tidyteam <- normalize_names(output_df$name, key = key)
-    # ## need to parse the description to get the opponent
-    # splitted <- strsplit(output_df$description, ' At ')
-    # home <- sapply(splitted, '[[', 1)
-    # away <- sapply(splitted, '[[', 2)
-    # output_df$opponent <- ifelse(output_df$name == home, away, home)
-    # output_df$tidyopponent <- normalize_names(output_df$opponent, key = key)
-    ## odds are actually in fractional across 2 fields
-    fractional_odds <- output_df$currentpriceup / output_df$currentpricedown
-    output_df$tidyamericanodds <- ifelse(fractional_odds < 1, -100 / fractional_odds,
-                                         fractional_odds * 100)
+    output_df$tidyteam <- normalize_names(output_df$team, key = key)
+    output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
 
     # since prop arg is flexible, set it here for output
     if (prop == 'ftts') {
@@ -28,11 +19,10 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
 
   if (prop %in% c('first player to score', 'fpts')) {
 
-    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$name)
+    # generate tidy names and odds
+    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$player)
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
-    fractional_odds <- output_df$currentpriceup / output_df$currentpricedown
-    output_df$tidyamericanodds <- ifelse(fractional_odds < 1, -100 / fractional_odds,
-                                         fractional_odds * 100)
+    output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
 
     # since prop arg is flexible, set it here for output
     if (prop == 'fpts') {

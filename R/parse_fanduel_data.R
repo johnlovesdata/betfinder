@@ -2,61 +2,83 @@ parse_fanduel_data <- function(fanduel_data, prop) {
 
   # loop through fanduel_data and extract the correct prop
   output_list <- list()
-  for (game_event in fanduel_data) {
+  for (e in names(fanduel_data)) {
 
-    # pull out event market groups regardless of prop
-    if (!'eventmarketgroups' %in% names(game_event)) {
-      next
+    game_event <- fanduel_data[[e]]
+
+    # extract main event
+    if ('main' %in% names(game_event)) main <- game_event$main else next
+    # extract attachments
+    if ('attachments' %in% names(main)) main_attachments <- main$attachments else next
+    # extract matchup
+    if ('events' %in% names(main_attachments)) matchup <- main_attachments$events[[e]]$name else next
+    # extract markets
+    if ('markets' %in% names(main_attachments)) main_markets <- main_attachments$markets else next
+    # identify bet markets
+    if (length(main_markets) > 0) {
+      main_bet_markets <- do.call(rbind, lapply(main_markets, function(x) data.frame(id = x[['marketId']], name = x[['marketName']])))
     } else {
-      game_event_market_groups <- game_event$eventmarketgroups
+      next
     }
-
     # extract correct props
+
     if (prop %in% c('first team to score', 'ftts')) {
-      # get all props if they exist, else skip
-      if (!'All' %in% game_event_market_groups$name) {
-        next
-      } else {
-        all_props <-
-          game_event_market_groups$markets[game_event_market_groups$name == 'All'][[1]]
-      }
 
-      # if there are no ftts props, skip
-      if (!'Team to Score First' %in% all_props$name) {
-        next
+      # get the first quarter props
+      if ('first_quarter' %in% names(game_event)) first_quarter <- game_event$first_quarter else next
+      # extract attachments
+      if ('attachments' %in% names(first_quarter)) first_quarter_attachments <- first_quarter$attachments else next
+      # extract markets
+      if ('markets' %in% names(first_quarter_attachments)) first_quarter_markets <- first_quarter_attachments$markets else next
+      # identify bet markets
+      if (length(first_quarter_markets) > 0) {
+        first_quarter_bet_markets <-
+          do.call(rbind, lapply(first_quarter_markets, function(x) data.frame(id = x[['marketId']], name = x[['marketName']])))
       } else {
-        first_team_to_score <-
-          all_props$selections[all_props$name == 'Team to Score First'][[1]]
+        next
       }
+      # get the market id of the bet
+      if ('Team to Score First' %in% first_quarter_bet_markets$name) {
+        market_id <- first_quarter_bet_markets$id[first_quarter_bet_markets$name == 'Team to Score First']
+        } else {
+          next
+        }
+      # get the market of the bet
+      if (market_id %in% names(first_quarter_markets)) market <- first_quarter_markets[[market_id]] else next
+      # get the runners, which is where the bets live
+      runners <- market$runners
+      # run through the runners list and get american odds by player
+      ftts_list <- lapply(runners, function(x) {
+        data.frame(team = x[['runnerName']],
+                   american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
+      })
 
-      # extract description which has the matchup, and stash in output_list
-      first_team_to_score$description <- game_event$externaldescription
-      output_list[[length(output_list) + 1]] <- first_team_to_score
+      # make a data.frame
+      ftts <- do.call(rbind, ftts_list)
+      ftts$matchup <- matchup
+
+      # stash in the output_list
+      output_list[[length(output_list) + 1]] <- ftts
     }
-
     if (prop %in% c('first player to score', 'fpts')) {
 
-      # skip if no player props available
-      market_label <- 'All Player Props'
-      if (!market_label %in% unique(game_event_market_groups$name)) {
-        next
-      } else {
-        player_props <-
-          game_event_market_groups$markets[game_event_market_groups$name == market_label][[1]]
-      }
+      # get the market id of the bet
+      if ('First Basket' %in% main_bet_markets$name) market_id <- main_bet_markets$id[main_bet_markets$name == 'First Basket'] else next
+      # get the market of the bet
+      if (market_id %in% names(main_markets)) market <- main_markets[[market_id]] else next
+      # get the runners, which is where the bets live
+      runners <- market$runners
+      # run through the runners list and get american odds by player
+      fpts_list <- lapply(runners, function(x) {
+        data.frame(player = x[['runnerName']],
+                   american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
+      })
 
-      # skip if no first basket
-      prop_label <- 'First Basket'
-      if (!prop_label %in% player_props$name) {
-        next
-      } else {
-        first_basket <-
-          player_props$selections[player_props$name == prop_label][[1]]
-      }
+      fpts <- do.call(rbind, fpts_list)
+      fpts$matchup <- matchup
 
-      # extract the description which has the matchup, and stash in the output_list
-      first_basket$description <- game_event$externaldescription
-      output_list[[length(output_list) + 1]] <- first_basket
+      # stash in the output_list
+      output_list[[length(output_list) + 1]] <- fpts
     }
 
     if (prop %in% c('player points alt', 'player points ou', 'player points tiers',
