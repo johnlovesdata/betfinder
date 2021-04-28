@@ -144,7 +144,6 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }
-
     if (prop %in% c('player assists alt', 'player assists ou', 'player assists tiers',
                     'player asts alt', 'player asts ou', 'player asts tiers')) {
       # get the first quarter props
@@ -167,6 +166,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
                                         NA_character_
                                  )))
       if (prop_type == 'assists alt') {
+
         market_ids <- player_assists_bet_markets$id[grepl('Alt Assists', player_assists_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
@@ -174,6 +174,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
           mkt <- player_assists_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
             data.frame(prop = x[['runnerName']],
+                       handicap = x[['handicap']],
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
@@ -183,10 +184,12 @@ parse_fanduel_data <- function(fanduel_data, prop) {
         market_ids <- player_assists_bet_markets$id[grepl('- Assists', player_assists_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
+
         for (i in market_ids) {
           mkt <- player_assists_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
             data.frame(prop = x[['runnerName']],
+                       handicap = x[['handicap']],
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
@@ -199,7 +202,8 @@ parse_fanduel_data <- function(fanduel_data, prop) {
         for (i in market_ids) {
           mkt <- player_assists_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
-            data.frame(prop = x[['runnerName']],
+            data.frame(player = x[['runnerName']],
+                       prop = mkt$marketName,
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
@@ -207,14 +211,12 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
       # make a data.frame
       mkt_df <- do.call(rbind, mkt_list)
-      mkt_df$matchup <- matchup
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }
-
     if (prop %in% c('player rebounds alt', 'player rebounds ou', 'player rebounds tiers',
                     'player rebs alt', 'player rebs ou', 'player rebs tiers')) {
-      # get the player rebounds props
+      # get the first quarter props
       if ('player_rebounds' %in% names(game_event)) player_rebounds <- game_event$player_rebounds else next
       # extract attachments
       if ('attachments' %in% names(player_rebounds)) player_rebounds_attachments <- player_rebounds$attachments else next
@@ -234,6 +236,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
                                         NA_character_
                                  )))
       if (prop_type == 'rebounds alt') {
+
         market_ids <- player_rebounds_bet_markets$id[grepl('Alt Rebounds', player_rebounds_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
@@ -241,6 +244,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
           mkt <- player_rebounds_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
             data.frame(prop = x[['runnerName']],
+                       handicap = x[['handicap']],
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
@@ -250,10 +254,12 @@ parse_fanduel_data <- function(fanduel_data, prop) {
         market_ids <- player_rebounds_bet_markets$id[grepl('- Rebounds', player_rebounds_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
+
         for (i in market_ids) {
           mkt <- player_rebounds_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
             data.frame(prop = x[['runnerName']],
+                       handicap = x[['handicap']],
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
@@ -266,7 +272,8 @@ parse_fanduel_data <- function(fanduel_data, prop) {
         for (i in market_ids) {
           mkt <- player_rebounds_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
-            data.frame(prop = x[['runnerName']],
+            data.frame(player = x[['runnerName']],
+                       prop = mkt$marketName,
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
@@ -274,7 +281,6 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
       # make a data.frame
       mkt_df <- do.call(rbind, mkt_list)
-      mkt_df$matchup <- matchup
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }

@@ -5,16 +5,13 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
   output_df <- draftkings_data
 
   # for each prop, append whatever tidy fields we can, which should make thte data useful across datasets
-  if (grepl('team|ftts', prop)) {
+  if (prop %in% c('first team to score', 'ftts')) {
     # generate tidy names and odds
     output_df$tidyteam <- normalize_names(output_df$label, key = key)
     output_df$tidyplayer <- 'team'
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
-
     # for flexible prop names, specify the value explicitly here
-    if (prop == 'ftts') {
-      output_df$prop <- 'first team to score'
-    }
+    output_df$prop <- 'first team to score'
   }
 
   if (prop %in% c('first player to score', 'fpts')) {
@@ -23,17 +20,16 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
     # for flexible props, specify the value explicitly here
-    if (prop == 'fpts') output_df$prop <- 'first player to score'
+    output_df$prop <- 'first player to score'
   }
 
   if (grepl('points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts', tolower(prop))) {
-
     # get names
-    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)
+    hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     # get tidy ou from label
-    output_df$tidyou <- ifelse(grepl('Over', output_df$label), 'over',
-                        ifelse(grepl('Under', output_df$label), 'under',
+    output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$label)), 'over',
+                        ifelse(grepl('Under', as.character(output_df$label)), 'under',
                                NA_character_
                                ))
     # get tidy line from the label

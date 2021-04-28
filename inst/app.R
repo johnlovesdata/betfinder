@@ -11,6 +11,7 @@ search_props_raw <- readRDS("props.rds") %>%
 # ui ----
 ui <- fluidPage(
   titlePanel('Props Dash'),
+  h5(paste0('Data updated at: ', Sys.time(), ' CDT')),
   br(),
   fluidRow(
     # select a bunch of stuff
@@ -167,7 +168,7 @@ server <- function(input, output) {
         tidyteam = colDef(
           name = "Team",
           sortNALast = TRUE,
-          width = 60
+          width = 70
         ),
         home_away = colDef(
           name = "",
@@ -180,7 +181,7 @@ server <- function(input, output) {
         ),
         tidyopp = colDef(
           name = "Opp",
-          width = 60
+          width = 70
         ),
         prop = colDef(
           name = "Prop",
@@ -316,7 +317,7 @@ server <- function(input, output) {
         tidyteam = colDef(
           name = "Team",
           sortNALast = TRUE,
-          width = 60
+          width = 70
         ),
         home_away = colDef(
           name = "",
@@ -329,7 +330,7 @@ server <- function(input, output) {
         ),
         tidyopp = colDef(
           name = "Opp",
-          width = 60
+          width = 70
         ),
         prop = colDef(
           name = "Prop",
