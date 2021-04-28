@@ -7,66 +7,64 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
   # for each prop, append whatever tidy fields we can, which should make thte data useful across datasets
   if (prop %in% c('first team to score', 'ftts')) {
     # generate tidy names and odds
+    output_df$tidyplayer <- 'team'
     output_df$tidyteam <- normalize_names(output_df$team, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
-    output_df$tidyplayer <- 'team'
-    # since prop arg is flexible, set it here for output
-    if (prop == 'ftts') output_df$prop <- 'first team to score'
+    output_df$prop <- 'first team to score'
   }
 
   if (prop %in% c('first player to score', 'fpts')) {
-
     # generate tidy names and odds
     hacky_tidyplayer <- hacky_tidyup_player_names(output_df$player)
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
-
-    # since prop arg is flexible, set it here for output
-    if (prop == 'fpts') {
-      output_df$prop <- 'first player to score'
-    }
+    output_df$prop <- 'first player to score'
   }
 
   if (grepl('points|rebounds|assists|three| 3pts| pts| rebs| asts', tolower(prop))) {
 
-    # handle special cases by prop type
-    ## alt lines can be over or under, but need to extract direction and line from names
+    # handle special cases by prop type (alt, ou, tiers)
     if (grepl('alt$', tolower(prop))) {
-      ## set the over/under column values
-      output_df$tidyou <- ifelse(grepl('Over', output_df$name), 'over', 'under')
+      ## alt lines can be over or under, but need to extract direction and line from names
+      output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$prop)), 'over', 'under')
       ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' Over | Under ', 'XX', output_df$name)
+      split_string <- gsub(' Over | Under ', 'XX', as.character(output_df$prop))
       splitted <- strsplit(split_string, 'XX')
       splitted_name <- sapply(splitted, '[[', 1)
       splitted_name <- hacky_tidyup_player_names(splitted_name)
       splitted_line <- sapply(splitted, '[[', 2)
-
       output_df$tidyplayer <- normalize_names(splitted_name, key = key)
       output_df$tidyline <- as.numeric(splitted_line)
+      # set odds
+      output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
     }
     if (grepl('ou$', tolower(prop))) {
-      ## set the over/under column values
+
+      ## extract player name and ou from the prop field
+      prop_string <- as.character(output_df$prop)
+      player_part <- gsub(' Over$| Under$', '', prop_string)
+      hacky_player <- hacky_tidyup_player_names(player_part)
+      output_df$tidyplayer <- normalize_names(hacky_player, key = key)
       output_df$tidyou <- ifelse(grepl('Over', output_df$prop), 'over', 'under')
-      ## the ou player names still have over and under in them, so nuke those
-      output_df$name <- gsub(' Over| Under', '', output_df$prop)
+      ## set odds
+      output_df$tidyamericanodds <- output_df$american_odds
     }
 
     ## tiers are always overs, but the lines are in the prop_details, not the handicap
     if (grepl('tiers', tolower(prop))) {
-      browser()
       output_df$tidyou <- 'over'
       # as kyle mentioned, tiers are >= values, so if we're calling it an over need to subtract half a point
-      output_df$tidyline <- as.numeric(gsub('[A-Za-z| |+]', '', output_df$prop_details)) - .5
-      output_df$prop_details <- NULL
+      output_df$tidyline <- as.numeric(gsub('[A-Za-z| |+]', '', output_df$prop)) - .5
+      output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
     }
 
-    # fix the prop name
+    # fix the prop name to be whatever the input arg is
     output_df$prop <- prop
 
     # handle any tidy values that weren't already handled
     ## if tidyplayer isn't set, set it
     if (!'tidyplayer' %in% names(output_df)) {
-      hacky_tidyplayer <- hacky_tidyup_player_names(output_df$name)
+      hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$player))
       output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     }
     ## if tidyline isn't set, set it

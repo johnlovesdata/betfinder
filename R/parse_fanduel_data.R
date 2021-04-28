@@ -20,9 +20,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       next
     }
     # extract correct props
-
     if (prop %in% c('first team to score', 'ftts')) {
-
       # get the first quarter props
       if ('1st_quarter' %in% names(game_event)) first_quarter <- game_event$`1st_quarter` else next
       # extract attachments
@@ -60,7 +58,6 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       output_list[[length(output_list) + 1]] <- ftts
     }
     if (prop %in% c('first player to score', 'fpts')) {
-
       # get the market id of the bet
       if ('First Basket' %in% main_bet_markets$name) market_id <- main_bet_markets$id[main_bet_markets$name == 'First Basket'] else next
       # get the market of the bet
@@ -71,15 +68,12 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       fpts_list <- lapply(runners, function(x) {
         data.frame(player = x[['runnerName']],
                    american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
-      })
-
+        })
       fpts <- do.call(rbind, fpts_list)
       fpts$matchup <- matchup
-
       # stash in the output_list
       output_list[[length(output_list) + 1]] <- fpts
     }
-
     if (prop %in% c('player points alt', 'player points ou', 'player points tiers',
                     'player pts alt', 'player pts ou', 'player pts tiers')) {
       # get the first quarter props
@@ -102,6 +96,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
                                         NA_character_
                                  )))
       if (prop_type == 'points alt') {
+
         market_ids <- player_points_bet_markets$id[grepl('Alt Points', player_points_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
@@ -135,11 +130,10 @@ parse_fanduel_data <- function(fanduel_data, prop) {
         if (length(market_ids) == 0) next
         mkt_list <- list()
         for (i in market_ids) {
-          browser()
           mkt <- player_points_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
             data.frame(player = x[['runnerName']],
-                       prop = x[['marketName']],
+                       prop = mkt$marketName,
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)

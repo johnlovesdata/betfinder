@@ -6,7 +6,8 @@ load_all()
 t1 <- Sys.time()
 # vars for later
 ## used when combining props by type
-prop_list <- c('points', 'rebounds', 'assists', 'threes', 'fpts', 'ftts')
+prop_list <- c('fpts', 'ftts', 'points')
+# 'points', 'rebounds', 'assists', 'threes',
 site_prefixes <- c('dk_', 'fd_', 'pb_')
 # get props ----
 
@@ -20,15 +21,15 @@ dk_fpts <- try(get_props('dk', 'nba', 'fpts'))
 # fanduel
 fd_ftts <- try(get_props('fd', 'nba', 'ftts'))
 fd_fpts <- try(get_props('fd', 'nba', 'fpts'))
-# fd_points_alt <- try(get_props('fd', 'nba', 'player points alt'))
+fd_points_alt <- try(get_props('fd', 'nba', 'player points alt'))
 # fd_rebounds_alt <- try(get_props('fd', 'nba', 'player rebounds alt'))
 # fd_assists_alt <- try(get_props('fd', 'nba', 'player assists alt'))
 # fd_threes_alt <- try(get_props('fd', 'nba', 'player 3pts alt'))
-# fd_points_ou <- try(get_props('fd', 'nba', 'player points ou'))
+fd_points_ou <- try(get_props('fd', 'nba', 'player points ou'))
 # fd_rebounds_ou <- try(get_props('fd', 'nba', 'player rebounds ou'))
 # fd_assists_ou <- try(get_props('fd', 'nba', 'player assists ou'))
 # fd_threes_ou <- try(get_props('fd', 'nba', 'player 3pts ou'))
-# fd_points_tiers <- try(get_props('fd', 'nba', 'player points tiers'))
+fd_points_tiers <- try(get_props('fd', 'nba', 'player points tiers'))
 # fd_rebounds_tiers <- try(get_props('fd', 'nba', 'player rebounds tiers'))
 # fd_assists_tiers <- try(get_props('fd', 'nba', 'player assists tiers'))
 # fd_threes_tiers <- try(get_props('fd', 'nba', 'player 3pts tiers'))
