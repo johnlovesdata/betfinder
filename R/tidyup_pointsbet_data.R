@@ -3,7 +3,6 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
 
   # make the output from the input
   output_df <- pointsbet_data
-
   # for each prop, append tidy team, tidy opponent, tidy odds (numeric american odds)
   if (prop %in% c('first team to score', 'ftts')) {
     # generate tidy names and odds
@@ -15,7 +14,6 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
     # since prop arg is flexible, set it here for output
     output_df$prop <- 'first team to score'
   }
-
   if (prop %in% c('first player to score', 'fpts')) {
 
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$name))
@@ -41,7 +39,6 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
       splitted_name <- sapply(splitted, '[[', 1)
       splitted_name <- hacky_tidyup_player_names(splitted_name)
       splitted_line <- sapply(splitted, '[[', 2)
-
       output_df$tidyplayer <- normalize_names(splitted_name, key = key)
       output_df$tidyline <- as.numeric(splitted_line)
     }
