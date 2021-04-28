@@ -49,7 +49,7 @@ ui <- fluidPage(
                        choices = sort(unique(search_props_raw$tidyou)),
                        selected = sort(unique(search_props_raw$tidyou)),
                        multiple = TRUE)),
-    # TODO: FIGURE OUT LINE FILTERING ----
+    # TODO: FIGURE OUT LINE FILTERING ---
     # column(width = 2, numericInput('line', 'Line Cutoff', min = NA, max = NA, value = NA)),
     column(width = 2,
            pickerInput('count_books', 'Minimum Books',
@@ -72,6 +72,8 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   #### get data for table ####
+
+  if (file.exists('restart.txt')) system('touch restart.txt') else file.create('restart.txt')
 
   # filter based on inputs
   filtered_data <- reactive({
