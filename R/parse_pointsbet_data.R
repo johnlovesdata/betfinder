@@ -1,40 +1,31 @@
 parse_pointsbet_data <- function(pointsbet_data, prop) {
-
   # loop through the pointsbet events to extract props
   output_list <- list()
   for (game_event in pointsbet_data) {
-
     # check for fixed odds markets, skip if they're not there
-    if (!'fixedOddsMarkets' %in% names(game_event)) {
-      next
-    } else {
-      fixed_odds_markets <- game_event$fixedOddsMarkets
-    }
-
+    if ('fixedOddsMarkets' %in% names(game_event)) fixed_odds_markets <- game_event$fixedOddsMarkets else next
+    event_names <- unlist(lapply(fixed_odds_markets, '[[', 'eventName'))
     # now extract correct props
     if (prop %in% c('first team to score', 'ftts')) {
 
-      # skip if there's no ftts
-      if (!'First Team to Score' %in% fixed_odds_markets$eventName) {
+      if ('First Team to Score' %in% event_names) {
+        outcomes <- fixed_odds_markets[[which(grepl('^First Team to Score$', event_names))]]$outcomes
+        first_team_to_score <- as.data.frame(do.call(rbind, outcomes))
+      } else {
         next
-        } else {
-          first_team_to_score <-
-            fixed_odds_markets$outcomes[fixed_odds_markets$eventName == 'First Team to Score'][[1]]
-        }
-
+      }
       output_list[[length(output_list) + 1]] <- first_team_to_score
     }
 
     if (prop %in% c('first player to score', 'fpts')) {
 
       # skip if no first basket props
-      if (!'First Basket' %in% fixed_odds_markets$eventName) {
-        next
+      if ('First Basket' %in% event_names) {
+        outcomes <- fixed_odds_markets[[which(grepl('^First Basket$', event_names))]]$outcomes
+        first_basket <- as.data.frame(do.call(rbind, outcomes))
       } else {
-        first_basket <-
-          fixed_odds_markets$outcomes[fixed_odds_markets$eventName == 'First Basket'][[1]]
+        next
       }
-
       output_list[[length(output_list) + 1]] <- first_basket
     }
 
