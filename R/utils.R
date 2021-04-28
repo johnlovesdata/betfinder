@@ -2,6 +2,8 @@
 #' @param x Vector of strings to normalize in \code{normalize_names}
 #' @param key List of elements containing fields "name" and "aliases" in \code{normalize_names}
 #' @param warn Optional, Boolean -- warn if a name in X was not found in the Key names in \code{normalize_names}
+#' @param uri main url for call to \code{httr::GET}
+#' @param query list of paramaters to pass to \code{httr::GET}
 #' @note \code{normalize_names} was sniped from \code{jimtheflash/gambling_stuff} and written by anthonyshook (to be clear, it was written by a hook owned by some fella named anthony)
 #' @name utils
 NULL
@@ -80,4 +82,11 @@ hacky_tidyup_player_names <- function(player_names) {
 
   return(output)
 
+}
+
+#' @rdname utils
+get_content <- function(uri, query) {
+  resp <- httr::GET(uri, query = query, encode = 'json')
+  output <- httr::content(resp)
+  return(output)
 }

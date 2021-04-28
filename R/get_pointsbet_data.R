@@ -1,11 +1,24 @@
-get_pointsbet_data <- function(sport, save_path = NULL, sleep_time = runif(1, 1.6, 3.2)) {
+get_pointsbet_data <- function(sport, save_path = NULL,
+                               sleep_time = runif(1, 1.6, 3.2)) {
+  if (sport == 'nba') {
+    main_uri <- 'https://api.il.pointsbet.com/api/v2/competitions/5/events/featured'
+    main_query <- list(
+      includeLive = list('false'),
+      page = list(1)
+    )
+    main_content <- get_content(main_uri, main_query)
+    event_ids <- main_content$events$key
+
+
+
+
+  }
 
   # pointsbet is similar to fanduel - one main sport json, then event-specific jsons
   main_json <-
     jsonlite::fromJSON(
       'https://api.il.pointsbet.com/api/v2/competitions/5/events/featured?includeLive=false&page=1'
     )
-  event_ids <- main_json$events$key
 
   # loop through the event_ids
   event_list <- list()

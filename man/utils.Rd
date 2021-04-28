@@ -5,6 +5,7 @@
 \alias{normalize_names}
 \alias{get_key_path}
 \alias{hacky_tidyup_player_names}
+\alias{get_content}
 \title{Utility functions to make things work better}
 \usage{
 normalize_names(x, key, warn = TRUE)
@@ -12,6 +13,8 @@ normalize_names(x, key, warn = TRUE)
 get_key_path(sport, prop)
 
 hacky_tidyup_player_names(player_names)
+
+get_content(uri, query)
 }
 \arguments{
 \item{x}{Vector of strings to normalize in \code{normalize_names}}
@@ -19,6 +22,10 @@ hacky_tidyup_player_names(player_names)
 \item{key}{List of elements containing fields "name" and "aliases" in \code{normalize_names}}
 
 \item{warn}{Optional, Boolean -- warn if a name in X was not found in the Key names in \code{normalize_names}}
+
+\item{uri}{main url for call to \code{httr::GET}}
+
+\item{query}{list of paramaters to pass to \code{httr::GET}}
 }
 \description{
 Utility functions to make things work better

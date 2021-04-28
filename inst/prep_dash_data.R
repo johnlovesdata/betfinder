@@ -1,4 +1,4 @@
-# global ------------------------------------------------------------------
+# global ----
 # libs
 library(tidyverse)
 load_all()
@@ -52,8 +52,9 @@ first_team_to_score <- read.csv(
   'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_first_to_score/first_team_to_score.csv.gz'
 )
 first_player_to_score <- read.csv(
-  '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_first_to_score/first_player_to_score.csv.gz'
+  'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_first_to_score/first_player_to_score.csv.gz'
 )
+
 # get the rosters for player-team info
 rosters <- read.csv(
   '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_rosters/current.csv.gz'
@@ -70,7 +71,8 @@ rosters <- read.csv(
 
 # get the latest lineups to create a schedule for matchup info
 schedule <- read.csv(
-  '/Users/jim/Documents/gambling_stuff/data/02_curated/nba_lineups/rotowire.csv') %>%
+  'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_lineups/rotowire.csv'
+  ) %>%
   mutate(tidyteam = normalize_names(
     TEAM_ABBREVIATION,
     key = system.file('lu', 'nba', 'team', 'lu.json', package = 'betfinder')
@@ -102,13 +104,13 @@ for (prop in prop_list) {
   df_long <- merge(df_long, rosters, all.x = TRUE)
   # add missing tidy columns
   if (!'tidyline' %in% names(df_long)) {
-    df_long$tidyline <- NA
+    df_long$tidyline <- NA_real_
   }
   if (!'tidyou' %in% names(df_long)) {
-    df_long$tidyou <- NA
+    df_long$tidyou <- NA_character_
   }
   if (!'tidyplayer' %in% names(df_long)) {
-    df_long$tidyplayer <- NA
+    df_long$tidyplayer <- NA_character_
   }
   # widen
   df_wide <- pivot_wider(
@@ -130,7 +132,14 @@ props_df <- bind_rows(props_df_list) %>%
     # rename players in team-level props as 'team'
     tidyplayer = if_else(prop == 'first team to score', 'team', tidyplayer),
     # recode NAs in tidyou (KEEP IT THIS WAY, YOU CHANGED IT ONCE ALREADY AND IT WAS A BAD DECISION)
-    tidyou = if_else(is.na(tidyou), 'N/A', tidyou),
+    tidyou = if_else(is.na(tidyou), 'N/A', tidyou)) %>%
+  distinct()
+# handle missing books
+if (!'draftkings' %in% names(props_df)) props_df$draftkings <- NA_real_
+if (!'fanduel' %in% names(props_df)) props_df$fanduel <- NA_real_
+if (!'pointsbet' %in% names(props_df)) props_df$pointsbet <- NA_real_
+props_df <- props_df %>%
+  mutate(
     # pointsbet rounding else the best odds calc is jacked up
     pointsbet = round(pointsbet),
     # probability odds for other use
@@ -138,7 +147,6 @@ props_df <- bind_rows(props_df_list) %>%
     fd_prob = bettoR::convert_odds(fanduel, output = 'prob'),
     pb_prob = bettoR::convert_odds(pointsbet, output = 'prob')
   ) %>%
-  distinct() %>%
   rowwise() %>%
   mutate(count_books = sum(!is.na(c(draftkings, fanduel, pointsbet))),
          mean_prob = mean(c(dk_prob, fd_prob, pb_prob), na.rm = TRUE),

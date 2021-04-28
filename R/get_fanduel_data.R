@@ -1,4 +1,6 @@
 get_fanduel_data <- function(sport, save_path = NULL,
+                             tabs = c('player-points', 'player-rebounds', 'player-assists', 'player-threes',
+                                      '1st-quarter'),
                              sleep_time = runif(1, 1.6, 3.2)) {
 
   if (sport == 'nba') {
@@ -17,8 +19,7 @@ get_fanduel_data <- function(sport, save_path = NULL,
                        `_ak` = list("FhMFpcPWXMeyZxOx"),
                        page = list("CUSTOM"),
                        customPageId = list("nba"))
-    resp <- httr::GET(url = main_URI, query = main_query, encode = 'json')
-    main_content <- httr::content(resp)
+    main_content <- get_content(main_URI, main_query)
     event_ids <- names(main_content$attachments$events)
 
     # loop through the event_ids and get event-level (game-specific) jsons
@@ -38,39 +39,25 @@ get_fanduel_data <- function(sport, save_path = NULL,
                           regionCode = list("NAMERICA"),
                           `_ak` = list("FhMFpcPWXMeyZxOx"),
                           eventId = list(e))
-      resp <- httr::GET(url = event_URI, query = event_query, encode = 'json')
-      event_content <- httr::content(resp)
+      event_content <- get_content(uri = event_URI, query = event_query)
 
       ## BUT WAIT THERES MORE - gotta grab each of the tabs for the specific props and stuff (this is a pain in the ass unless i can pass a list to the tab parameter?)
-      ### first quarter
-      q1_query <- event_query
-      q1_query$tab <- list('1st-quarter')
-      resp <- httr::GET(url = event_URI, query = q1_query, encode = 'json')
-      q1_content <- httr::content(resp)
-      ### player points
-      ppts_query <- event_query
-      ppts_query$tab <- list('player-points')
-      resp <- httr::GET(url = event_URI, query = ppts_query, encode = 'json')
-      ppts_content <- httr::content(resp)
-      ### player assists
-      pasts_query <- event_query
-      pasts_query$tab <- list('player-assists')
-      resp <- httr::GET(url = event_URI, query = pasts_query, encode = 'json')
-      pasts_content <- httr::content(resp)
-      ### player rebounds
-      prebs_query <- event_query
-      prebs_query$tab <- list('player-rebounds')
-      resp <- httr::GET(url = event_URI, query = prebs_query, encode = 'json')
-      prebs_content <- httr::content(resp)
 
+      tab_list <- list()
+      for (i in tabs) {
+        new_q <- event_query
+        new_q$tab <- list(i)
+        new_content <- get_content(uri = event_URI, query = new_q)
+        if (identical(new_content, main_content)) {
+          rm(new_content)
+          next
+        }
+        tab_name <- gsub('-', '_', i)
+        tab_list[[tab_name]] <- new_content
+      }
       ### stitch together the content objects into a list
-      content_list <- list(
-        main = event_content,
-        first_quarter = q1_content,
-        player_points = ppts_content,
-        player_assists = pasts_content,
-        player_rebounds = prebs_content
-      )
+      content_list <- tab_list
+      content_list$main <- event_content
       event_list[[e]] <- content_list
 
     #   if (!is.null(save_path)) {
