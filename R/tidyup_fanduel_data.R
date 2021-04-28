@@ -6,15 +6,12 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
 
   # for each prop, append whatever tidy fields we can, which should make thte data useful across datasets
   if (prop %in% c('first team to score', 'ftts')) {
-
     # generate tidy names and odds
     output_df$tidyteam <- normalize_names(output_df$team, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
-
+    output_df$tidyplayer <- 'team'
     # since prop arg is flexible, set it here for output
-    if (prop == 'ftts') {
-      output_df$prop <- 'first team to score'
-    }
+    if (prop == 'ftts') output_df$prop <- 'first team to score'
   }
 
   if (prop %in% c('first player to score', 'fpts')) {

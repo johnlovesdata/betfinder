@@ -22,8 +22,9 @@ parse_fanduel_data <- function(fanduel_data, prop) {
     # extract correct props
 
     if (prop %in% c('first team to score', 'ftts')) {
+
       # get the first quarter props
-      if ('first_quarter' %in% names(game_event)) first_quarter <- game_event$first_quarter else next
+      if ('1st_quarter' %in% names(game_event)) first_quarter <- game_event$`1st_quarter` else next
       # extract attachments
       if ('attachments' %in% names(first_quarter)) first_quarter_attachments <- first_quarter$attachments else next
       # extract markets

@@ -13,10 +13,10 @@ site_prefixes <- c('dk_', 'fd_', 'pb_')
 # draftkings
 dk_ftts <- try(get_props('dk', 'nba', 'ftts'))
 dk_fpts <- try(get_props('dk', 'nba', 'fpts'))
-dk_points_ou <- try(get_props('dk', 'nba', 'player points ou'))
-dk_rebounds_ou <- try(get_props('dk', 'nba', 'player rebounds ou'))
-dk_assists_ou <- try(get_props('dk', 'nba', 'player assists ou'))
-dk_threes_ou <- try(get_props('dk', 'nba', 'player 3pts ou'))
+# dk_points_ou <- try(get_props('dk', 'nba', 'player points ou'))
+# dk_rebounds_ou <- try(get_props('dk', 'nba', 'player rebounds ou'))
+# dk_assists_ou <- try(get_props('dk', 'nba', 'player assists ou'))
+# dk_threes_ou <- try(get_props('dk', 'nba', 'player 3pts ou'))
 # fanduel
 fd_ftts <- try(get_props('fd', 'nba', 'ftts'))
 fd_fpts <- try(get_props('fd', 'nba', 'fpts'))
@@ -36,14 +36,14 @@ fd_fpts <- try(get_props('fd', 'nba', 'fpts'))
 # pointsbet
 pb_ftts <- try(get_props('pb', 'nba', 'ftts'))
 pb_fpts <- try(get_props('pb', 'nba', 'fpts'))
-pb_points_ou <- try(get_props('pb', 'nba', 'player points ou'))
-pb_rebounds_ou <- try(get_props('pb', 'nba', 'player rebounds ou'))
-pb_assists_ou <- try(get_props('pb', 'nba', 'player assists ou'))
-pb_threes_ou <- try(get_props('pb', 'nba', 'player 3pts ou'))
-pb_points_tiers <- try(get_props('pb', 'nba', 'player points tiers'))
-pb_rebounds_tiers <- try(get_props('pb', 'nba', 'player rebounds tiers'))
-pb_assists_tiers <- try(get_props('pb', 'nba', 'player assists tiers'))
-pb_threes_tiers <- try(get_props('pb', 'nba', 'player 3pts tiers'))
+# pb_points_ou <- try(get_props('pb', 'nba', 'player points ou'))
+# pb_rebounds_ou <- try(get_props('pb', 'nba', 'player rebounds ou'))
+# pb_assists_ou <- try(get_props('pb', 'nba', 'player assists ou'))
+# pb_threes_ou <- try(get_props('pb', 'nba', 'player 3pts ou'))
+# pb_points_tiers <- try(get_props('pb', 'nba', 'player points tiers'))
+# pb_rebounds_tiers <- try(get_props('pb', 'nba', 'player rebounds tiers'))
+# pb_assists_tiers <- try(get_props('pb', 'nba', 'player assists tiers'))
+# pb_threes_tiers <- try(get_props('pb', 'nba', 'player 3pts tiers'))
 
 # get gambling_stuff data ----
 
@@ -101,7 +101,7 @@ for (prop in prop_list) {
   # stack everything into one big data.frame
   df_long <- do.call(rbind, lapply(ls(pattern = prop), get))
   # merge with rosters data to get teams for players
-  df_long <- merge(df_long, rosters, all.x = TRUE)
+  if (!prop %in% c('ftts', 'first team to score')) df_long <- merge(df_long, rosters, all.x = TRUE)
   # add missing tidy columns
   if (!'tidyline' %in% names(df_long)) {
     df_long$tidyline <- NA_real_
