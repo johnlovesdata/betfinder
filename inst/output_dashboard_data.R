@@ -1,94 +1,13 @@
-# global ----
+# create dashboard data ----
 # libs
 library(tidyverse)
 load_all()
-# timer
-t1 <- Sys.time()
 # vars for later
 ## used when combining props by type
-prop_list <- c('fpts', 'ftts', 'points', 'assists', 'rebounds')
+prop_list <- c('fpts', 'ftts', 'points')
 site_prefixes <- c('dk_', 'fd_', 'pb_')
-# get props ----
 
-# draftkings
-dk_ftts <- try(get_props('dk', 'nba', 'ftts'))
-dk_fpts <- try(get_props('dk', 'nba', 'fpts'))
-dk_points_ou <- try(get_props('dk', 'nba', 'player points ou'))
-dk_rebounds_ou <- try(get_props('dk', 'nba', 'player rebounds ou'))
-dk_assists_ou <- try(get_props('dk', 'nba', 'player assists ou'))
-dk_threes_ou <- try(get_props('dk', 'nba', 'player 3pts ou'))
-# fanduel
-fd_ftts <- try(get_props('fd', 'nba', 'ftts'))
-fd_fpts <- try(get_props('fd', 'nba', 'fpts'))
-fd_points_alt <- try(get_props('fd', 'nba', 'player points alt'))
-fd_rebounds_alt <- try(get_props('fd', 'nba', 'player rebounds alt'))
-fd_assists_alt <- try(get_props('fd', 'nba', 'player assists alt'))
-fd_threes_alt <- try(get_props('fd', 'nba', 'player 3pts alt'))
-fd_points_ou <- try(get_props('fd', 'nba', 'player points ou'))
-fd_rebounds_ou <- try(get_props('fd', 'nba', 'player rebounds ou'))
-fd_assists_ou <- try(get_props('fd', 'nba', 'player assists ou'))
-fd_threes_ou <- try(get_props('fd', 'nba', 'player 3pts ou'))
-fd_points_tiers <- try(get_props('fd', 'nba', 'player points tiers'))
-fd_rebounds_tiers <- try(get_props('fd', 'nba', 'player rebounds tiers'))
-fd_assists_tiers <- try(get_props('fd', 'nba', 'player assists tiers'))
-fd_threes_tiers <- try(get_props('fd', 'nba', 'player 3pts tiers'))
-
-# pointsbet
-pb_ftts <- try(get_props('pb', 'nba', 'ftts'))
-pb_fpts <- try(get_props('pb', 'nba', 'fpts'))
-pb_points_alt <- try(get_props('pb', 'nba', 'player points alt'))
-
-pb_points_ou <- try(get_props('pb', 'nba', 'player points ou'))
-# pb_rebounds_ou <- try(get_props('pb', 'nba', 'player rebounds ou'))
-# pb_assists_ou <- try(get_props('pb', 'nba', 'player assists ou'))
-# pb_threes_ou <- try(get_props('pb', 'nba', 'player 3pts ou'))
-pb_points_tiers <- try(get_props('pb', 'nba', 'player points tiers'))
-# pb_rebounds_tiers <- try(get_props('pb', 'nba', 'player rebounds tiers'))
-# pb_assists_tiers <- try(get_props('pb', 'nba', 'player assists tiers'))
-# pb_threes_tiers <- try(get_props('pb', 'nba', 'player 3pts tiers'))
-
-# get gambling_stuff data ----
-
-# get fpts and fpts
-first_team_to_score <- read.csv(
-  'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_first_to_score/first_team_to_score.csv.gz'
-)
-first_player_to_score <- read.csv(
-  'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_first_to_score/first_player_to_score.csv.gz'
-)
-
-# get the rosters for player-team info
-
-rosters <- read.csv('/Users/jim/Documents/gambling_stuff/data/02_curated/nba_rosters/current.csv.gz') %>%
-  transmute(
-    tidyplayer = normalize_names(
-      PLAYER_NAME,
-      key = system.file('lu', 'nba', 'player', 'lu.json', package = 'betfinder')
-    ),
-    tidyteam = normalize_names(
-      TEAM_ABBREVIATION,
-      key = system.file('lu', 'nba', 'team', 'lu.json', package = 'betfinder')
-    ))
-
-# get the latest lineups to create a schedule for matchup info
-schedule <- read.csv(
-  'https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_lineups/rotowire.csv'
-  ) %>%
-  mutate(tidyteam = normalize_names(
-    TEAM_ABBREVIATION,
-    key = system.file('lu', 'nba', 'team', 'lu.json', package = 'betfinder')
-  )) %>%
-  select(MATCHUP, tidyteam, HOME_AWAY) %>%
-  distinct() %>%
-  group_by(MATCHUP) %>%
-  mutate(tidyteam = tidyteam,
-         tidyopp = rev(tidyteam),
-         home_away = if_else(grepl('home', HOME_AWAY), 'home', 'away')) %>%
-  ungroup() %>%
-  select(-MATCHUP, -HOME_AWAY)
-
-# create dashboard data ----
-# purge the try-errors
+# purge any try-errors
 try_errors <- Filter(function(x) 'try-error' %in% class(get(x)), ls())
 message(Sys.time(), ' the following objects were removed as try-errors: ', paste(try_errors, collapse = ', '))
 rm(list = try_errors)
@@ -215,9 +134,7 @@ props_df <- props_df %>%
          projected_odds = bettoR::convert_odds(projected_prob, input = 'prob', output = 'us'))
 
 # stash the datetime when these data were last updated
-attr(props_df, 'timestamp') <- t1
+attr(props_df, 'timestamp') <- Sys.time()
 # save dash output
 saveRDS(props_df, 'inst/props.rds')
 
-t2 <- Sys.time()
-t2-t1
