@@ -83,7 +83,7 @@ parse_draftkings_data <- function(draftkings_data, prop) {
   }
   # if output_list is empty, error
   if (length(output_list) == 0) {
-    stop('no props returned')
+    stop('no ', prop, ' props returned')
   } else {
     output_df <- as.data.frame(do.call(rbind, output_list))
     output_df$prop <- prop

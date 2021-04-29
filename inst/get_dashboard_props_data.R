@@ -15,7 +15,7 @@ fd_fpts <- try(get_props('fd', 'nba', 'fpts'))
 fd_points_alt <- try(get_props('fd', 'nba', 'player points alt'))
 fd_rebounds_alt <- try(get_props('fd', 'nba', 'player rebounds alt'))
 fd_assists_alt <- try(get_props('fd', 'nba', 'player assists alt'))
-# fd_threes_alt <- try(get_props('fd', 'nba', 'player 3pts alt')) # does fd ever even do this?
+fd_threes_alt <- try(get_props('fd', 'nba', 'player 3pts alt')) # does fd ever even do this?
 fd_points_ou <- try(get_props('fd', 'nba', 'player points ou'))
 fd_rebounds_ou <- try(get_props('fd', 'nba', 'player rebounds ou'))
 fd_assists_ou <- try(get_props('fd', 'nba', 'player assists ou'))

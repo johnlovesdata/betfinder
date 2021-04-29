@@ -268,7 +268,7 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
   }
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) {
-    stop('no props returned')
+    stop('no ', prop, ' props returned')
   } else {
     output_df <- do.call(rbind, output_list)
   }
