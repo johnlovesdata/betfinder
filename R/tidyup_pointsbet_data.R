@@ -22,31 +22,28 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
                                          -100 / (as.numeric(output_df$price) - 1),
                                          (as.numeric(output_df$price) - 1) * 100)
     # since prop arg is flexible, set it here for output
-    if (prop == 'fpts') {
-      output_df$prop <- 'first player to score'
-      }
+    output_df$prop <- 'first player to score'
   }
-
   if (grepl('points|rebounds|assists|three| 3pts| pts| rebs| asts', tolower(prop))) {
     # handle special cases by prop type
     ## alt lines can be over or under, but need to extract direction and line from names
     if (grepl('alt$', tolower(prop))) {
       ## set the over/under column values
-      output_df$tidyou <- ifelse(grepl('Over', output_df$name), 'over', 'under')
+      output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$name)), 'over', 'under')
       ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' Over | Under ', 'XX', output_df$name)
+      split_string <- gsub(' To Get ', 'XX', as.character(output_df$name))
       splitted <- strsplit(split_string, 'XX')
       splitted_name <- sapply(splitted, '[[', 1)
       splitted_name <- hacky_tidyup_player_names(splitted_name)
-      splitted_line <- sapply(splitted, '[[', 2)
+      splitted_line <- gsub('[A-Za-z |\\+]', '', sapply(splitted, '[[', 2))
       output_df$tidyplayer <- normalize_names(splitted_name, key = key)
       output_df$tidyline <- as.numeric(splitted_line)
     }
     if (grepl('ou$', tolower(prop))) {
       ## set the over/under column values
-      output_df$tidyou <- ifelse(grepl('Over', output_df$name), 'over', 'under')
+      output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$name)), 'over', 'under')
       ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' Over | Under ', 'XX', output_df$name)
+      split_string <- gsub(' Over | Under ', 'XX', as.character(output_df$name))
       splitted <- strsplit(split_string, 'XX')
 
       splitted_name <- sapply(splitted, '[[', 1)
@@ -74,9 +71,9 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
     }
 
     # set the odds
-    output_df$tidyamericanodds <- ifelse(output_df$price - 1 < 1,
-                                         -100 / (output_df$price - 1),
-                                         (output_df$price - 1) * 100)
+    output_df$tidyamericanodds <- ifelse(as.numeric(output_df$price) - 1 < 1,
+                                         -100 / (as.numeric(output_df$price) - 1),
+                                         (as.numeric(output_df$price) - 1) * 100)
 
     # handle any tidy values that weren't already handled
     ## if tidyplayer isn't set, set it

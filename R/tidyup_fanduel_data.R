@@ -39,7 +39,6 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
       output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
     }
     if (grepl('ou$', tolower(prop))) {
-
       ## extract player name and ou from the prop field
       prop_string <- as.character(output_df$prop)
       player_part <- gsub(' Over$| Under$', '', prop_string)
@@ -53,6 +52,8 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
     ## tiers are always overs, but the lines are in the prop_details, not the handicap
     if (grepl('tiers', tolower(prop))) {
       output_df$tidyou <- 'over'
+      hacky_tidyplayer <- hacky_tidyup_player_names(gsub(' Over| Under', '', as.character(output_df$player)))
+      output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
       # as kyle mentioned, tiers are >= values, so if we're calling it an over need to subtract half a point
       output_df$tidyline <- as.numeric(gsub('[A-Za-z| |+]', '', output_df$prop)) - .5
       output_df$tidyamericanodds <- as.numeric(output_df$american_odds)

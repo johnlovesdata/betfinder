@@ -76,7 +76,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
     }
     if (prop %in% c('player points alt', 'player points ou', 'player points tiers',
                     'player pts alt', 'player pts ou', 'player pts tiers')) {
-      # get the first quarter props
+      # get the points props
       if ('player_points' %in% names(game_event)) player_points <- game_event$player_points else next
       # extract attachments
       if ('attachments' %in% names(player_points)) player_points_attachments <- player_points$attachments else next
@@ -146,7 +146,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
     }
     if (prop %in% c('player assists alt', 'player assists ou', 'player assists tiers',
                     'player asts alt', 'player asts ou', 'player asts tiers')) {
-      # get the first quarter props
+      # get the assists props
       if ('player_assists' %in% names(game_event)) player_assists <- game_event$player_assists else next
       # extract attachments
       if ('attachments' %in% names(player_assists)) player_assists_attachments <- player_assists$attachments else next
@@ -216,7 +216,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
     }
     if (prop %in% c('player rebounds alt', 'player rebounds ou', 'player rebounds tiers',
                     'player rebs alt', 'player rebs ou', 'player rebs tiers')) {
-      # get the first quarter props
+      # get the rebounds props
       if ('player_rebounds' %in% names(game_event)) player_rebounds <- game_event$player_rebounds else next
       # extract attachments
       if ('attachments' %in% names(player_rebounds)) player_rebounds_attachments <- player_rebounds$attachments else next
@@ -284,62 +284,64 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }
-
     if (prop %in% c('player three-pointers alt', 'player three-pointers ou', 'player three-pointers tiers',
                     'player 3pts alt', 'player 3pts ou', 'player 3pts tiers')) {
-      # get the first quarter props
-      if ('player_three-pointers' %in% names(game_event)) player_three-pointers <- game_event$player_three-pointers else next
+      # get the three pointer props
+      if ('player_threes' %in% names(game_event)) player_threes <- game_event$player_threes else next
       # extract attachments
-      if ('attachments' %in% names(player_three-pointers)) player_three-pointers_attachments <- player_three-pointers$attachments else next
+      if ('attachments' %in% names(player_threes)) player_threes_attachments <- player_threes$attachments else next
       # extract markets
-      if ('markets' %in% names(player_three-pointers_attachments)) player_three-pointers_markets <- player_three-pointers_attachments$markets else next
+      if ('markets' %in% names(player_threes_attachments)) player_threes_markets <- player_threes_attachments$markets else next
       # identify bet markets
-      if (length(player_three-pointers_markets) > 0) {
-        player_three-pointers_bet_markets <-
-          do.call(rbind, lapply(player_three-pointers_markets, function(x) data.frame(id = x[['marketId']], name = x[['marketName']])))
+      if (length(player_threes_markets) > 0) {
+        player_threes_bet_markets <-
+          do.call(rbind, lapply(player_threes_markets, function(x) data.frame(id = x[['marketId']], name = x[['marketName']])))
       } else {
         next
       }
       # get the particular prop; group them by types here and fix mixed up names
-      prop_type <- ifelse(grepl('alt$', prop), 'three-pointers alt',
-                          ifelse(grepl('ou$', prop), 'three-pointers ou',
-                                 ifelse(grepl('tiers$', prop), 'three-pointers tiers',
+      prop_type <- ifelse(grepl('alt$', prop), 'threes alt',
+                          ifelse(grepl('ou$', prop), 'threes ou',
+                                 ifelse(grepl('tiers$', prop), 'threes tiers',
                                         NA_character_
                                  )))
-      if (prop_type == 'three-pointers alt') {
-        market_ids <- player_three-pointers_bet_markets$id[grepl('Alt', player_three-pointers_bet_markets$name)]
+      if (prop_type == 'threes alt') {
+        market_ids <- player_threes_bet_markets$id[grepl('Alt 3-Pointers', player_threes_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
         for (i in market_ids) {
-          mkt <- player_three-pointers_markets[[i]]
+          mkt <- player_threes_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
             data.frame(prop = x[['runnerName']],
+                       handicap = x[['handicap']],
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
         }
       }
-      if (prop_type == 'three-pointers ou') {
-        market_ids <- player_three-pointers_bet_markets$id[grepl('- Made Threes', player_three-pointers_bet_markets$name)]
+      if (prop_type == 'threes ou') {
+        market_ids <- player_threes_bet_markets$id[grepl('- Made Threes', player_threes_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
         for (i in market_ids) {
-          mkt <- player_three-pointers_markets[[i]]
+          mkt <- player_threes_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
             data.frame(prop = x[['runnerName']],
+                       handicap = x[['handicap']],
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
         }
       }
-      if (prop_type == 'three-pointers tiers') {
-        market_ids <- player_three-pointers_bet_markets$id[grepl('+ Made Threes', player_three-pointers_bet_markets$name)]
+      if (prop_type == 'threes tiers') {
+        market_ids <- player_threes_bet_markets$id[grepl('[1-9]\\+ Made Threes', player_threes_bet_markets$name)]
         if (length(market_ids) == 0) next
         mkt_list <- list()
         for (i in market_ids) {
-          mkt <- player_three-pointers_markets[[i]]
+          mkt <- player_threes_markets[[i]]
           rnrs <- lapply(mkt$runners, function(x) {
-            data.frame(prop = x[['runnerName']],
+            data.frame(player = x[['runnerName']],
+                       prop = mkt$marketName,
                        american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
           })
           mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
@@ -347,7 +349,6 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
       # make a data.frame
       mkt_df <- do.call(rbind, mkt_list)
-      mkt_df$matchup <- matchup
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }

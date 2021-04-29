@@ -11,7 +11,7 @@ search_props_raw <- readRDS("props.rds") %>%
 # ui ----
 ui <- fluidPage(
   titlePanel('Props Dash'),
-  h5(paste0('Data updated at: ', Sys.time(), ' CDT')),
+  h5(paste0('Data updated at: ', attr(search_props_raw, 'timestamp'), ' CDT')),
   br(),
   fluidRow(
     # select a bunch of stuff

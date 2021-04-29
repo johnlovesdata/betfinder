@@ -42,7 +42,6 @@ get_fanduel_data <- function(sport, save_path = NULL,
       event_content <- get_content(uri = event_URI, query = event_query)
 
       ## BUT WAIT THERES MORE - gotta grab each of the tabs for the specific props and stuff (this is a pain in the ass unless i can pass a list to the tab parameter?)
-
       tab_list <- list()
       for (i in tabs) {
         new_q <- event_query
