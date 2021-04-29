@@ -4,7 +4,7 @@ library(tidyverse)
 load_all()
 # vars for later
 ## used when combining props by type
-prop_list <- c('fpts', 'ftts', 'points')
+prop_list <- c('fpts', 'ftts', 'points', 'rebounds', 'assists', 'threes')
 site_prefixes <- c('dk_', 'fd_', 'pb_')
 
 # purge any try-errors

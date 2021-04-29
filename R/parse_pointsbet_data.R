@@ -85,109 +85,186 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         output_list[[length(output_list) + 1]] <- points_tiers
       }
     }
-
     if (prop %in% c('player rebounds alt', 'player rebounds ou', 'player rebounds tiers',
                     'player rebs alt', 'player rebs ou', 'player rebs tiers')) {
-
-      # skip if no first basket props
-      if (!'Player Rebounds Markets' %in% fixed_odds_markets$groupName) {
-        next
-      } else {
-        rebounds_markets <-
-          fixed_odds_markets[fixed_odds_markets$groupName == 'Player Rebounds Markets', ]
-      }
-
       # skip if no player rebounds props available
       prop <- gsub(' rebs ', 'rebounds ', prop)
-
       # get correct props
       prop_type <- ifelse(grepl('alt$', prop), 'rebounds alt',
                           ifelse(grepl('ou$', prop), 'rebounds ou',
                                  ifelse(grepl('tiers$', prop), 'rebounds tiers',
                                         NA_character_
                                  )))
-
       # handle the different kinds of player rebounds bets
+      if (prop_type == 'rebounds alt') {
+        if (any(grepl('Pick Your Own Rebounds', event_names))) {
+          elements <- which(grepl('Pick Your Own Rebounds', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          rebounds_alt_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            rebounds_alt_list[[length(rebounds_alt_list) + 1]] <- extracted
+          }
+          rebounds_alt <- do.call(rbind, rebounds_alt_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- rebounds_alt
+      }
       if (prop_type == 'rebounds ou') {
-        ous <- rebounds_markets[grepl('[A-Z] Rebounds Over/Under', rebounds_markets$eventName), ]
-        output_list[[length(output_list) + 1]] <- do.call(rbind, ous$outcomes)
+        if (any(grepl('[A-Z] Rebounds Over/Under', event_names))) {
+          elements <- which(grepl('[A-Z] Rebounds Over/Under', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          rebounds_ou_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            rebounds_ou_list[[length(rebounds_ou_list) + 1]] <- extracted
+          }
+          rebounds_ou <- do.call(rbind, rebounds_ou_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- rebounds_ou
       }
-
       if (prop_type == 'rebounds tiers') {
-        tiers <- rebounds_markets[grepl('Pick', rebounds_markets$eventName), ]
-        output_list[[length(output_list) + 1]] <- do.call(rbind, tiers$outcomes)
+        if (any(grepl('Pick Your Own Rebounds', event_names))) {
+          elements <- which(grepl('Pick Your Own Rebounds', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          rebounds_tiers_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            rebounds_tiers_list[[length(rebounds_tiers_list) + 1]] <- extracted
+          }
+          rebounds_tiers <- do.call(rbind, rebounds_tiers_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- rebounds_tiers
       }
-
     }
-
     if (prop %in% c('player assists alt', 'player assists ou', 'player assists tiers',
                     'player asts alt', 'player asts ou', 'player asts tiers')) {
-
-      # skip if no first basket props
-      if (!'Player Assists Markets' %in% fixed_odds_markets$groupName) {
-        next
-      } else {
-        assists_markets <-
-          fixed_odds_markets[fixed_odds_markets$groupName == 'Player Assists Markets', ]
-      }
-
       # skip if no player assists props available
       prop <- gsub(' asts ', 'assists ', prop)
-
       # get correct props
       prop_type <- ifelse(grepl('alt$', prop), 'assists alt',
                           ifelse(grepl('ou$', prop), 'assists ou',
                                  ifelse(grepl('tiers$', prop), 'assists tiers',
                                         NA_character_
                                  )))
-
       # handle the different kinds of player assists bets
+      if (prop_type == 'assists alt') {
+        if (any(grepl('Pick Your Own Assists', event_names))) {
+          elements <- which(grepl('Pick Your Own Assists', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          assists_alt_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            assists_alt_list[[length(assists_alt_list) + 1]] <- extracted
+          }
+          assists_alt <- do.call(rbind, assists_alt_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- assists_alt
+      }
       if (prop_type == 'assists ou') {
-        ous <- assists_markets[grepl('[A-Z] Assists Over/Under', assists_markets$eventName), ]
-        output_list[[length(output_list) + 1]] <- do.call(rbind, ous$outcomes)
+        if (any(grepl('[A-Z] Assists Over/Under', event_names))) {
+          elements <- which(grepl('[A-Z] Assists Over/Under', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          assists_ou_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            assists_ou_list[[length(assists_ou_list) + 1]] <- extracted
+          }
+          assists_ou <- do.call(rbind, assists_ou_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- assists_ou
       }
-
       if (prop_type == 'assists tiers') {
-        tiers <- assists_markets[grepl('Pick', assists_markets$eventName), ]
-        output_list[[length(output_list) + 1]] <- do.call(rbind, tiers$outcomes)
+        if (any(grepl('Pick Your Own Assists', event_names))) {
+          elements <- which(grepl('Pick Your Own Assists', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          assists_tiers_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            assists_tiers_list[[length(assists_tiers_list) + 1]] <- extracted
+          }
+          assists_tiers <- do.call(rbind, assists_tiers_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- assists_tiers
       }
-
     }
-
     if (prop %in% c('player three-pointers alt', 'player three-pointers ou', 'player three-pointers tiers',
                     'player 3pts alt', 'player 3pts ou', 'player 3pts tiers')) {
-
-      # skip if no 3 pointer props
-      if (!'Player Three Pointer Wagers' %in% fixed_odds_markets$groupName) {
-        next
-      } else {
-        threes_markets <-
-          fixed_odds_markets[fixed_odds_markets$groupName == 'Player Three Pointer Wagers', ]
-      }
-
-      # skip if no player assists props available
-      prop <- gsub(' 3pts ', 'three-pointers ', prop)
-
+      # skip if no player threes props available
+      prop <- gsub(' 3pts ', '3pts ', prop)
       # get correct props
-      prop_type <- ifelse(grepl('alt$', prop), 'three-pointers alt',
-                          ifelse(grepl('ou$', prop), 'three-pointers ou',
-                                 ifelse(grepl('tiers$', prop), 'three-pointers tiers',
+      prop_type <- ifelse(grepl('alt$', prop), 'threes alt',
+                          ifelse(grepl('ou$', prop), 'threes ou',
+                                 ifelse(grepl('tiers$', prop), 'threes tiers',
                                         NA_character_
                                  )))
-
-      # handle the different kinds of player assists bets
-      if (prop_type == 'three-pointers ou') {
-        ous <- threes_markets[grepl('Threes Over/Under', threes_markets$eventName), ]
-        output_list[[length(output_list) + 1]] <- do.call(rbind, ous$outcomes)
+      # handle the different kinds of player threes bets
+      if (prop_type == 'threes alt') {
+        if (any(grepl('Pick Your Own Made Threes', event_names))) {
+          elements <- which(grepl('Pick Your Own Made Threes', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          threes_alt_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            threes_alt_list[[length(threes_alt_list) + 1]] <- extracted
+          }
+          threes_alt <- do.call(rbind, threes_alt_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- threes_alt
       }
-
-      if (prop_type == 'three-pointers tiers') {
-        tiers <- threes_markets[grepl('Pick', threes_markets$eventName), ]
-        output_list[[length(output_list) + 1]] <- do.call(rbind, tiers$outcomes)
+      if (prop_type == 'threes ou') {
+        if (any(grepl('Threes Over/Under', event_names))) {
+          elements <- which(grepl('Threes Over/Under', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          threes_ou_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            threes_ou_list[[length(threes_ou_list) + 1]] <- extracted
+          }
+          threes_ou <- do.call(rbind, threes_ou_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- threes_ou
       }
-
+      if (prop_type == 'threes tiers') {
+        if (any(grepl('Pick Your Own Threes', event_names))) {
+          elements <- which(grepl('Pick Your Own Threes', event_names))
+          selected_markets <- fixed_odds_markets[elements]
+          outcomes <- lapply(selected_markets, '[[', 'outcomes')
+          threes_tiers_list <- list()
+          for (o in outcomes) {
+            extracted <- as.data.frame(do.call(rbind, o))
+            threes_tiers_list[[length(threes_tiers_list) + 1]] <- extracted
+          }
+          threes_tiers <- do.call(rbind, threes_tiers_list)
+        } else {
+          next
+        }
+        output_list[[length(output_list) + 1]] <- threes_tiers
+      }
     }
-
   }
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) {
