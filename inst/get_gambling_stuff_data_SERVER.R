@@ -3,13 +3,13 @@ library(tidyverse)
 load_all()
 # get fpts and fpts
 first_team_to_score <- read.csv(
-  '/server/path'
+  '/home/shared/gambling_stuff/data/02_curated/nba_first_to_score/first_team_to_score.csv.gz'
 )
 first_player_to_score <- read.csv(
-  '/server/path'
+  '/home/shared/gambling_stuff/data/02_curated/nba_first_to_score/first_player_to_score.csv.gz'
 )
 # get the rosters for player-team info
-rosters <- read.csv('/server/path') %>%
+rosters <- read.csv('/home/shared/gambling_stuff/data/02_curated/nba_rosters/current.csv.gz') %>%
   transmute(
     tidyplayer = normalize_names(
       PLAYER_NAME,
@@ -21,7 +21,7 @@ rosters <- read.csv('/server/path') %>%
     ))
 # get the latest lineups to create a schedule for matchup info
 schedule <- read.csv(
-  '/server/path'
+  '/home/shared/gambling_stuff/data/02_curated/nba_lineups/rotowire.csv'
 ) %>%
   mutate(tidyteam = normalize_names(
     TEAM_ABBREVIATION,
