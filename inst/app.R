@@ -4,6 +4,8 @@ library(shiny)
 library(shinyWidgets)
 library(tidyverse)
 library(reactable)
+## restart
+if (file.exists('restart.txt')) system('touch restart.txt') else file.create('restart.txt')
 ## load data
 search_props_raw <- readRDS("props.rds") %>%
   filter(!is.na(tidyopp))
@@ -73,8 +75,6 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   #### get data for table ####
-
-  if (file.exists('restart.txt')) system('touch restart.txt') else file.create('restart.txt')
 
   # filter based on inputs
   filtered_data <- reactive({
