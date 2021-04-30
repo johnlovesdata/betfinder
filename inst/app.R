@@ -109,6 +109,7 @@ server <- function(input, output) {
       select(
         sport,
         tidyplayer,
+        injury_status,
         tidyteam,
         home_away,
         tidyopp,
@@ -134,6 +135,7 @@ server <- function(input, output) {
       select(
         sport,
         tidyplayer,
+        injury_status,
         tidyteam,
         home_away,
         tidyopp,
@@ -162,6 +164,18 @@ server <- function(input, output) {
         tidyplayer = colDef(
           name = "Player",
           sortNALast = TRUE,
+          # TODO: this isn't working but COULD, look at injury values
+          style = function(value, index) {
+            if (grepl('Likely', all_props_data()$injury_status[[index]])) list(color = "green")
+            if (grepl('Unlikely', all_props_data()$injury_status[[index]])) list(color = "red")
+            else return()
+          },
+          minWidth = 90
+        ),
+        injury_status = colDef(
+          # TODO: SEE WHETHER THIS IS ACTUALLY THE CORRECT FIELD TO USEEE
+          name = "Status",
+          sortNALast = FALSE,
           minWidth = 90
         ),
         tidyteam = colDef(
@@ -311,7 +325,12 @@ server <- function(input, output) {
         tidyplayer = colDef(
           name = "Player",
           sortNALast = TRUE,
-          width = 180
+          minWidth = 90
+        ),
+        injury_status = colDef(
+          name = "Status",
+          sortNALast = FALSE,
+          minWidth = 90
         ),
         tidyteam = colDef(
           name = "Team",
