@@ -1,15 +1,14 @@
 # global ----
 ## libraries
+library(tidyverse)
 library(shiny)
 library(shinyWidgets)
-library(tidyverse)
 library(reactable)
 ## restart
 if (file.exists('restart.txt')) system('touch restart.txt') else file.create('restart.txt')
 ## load data
 search_props_raw <- readRDS("props.rds") %>%
   filter(!is.na(tidyopp))
-
 # ui ----
 ui <- fluidPage(
   titlePanel('Props Dash'),

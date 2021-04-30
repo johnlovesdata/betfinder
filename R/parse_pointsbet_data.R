@@ -207,8 +207,6 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
     }
     if (prop %in% c('player three-pointers alt', 'player three-pointers ou', 'player three-pointers tiers',
                     'player 3pts alt', 'player 3pts ou', 'player 3pts tiers')) {
-      # skip if no player threes props available
-      prop <- gsub(' 3pts ', '3pts ', prop)
       # get correct props
       prop_type <- ifelse(grepl('alt$', prop), 'threes alt',
                           ifelse(grepl('ou$', prop), 'threes ou',
@@ -249,7 +247,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         output_list[[length(output_list) + 1]] <- threes_ou
       }
       if (prop_type == 'threes tiers') {
-        if (any(grepl('Pick Your Own Threes', event_names))) {
+        # noping this out cuz it's so far the same exact thing as the alt pieces
+        if (any(grepl('NOOOOOPE', event_names))) {
           elements <- which(grepl('Pick Your Own Threes', event_names))
           selected_markets <- fixed_odds_markets[elements]
           outcomes <- lapply(selected_markets, '[[', 'outcomes')

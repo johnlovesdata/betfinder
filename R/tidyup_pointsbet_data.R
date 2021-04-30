@@ -28,16 +28,17 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
     # handle special cases by prop type
     ## alt lines can be over or under, but need to extract direction and line from names
     if (grepl('alt$', tolower(prop))) {
-      ## set the over/under column values
-      output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$name)), 'over', 'under')
+      ## set the over/under column value, which is always an over
+      output_df$tidyou <- 'over'
       ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' To Get ', 'XX', as.character(output_df$name))
+      split_string <- gsub(' To Get | To Make ', 'XX', as.character(output_df$name))
       splitted <- strsplit(split_string, 'XX')
       splitted_name <- sapply(splitted, '[[', 1)
       splitted_name <- hacky_tidyup_player_names(splitted_name)
       splitted_line <- gsub('[A-Za-z |\\+]', '', sapply(splitted, '[[', 2))
       output_df$tidyplayer <- normalize_names(splitted_name, key = key)
-      output_df$tidyline <- as.numeric(splitted_line)
+      # the lines here are for "N+ made 3s" so adjust for that here by subtracting half a point
+      output_df$tidyline <- as.numeric(splitted_line) - .5
     }
     if (grepl('ou$', tolower(prop))) {
       ## set the over/under column values
