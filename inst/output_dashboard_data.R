@@ -29,6 +29,10 @@ merged <- props_wide %>%
 # tidy up ----
 # book-level conversions
 props_df <- merged %>%
+  # fill in blank opponents for team props
+  group_by(tidyteam) %>%
+  fill(tidyopp, .direction = 'downup') %>%
+  ungroup() %>%
   mutate(
     # recode NAs in tidyou (KEEP IT THIS WAY, YOU CHANGED IT ONCE ALREADY AND IT WAS A BAD DECISION)
     tidyou = if_else(is.na(tidyou), 'N/A', tidyou)) %>%

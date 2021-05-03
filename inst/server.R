@@ -1,6 +1,5 @@
 shinyServer(
   function(input, output) {
-
     # restart
     if (file.exists('restart.txt')) system('touch restart.txt') else file.create('restart.txt')
 
@@ -12,7 +11,7 @@ shinyServer(
           sport %in% input$sport,
           tidyplayer %in% input$player,
           tidyteam %in% input$team,
-          injury_status %in% input$injury_status,
+          # injury_status %in% input$injury_status,
           prop %in% input$prop,
           tidyou %in% input$ou,
           # tidyline >= input$line[1],
