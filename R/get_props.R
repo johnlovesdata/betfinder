@@ -1,4 +1,4 @@
-#' Get lines on prop bets for popular sports from popular betting sites
+#' Get lines and odds on prop bets for popular sports from popular betting sites
 #'
 #' @param site \code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'
 #' @param sport \code{character} sport, e.g. 'nba'
@@ -6,6 +6,7 @@
 #' @param save_path \code{character} path to save jsons, if not \code{NULL}
 #' @details available props include: 'player points alt', 'player points ou', 'player points tiers', 'first team to score', 'first player to score'
 #' @return \code{data.frame} tidy props with tidy columns
+#' @name get_props
 #' @export
 get_props <- function(site, sport, prop, save_path = NULL) {
 
@@ -37,4 +38,32 @@ get_props <- function(site, sport, prop, save_path = NULL) {
   output_df$timestamp <- Sys.time()
   return(output_df)
 
+}
+
+#' @rdname get_props
+get_all_props <- function(sports = c('nba'),
+                          sites = c('dk', 'fd', 'pb'),
+                          props = c('ftts', 'fpts',
+                          'player points alt', 'player points ou', 'player points tiers',
+                          'player assists alt', 'player assists ou', 'player assists tiers',
+                          'player rebounds alt', 'player rebounds ou', 'player rebounds tiers',
+                          'player 3pts alt', 'player 3pts ou', 'player 3pts tiers'),
+                          save_path = NULL) {
+  # blow up the grid of sport, site, and prop
+  args_df <- expand.grid(
+    sport = sports,
+    site = sites,
+    prop = props,
+    stringsAsFactors = FALSE)
+  # loop through the massive set of arguments
+  output_list <- list()
+  for (i in 1:nrow(args_df)) {
+    arg_row <- args_df[i, ]
+    props <- try(get_props(sport = arg_row$sport,
+                           site = arg_row$site,
+                           prop = arg_row$prop))
+    if (inherits(props, 'try-error')) next
+    output_list[[length(output_list) + 1]] <- props
+  }
+  return(output_list)
 }
