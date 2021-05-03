@@ -2,9 +2,20 @@
 % Please edit documentation in R/get_props.R
 \name{get_props}
 \alias{get_props}
-\title{Get lines on prop bets for popular sports from popular betting sites}
+\alias{get_all_props}
+\title{Get lines and odds on prop bets for popular sports from popular betting sites}
 \usage{
 get_props(site, sport, prop, save_path = NULL)
+
+get_all_props(
+  sports = c("nba"),
+  sites = c("dk", "fd", "pb"),
+  props = c("ftts", "fpts", "player points alt", "player points ou",
+    "player points tiers", "player assists alt", "player assists ou",
+    "player assists tiers", "player rebounds alt", "player rebounds ou",
+    "player rebounds tiers", "player 3pts alt", "player 3pts ou", "player 3pts tiers"),
+  save_path = NULL
+)
 }
 \arguments{
 \item{site}{\code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'}
@@ -19,7 +30,7 @@ get_props(site, sport, prop, save_path = NULL)
 \code{data.frame} tidy props with tidy columns
 }
 \description{
-Get lines on prop bets for popular sports from popular betting sites
+Get lines and odds on prop bets for popular sports from popular betting sites
 }
 \details{
 available props include: 'player points alt', 'player points ou', 'player points tiers', 'first team to score', 'first player to score'

@@ -266,10 +266,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
     }
   }
   # if output_list is empty, error, else return as a data.frame
-  if (length(output_list) == 0) {
-    stop('no ', prop, ' props returned')
-  } else {
-    output_df <- do.call(rbind, output_list)
-  }
+  if (!'output_list' %in% ls()) stop('no pointsbet ', prop, ' props returned')
+  if (length(output_list) == 0) stop('no pointsbet ', prop, ' props returned')
+  output_df <- do.call(rbind, output_list)
   return(output_df)
 }
