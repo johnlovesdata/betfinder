@@ -6,6 +6,8 @@
 \alias{get_key_path}
 \alias{hacky_tidyup_player_names}
 \alias{get_content}
+\alias{american_to_prob}
+\alias{prob_to_american}
 \title{Utility functions to make things work better}
 \usage{
 normalize_names(x, key, warn = TRUE)
@@ -15,6 +17,10 @@ get_key_path(sport, prop)
 hacky_tidyup_player_names(player_names)
 
 get_content(uri, query)
+
+american_to_prob(odds)
+
+prob_to_american(probs)
 }
 \arguments{
 \item{x}{Vector of strings to normalize in \code{normalize_names}}

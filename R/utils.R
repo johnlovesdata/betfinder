@@ -74,14 +74,10 @@ get_key_path <- function(sport, prop) {
 
 #' @rdname utils
 hacky_tidyup_player_names <- function(player_names) {
-
   output <- iconv(player_names, to = "ASCII//TRANSLIT")
   output <- tolower(gsub('[^[:alnum:]]', '', output))
   output <- gsub('jr$|sr$|ii$|iii$', '', output)
-
-
   return(output)
-
 }
 
 #' @rdname utils
@@ -89,4 +85,30 @@ get_content <- function(uri, query) {
   resp <- httr::GET(uri, query = query, encode = 'json')
   output <- httr::content(resp)
   return(output)
+}
+
+#' @rdname utils
+american_to_prob <- function(odds) {
+  output <- list()
+  for (o in odds) {
+    if (is.na(o)) { e <- NA_real_ }
+    else if (o < 0) { e <- (o * -1) / ((o * -1) + 100) }
+    else if (o > 0) { e <- 100 / (o + 100) }
+    else e <- { NA_real_ }
+    output[[length(output) + 1]] <- e
+  }
+  return(unlist(output))
+}
+
+#' @rdname utils
+prob_to_american <- function(probs) {
+  output <- list()
+  for (p in probs) {
+    if (is.na(p)) { e <- NA_real_ }
+    else if (p <= .5) { e <- (100 / p) - 100 }
+    else if (p > .5) { e <- (p / (1 - p)) * -100 }
+    else {e <- NA_real_}
+    output[[length(output) + 1]] <- e
+  }
+  return(unlist(output))
 }

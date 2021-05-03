@@ -36,19 +36,19 @@ props_df <- merged %>%
   mutate(across(
       c(draftkings, fanduel, pointsbet),
       round)) %>%
-  mutate(dk_prob = bettoR::convert_odds(draftkings, output = 'prob'),
-         fd_prob = bettoR::convert_odds(fanduel, output = 'prob'),
-         pb_prob = bettoR::convert_odds(pointsbet, output = 'prob')) %>%
+  mutate(dk_prob = american_to_prob(draftkings),
+         fd_prob = american_to_prob(fanduel),
+         pb_prob = american_to_prob(pointsbet)) %>%
   mutate(dk_delta = projected_prob - dk_prob,
          fd_delta = projected_prob - fd_prob,
          pb_delta = projected_prob - pb_prob) %>%
   rowwise() %>%
   mutate(count_books = sum(!is.na(c(draftkings, fanduel, pointsbet))),
          mean_prob = mean(c(dk_prob, fd_prob, pb_prob), na.rm = TRUE),
-         mean_odds = bettoR::convert_odds(mean_prob, input = 'prob', output = 'us'),
+         mean_odds = prob_to_american(mean_prob),
          worst_prob = max(c(dk_prob, fd_prob, pb_prob), na.rm = TRUE),
          best_prob = min(c(dk_prob, fd_prob, pb_prob), na.rm = TRUE),
-         best_odds = bettoR::convert_odds(best_prob, input = 'prob', output = 'us'),
+         best_odds = prob_to_american(best_prob),
          probs_list = list(c(dk_prob, fd_prob, pb_prob)),
          odds_list = list(c(draftkings, fanduel, pointsbet)),
          best_delta = max(c(dk_delta, fd_delta, pb_delta), na.rm = TRUE),
@@ -85,7 +85,7 @@ props_df <- props_df %>%
          next_best_ratio = case_when(count_books == 1 ~ NA_real_,
                                      count_books == 2 ~ best_prob / worst_prob,
                                      count_books > 2 ~ best_prob / next_best_prob),
-         projected_odds = bettoR::convert_odds(projected_prob, input = 'prob', output = 'us'))
+         projected_odds = prob_to_american(projected_prob))
 
 # stash the datetime when these data were last updated
 attr(props_df, 'timestamp') <- Sys.time()

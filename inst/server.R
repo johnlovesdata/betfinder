@@ -96,7 +96,6 @@ shinyServer(
             minWidth = 90
           ),
           injury_status = colDef(
-            # TODO: SEE WHETHER THIS IS ACTUALLY THE CORRECT FIELD TO USEEE
             name = "Status",
             show = FALSE,
             sortNALast = FALSE,
