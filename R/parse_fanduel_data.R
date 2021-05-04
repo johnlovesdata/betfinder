@@ -355,7 +355,7 @@ parse_fanduel_data <- function(fanduel_data, prop) {
   }
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) {
-    stop('no ', prop, ' props returned')
+    stop('no fanduel ', prop, ' props returned')
   } else {
     output_df <- do.call(rbind, output_list)
   }

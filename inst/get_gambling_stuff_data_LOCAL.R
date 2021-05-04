@@ -24,11 +24,15 @@ player_data <-
              tidyplayer = normalize_names(PLAYER_NAME, key = system.file('lu', 'nba', 'player', 'lu.json', package = 'betfinder'))) %>%
       select(-PLAYER_NAME, -TEAM_ABBREVIATION),
     by = c('tidyteam', 'tidyplayer')) %>%
-  # this gets us players whether they're playing or not, so can filter out the palyers who are not
+  group_by(tidyplayer) %>%
+  fill(tidyteam, .direction = 'updown') %>%
+  ungroup() %>%
+  group_by(tidyteam) %>%
+  fill(MATCHUP, HOME_AWAY, .direction = 'updown') %>%
   filter(!is.na(MATCHUP)) %>%
+  ungroup() %>%
   # looks like the lineups can have duplicated players if someone is a tossup to start, so just keep the most informative row
   group_by(MATCHUP) %>%
-  fill(tidyteam, .direction = 'updown') %>%
   mutate(teams = list(unique(tidyteam)),
          team1 = lapply(teams, '[[', 1),
          team2 = lapply(teams, '[[', 2),
