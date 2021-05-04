@@ -31,7 +31,7 @@ merged <- props_wide %>%
 props_df <- merged %>%
   # fill in blank opponents for team props
   group_by(tidyteam) %>%
-  fill(tidyopp, .direction = 'downup') %>%
+  fill(tidyopp, home_away, .direction = 'downup') %>%
   ungroup() %>%
   mutate(
     # recode NAs in tidyou (KEEP IT THIS WAY, YOU CHANGED IT ONCE ALREADY AND IT WAS A BAD DECISION)

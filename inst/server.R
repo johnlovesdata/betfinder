@@ -11,11 +11,10 @@ shinyServer(
           sport %in% input$sport,
           tidyplayer %in% input$player,
           tidyteam %in% input$team,
-          # injury_status %in% input$injury_status,
+          injury_status %in% c(NA_character_, input$injury_status),
           prop %in% input$prop,
           tidyou %in% input$ou,
-          # tidyline >= input$line[1],
-          # tidyline <= input$line[2],
+          tidyline %in% c(NA_real_, seq(input$line[[1]], input$line[[2]], .5)),
           count_books >= input$count_books
         )
 
@@ -90,6 +89,7 @@ shinyServer(
             style = function(value, index) {
               if (grepl('Likely', all_props_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
               else if (grepl('Unlikely', all_props_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
+              else if (grepl('Toss', all_props_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
               else list()
             },
             minWidth = 90
@@ -109,7 +109,8 @@ shinyServer(
             name = "",
             cell = function(value) {
               if (grepl('home', value)) 'vs'
-              else '@'
+              else if (grepl('visit', value)) '@'
+              else ''
             },
             style = list(color = 'gray'),
             width = 45
@@ -250,6 +251,7 @@ shinyServer(
             style = function(value, index) {
               if (grepl('Likely', projections_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
               else if (grepl('Unlikely', projections_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
+              else if (grepl('Toss', projections_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
               else list()
             },
             minWidth = 90
