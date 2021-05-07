@@ -109,7 +109,7 @@ shinyServer(
             name = "",
             cell = function(value) {
               if (grepl('home', value)) 'vs'
-              else if (grepl('visit', value)) '@'
+              else if (grepl('away', value)) '@'
               else ''
             },
             style = list(color = 'gray'),
@@ -271,7 +271,8 @@ shinyServer(
             name = "",
             cell = function(value) {
               if (grepl('home', value)) 'vs'
-              else '@'
+              else if (grepl('away', value)) '@'
+              else ''
             },
             style = list(color = 'gray'),
             width = 45
