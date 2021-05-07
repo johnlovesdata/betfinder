@@ -1,3 +1,36 @@
+# schedule ----
+today_fn <- paste0(gsub('-', '', as.character(Sys.Date())), '.csv')
+tomorrow_fn <- paste0(gsub('-', '', as.character(Sys.Date() + 1)), '.csv')
+schedule <-
+  read.csv(paste0('/home/john/gambling_stuff/data/nba_schedules/', today_fn)) %>%
+  bind_rows(
+    read.csv((paste0('/home/john/gambling_stuff/data/nba_schedules/', tomorrow_fn)))
+  ) %>%
+  mutate(
+    # combine date and gamestart into a single datetime object
+    game_datetime = lubridate::ymd_hm(paste(as.Date(GAME_DATE_EST), GAME_STATUS_TEXT), tz = "EST"),
+    # correct for the fact that the game times are always EST but we're running this in CST
+    corrected_datetime = game_datetime + lubridate::hours(-1) + lubridate::minutes(10),
+    # extract the team abbreviations and code for home and away
+    teams = gsub('.*/', '', GAMECODE),
+    away = substr(teams, 1, 3),
+    home = substr(teams, 4, 6)
+  ) %>%
+  pivot_longer(
+    c(home, away),
+    names_to = 'home_away',
+    values_to = 'tidyteam'
+  ) %>%
+  group_by(teams) %>%
+  mutate(tidyopp = rev(tidyteam)) %>%
+  ungroup() %>%
+  select(-teams) %>%
+  filter(corrected_datetime >= Sys.time()) %>%
+  group_by(tidyteam) %>%
+  filter(corrected_datetime == min(corrected_datetime)) %>%
+  ungroup() %>%
+  select(game_datetime, corrected_datetime, tidyteam, home_away, tidyopp)
+
 # projections ----
 projections <-
   # first player to score
@@ -8,7 +41,16 @@ projections <-
       mutate(jumper = tidyplayer,
              tidyplayer = 'team')) %>%
   ## HERE IS WHERE WE CAN CURATE THE FIELDS INCLUDED FOR ADDITIONAL CONTEXT
-  select(tidyplayer, tidyteam, prop, projected_prob)
+  select(tidyplayer, tidyteam, prop, projected_prob, jumper_injury_status) %>%
+  group_by(tidyteam) %>%
+  fill(jumper_injury_status, .direction = 'updown') %>%
+  ungroup() %>%
+  transmute(jumper = if_else(grepl('team', prop), tidyplayer, NA_character_),
+            tidyplayer = if_else(grepl('team', prop), 'team', tidyplayer),
+            tidyteam = tidyteam,
+            prop = prop,
+            projected_prob = projected_prob,
+            jumper_injury_status)
 
 # player data ----
 player_data <-
@@ -24,23 +66,15 @@ player_data <-
              tidyplayer = normalize_names(PLAYER_NAME, key = system.file('lu', 'nba', 'player', 'lu.json', package = 'betfinder'))) %>%
       select(-PLAYER_NAME, -TEAM_ABBREVIATION),
     by = c('tidyteam', 'tidyplayer')) %>%
-  # this gets us players whether they're playing or not, so can filter out the palyers who are not
-  filter(!is.na(MATCHUP)) %>%
-  # looks like the lineups can have duplicated players if someone is a tossup to start, so just keep the most informative row
-  group_by(MATCHUP) %>%
+  group_by(tidyplayer) %>%
   fill(tidyteam, .direction = 'updown') %>%
-  mutate(teams = list(unique(tidyteam)),
-         team1 = lapply(teams, '[[', 1),
-         team2 = lapply(teams, '[[', 2),
-         tidyopp = if_else(tidyteam == team1, team2, team1)) %>%
   ungroup() %>%
   group_by(tidyplayer) %>%
   arrange(desc(LINEUP_DESC)) %>%
   filter(row_number() == 1) %>%
   ungroup() %>%
   transmute(
-    tidyplayer, tidyteam, tidyopp,
-    home_away = HOME_AWAY,
+    tidyplayer, tidyteam,
     injury_status = TO_PLAY_DESC,
     starter_status = LINEUP_DESC)
 
