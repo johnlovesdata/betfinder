@@ -24,7 +24,9 @@ merged <- props_wide %>%
   left_join(player_data, by = "tidyplayer") %>%
   mutate(tidyteam = coalesce(tidyteam.x, tidyteam.y)) %>%
   select(-tidyteam.x, -tidyteam.y) %>%
-  left_join(projections)
+  left_join(projections) %>%
+  mutate(injury_status = coalesce(injury_status, jumper_injury_status)) %>%
+  inner_join(schedule)
 
 # tidy up ----
 # book-level conversions

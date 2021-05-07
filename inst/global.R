@@ -8,5 +8,4 @@ library(shinyWidgets)
 library(reactable)
 
 # load data
-search_props_raw <- readRDS("props.rds") %>%
-  filter(!is.na(tidyopp))
+search_props_raw <- readRDS("props.rds")
