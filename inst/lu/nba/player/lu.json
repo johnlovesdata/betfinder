@@ -321,7 +321,7 @@
   },
   {
     "name": "Kenyon Martin Jr.",
-    "aliases": ["kenyonmartin", "kenyon martin jr.", "KENYON MARTIN JR."]
+    "aliases": ["kenyonmartin", "kenyon martin jr.", "KENYON MARTIN JR.", "Kenyon Martin", "kenyon martin", "KENYON MARTIN"]
   },
   {
     "name": "Trevelin Queen",
@@ -3302,5 +3302,17 @@
   {
     "name": "Anderson Varejao",
     "aliases": ["andersonvarejao", "anderson varejao"]
+  },
+  {
+    "name": "Omer Yurtseven",
+    "aliases": ["omeryurtseven", "omer yurtseven"]
+  },
+  {
+    "name": "Elijah Bryant",
+    "aliases": ["elijahbryant", "elijah bryant"]
+  },
+  {
+    "name": "Cameron Oliver",
+    "aliases": ["cameronoliver", "cameron oliver"]
   }
 ]

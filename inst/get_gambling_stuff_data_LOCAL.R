@@ -3,9 +3,9 @@ today_fn <- paste0(gsub('-', '', as.character(Sys.Date())), '.csv')
 tomorrow_fn <- paste0(gsub('-', '', as.character(Sys.Date() + 1)), '.csv')
 schedule <-
   read.csv(paste0('https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/nba_schedules/', today_fn)) %>%
-  bind_rows(
-    read.csv((paste0('https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/nba_schedules/', tomorrow_fn)))
-  ) %>%
+  # bind_rows(
+  #   read.csv((paste0('https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/nba_schedules/', tomorrow_fn)))
+  # ) %>%
   mutate(
     # combine date and gamestart into a single datetime object
     game_datetime = lubridate::ymd_hm(paste(as.Date(GAME_DATE_EST), GAME_STATUS_TEXT), tz = "EST"),

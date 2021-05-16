@@ -1,6 +1,6 @@
 shinyUI(
   fluidPage(
-    titlePanel('Props Dash'),
+    titlePanel('Props Dash DEV'),
     h5(paste0('Data updated at: ', attr(search_props_raw, 'timestamp'), ' CDT')),
     br(),
     # all the filtering ----

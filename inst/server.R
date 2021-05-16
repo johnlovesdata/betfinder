@@ -33,6 +33,7 @@ shinyServer(
           tidyteam,
           home_away,
           tidyopp,
+          game_datetime,
           prop,
           tidyou,
           tidyline,
@@ -92,18 +93,15 @@ shinyServer(
               else if (grepl('Toss', all_props_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
               else list()
             },
-            minWidth = 90
+            minWidth = 120
           ),
           injury_status = colDef(
-            name = "Status",
-            show = FALSE,
-            sortNALast = FALSE,
-            minWidth = 90
+            show = FALSE
           ),
           tidyteam = colDef(
             name = "Team",
             sortNALast = TRUE,
-            width = 70
+            minWidth = 65
           ),
           home_away = colDef(
             name = "",
@@ -113,16 +111,22 @@ shinyServer(
               else ''
             },
             style = list(color = 'gray'),
-            width = 45
+            minWidth = 33
           ),
           tidyopp = colDef(
             name = "Opp",
-            width = 70
+            minWidth = 65
+          ),
+          game_datetime = colDef(
+            name = "Tipoff",
+            sortNALast = TRUE,
+            minWidth = 100,
+            format = colFormat(datetime = TRUE)
           ),
           prop = colDef(
             name = "Prop",
             sortNALast = TRUE,
-            minWidth = 80
+            minWidth = 100
           ),
           tidyou = colDef(
             name = "OU",
@@ -136,7 +140,7 @@ shinyServer(
               if (value == 'N/A') list(color = "lightgray", fontStyle = "italic")
               else return()
             },
-            width = 60
+            minWidth = 60
           ),
           tidyline = colDef(
             name = "Line",
@@ -152,7 +156,7 @@ shinyServer(
               if (is.na(value)) list(color = "lightgray", fontStyle = "italic")
               else TRUE
             },
-            width = 60
+            minWidth = 60
           ),
           count_books = colDef(show = FALSE),
           draftkings = colDef(
@@ -170,7 +174,7 @@ shinyServer(
               else
                 list(background = "white")
             },
-            minWidth = 60
+            minWidth = 65
           ),
           fanduel = colDef(
             name = "Fanduel",
@@ -187,7 +191,7 @@ shinyServer(
               else
                 list(background = "white")
             },
-            minWidth = 60
+            minWidth = 65
           ),
           pointsbet = colDef(
             name = "PointsBet",
@@ -204,7 +208,7 @@ shinyServer(
               else
                 list(background = "white")
             },
-            minWidth = 60
+            minWidth = 65
           ),
           mean_odds = colDef(
             name = "Mean Odds",
@@ -220,7 +224,7 @@ shinyServer(
           ),
           best_odds = colDef(show = FALSE),
           next_best_ratio = colDef(
-            name = "Best Odds Ratio",
+            name = "1st-2nd Ratio",
             sortNALast = TRUE,
             format = colFormat(digits = 2),
             minWidth = 75
