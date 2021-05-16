@@ -1,11 +1,11 @@
 # schedule ----
 today_fn <- paste0(gsub('-', '', as.character(Sys.Date())), '.csv')
 tomorrow_fn <- paste0(gsub('-', '', as.character(Sys.Date() + 1)), '.csv')
-schedule <-
-  read.csv(paste0('/home/john/gambling_stuff/data/nba_schedules/', today_fn)) %>%
-  bind_rows(
-    read.csv((paste0('/home/john/gambling_stuff/data/nba_schedules/', tomorrow_fn)))
-  ) %>%
+schedule <- read.csv(paste0('/home/john/gambling_stuff/data/nba_schedules/', today_fn))
+# wrap tomorrow's schedule in a try cuz of last games in season errors
+tomorrow <- try(read.csv((paste0('/home/john/gambling_stuff/data/nba_schedules/', tomorrow_fn))))
+if (!inherits(tomorrow, 'try-error')) schedule <- bind_rows(schedule, tomorrow)
+schedule <- schedule %>%
   mutate(
     # combine date and gamestart into a single datetime object
     game_datetime = lubridate::ymd_hm(paste(as.Date(GAME_DATE_EST), GAME_STATUS_TEXT), tz = "EST"),
