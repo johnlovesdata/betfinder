@@ -14,6 +14,7 @@ get_draftkings_data <- function(sport, save_path = NULL) {
   if (!is.null(save_path)) {
     fn <- paste0(sport, '_draftkings_', as.numeric(Sys.time()), '.json')
     jsonlite::write_json(main_content, file.path(save_path, fn))
+    R.utils::gzip(file.path(save_path, fn), ext='gz')
   }
   # return
   return(main_content)

@@ -59,10 +59,11 @@ get_fanduel_data <- function(sport, save_path = NULL,
       content_list$main <- event_content
       event_list[[e]] <- content_list
 
-    #   if (!is.null(save_path)) {
-    #     fn <- paste0(sport, '_fanduel_', e, '_', as.numeric(Sys.time()), '.json')
-    #     jsonlite::write_json(game_event, file.path(save_path, fn))
-    #   }
+      if (!is.null(save_path)) {
+        fn <- paste0(sport, '_fanduel_', e, '_', as.numeric(Sys.time()), '.json')
+        jsonlite::write_json(game_event, file.path(save_path, fn))
+        R.utils::gzip(file.path(save_path, fn), ext='gz')
+      }
 
     }
 
