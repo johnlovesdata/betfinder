@@ -1,5 +1,6 @@
 library(devtools)
 library(tidyverse)
+library(R.utils)
 load_all()
 
 source('./inst/get_gambling_stuff_data_SERVER.R')
