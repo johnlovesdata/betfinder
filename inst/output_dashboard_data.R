@@ -2,15 +2,17 @@
 props_long <- bind_rows(props_list) %>%
   filter(!is.infinite(tidyamericanodds))
 # handle missing columns
+if (!'tidygamedatetime' %in% names(props_long)) props_long$tidygamedatetime <- NA_character_
 if (!'tidyplayer' %in% names(props_long)) props_long$tidyplayer <- NA_character_
 if (!'tidyteam' %in% names(props_long)) props_long$tidyteam <- NA_character_
+if (!'tidyhometeam' %in% names(props_long)) props_long$tidyhometeam <- NA_character_
+if (!'tidyawayteam' %in% names(props_long)) props_long$tidyawayteam <- NA_character_
 if (!'tidyou' %in% names(props_long)) props_long$tidyou <- NA_character_
 if (!'tidyline' %in% names(props_long)) props_long$tidyline <- NA_real_
-
 # make the props wider ----
 props_wide <- pivot_wider(
   data = props_long,
-  id_cols = c(sport, prop, tidyplayer, tidyteam, tidyou, tidyline),
+  id_cols = c(sport, prop, tidygamedatetime, tidyplayer, tidyteam, tidyhometeam, tidyawayteam, tidyou, tidyline),
   names_from = site,
   values_from = tidyamericanodds)
 # handle missing columns
@@ -25,12 +27,13 @@ merged <- props_wide %>%
   mutate(tidyteam = coalesce(tidyteam.x, tidyteam.y)) %>%
   select(-tidyteam.x, -tidyteam.y) %>%
   left_join(projections) %>%
-  mutate(injury_status = coalesce(injury_status, jumper_injury_status)) %>%
-  inner_join(schedule)
+  mutate(injury_status = coalesce(injury_status, jumper_injury_status))
 
 # tidy up ----
 # book-level conversions
 props_df <- merged %>%
+  mutate(tidyopp = if_else(tidyteam == tidyhometeam, tidyawayteam, tidyhometeam),
+         home_away = if_else(tidyteam == tidyhometeam, 'home', 'away')) %>%
   # fill in blank opponents for team props
   group_by(tidyteam) %>%
   fill(tidyopp, home_away, .direction = 'downup') %>%
@@ -92,7 +95,14 @@ props_df <- props_df %>%
                                      count_books == 2 ~ best_prob / worst_prob,
                                      count_books > 2 ~ best_prob / next_best_prob),
          projected_odds = prob_to_american(projected_prob))
-
+# NEW ----
+## add a date string for tipoffs cuz it's ugly af otherwise rendering in the dash
+props_df <- props_df %>%
+  mutate(
+    tipoff_string = paste0(
+      weekdays(as.Date(tidygamedatetime), abbreviate = TRUE), ' ',
+      gsub(' 0', ' ', as.character(format(tidygamedatetime, format = '%m-%d %I:%M %p %Z')))
+  ))
 # stash the datetime when these data were last updated
 attr(props_df, 'timestamp') <- Sys.time()
 # save dash output

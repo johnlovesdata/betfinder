@@ -17,22 +17,24 @@ get_props <- function(site, sport, prop, save_path = NULL) {
 
   # for each site, for each sport, call the specific site wrappers
   if (site %in% c('dk', 'draftkings')) {
-    dk_raw <- get_draftkings_data(sport = sport, save_path = save_path)
-    dk_parsed <- parse_draftkings_data(dk_raw, prop = prop)
-    output_df <- tidyup_draftkings_data(dk_parsed, sport = sport, prop = prop)
+    dk_raw <- try(get_draftkings_data(sport = sport, save_path = save_path))
+    if (!inherits(dk_raw, 'try-error')) dk_parsed <- try(parse_draftkings_data(dk_raw, prop = prop))
+    if (!inherits(dk_parsed, 'try-error')) output_df <- try(tidyup_draftkings_data(dk_parsed, sport = sport, prop = prop))
   }
 
   if (site %in% c('fd', 'fanduel')) {
-    fd_raw <- get_fanduel_data(sport = sport, sleep_time = .01, save_path = save_path)
-    fd_parsed <- parse_fanduel_data(fd_raw, prop = prop)
-    output_df <- tidyup_fanduel_data(fd_parsed, sport = sport, prop = prop)
+    fd_raw <- try(get_fanduel_data(sport = sport, sleep_time = .01, save_path = save_path))
+    if (!inherits(fd_raw, 'try-error')) fd_parsed <- try(parse_fanduel_data(fd_raw, prop = prop))
+    if (!inherits(fd_parsed, 'try-error')) output_df <- try(tidyup_fanduel_data(fd_parsed, sport = sport, prop = prop))
   }
 
   if (site %in% c('pb', 'pointsbet')) {
-    pb_raw <- get_pointsbet_data(sport = sport, sleep_time = .01, save_path = save_path)
-    pb_parsed <- parse_pointsbet_data(pb_raw, prop = prop)
-    output_df <- tidyup_pointsbet_data(pb_parsed, sport = sport, prop = prop)
+    pb_raw <- try(get_pointsbet_data(sport = sport, sleep_time = .01, save_path = save_path))
+    if (!inherits(pb_raw, 'try-error')) pb_parsed <- try(parse_pointsbet_data(pb_raw, prop = prop))
+    if (!inherits(pb_parsed, 'try-error')) output_df <- try(tidyup_pointsbet_data(pb_parsed, sport = sport, prop = prop))
   }
+
+ if (!'output_df' %in% ls()) return()
 
   # append a timestamp and return
   output_df$timestamp <- Sys.time()

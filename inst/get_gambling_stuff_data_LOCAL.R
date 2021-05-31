@@ -1,7 +1,10 @@
 # schedule ----
 today_fn <- paste0(gsub('-', '', as.character(Sys.Date())), '.csv')
 tomorrow_fn <- paste0(gsub('-', '', as.character(Sys.Date() + 1)), '.csv')
-schedule <- read.csv(paste0('https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/nba_schedules/', today_fn))
+schedule <- try(read.csv(paste0('https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/nba_schedules/', today_fn)))
+if (inherits(schedule, 'try-error')) schedule <- data.frame(
+
+)
 # wrap tomorrow's schedule in a try cuz of last games in season errors
 tomorrow <- try(read.csv((paste0('https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/nba_schedules/', tomorrow_fn))))
 if (!inherits(tomorrow, 'try-error')) schedule <- bind_rows(schedule, tomorrow)

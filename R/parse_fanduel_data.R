@@ -9,8 +9,13 @@ parse_fanduel_data <- function(fanduel_data, prop) {
     if ('main' %in% names(game_event)) main <- game_event$main else next
     # extract attachments
     if ('attachments' %in% names(main)) main_attachments <- main$attachments else next
-    # extract matchup
-    if ('events' %in% names(main_attachments)) matchup <- main_attachments$events[[e]]$name else next
+    # extract matchup and tipoff
+    if ('events' %in% names(main_attachments)) {
+      matchup <- main_attachments$events[[e]]$name
+      tipoff <- main_attachments$events[[e]]$openDate
+      } else {
+        next
+      }
     # extract markets
     if ('markets' %in% names(main_attachments)) main_markets <- main_attachments$markets else next
     # identify bet markets
@@ -53,10 +58,12 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       # make a data.frame
       ftts <- do.call(rbind, ftts_list)
       ftts$matchup <- matchup
+      ftts$tipoff <- tipoff
 
       # stash in the output_list
       output_list[[length(output_list) + 1]] <- ftts
     }
+
     if (prop %in% c('first player to score', 'fpts')) {
       # get the market id of the bet
       if ('First Basket' %in% main_bet_markets$name) market_id <- main_bet_markets$id[main_bet_markets$name == 'First Basket'] else next
@@ -71,9 +78,11 @@ parse_fanduel_data <- function(fanduel_data, prop) {
         })
       fpts <- do.call(rbind, fpts_list)
       fpts$matchup <- matchup
+      fpts$tipoff <- tipoff
       # stash in the output_list
       output_list[[length(output_list) + 1]] <- fpts
     }
+
     if (prop %in% c('player points alt', 'player points ou', 'player points tiers',
                     'player pts alt', 'player pts ou', 'player pts tiers')) {
       # get the points props
@@ -141,6 +150,8 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
       # make a data.frame
       mkt_df <- do.call(rbind, mkt_list)
+      mkt_df$matchup <- matchup
+      mkt_df$tipoff <- tipoff
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }
@@ -211,6 +222,9 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
       # make a data.frame
       mkt_df <- do.call(rbind, mkt_list)
+      mkt_df$matchup <- matchup
+      mkt_df$tipoff <- tipoff
+
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }
@@ -281,6 +295,9 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
       # make a data.frame
       mkt_df <- do.call(rbind, mkt_list)
+      mkt_df$matchup <- matchup
+      mkt_df$tipoff <- tipoff
+
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }
@@ -349,6 +366,9 @@ parse_fanduel_data <- function(fanduel_data, prop) {
       }
       # make a data.frame
       mkt_df <- do.call(rbind, mkt_list)
+      mkt_df$matchup <- matchup
+      mkt_df$tipoff <- tipoff
+
       # stash in output_list
       output_list[[length(output_list) + 1]] <- mkt_df
     }

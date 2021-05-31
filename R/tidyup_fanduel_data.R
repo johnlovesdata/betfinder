@@ -77,6 +77,17 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
       output_df$tidyou <- NA_character_
     }
   }
+
+  # tidyup the matchup! use the team abbreviations from the lookup
+  matchup_list <- strsplit(output_df$matchup, ' @ ')
+  output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
+  output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
+
+  # tidyup the date! make sure this is EST
+  output_df$tidygamedatetime <- lubridate::as_datetime(output_df$tipoff) - lubridate::hours(4)
+  output_df$tidygamedatetime <- lubridate::round_date(output_df$tidygamedatetime, "30 minutes")
+  lubridate::tz(output_df$tidygamedatetime) <- 'EST'
+
   # filter out the cols we don't need, i.e. not tidy ones
   names_to_keep <- names(output_df)[grepl('tidy|prop', names(output_df))]
   output_df <- output_df[, names(output_df) %in% names_to_keep]
