@@ -215,7 +215,7 @@ shinyServer(
             minWidth = 65
           ),
           mean_odds = colDef(
-            name = "Mean Odds",
+            name = "Mean",
             sortNALast = TRUE,
             cell = function(value) {
               if (is.na(value)) ''

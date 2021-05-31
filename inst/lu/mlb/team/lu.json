@@ -1,0 +1,122 @@
+[
+  {
+    "name": "LAA",
+    "aliases": ["Los Angeles Angels", "los angeles angels", "losangelesangels", "Angels", "angels", "LA Angels", "la angels", "laangels", "LAA Angels"]
+  },
+  {
+    "name": "ARI",
+    "aliases": ["Arizona Diamondbacks", "arizona diamondbacks", "arizonadiamondbacks", "D-backs", "d-backs", "Arizona", "arizona", "arizona", "ARI D-backs", "ARI Diamondbacks"]
+  },
+  {
+    "name": "BAL",
+    "aliases": ["Baltimore Orioles", "baltimore orioles", "baltimoreorioles", "Orioles", "orioles", "Baltimore", "baltimore", "baltimore", "BAL Orioles"]
+  },
+  {
+    "name": "BOS",
+    "aliases": ["Boston Red Sox", "boston red sox", "bostonredsox", "Red Sox", "red sox", "Boston", "boston", "boston", "BOS Red Sox"]
+  },
+  {
+    "name": "CHC",
+    "aliases": ["Chicago Cubs", "chicago cubs", "chicagocubs", "Cubs", "cubs", "Chi Cubs", "chi cubs", "chicubs", "CHC Cubs", "CHI Cubs"]
+  },
+  {
+    "name": "CIN",
+    "aliases": ["Cincinnati Reds", "cincinnati reds", "cincinnatireds", "Reds", "reds", "Cincinnati", "cincinnati", "cincinnati", "CIN Reds"]
+  },
+  {
+    "name": "CLE",
+    "aliases": ["Cleveland Indians", "cleveland indians", "clevelandindians", "Indians", "indians", "Cleveland", "cleveland", "cleveland", "CLE Indians"]
+  },
+  {
+    "name": "COL",
+    "aliases": ["Colorado Rockies", "colorado rockies", "coloradorockies", "Rockies", "rockies", "Colorado", "colorado", "colorado", "COL Rockies"]
+  },
+  {
+    "name": "DET",
+    "aliases": ["Detroit Tigers", "detroit tigers", "detroittigers", "Tigers", "tigers", "Detroit", "detroit", "detroit", "DET Tigers"]
+  },
+  {
+    "name": "HOU",
+    "aliases": ["Houston Astros", "houston astros", "houstonastros", "Astros", "astros", "Houston", "houston", "houston", "HOU Astros"]
+  },
+  {
+    "name": "KC",
+    "aliases": ["Kansas City Royals", "kansas city royals", "kansascityroyals", "Royals", "royals", "Kansas City", "kansas city", "kansascity", "KC Royals"]
+  },
+  {
+    "name": "LAD",
+    "aliases": ["Los Angeles Dodgers", "los angeles dodgers", "losangelesdodgers", "Dodgers", "dodgers", "LA Dodgers", "la dodgers", "ladodgers", "LAD Dodgers"]
+  },
+  {
+    "name": "WSH",
+    "aliases": ["Washington Nationals", "washington nationals", "washingtonnationals", "Nationals", "nationals", "Washington", "washington", "washington", "WSH Nationals", "WAS Nationals"]
+  },
+  {
+    "name": "NYM",
+    "aliases": ["New York Mets", "new york mets", "newyorkmets", "Mets", "mets", "NY Mets", "ny mets", "nymets", "NYM Mets"]
+  },
+  {
+    "name": "OAK",
+    "aliases": ["Oakland Athletics", "oakland athletics", "oaklandathletics", "Athletics", "athletics", "Oakland", "oakland", "oakland", "OAK Athletics"]
+  },
+  {
+    "name": "PIT",
+    "aliases": ["Pittsburgh Pirates", "pittsburgh pirates", "pittsburghpirates", "Pirates", "pirates", "Pittsburgh", "pittsburgh", "pittsburgh", "PIT Pirates"]
+  },
+  {
+    "name": "SD",
+    "aliases": ["San Diego Padres", "san diego padres", "sandiegopadres", "Padres", "padres", "San Diego", "san diego", "sandiego", "SD Padres"]
+  },
+  {
+    "name": "SEA",
+    "aliases": ["Seattle Mariners", "seattle mariners", "seattlemariners", "Mariners", "mariners", "Seattle", "seattle", "seattle", "SEA Mariners"]
+  },
+  {
+    "name": "SF",
+    "aliases": ["San Francisco Giants", "san francisco giants", "sanfranciscogiants", "Giants", "giants", "San Francisco", "san francisco", "sanfrancisco", "SF Giants"]
+  },
+  {
+    "name": "STL",
+    "aliases": ["St. Louis Cardinals", "st. louis cardinals", "st.louiscardinals", "Cardinals", "cardinals", "St. Louis", "st. louis", "st.louis", "STL Cardinals"]
+  },
+  {
+    "name": "TB",
+    "aliases": ["Tampa Bay Rays", "tampa bay rays", "tampabayrays", "Rays", "rays", "Tampa Bay", "tampa bay", "tampabay", "TB Rays"]
+  },
+  {
+    "name": "TEX",
+    "aliases": ["Texas Rangers", "texas rangers", "texasrangers", "Rangers", "rangers", "Texas", "texas", "texas", "TEX Rangers"]
+  },
+  {
+    "name": "TOR",
+    "aliases": ["Toronto Blue Jays", "toronto blue jays", "torontobluejays", "Blue Jays", "blue jays", "Toronto", "toronto", "toronto", "TOR Blue Jays"]
+  },
+  {
+    "name": "MIN",
+    "aliases": ["Minnesota Twins", "minnesota twins", "minnesotatwins", "Twins", "twins", "Minnesota", "minnesota", "minnesota", "MIN Twins"]
+  },
+  {
+    "name": "PHI",
+    "aliases": ["Philadelphia Phillies", "philadelphia phillies", "philadelphiaphillies", "Phillies", "phillies", "Philadelphia", "philadelphia", "philadelphia", "PHI Phillies"]
+  },
+  {
+    "name": "ATL",
+    "aliases": ["Atlanta Braves", "atlanta braves", "atlantabraves", "Braves", "braves", "Atlanta", "atlanta", "atlanta", "ATL Braves"]
+  },
+  {
+    "name": "CWS",
+    "aliases": ["Chicago White Sox", "chicago white sox", "chicagowhitesox", "White Sox", "white sox", "Chi White Sox", "chi white sox", "chiwhitesox", "CWS White Sox", "CHI White Sox"]
+  },
+  {
+    "name": "MIA",
+    "aliases": ["Miami Marlins", "miami marlins", "miamimarlins", "Marlins", "marlins", "Miami", "miami", "miami", "MIA Marlins"]
+  },
+  {
+    "name": "NYY",
+    "aliases": ["New York Yankees", "new york yankees", "newyorkyankees", "Yankees", "yankees", "NY Yankees", "ny yankees", "nyyankees", "NYY Yankees"]
+  },
+  {
+    "name": "MIL",
+    "aliases": ["Milwaukee Brewers", "milwaukee brewers", "milwaukeebrewers", "Brewers", "brewers", "Milwaukee", "milwaukee", "milwaukee", "MIL Brewers"]
+  }
+]

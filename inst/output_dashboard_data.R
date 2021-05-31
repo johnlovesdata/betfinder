@@ -100,7 +100,7 @@ props_df <- props_df %>%
 props_df <- props_df %>%
   mutate(
     tipoff_string = paste0(
-      weekdays(as.Date(tidygamedatetime), abbreviate = TRUE), ' ',
+      weekdays(tidygamedatetime, abbreviate = TRUE), ' ',
       gsub(' 0', ' ', as.character(format(tidygamedatetime, format = '%m-%d %I:%M %p %Z')))
   ))
 # stash the datetime when these data were last updated

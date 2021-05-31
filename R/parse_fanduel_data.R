@@ -1,4 +1,4 @@
-parse_fanduel_data <- function(fanduel_data, prop) {
+parse_fanduel_data <- function(fanduel_data, sport, prop) {
 
   # loop through fanduel_data and extract the correct prop
   output_list <- list()
@@ -27,26 +27,30 @@ parse_fanduel_data <- function(fanduel_data, prop) {
     # extract correct props
     if (prop %in% c('first team to score', 'ftts')) {
       # get the first quarter props
-      if ('1st_quarter' %in% names(game_event)) first_quarter <- game_event$`1st_quarter` else next
+      if (sport == 'mlb') tab_name <- 'hits_runs'
+      else if (sport == 'nba') tab_name <- '1st_quarter'
+      else next
+
+      if (tab_name %in% names(game_event)) tab_content <- game_event[[tab_name]] else next
       # extract attachments
-      if ('attachments' %in% names(first_quarter)) first_quarter_attachments <- first_quarter$attachments else next
+      if ('attachments' %in% names(tab_content)) tab_attachments <- tab_content$attachments else next
       # extract markets
-      if ('markets' %in% names(first_quarter_attachments)) first_quarter_markets <- first_quarter_attachments$markets else next
+      if ('markets' %in% names(tab_attachments)) tab_markets <- tab_attachments$markets else next
       # identify bet markets
-      if (length(first_quarter_markets) > 0) {
-        first_quarter_bet_markets <-
-          do.call(rbind, lapply(first_quarter_markets, function(x) data.frame(id = x[['marketId']], name = x[['marketName']])))
+      if (length(tab_markets) > 0) {
+        bet_markets <-
+          do.call(rbind, lapply(tab_markets, function(x) data.frame(id = x[['marketId']], name = x[['marketName']])))
       } else {
         next
       }
       # get the market id of the bet
-      if ('Team to Score First' %in% first_quarter_bet_markets$name) {
-        market_id <- first_quarter_bet_markets$id[first_quarter_bet_markets$name == 'Team to Score First']
+      if ('Team to Score First' %in% bet_markets$name) {
+        market_id <- bet_markets$id[bet_markets$name == 'Team to Score First']
         } else {
           next
         }
       # get the market of the bet
-      if (market_id %in% names(first_quarter_markets)) market <- first_quarter_markets[[market_id]] else next
+      if (market_id %in% names(tab_markets)) market <- tab_markets[[market_id]] else next
       # get the runners, which is where the bets live
       runners <- market$runners
       # run through the runners list and get american odds by player

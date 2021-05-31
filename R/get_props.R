@@ -24,7 +24,7 @@ get_props <- function(site, sport, prop, save_path = NULL) {
 
   if (site %in% c('fd', 'fanduel')) {
     fd_raw <- try(get_fanduel_data(sport = sport, sleep_time = .01, save_path = save_path))
-    if (!inherits(fd_raw, 'try-error')) fd_parsed <- try(parse_fanduel_data(fd_raw, prop = prop))
+    if (!inherits(fd_raw, 'try-error')) fd_parsed <- try(parse_fanduel_data(fd_raw, sport = sport, prop = prop))
     if (!inherits(fd_parsed, 'try-error')) output_df <- try(tidyup_fanduel_data(fd_parsed, sport = sport, prop = prop))
   }
 

@@ -1,13 +1,16 @@
 parse_draftkings_data <- function(draftkings_data, prop) {
+
   # get the events (to tie bets with games)
   events <- suppressWarnings(as.data.frame(do.call(rbind, draftkings_data$eventGroup$events)))
   events <- as.data.frame(dplyr::select(events, dplyr::ends_with('Id'), startDate, name))
   events <- as.data.frame(apply(events, 2, unlist))
   events <- events[grepl('@', events$name), ]
+  events <- events[!grepl('/', events$name), ]
 
   # break out the offer markets, always necessary
   offer_categories <- draftkings_data$eventGroup$offerCategories
   offer_category_names <- unlist(lapply(offer_categories, '[[', 'name'))
+
   # extract the prop type based on the prop name
   if (grepl('team|ftts', prop)) {
     if (!('Game Props' %in% offer_category_names)) stop('no draftkings ', prop, ' available')
@@ -19,6 +22,7 @@ parse_draftkings_data <- function(draftkings_data, prop) {
     player_props <- offer_categories[[which(offer_category_names == 'Player Props')]]$offerSubcategoryDescriptors
     player_prop_names <- unlist(lapply(player_props, '[[', 'name'))
   }
+
   # get the specific props
   if (prop %in% c('first team to score', 'ftts')) {
     if (!'First Team to Score' %in% game_prop_names) stop('no draftkings ', prop, ' available')

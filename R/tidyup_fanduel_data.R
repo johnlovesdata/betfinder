@@ -79,6 +79,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
   }
 
   # tidyup the matchup! use the team abbreviations from the lookup
+  output_df$matchup <- gsub("\\s*\\([^\\)]+\\)","",as.character(output_df$matchup))
   matchup_list <- strsplit(output_df$matchup, ' @ ')
   output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
   output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
