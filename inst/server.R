@@ -6,6 +6,9 @@ shinyServer(
     # filter based on inputs
     filtered_data <- reactive({
 
+      # TODO: move this somewhere else? change to a warnings?
+      validate(need(nrow(search_props_raw) > 0, "No props for the day!"))
+
       fd <- search_props_raw %>%
         filter(
           sport %in% input$sport,
@@ -16,7 +19,8 @@ shinyServer(
           tidyou %in% input$ou,
           tidyline %in% c(NA_real_, seq(input$line[[1]], input$line[[2]], .5)),
           count_books >= input$count_books
-        )
+        ) %>%
+        distinct()
 
       fd
 
@@ -33,7 +37,7 @@ shinyServer(
           tidyteam,
           home_away,
           tidyopp,
-          game_datetime,
+          tipoff_string,
           prop,
           tidyou,
           tidyline,
@@ -117,11 +121,10 @@ shinyServer(
             name = "Opp",
             minWidth = 65
           ),
-          game_datetime = colDef(
+          tipoff_string = colDef(
             name = "Tipoff",
             sortNALast = TRUE,
-            minWidth = 100,
-            format = colFormat(datetime = TRUE)
+            minWidth = 120
           ),
           prop = colDef(
             name = "Prop",
@@ -140,7 +143,7 @@ shinyServer(
               if (value == 'N/A') list(color = "lightgray", fontStyle = "italic")
               else return()
             },
-            minWidth = 60
+            minWidth = 45
           ),
           tidyline = colDef(
             name = "Line",
@@ -224,7 +227,7 @@ shinyServer(
           ),
           best_odds = colDef(show = FALSE),
           next_best_ratio = colDef(
-            name = "1st-2nd Ratio",
+            name = "Books Ratio",
             sortNALast = TRUE,
             format = colFormat(digits = 2),
             minWidth = 75

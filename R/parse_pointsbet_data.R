@@ -5,6 +5,7 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
     # check for fixed odds markets, skip if they're not there
     if ('fixedOddsMarkets' %in% names(game_event)) fixed_odds_markets <- game_event$fixedOddsMarkets else next
     event_names <- unlist(lapply(fixed_odds_markets, '[[', 'eventName'))
+
     # now extract correct props
     if (prop %in% c('first team to score', 'ftts')) {
       if ('First Team to Score' %in% event_names) {
@@ -13,6 +14,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
       } else {
         next
       }
+      first_team_to_score$matchup <- game_event$name
+      first_team_to_score$tipoff <- game_event$startsAt
       output_list[[length(output_list) + 1]] <- first_team_to_score
     }
     if (prop %in% c('first player to score', 'fpts')) {
@@ -23,6 +26,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
       } else {
         next
       }
+      first_basket$matchup <- game_event$name
+      first_basket$tipoff <- game_event$startsAt
       output_list[[length(output_list) + 1]] <- first_basket
     }
     if (prop %in% c('player points alt', 'player points ou', 'player points tiers',
@@ -50,6 +55,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        points_alt$matchup <- game_event$name
+        points_alt$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- points_alt
       }
       if (prop_type == 'points ou') {
@@ -66,6 +73,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        points_ou$matchup <- game_event$name
+        points_ou$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- points_ou
       }
       if (prop_type == 'points tiers') {
@@ -82,6 +91,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        points_tiers$matchup <- game_event$name
+        points_tiers$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- points_tiers
       }
     }
@@ -110,6 +121,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        rebounds_alt$matchup <- game_event$name
+        rebounds_alt$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- rebounds_alt
       }
       if (prop_type == 'rebounds ou') {
@@ -142,6 +155,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        rebounds_tiers$matchup <- game_event$name
+        rebounds_tiers$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- rebounds_tiers
       }
     }
@@ -170,6 +185,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        assists_alt$matchup <- game_event$name
+        assists_alt$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- assists_alt
       }
       if (prop_type == 'assists ou') {
@@ -186,6 +203,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        assists_ou$matchup <- game_event$name
+        assists_ou$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- assists_ou
       }
       if (prop_type == 'assists tiers') {
@@ -202,6 +221,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        assists_tiers$matchup <- game_event$name
+        assists_tiers$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- assists_tiers
       }
     }
@@ -228,6 +249,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        threes_alt$matchup <- game_event$name
+        threes_alt$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- threes_alt
       }
       if (prop_type == 'threes ou') {
@@ -244,6 +267,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        threes_ou$matchup <- game_event$name
+        threes_ou$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- threes_ou
       }
       if (prop_type == 'threes tiers') {
@@ -261,6 +286,8 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         } else {
           next
         }
+        threes_tiers$matchup <- game_event$name
+        threes_tiers$tipoff <- game_event$startsAt
         output_list[[length(output_list) + 1]] <- threes_tiers
       }
     }

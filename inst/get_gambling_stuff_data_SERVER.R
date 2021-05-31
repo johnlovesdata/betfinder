@@ -1,36 +1,3 @@
-# schedule ----
-today_fn <- paste0(gsub('-', '', as.character(Sys.Date())), '.csv')
-tomorrow_fn <- paste0(gsub('-', '', as.character(Sys.Date() + 1)), '.csv')
-schedule <- read.csv(paste0('/home/john/gambling_stuff/data/nba_schedules/', today_fn))
-# wrap tomorrow's schedule in a try cuz of last games in season errors
-tomorrow <- try(read.csv((paste0('/home/john/gambling_stuff/data/nba_schedules/', tomorrow_fn))))
-if (!inherits(tomorrow, 'try-error')) schedule <- bind_rows(schedule, tomorrow)
-schedule <- schedule %>%
-  mutate(
-    # combine date and gamestart into a single datetime object
-    game_datetime = lubridate::ymd_hm(paste(as.Date(GAME_DATE_EST), GAME_STATUS_TEXT), tz = "EST"),
-    # correct for the fact that the game times are always EST but we're running this in CST
-    corrected_datetime = game_datetime + lubridate::hours(-1) + lubridate::minutes(10),
-    # extract the team abbreviations and code for home and away
-    teams = gsub('.*/', '', GAMECODE),
-    away = substr(teams, 1, 3),
-    home = substr(teams, 4, 6)
-  ) %>%
-  pivot_longer(
-    c(home, away),
-    names_to = 'home_away',
-    values_to = 'tidyteam'
-  ) %>%
-  group_by(teams) %>%
-  mutate(tidyopp = rev(tidyteam)) %>%
-  ungroup() %>%
-  select(-teams) %>%
-  filter(corrected_datetime >= Sys.time()) %>%
-  group_by(tidyteam) %>%
-  filter(corrected_datetime == min(corrected_datetime)) %>%
-  ungroup() %>%
-  select(game_datetime, corrected_datetime, tidyteam, home_away, tidyopp)
-
 # projections ----
 projections <-
   # first player to score
