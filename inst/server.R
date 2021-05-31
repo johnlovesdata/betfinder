@@ -7,7 +7,7 @@ shinyServer(
     filtered_data <- reactive({
 
       # TODO: move this somewhere else? change to a warnings?
-      validate(need(nrow(search_props_raw) > 0, "No props for the day!"))
+      shiny::validate(need(nrow(search_props_raw) > 0, "No props for the day!"))
 
       fd <- search_props_raw %>%
         filter(
@@ -77,7 +77,8 @@ shinyServer(
     #### make the table to search props ####
 
     output$search_props <- renderReactable({
-      validate(need(nrow(all_props_data()) > 0, "waiting for input..."))
+
+      shiny::validate(need(nrow(all_props_data()) > 0, "waiting for input..."))
 
       reactable(
         all_props_data(),
@@ -242,7 +243,8 @@ shinyServer(
     #### make the table to show projections vs props ####
 
     output$projections <- renderReactable({
-      validate(need(nrow(projections_data()) > 0, "waiting for input..."))
+
+      shiny::validate(need(nrow(projections_data()) > 0, "waiting for input..."))
 
       reactable(
         projections_data(),
