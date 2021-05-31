@@ -227,7 +227,7 @@ shinyServer(
           ),
           best_odds = colDef(show = FALSE),
           next_best_ratio = colDef(
-            name = "1st-2nd Ratio",
+            name = "Books Ratio",
             sortNALast = TRUE,
             format = colFormat(digits = 2),
             minWidth = 75
