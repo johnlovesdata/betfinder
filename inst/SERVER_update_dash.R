@@ -1,8 +1,7 @@
-library(devtools)
-library(tidyverse)
-library(R.utils)
-load_all()
-
-source('./inst/get_gambling_stuff_data_SERVER.R')
+startTime <- Sys.time()
+devtools::load_all()
+data_list <- get_data_for_dashboard('server')
 props_list <- get_all_props()
-source('./inst/output_dashboard_data.R')
+output_data_for_dashboard(data_list, props_list)
+endTime <- Sys.time()
+endTime-startTime

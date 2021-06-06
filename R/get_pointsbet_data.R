@@ -1,8 +1,10 @@
 get_pointsbet_data <- function(sport, save_path = NULL,
                                sleep_time = runif(1, 1.6, 3.2)) {
-  if (sport == 'nba') {
-    main_uri <- 'https://api.il.pointsbet.com/api/v2/competitions/5/events/featured'
-    main_query <- list(
+  if (sport == 'nba') val <- 5
+  if (sport == 'mlb') val <- 14
+
+  main_uri <- paste0('https://api.il.pointsbet.com/api/v2/competitions/', val, '/events/featured')
+  main_query <- list(
       includeLive = list('false'),
       page = list(1)
     )
@@ -26,7 +28,4 @@ get_pointsbet_data <- function(sport, save_path = NULL,
     }
 
     return(event_list)
-  }
 }
-
-

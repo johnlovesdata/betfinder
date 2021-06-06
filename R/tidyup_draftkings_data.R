@@ -22,7 +22,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     output_df$prop <- 'first player to score'
   }
 
-  if (grepl('points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts', tolower(prop))) {
+  if (grepl('points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts|runs|strikeouts| hr|hits|rbi', tolower(prop))) {
     # get names
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
