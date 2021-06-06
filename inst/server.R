@@ -10,18 +10,18 @@ shinyServer(
       shiny::validate(need(nrow(search_props_raw) > 0, "No props for the day!"))
 
       fd <- search_props_raw %>%
-        filter(
-          sport %in% input$sport,
-          tidyplayer %in% input$player,
-          tidyteam %in% input$team,
-          injury_status %in% c(NA_character_, input$injury_status),
-          prop %in% input$prop,
-          tidyou %in% input$ou,
-          tidyline %in% c(NA_real_, seq(input$line[[1]], input$line[[2]], .5)),
-          count_books >= input$count_books
-        ) %>%
+          filter(
+            sport %in% input$sport,
+            tipoff_string %in% input$tipoff_strings,
+            tidyplayer %in% input$player,
+            tidyteam %in% input$team,
+            # injury_status %in% c(NA_character_, input$injury_status),
+            prop %in% input$prop,
+            tidyou %in% input$ou,
+            tidyline %in% c(NA_real_, seq(input$line[[1]], input$line[[2]], .5)),
+            count_books >= input$count_books
+            ) %>%
         distinct()
-
       fd
 
     })
@@ -64,6 +64,7 @@ shinyServer(
           tidyteam,
           home_away,
           tidyopp,
+          tipoff_string,
           prop,
           tidyou,
           tidyline,
@@ -88,7 +89,11 @@ shinyServer(
         sortable = TRUE,
         defaultSorted = list(next_best_ratio = 'asc'),
         columns = list(
-          sport = colDef(show = FALSE),
+          sport = colDef(
+            name = "Sport",
+            sortNALast = TRUE,
+            width = 66
+          ),
           tidyplayer = colDef(
             name = "Player",
             sortNALast = TRUE,
@@ -106,7 +111,7 @@ shinyServer(
           tidyteam = colDef(
             name = "Team",
             sortNALast = TRUE,
-            minWidth = 65
+            width = 66
           ),
           home_away = colDef(
             name = "",
@@ -116,14 +121,15 @@ shinyServer(
               else ''
             },
             style = list(color = 'gray'),
-            minWidth = 33
+            width = 33
           ),
           tidyopp = colDef(
             name = "Opp",
-            minWidth = 65
+            sortNALast = TRUE,
+            width = 66
           ),
           tipoff_string = colDef(
-            name = "Tipoff",
+            name = "Start",
             sortNALast = TRUE,
             minWidth = 120
           ),
@@ -144,7 +150,7 @@ shinyServer(
               if (value == 'N/A') list(color = "lightgray", fontStyle = "italic")
               else return()
             },
-            minWidth = 45
+            width = 54
           ),
           tidyline = colDef(
             name = "Line",
@@ -160,7 +166,7 @@ shinyServer(
               if (is.na(value)) list(color = "lightgray", fontStyle = "italic")
               else TRUE
             },
-            minWidth = 60
+            width = 57
           ),
           count_books = colDef(show = FALSE),
           draftkings = colDef(
@@ -253,28 +259,29 @@ shinyServer(
         sortable = TRUE,
         defaultSorted = list(best_delta = 'desc'),
         columns = list(
-          sport = colDef(show = FALSE),
+          sport = colDef(
+            name = "Sport",
+            sortNALast = TRUE,
+            width = 66
+          ),
           tidyplayer = colDef(
             name = "Player",
             sortNALast = TRUE,
             style = function(value, index) {
-              if (grepl('Likely', projections_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
-              else if (grepl('Unlikely', projections_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
-              else if (grepl('Toss', projections_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
+              if (grepl('Likely', all_props_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
+              else if (grepl('Unlikely', all_props_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
+              else if (grepl('Toss', all_props_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
               else list()
             },
-            minWidth = 90
+            minWidth = 120
           ),
           injury_status = colDef(
-            name = "Status",
-            show = FALSE,
-            sortNALast = FALSE,
-            minWidth = 90
+            show = FALSE
           ),
           tidyteam = colDef(
             name = "Team",
             sortNALast = TRUE,
-            width = 70
+            width = 66
           ),
           home_away = colDef(
             name = "",
@@ -284,16 +291,22 @@ shinyServer(
               else ''
             },
             style = list(color = 'gray'),
-            width = 45
+            width = 33
           ),
           tidyopp = colDef(
             name = "Opp",
-            width = 70
+            sortNALast = TRUE,
+            width = 66
+          ),
+          tipoff_string = colDef(
+            name = "Start",
+            sortNALast = TRUE,
+            minWidth = 120
           ),
           prop = colDef(
             name = "Prop",
             sortNALast = TRUE,
-            minWidth = 80
+            minWidth = 100
           ),
           tidyou = colDef(
             name = "OU",
@@ -307,7 +320,7 @@ shinyServer(
               if (value == 'N/A') list(color = "lightgray", fontStyle = "italic")
               else return()
             },
-            width = 60
+            width = 54
           ),
           tidyline = colDef(
             name = "Line",
@@ -323,7 +336,7 @@ shinyServer(
               if (is.na(value)) list(color = "lightgray", fontStyle = "italic")
               else TRUE
             },
-            width = 60
+            minWidth = 57
           ),
           projected_odds = colDef(
             name = "Projected Odds",

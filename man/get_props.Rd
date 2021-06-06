@@ -8,12 +8,7 @@
 get_props(site, sport, prop, save_path = NULL)
 
 get_all_props(
-  sports = c("nba"),
-  sites = c("dk", "fd", "pb"),
-  props = c("ftts", "fpts", "player points alt", "player points ou",
-    "player points tiers", "player assists alt", "player assists ou",
-    "player assists tiers", "player rebounds alt", "player rebounds ou",
-    "player rebounds tiers", "player 3pts alt", "player 3pts ou", "player 3pts tiers"),
+  props_path = system.file("config", "props", "props_list.rds", package = "betfinder"),
   save_path = NULL
 )
 }

@@ -43,20 +43,10 @@ get_props <- function(site, sport, prop, save_path = NULL) {
 }
 
 #' @rdname get_props
-get_all_props <- function(sports = c('nba'),
-                          sites = c('dk', 'fd', 'pb'),
-                          props = c('ftts', 'fpts',
-                          'player points alt', 'player points ou', 'player points tiers',
-                          'player assists alt', 'player assists ou', 'player assists tiers',
-                          'player rebounds alt', 'player rebounds ou', 'player rebounds tiers',
-                          'player 3pts alt', 'player 3pts ou', 'player 3pts tiers'),
+get_all_props <- function(props_path = system.file('config', 'props', 'props_list.rds', package = 'betfinder'),
                           save_path = NULL) {
   # blow up the grid of sport, site, and prop
-  args_df <- expand.grid(
-    sport = sports,
-    site = sites,
-    prop = props,
-    stringsAsFactors = FALSE)
+  args_df <- readRDS(props_path)
   # loop through the massive set of arguments
   output_list <- list()
   for (i in 1:nrow(args_df)) {
@@ -64,7 +54,7 @@ get_all_props <- function(sports = c('nba'),
     props <- try(get_props(sport = arg_row$sport,
                            site = arg_row$site,
                            prop = arg_row$prop))
-    if (inherits(props, 'try-error')) next
+    if (inherits(props, 'try-error')|is.null(props)) next
     output_list[[length(output_list) + 1]] <- props
   }
   return(output_list)
