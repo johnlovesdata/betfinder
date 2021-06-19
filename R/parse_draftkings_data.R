@@ -45,6 +45,12 @@ parse_draftkings_data <- function(draftkings_data, prop) {
   if (prop %in% c('player most points')) {
     output_list <- parse_dk_prop(player_props, 'Top Point Scorer', prop, player_prop_names)
   }
+  if (prop %in% c('player double double')) {
+    output_list <- parse_dk_prop(player_props, 'Double-Double', prop, player_prop_names)
+  }
+  if (prop %in% c('player triple double')) {
+    output_list <- parse_dk_prop(player_props, 'Triple-Double', prop, player_prop_names)
+  }
   if (prop %in% c('player strikeouts ou')) {
     output_list <- parse_dk_prop(player_props, 'Strikeouts by Pitcher', prop, player_prop_names)
   }

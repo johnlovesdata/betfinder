@@ -1,6 +1,5 @@
 tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
                                   key = get_key_path(sport = sport, prop = prop)) {
-
   # make the output from the input
   output_df <- pointsbet_data
   # for each prop, append tidy team, tidy opponent, tidy odds (numeric american odds)

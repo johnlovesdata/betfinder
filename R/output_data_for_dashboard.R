@@ -7,7 +7,6 @@
 #' @export
 output_data_for_dashboard <- function(data_list, props_list,
                                       output_path = system.file('props.rds', package = 'betfinder')) {
-
   # combine all the props
   props_long <- list()
   for (i in props_list) {
