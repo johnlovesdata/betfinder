@@ -20,7 +20,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
     output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
     output_df$prop <- 'first player to score'
   }
-  if (grepl('points|rebounds|assists|three| 3pts| pts| rebs| asts|strikeouts|hits', tolower(prop))) {
+  if (grepl('points|rebounds|assists|three| 3pts| pts| rebs| asts|strikeouts|hits|double', tolower(prop))) {
 
     # handle special cases by prop type (alt, ou, tiers)
     if (grepl('alt$', tolower(prop))) {

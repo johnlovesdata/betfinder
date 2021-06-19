@@ -86,6 +86,16 @@ parse_fanduel_data <- function(fanduel_data, sport, prop) {
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'Top Points Scorer',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
+    if (prop %in% c('player double double')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'To Record A Double Double',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player triple double')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'To Record A Triple Double',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
     if (prop %in% c('player strikeouts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_regex = 'Strikeouts',
