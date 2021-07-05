@@ -98,7 +98,12 @@ parse_fanduel_data <- function(fanduel_data, sport, prop) {
     }
     if (prop %in% c('player strikeouts ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_fd_prop(game_event = game_event, tab_name = 'main', prop_regex = 'Strikeouts',
+        parse_fd_prop(game_event = game_event, tab_name = 'main', prop_regex = ' - Strikeouts',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player strikeouts alt')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'main', prop_regex = '[^-] Strikeouts',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player hits tiers')) {
@@ -106,13 +111,18 @@ parse_fanduel_data <- function(fanduel_data, sport, prop) {
         parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_regex = 'To Record [1-9]',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
-    # if (prop %in% c('player hits tiers')) {
+    if (prop %in% c('player to hit home run', 'player to hit hr')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_name = 'To Hit A Home Run',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    # if (prop %in% c('player to hit home run', 'player to hit hr')) {
     #   output_list[[length(output_list) + 1]] <-
-    #     parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_regex = 'To Record',
+    #     parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_name = 'To Hit A Home Run',
     #                   prop = prop, matchup = matchup, tipoff = tipoff)
     # }
+  }
 
-    }
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) stop('no fanduel ', prop, ' props returned')
   output_df <- do.call(rbind, output_list)

@@ -1,67 +1,34 @@
 #' get data for dashboard
 #' @importFrom magrittr %>%
-#' @param loc chr
+#' @param loc chr where this is being run
 #' @return list
 #' @export
 get_data_for_dashboard <- function(loc = c('local', 'server')) {
 
-  # get config with paths
-  path_list <- jsonlite::fromJSON(system.file('config', 'dashboard', loc, 'config.json', package = 'betfinder'))
-
-  # projections ----
-  projections <-
-    # first player to score
-    read.csv(path_list$fpts_proj_path) %>%
-    # first team to score
-    dplyr::bind_rows(
-      read.csv(path_list$ftts_proj_path)) %>%
-    ## HERE IS WHERE WE CAN CURATE THE FIELDS INCLUDED FOR ADDITIONAL CONTEXT
-    dplyr::select(sport, tidyplayer, tidyteam, prop, projected_prob, jumper_injury_status) %>%
-    dplyr::group_by(tidyteam) %>%
-    tidyr::fill(jumper_injury_status, .direction = 'updown') %>%
-    dplyr::ungroup() %>%
-    dplyr::transmute(
-      sport = sport,
-      jumper = dplyr::if_else(grepl('team', prop), tidyplayer, NA_character_),
-      tidyplayer = dplyr::if_else(grepl('team', prop), 'team', tidyplayer),
-      tidyteam = tidyteam,
-      prop = prop,
-      projected_prob = projected_prob,
-      jumper_injury_status)
-
+  # get config with paths ----
+  if (!(loc %in% c('local', 'server'))) {
+    stop('unrecognized loc argument')
+  }
+  dashboard_config <- jsonlite::fromJSON(
+    system.file('config', 'dashboard', loc, 'config.json', package = 'betfinder'))
+  config_names <- names(dashboard_config)
   # player data ----
-  player_data <-
-    # rosters
-    read.csv(path_list$rosters_path) %>%
-    dplyr::mutate(
-      tidyplayer = normalize_names(PLAYER_NAME, key = system.file('lu', 'nba', 'player', 'lu.json', package = 'betfinder')),
-      tidyteam = normalize_names(TEAM_ABBREVIATION, key = system.file('lu', 'nba', 'team', 'lu.json', package = 'betfinder'))) %>%
-    dplyr::select(-PLAYER_NAME, -TEAM_ABBREVIATION) %>%
-    # lineups
-    dplyr::left_join(
-      read.csv(path_list$lineups_path) %>%
-        dplyr::mutate(tidyteam = normalize_names(TEAM_ABBREVIATION, key = system.file('lu', 'nba', 'team', 'lu.json', package = 'betfinder')),
-               tidyplayer = normalize_names(PLAYER_NAME, key = system.file('lu', 'nba', 'player', 'lu.json', package = 'betfinder'))) %>%
-        dplyr::select(-PLAYER_NAME, -TEAM_ABBREVIATION),
-      by = c('tidyteam', 'tidyplayer')) %>%
-    dplyr::group_by(tidyplayer) %>%
-    tidyr::fill(tidyteam, .direction = 'updown') %>%
-    dplyr::ungroup() %>%
-    dplyr::group_by(tidyplayer) %>%
-    dplyr::arrange(desc(LINEUP_DESC)) %>%
-    dplyr::filter(dplyr::row_number() == 1) %>%
-    dplyr::ungroup() %>%
-    dplyr::transmute(
-      sport = 'nba',
-      tidyplayer,
-      tidyteam,
-      injury_status = TO_PLAY_DESC,
-      starter_status = LINEUP_DESC
-      )
+  if (!any(grepl('roster', config_names))) {
+    stop('no rosters specified in dashboard config; make sure you are pointing to the right config file')
+  }
+  rosters <- get_rosters(dashboard_config = dashboard_config)
+  # projections ----
+  if (any(grepl('proj', config_names))) {
+    projections <- get_projections(dashboard_config = dashboard_config)
+  } else {
+    warning('no projections specified in dashboard config - make sure this is expected')
+    return(list(rosters = rosters))
+  }
 
+  # output ----
   output_list <- list(
     projections = projections,
-    player_data = player_data
+    rosters = rosters
   )
 
   return(output_list)

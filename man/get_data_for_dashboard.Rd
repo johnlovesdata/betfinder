@@ -7,7 +7,7 @@
 get_data_for_dashboard(loc = c("local", "server"))
 }
 \arguments{
-\item{loc}{chr}
+\item{loc}{chr where this is being run}
 }
 \value{
 list

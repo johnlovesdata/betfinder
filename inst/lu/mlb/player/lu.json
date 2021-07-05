@@ -13,19 +13,19 @@
   },
   {
     "name": "José Abreu",
-    "aliases": ["José Abreu", "josé abreu", "joséabreu"]
+    "aliases": ["Jose Abreu", "jose abreu", "joseabreu", "josé abreu", "joséabreu"]
   },
   {
-    "name": "A. J. Achter",
-    "aliases": ["A. J. Achter", "a. j. achter", "a.j.achter"]
+    "name": "A.J. Achter",
+    "aliases": ["A.J. Achter", "a.j. achter", "a.j.achter"]
   },
   {
     "name": "Dustin Ackley",
     "aliases": ["Dustin Ackley", "dustin ackley", "dustinackley"]
   },
   {
-    "name": "Ronald Acuna",
-    "aliases": ["Ronald Acuna", "ronald acuna", "ronaldacuna"]
+    "name": "Ronald Acuna Jr.",
+    "aliases": ["Ronald Acuna", "ronald acuna", "ronaldacuna", "ronald acuna jr.", "ronaldacunajr"]
   },
   {
     "name": "Jason Adam",
@@ -38,10 +38,6 @@
   {
     "name": "Willy Adames",
     "aliases": ["Willy Adames", "willy adames", "willyadames"]
-  },
-  {
-    "name": "Austin Adams",
-    "aliases": ["Austin Adams", "austin adams", "austinadams"]
   },
   {
     "name": "Austin Adams",
@@ -192,8 +188,8 @@
     "aliases": ["Yency Almonte", "yency almonte", "yencyalmonte"]
   },
   {
-    "name": "Albert Almora",
-    "aliases": ["Albert Almora", "albert almora", "albertalmora"]
+    "name": "Albert Almora Jr.",
+    "aliases": ["Albert Almora", "albert almora", "albertalmora", "albert almora jr.", "albertalmorajr"]
   },
   {
     "name": "Pete Alonso",
@@ -1024,8 +1020,8 @@
     "aliases": ["Bobby Bradley", "bobby bradley", "bobbybradley"]
   },
   {
-    "name": "Jackie Bradley",
-    "aliases": ["Jackie Bradley", "jackie bradley", "jackiebradley"]
+    "name": "Jackie Bradley Jr.",
+    "aliases": ["Jackie Bradley", "jackie bradley", "jackiebradley", "jackie bradley jr.", "jackiebradleyjr"]
   },
   {
     "name": "Jed Bradley",
@@ -1192,8 +1188,8 @@
     "aliases": ["Walker Buehler", "walker buehler", "walkerbuehler"]
   },
   {
-    "name": "J. B. Bukauskas",
-    "aliases": ["J. B. Bukauskas", "j. b. bukauskas", "j.b.bukauskas"]
+    "name": "J.B. Bukauskas",
+    "aliases": ["J.B. Bukauskas", "j.b. bukauskas", "j.b.bukauskas", "J.B. Bukauskas", "j.b. bukauskas", "jbbukauskas"]
   },
   {
     "name": "Madison Bumgarner",
@@ -1481,7 +1477,7 @@
   },
   {
     "name": "Nick Castellanos",
-    "aliases": ["Nick Castellanos", "nick castellanos", "nickcastellanos"]
+    "aliases": ["Nick Castellanos", "nick castellanos", "nickcastellanos", "Nicholas Castellanos", "nicholas castellanos", "nicholascastellanos"]
   },
   {
     "name": "Diego Castillo",
@@ -1632,8 +1628,8 @@
     "aliases": ["Matt Chapman", "matt chapman", "mattchapman"]
   },
   {
-    "name": "J. T. Chargois",
-    "aliases": ["J. T. Chargois", "j. t. chargois", "j.t.chargois"]
+    "name": "JT Chargois",
+    "aliases": ["J.T. Chargois", "j.t. chargois", "j.t.chargois", "jt chargois", "jtchargois"]
   },
   {
     "name": "Tyler Chatwood",
@@ -1664,12 +1660,12 @@
     "aliases": ["Lonnie Chisenhall", "lonnie chisenhall", "lonniechisenhall"]
   },
   {
-    "name": "Jazz Chisholm",
-    "aliases": ["Jazz Chisholm", "jazz chisholm", "jazzchisholm"]
+    "name": "Jazz Chisholm Jr.",
+    "aliases": ["Jazz Chisholm", "jazz chisholm jr.", "jazzchisholmjr", "jazz chisholm", "jazzchisholm"]
   },
   {
     "name": "Ji-Man Choi",
-    "aliases": ["Ji-Man Choi", "ji-man choi", "ji-manchoi"]
+    "aliases": ["Ji-Man Choi", "ji-man choi", "ji-manchoi", "Jiman Choi", "jimanchoi"]
   },
   {
     "name": "Shin-Soo Choo",
@@ -1768,8 +1764,8 @@
     "aliases": ["Chris Colabello", "chris colabello", "chriscolabello"]
   },
   {
-    "name": "A. J. Cole",
-    "aliases": ["A. J. Cole", "a. j. cole", "a.j.cole"]
+    "name": "A.J. Cole",
+    "aliases": ["A.J. Cole", "a.j. cole", "a.j.cole"]
   },
   {
     "name": "Gerrit Cole",
@@ -1956,8 +1952,8 @@
     "aliases": ["Carl Crawford", "carl crawford", "carlcrawford"]
   },
   {
-    "name": "J. P. Crawford",
-    "aliases": ["J. P. Crawford", "j. p. crawford", "j.p.crawford", "JP Crawford", "jpcrawford", "jp crawford"]
+    "name": "J.P. Crawford",
+    "aliases": ["J.P. Crawford", "j.p. crawford", "j.p.crawford", "JP Crawford", "jpcrawford", "jp crawford"]
   },
   {
     "name": "Stefan Crichton",
@@ -1984,8 +1980,8 @@
     "aliases": ["Kyle Crockett", "kyle crockett", "kylecrockett"]
   },
   {
-    "name": "C. J. Cron",
-    "aliases": ["C. J. Cron", "c. j. cron", "c.j.cron", "CJ Cron", "cjcron", "cj cron"]
+    "name": "C.J. Cron",
+    "aliases": ["C.J. Cron", "c.j. cron", "c.j.cron", "CJ Cron", "cjcron", "cj cron"]
   },
   {
     "name": "Kevin Cron",
@@ -2108,8 +2104,8 @@
     "aliases": ["Ike Davis", "ike davis", "ikedavis"]
   },
   {
-    "name": "J. D. Davis",
-    "aliases": ["J. D. Davis", "j. d. davis", "j.d.davis"]
+    "name": "J.D. Davis",
+    "aliases": ["JD Davis", "j.d. davis", "j.d.davis"]
   },
   {
     "name": "Jaylin Davis",
@@ -2329,7 +2325,7 @@
   },
   {
     "name": "Yandy Díaz",
-    "aliases": ["Yandy Díaz", "yandy díaz", "yandydíaz"]
+    "aliases": ["Yandy Diaz", "yandy díaz", "yandydíaz", "yandy diaz", "yandydiaz"]
   },
   {
     "name": "Yennsy Diaz",
@@ -2568,8 +2564,8 @@
     "aliases": ["Brian Ellington", "brian ellington", "brianellington"]
   },
   {
-    "name": "A. J. Ellis",
-    "aliases": ["A. J. Ellis", "a. j. ellis", "a.j.ellis"]
+    "name": "A.J. Ellis",
+    "aliases": ["A.J. Ellis", "a.j. ellis", "a.j.ellis"]
   },
   {
     "name": "Chris Ellis",
@@ -2673,7 +2669,7 @@
   },
   {
     "name": "Phillip Evans",
-    "aliases": ["Phillip Evans", "phillip evans", "phillipevans"]
+    "aliases": ["Phillip Evans", "phillip evans", "phillipevans", "Philip Evans", "philipevans"]
   },
   {
     "name": "Dana Eveland",
@@ -2780,8 +2776,8 @@
     "aliases": ["Matt Festa", "matt festa", "mattfesta"]
   },
   {
-    "name": "J. P. Feyereisen",
-    "aliases": ["J. P. Feyereisen", "j. p. feyereisen", "j.p.feyereisen"]
+    "name": "J.P. Feyereisen",
+    "aliases": ["J.P. Feyereisen", "j.p. feyereisen", "j.p.feyereisen"]
   },
   {
     "name": "Johnny Field",
@@ -3028,8 +3024,8 @@
     "aliases": ["Eric Fryer", "eric fryer", "ericfryer"]
   },
   {
-    "name": "Josh Fuentes",
-    "aliases": ["Josh Fuentes", "josh fuentes", "joshfuentes"]
+    "name": "Joshua Fuentes",
+    "aliases": ["Josh Fuentes", "joshua fuentes", "joshuafuentes", "josh fuentes", "joshfuentes"]
   },
   {
     "name": "Rey Fuentes",
@@ -3097,7 +3093,7 @@
   },
   {
     "name": "Adolis García",
-    "aliases": ["Adolis García", "adolis garcía", "adolisgarcía"]
+    "aliases": ["Adolis Garcia", "adolis garcía", "adolisgarcía", "adolis garcia", "adolisgarcia"]
   },
   {
     "name": "Adonis Garcia",
@@ -3224,8 +3220,8 @@
     "aliases": ["Matt Garza", "matt garza", "mattgarza"]
   },
   {
-    "name": "Ralph Garza",
-    "aliases": ["Ralph Garza", "ralph garza", "ralphgarza"]
+    "name": "Ralph Garza Jr.",
+    "aliases": ["ralph garza jr.", "ralphgarzajr", "Ralph Garza", "ralph garza", "ralphgarza"]
   },
   {
     "name": "Evan Gattis",
@@ -3501,7 +3497,7 @@
   },
   {
     "name": "Philip Gosselin",
-    "aliases": ["Philip Gosselin", "philip gosselin", "philipgosselin"]
+    "aliases": ["Philip Gosselin", "philip gosselin", "philipgosselin", "Phil Gosselin", "phil gosselin", "philgosselin"]
   },
   {
     "name": "Daniel Gossett",
@@ -3596,8 +3592,8 @@
     "aliases": ["Randal Grichuk", "randal grichuk", "randalgrichuk"]
   },
   {
-    "name": "A. J. Griffin",
-    "aliases": ["A. J. Griffin", "a. j. griffin", "a.j.griffin"]
+    "name": "A.J. Griffin",
+    "aliases": ["A.J. Griffin", "a.j. griffin", "a.j.griffin"]
   },
   {
     "name": "Foster Griffin",
@@ -3664,8 +3660,8 @@
     "aliases": ["Tayron Guerrero", "tayron guerrero", "tayronguerrero"]
   },
   {
-    "name": "Vladimir Guerrero",
-    "aliases": ["Vladimir Guerrero", "vladimir guerrero", "vladimirguerrero"]
+    "name": "Vladimir Guerrero Jr.",
+    "aliases": ["Vladimir Guerrero", "vladimir guerrero jr.", "vladimirguerrerojr"]
   },
   {
     "name": "Taylor Guerrieri",
@@ -3688,8 +3684,8 @@
     "aliases": ["Jason Gurka", "jason gurka", "jasongurka"]
   },
   {
-    "name": "Lourdes Gurriel",
-    "aliases": ["Lourdes Gurriel", "lourdes gurriel", "lourdesgurriel"]
+    "name": "Lourdes Gurriel Jr.",
+    "aliases": ["Lourdes Gurriel", "lourdes gurriel", "lourdesgurriel", "lourdes gurriel jr.", "lourdesgurrieljr"]
   },
   {
     "name": "Yuli Gurriel",
@@ -3784,8 +3780,8 @@
     "aliases": ["Jason Hammel", "jason hammel", "jasonhammel"]
   },
   {
-    "name": "J. D. Hammer",
-    "aliases": ["J. D. Hammer", "j. d. hammer", "j.d.hammer"]
+    "name": "J.D. Hammer",
+    "aliases": ["J.D. Hammer", "j.d. hammer", "j.d.hammer"]
   },
   {
     "name": "Garrett Hampson",
@@ -3824,8 +3820,8 @@
     "aliases": ["Ian Happ", "ian happ", "ianhapp"]
   },
   {
-    "name": "J. A. Happ",
-    "aliases": ["J. A. Happ", "j. a. happ", "j.a.happ"]
+    "name": "J.A. Happ",
+    "aliases": ["J.A. Happ", "j.a. happ", "j.a.happ"]
   },
   {
     "name": "Blaine Hardy",
@@ -3906,10 +3902,6 @@
   {
     "name": "Drew Hayes",
     "aliases": ["Drew Hayes", "drew hayes", "drewhayes"]
-  },
-  {
-    "name": "Ke'Bryan Hayes",
-    "aliases": ["Ke'Bryan Hayes", "ke'bryan hayes", "ke'bryanhayes"]
   },
   {
     "name": "Austin Hays",
@@ -4041,7 +4033,7 @@
   },
   {
     "name": "Enrique Hernandez",
-    "aliases": ["Enrique Hernandez", "enrique hernandez", "enriquehernandez"]
+    "aliases": ["Enrique Hernandez", "enrique hernandez", "enriquehernandez", "kikehernandez", "Kiké Hernandez", "kikéhernandez"]
   },
   {
     "name": "Felix Hernandez",
@@ -4073,7 +4065,7 @@
   },
   {
     "name": "Yadiel Hernández",
-    "aliases": ["Yadiel Hernández", "yadiel hernández", "yadielhernández"]
+    "aliases": ["Yadiel Hernández", "yadiel hernández", "yadielhernández", "Yadiel Hernandez", "yadiel hernandez", "yadielhernandez"]
   },
   {
     "name": "Dilson Herrera",
@@ -4280,8 +4272,8 @@
     "aliases": ["Spencer Howard", "spencer howard", "spencerhoward"]
   },
   {
-    "name": "J. P. Howell",
-    "aliases": ["J. P. Howell", "j. p. howell", "j.p.howell"]
+    "name": "J.P. Howell",
+    "aliases": ["J.P. Howell", "j.p. howell", "j.p.howell"]
   },
   {
     "name": "Jared Hoying",
@@ -4369,11 +4361,11 @@
   },
   {
     "name": "Andy Ibáñez",
-    "aliases": ["Andy Ibáñez", "andy ibáñez", "andyibáñez"]
+    "aliases": ["Andy Ibanez", "andy ibáñez", "andyibáñez", "Andy Ibañez", "andy ibañez", "andyibañez", "andy ibanez", "andyibanez"]
   },
   {
     "name": "José Iglesias",
-    "aliases": ["José Iglesias", "josé iglesias", "joséiglesias"]
+    "aliases": ["José Iglesias", "josé iglesias", "joséiglesias", "Jose Iglesias", "jose iglesias", "joseiglesias"]
   },
   {
     "name": "Raisel Iglesias",
@@ -4520,8 +4512,8 @@
     "aliases": ["Jake Jewell", "jake jewell", "jakejewell"]
   },
   {
-    "name": "A. J. Jimenez",
-    "aliases": ["A. J. Jimenez", "a. j. jimenez", "a.j.jimenez"]
+    "name": "A.J. Jimenez",
+    "aliases": ["A.J. Jimenez", "a.j. jimenez", "a.j.jimenez"]
   },
   {
     "name": "Dany Jimenez",
@@ -4837,7 +4829,7 @@
   },
   {
     "name": "Isiah Kiner-Falefa",
-    "aliases": ["Isiah Kiner-Falefa", "isiah kiner-falefa", "isiahkiner-falefa"]
+    "aliases": ["Isiah Kiner-Falefa", "isiah kiner-falefa", "isiahkiner-falefa", "Isiah KinerFalefa", "isiahkinerfalefa"]
   },
   {
     "name": "John King",
@@ -5264,8 +5256,8 @@
     "aliases": ["James Loney", "james loney", "jamesloney"]
   },
   {
-    "name": "Shed Long",
-    "aliases": ["Shed Long", "shed long", "shedlong"]
+    "name": "Shed Long Jr.",
+    "aliases": ["Shed Long", "shed long", "shedlong", "shed long jr.", "shedlongjr"]
   },
   {
     "name": "Evan Longoria",
@@ -5329,7 +5321,7 @@
   },
   {
     "name": "Nate Lowe",
-    "aliases": ["Nate Lowe", "nate lowe", "natelowe"]
+    "aliases": ["Nate Lowe", "nate lowe", "natelowe", "nathaniellowe", "Nathaniel Lowe", "nathaniel lowe"]
   },
   {
     "name": "Jed Lowrie",
@@ -5640,8 +5632,8 @@
     "aliases": ["Carlos Martinez", "carlos martinez", "carlosmartinez"]
   },
   {
-    "name": "J. D. Martinez",
-    "aliases": ["J. D. Martinez", "j. d. martinez", "j.d.martinez"]
+    "name": "J.D. Martinez",
+    "aliases": ["J.D. Martinez", "j.d. martinez", "j.d.martinez", "jdmartinez", "jd martinez", "JD Martinez"]
   },
   {
     "name": "Jose Martinez",
@@ -5820,8 +5812,8 @@
     "aliases": ["Adam McCreery", "adam mccreery", "adammccreery"]
   },
   {
-    "name": "Lance McCullers",
-    "aliases": ["Lance McCullers", "lance mccullers", "lancemccullers"]
+    "name": "Lance McCullers Jr.",
+    "aliases": ["lance mccullers jr.", "lancemccullersjr", "Lance McCullers", "lance mccullers", "lancemccullers"]
   },
   {
     "name": "Andrew McCutchen",
@@ -5957,7 +5949,7 @@
   },
   {
     "name": "Jean Carlos Mejia",
-    "aliases": ["Jean Carlos Mejia", "jean carlos mejia", "jeancarlosmejia"]
+    "aliases": ["Jean Carlos Mejia", "jean carlos mejia", "jeancarlosmejia", "J.C. Mejia"]
   },
   {
     "name": "Seth Mejias-Brean",
@@ -6100,8 +6092,8 @@
     "aliases": ["Mike Minor", "mike minor", "mikeminor"]
   },
   {
-    "name": "A. J. Minter",
-    "aliases": ["A. J. Minter", "a. j. minter", "a.j.minter"]
+    "name": "A.J. Minter",
+    "aliases": ["A.J. Minter", "a.j. minter", "a.j.minter"]
   },
   {
     "name": "Ariel Miranda",
@@ -6248,8 +6240,8 @@
     "aliases": ["Reyes Moronta", "reyes moronta", "reyesmoronta"]
   },
   {
-    "name": "A. J. Morris",
-    "aliases": ["A. J. Morris", "a. j. morris", "a.j.morris"]
+    "name": "A.J. Morris",
+    "aliases": ["A.J. Morris", "a.j. morris", "a.j.morris"]
   },
   {
     "name": "Akeel Morris",
@@ -6613,7 +6605,7 @@
   },
   {
     "name": "Ryan O'Hearn",
-    "aliases": ["Ryan O'Hearn", "ryan o'hearn", "ryano'hearn"]
+    "aliases": ["Ryan O'Hearn", "ryan o'hearn", "ryano'hearn", "ryanohearn", "Ryan OHearn"]
   },
   {
     "name": "Shawn O'Malley",
@@ -6621,7 +6613,7 @@
   },
   {
     "name": "Tyler O'Neill",
-    "aliases": ["Tyler O'Neill", "tyler o'neill", "tylero'neill"]
+    "aliases": ["Tyler O'Neill", "tyler o'neill", "tylero'neill", "tyleroneill"]
   },
   {
     "name": "Ryan O'Rourke",
@@ -7045,7 +7037,7 @@
   },
   {
     "name": "Cionel Pérez",
-    "aliases": ["Cionel Pérez", "cionel pérez", "cionelpérez"]
+    "aliases": ["Cionel Pérez", "cionel pérez", "cionelpérez", "Cionel Perez", "cionel perez", "cionelperez"]
   },
   {
     "name": "Hector Perez",
@@ -7160,8 +7152,8 @@
     "aliases": ["Zach Phillips", "zach phillips", "zachphillips"]
   },
   {
-    "name": "A. J. Pierzynski",
-    "aliases": ["A. J. Pierzynski", "a. j. pierzynski", "a.j.pierzynski"]
+    "name": "A.J. Pierzynski",
+    "aliases": ["A.J. Pierzynski", "a.j. pierzynski", "a.j.pierzynski"]
   },
   {
     "name": "Tyler Pill",
@@ -7328,8 +7320,8 @@
     "aliases": ["Albert Pujols", "albert pujols", "albertpujols"]
   },
   {
-    "name": "A. J. Puk",
-    "aliases": ["A. J. Puk", "a. j. puk", "a.j.puk"]
+    "name": "A.J. Puk",
+    "aliases": ["A.J. Puk", "a.j. puk", "a.j.puk"]
   },
   {
     "name": "Matt Purke",
@@ -7504,8 +7496,8 @@
     "aliases": ["Raudy Read", "raudy read", "raudyread"]
   },
   {
-    "name": "J. T. Realmuto",
-    "aliases": ["J. T. Realmuto", "j. t. realmuto", "j.t.realmuto"]
+    "name": "J.T. Realmuto",
+    "aliases": ["J.T. Realmuto", "j.t. realmuto", "j.t.realmuto", "JT Realmuto", "jt realmuto", "jtrealmuto"]
   },
   {
     "name": "Anthony Recker",
@@ -7516,8 +7508,8 @@
     "aliases": ["Josh Reddick", "josh reddick", "joshreddick"]
   },
   {
-    "name": "A. J. Reed",
-    "aliases": ["A. J. Reed", "a. j. reed", "a.j.reed"]
+    "name": "A.J. Reed",
+    "aliases": ["A.J. Reed", "a.j. reed", "a.j.reed"]
   },
   {
     "name": "Addison Reed",
@@ -8276,8 +8268,8 @@
     "aliases": ["Max Schrock", "max schrock", "maxschrock"]
   },
   {
-    "name": "A. J. Schugel",
-    "aliases": ["A. J. Schugel", "a. j. schugel", "a.j.schugel"]
+    "name": "A.J. Schugel",
+    "aliases": ["A.J. Schugel", "a.j. schugel", "a.j.schugel"]
   },
   {
     "name": "Bo Schultz",
@@ -8420,8 +8412,8 @@
     "aliases": ["Chandler Shepherd", "chandler shepherd", "chandlershepherd"]
   },
   {
-    "name": "James Sherfy",
-    "aliases": ["James Sherfy", "james sherfy", "jamessherfy"]
+    "name": "Jimmie Sherfy",
+    "aliases": ["James Sherfy", "james sherfy", "jamessherfy", "Jimmy Sherfy", "jimmie sherfy", "jimmy sherfy", "jimmiesherfy", "jimmysherfy"]
   },
   {
     "name": "Ryan Sherriff",
@@ -8712,8 +8704,8 @@
     "aliases": ["Juan Soto", "juan soto", "juansoto"]
   },
   {
-    "name": "Steven Souza",
-    "aliases": ["Steven Souza", "steven souza", "stevensouza"]
+    "name": "Steven Souza Jr.",
+    "aliases": ["Steven Souza", "steven souza", "stevensouza", "steven souza jr.", "stevensouzajr"]
   },
   {
     "name": "Denard Span",
@@ -9024,8 +9016,8 @@
     "aliases": ["Dillon Tate", "dillon tate", "dillontate"]
   },
   {
-    "name": "Fernando Tatis",
-    "aliases": ["Fernando Tatis", "fernando tatis", "fernandotatis"]
+    "name": "Fernando Tatis Jr.",
+    "aliases": ["Fernando Tatis", "fernando tatis", "fernandotatis", "fernando tatis jr.", "fernandotatisjr"]
   },
   {
     "name": "Mike Tauchman",
@@ -9056,8 +9048,8 @@
     "aliases": ["Josh Taylor", "josh taylor", "joshtaylor"]
   },
   {
-    "name": "Michael Taylor",
-    "aliases": ["Michael Taylor", "michael taylor", "michaeltaylor"]
+    "name": "Michael A. Taylor",
+    "aliases": ["Michael Taylor", "michael taylor", "michaeltaylor", "michael a taylor", "michaelataylor"]
   },
   {
     "name": "Tyrone Taylor",
@@ -9368,8 +9360,8 @@
     "aliases": ["Koji Uehara", "koji uehara", "kojiuehara"]
   },
   {
-    "name": "Duane Underwood",
-    "aliases": ["Duane Underwood", "duane underwood", "duaneunderwood"]
+    "name": "Duane Underwood Jr.",
+    "aliases": ["Duane Underwood", "duane underwood", "duaneunderwood", "duane underwood jr.", "duaneunderwoodjr"]
   },
   {
     "name": "B. J. Upton",
@@ -9632,8 +9624,8 @@
     "aliases": ["Brandon Waddell", "brandon waddell", "brandonwaddell"]
   },
   {
-    "name": "LaMonte Wade",
-    "aliases": ["LaMonte Wade", "lamonte wade", "lamontewade"]
+    "name": "LaMonte Wade Jr.",
+    "aliases": ["LaMonte Wade", "LaMonte Wade Jr", "lamonte wade", "lamontewade", "lamonte wade jr.", "lamontewadejr"]
   },
   {
     "name": "Tyler Wade",
@@ -9804,8 +9796,8 @@
     "aliases": ["Tyler Wells", "tyler wells", "tylerwells"]
   },
   {
-    "name": "J. B. Wendelken",
-    "aliases": ["J. B. Wendelken", "j. b. wendelken", "j.b.wendelken"]
+    "name": "J.B. Wendelken",
+    "aliases": ["J.B. Wendelken", "j.b. wendelken", "j.b.wendelken"]
   },
   {
     "name": "Joey Wendle",
@@ -10214,5 +10206,129 @@
   {
     "name": "Tony Zych",
     "aliases": ["Tony Zych", "tony zych", "tonyzych"]
+  },
+  {
+    "name": "Spenser Watkins",
+    "aliases": ["spenser watkins", "spenserwatkins"]
+  },
+  {
+    "name": "Connor Wong",
+    "aliases": ["connor wong", "connorwong"]
+  },
+  {
+    "name": "Taylor Gushue",
+    "aliases": ["taylor gushue", "taylorgushue"]
+  },
+  {
+    "name": "Vladimir Gutierrez",
+    "aliases": ["vladimir gutierrez", "vladimirgutierrez", "Vlad Gutierrez", "vlad gutierrez"]
+  },
+  {
+    "name": "Alejo Lopez",
+    "aliases": ["alejo lopez", "alejolopez"]
+  },
+  {
+    "name": "Justin Garza",
+    "aliases": ["justin garza", "justingarza"]
+  },
+  {
+   "name": "Ernie Clement",
+   "aliases": ["ernie clement", "ernieclement"]
+  },
+  {
+    "name": "Matt Manning",
+    "aliases": ["matt manning", "mattmanning"]
+  },
+  {
+    "name": "Tylor Megill",
+    "aliases": ["tylor megill", "tylormegill"]
+  },
+  {
+    "name": "Domingo Acevedo",
+    "aliases": ["domingo acevedo", "domingoacevedo"]
+  },
+  {
+    "name": "Mason Thompson",
+    "aliases": ["mason thompson", "masonthompson"]
+  },
+  {
+    "name": "Sammy Long",
+    "aliases": ["sammy long", "sammylong"]
+  },
+  {
+    "name": "Wander Franco",
+    "aliases": ["wander franco", "wanderfranco"]
+  },
+  {
+    "name": "Joe Barlow",
+    "aliases": ["joe barlow", "joebarlow"]
+  },
+  {
+    "name": "Tayler Saucedo",
+    "aliases": ["tayler saucedo", "taylersaucedo"]
+  },
+  {
+    "name": "Riley Adams",
+    "aliases": ["riley adams", "rileyadams"]
+  },
+  {
+    "name": "Nick Allgeyer",
+    "aliases": ["nick allgeyer", "nickallgeyer"]
+  },
+  {
+    "name": "Griffin Jax",
+    "aliases": ["griffin jax", "griffinjax"]
+  },
+  {
+    "name": "Gilberto Celestino",
+    "aliases": ["gilberto celestino", "gilbertocelestino"]
+  },
+  {
+    "name": "Luke Williams",
+    "aliases": ["luke williams", "lukewilliams"]
+  },
+  {
+    "name": "Kyle Muller",
+    "aliases": ["kyle muller", "kylemuller"]
+  },
+  {
+    "name": "Gavin Sheets",
+    "aliases": ["gavin sheets", "gavinsheets"]
+  },
+  {
+    "name": "Jake Burger",
+    "aliases": ["jake burger", "jakeburger"]
+  },
+  {
+    "name": "Zach Thompson",
+    "aliases": ["zach thompson", "zachthompson"]
+  },
+  {
+    "name": "Michael King",
+    "aliases": ["michael king", "michaelking"]
+  },
+  {
+    "name": "Jake Cousins",
+    "aliases": ["jake cousins", "jakecousins"]
+  },
+  {
+    "name": "Miguel Sanchez",
+    "aliases": ["miguel sanchez", "miguelsanchez"]
+  },
+  {
+    "name": "Ke'Bryan Hayes",
+    "aliases": ["KeBryan Hayes", "Kebryan Hayes", "kebryanhayes", "kebryan hayes", "ke'bryan hayes"]
+  },
+  {
+    "name": "Andrew Wantz",
+    "aliases": ["andrew wantz", "andrewwantz"]
+  },
+  {
+    "name": "Lars Nootbaar",
+    "aliases": ["larsnootbaar", "lars nootbaar"]
+  },
+  {
+    "name": "Peter Alonso",
+    "aliases": ["peter alonso", "peteralonso"]
   }
 ]

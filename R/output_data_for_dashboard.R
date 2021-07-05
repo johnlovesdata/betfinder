@@ -7,6 +7,7 @@
 #' @export
 output_data_for_dashboard <- function(data_list, props_list,
                                       output_path = system.file('props.rds', package = 'betfinder')) {
+
   # combine all the props
   props_long <- list()
   for (i in props_list) {
@@ -16,7 +17,8 @@ output_data_for_dashboard <- function(data_list, props_list,
     props_long[[length(props_long) + 1]] <- df
   }
   props_long <- dplyr::bind_rows(props_long)
-  # handle missing columns
+  # handle missing columns - this should never happen if there are actually data i think?
+  ## TODO: DECIDE WHETHER THIS IS NECESSARY OR EVEN A GOOD IDEA
   if (!'tidygamedatetime' %in% names(props_long)) props_long$tidygamedatetime <- NA_character_
   if (!'tidyplayer' %in% names(props_long)) props_long$tidyplayer <- NA_character_
   if (!'tidyteam' %in% names(props_long)) props_long$tidyteam <- NA_character_
@@ -31,7 +33,8 @@ output_data_for_dashboard <- function(data_list, props_list,
     names_from = site,
     # values_fn = length,
     values_from = tidyamericanodds)
-  # handle missing columns
+  # handle missing columns - this should happen occasionally, but should probably be handled via a function that can read configs
+  ## TODO: update configs to make this work functionally
   if (!'draftkings' %in% names(props_wide)) props_wide$draftkings <- NA_real_
   if (!'fanduel' %in% names(props_wide)) props_wide$fanduel <- NA_real_
   if (!'pointsbet' %in% names(props_wide)) props_wide$pointsbet <- NA_real_
@@ -39,15 +42,15 @@ output_data_for_dashboard <- function(data_list, props_list,
   # merge external stuff ----
   merged <- props_wide %>%
     # player data; EXCLUDE TEAM FROM THE MERGE AND COALESCE IT IN
-    dplyr::left_join(data_list$player_data, by = c('sport', 'tidyplayer')) %>%
+    dplyr::left_join(data_list$rosters, by = c('sport', 'tidyplayer')) %>%
     dplyr::mutate(tidyteam = dplyr::coalesce(tidyteam.x, tidyteam.y)) %>%
+    dplyr::select(-dplyr::ends_with('.x'), -dplyr::ends_with('.y')) %>%
     # projections
-    dplyr::left_join(data_list$projections) %>%
-    dplyr::mutate(injury_status = dplyr::coalesce(injury_status, jumper_injury_status))
+    dplyr::left_join(data_list$projections,
+                     by = c("sport", "prop", "tidyplayer", "tidyline", "tidyteam"))
 
   # tidy up ----
   # book-level conversions
-
   props_df <- merged %>%
     dplyr::mutate(
       tidyopp = dplyr::if_else(tidyteam == tidyhometeam, tidyawayteam, tidyhometeam),
@@ -78,7 +81,6 @@ output_data_for_dashboard <- function(data_list, props_list,
                   best_prob = min(c(dk_prob, fd_prob, pb_prob), na.rm = TRUE),
                   best_odds = prob_to_american(best_prob),
                   probs_list = list(c(dk_prob, fd_prob, pb_prob)),
-                  odds_list = list(c(draftkings, fanduel, pointsbet)),
                   best_delta = max(c(dk_delta, fd_delta, pb_delta), na.rm = TRUE),
                   best_delta = dplyr::if_else(is.infinite(best_delta), NA_real_, best_delta)) %>%
     dplyr::ungroup()
@@ -100,23 +102,21 @@ output_data_for_dashboard <- function(data_list, props_list,
     best <- sel_row$best_odds
     sel_row$mean_odds <- NULL
     sel_row$best_odds <- NULL
-    sel_row$odds_list <- NULL
     bb <- sort(as.character(na.omit(names(sel_row)[unlist(sel_row) == best])))
     best_books[[length(best_books) + 1]] <- paste0(bb, collapse = ', ')
 
   }
   props_df <- props_df %>%
-    dplyr::select(-probs_list,
-                  -odds_list) %>%
+    dplyr::select(-probs_list) %>%
     dplyr::mutate(best_books = unlist(best_books),
                   next_best_prob = unlist(next_best_probs),
                   next_best_ratio = dplyr::case_when(count_books == 1 ~ NA_real_,
                                                      count_books == 2 ~ best_prob / worst_prob,
                                                      count_books > 2 ~ best_prob / next_best_prob),
-                  projected_odds = prob_to_american(projected_prob))
-  # NEW ----
-  ## add a date string for tipoffs cuz it's ugly af otherwise rendering in the dash
-  props_df <- props_df %>%
+                  projected_odds = prob_to_american(projected_prob)) %>%
+    dplyr::mutate(best_books = gsub('pointsbet', 'pb',
+                                    gsub('fanduel', 'fd',
+                                         gsub('draftkings', 'dk', best_books)))) %>%
     dplyr::mutate(
       tipoff_string = paste0(
         weekdays(tidygamedatetime, abbreviate = TRUE), ' ',
