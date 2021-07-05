@@ -3,6 +3,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
 
   # make the output using the input
   output_df <- fanduel_data
+  prop <- tolower(prop)
 
   # for each prop, append whatever tidy fields we can, which should make thte data useful across datasets
   if (prop %in% c('first team to score', 'ftts')) {
@@ -12,7 +13,6 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
     output_df$tidyplayer <- 'team'
     output_df$prop <- 'first team to score'
   }
-
   if (prop %in% c('first player to score', 'fpts')) {
     # generate tidy names and odds
     hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)
@@ -20,10 +20,19 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
     output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
     output_df$prop <- 'first player to score'
   }
-  if (grepl('points|rebounds|assists|three| 3pts| pts| rebs| asts|strikeouts|hits|double', tolower(prop))) {
-
+  if (grepl(' ou$| alt$| tiers$|points|rebounds|assists|three| 3pts| pts| rebs| asts|strikeouts|hit|double', prop)) {
     # handle special cases by prop type (alt, ou, tiers)
-    if (grepl('alt$', tolower(prop))) {
+    if (grepl('alt$', prop)) {
+      # strikeouts are a weird duck!
+      if (grepl('strikeouts', prop)) {
+        output_df$tidyou <- 'over'
+        hacky_player <- hacky_tidyup_player_names(gsub(' Strikeouts', '', as.character(output_df$prop)))
+        output_df$tidyplayer <- normalize_names(hacky_player, key = key)
+        # as kyle mentioned, tiers are >= values, so if we're calling it an over need to subtract half a point
+        output_df$tidyline <- as.numeric(gsub('[^0-9]', '', output_df$name)) - .5
+        output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
+      }
+      else {
       ## alt lines can be over or under, but need to extract direction and line from names
       output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$name)), 'over', 'under')
       ## get the name AND line out of the name; split everything first to make this easier
@@ -36,8 +45,9 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
       output_df$tidyline <- as.numeric(splitted_line)
       # set odds
       output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
+      }
     }
-    if (grepl('ou$', tolower(prop))) {
+    if (grepl('ou$', prop)) {
       prop_string <- as.character(output_df$name)
       player_part <- gsub(' Over$| Under$', '', prop_string)
       hacky_player <- hacky_tidyup_player_names(player_part)
@@ -46,19 +56,18 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
       ## set odds
       output_df$tidyamericanodds <- output_df$american_odds
     }
-    ## tiers are always overs, but the lines are in the prop_details, not the handicap
-    if (grepl('tiers', tolower(prop))) {
+    ## tiers are always overs! looks like each tiers prop needs special-ish handling?
+    if (grepl('tiers', prop)) {
+      ## here the line is in the prop name
       output_df$tidyou <- 'over'
       hacky_tidyplayer <- hacky_tidyup_player_names(gsub(' Over| Under', '', as.character(output_df$name)))
       output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
       # as kyle mentioned, tiers are >= values, so if we're calling it an over need to subtract half a point
       output_df$tidyline <- as.numeric(gsub('[A-Za-z| |+]', '', output_df$prop)) - .5
       output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
-    }
-
+      }
     # fix the prop name to be whatever the input arg is
     output_df$prop <- prop
-
     # handle any tidy values that weren't already handled
     ## if tidyplayer isn't set, set it
     if (!'tidyplayer' %in% names(output_df)) {
@@ -77,7 +86,6 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
       output_df$tidyamericanodds <- output_df$american_odds
     }
   }
-
   # tidyup the matchup! use the team abbreviations from the lookup
   output_df$matchup <- gsub("\\s*\\([^\\)]+\\)","",as.character(output_df$matchup))
   matchup_list <- strsplit(output_df$matchup, ' @ ')

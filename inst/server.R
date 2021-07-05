@@ -33,7 +33,6 @@ shinyServer(
         select(
           sport,
           tidyplayer,
-          injury_status,
           tidyteam,
           home_away,
           tidyopp,
@@ -60,7 +59,6 @@ shinyServer(
         select(
           sport,
           tidyplayer,
-          injury_status,
           tidyteam,
           home_away,
           tidyopp,
@@ -97,17 +95,17 @@ shinyServer(
           tidyplayer = colDef(
             name = "Player",
             sortNALast = TRUE,
-            style = function(value, index) {
-              if (grepl('Likely', all_props_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
-              else if (grepl('Unlikely', all_props_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
-              else if (grepl('Toss', all_props_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
-              else list()
-            },
+            # style = function(value, index) {
+            #   if (grepl('Likely', all_props_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
+            #   else if (grepl('Unlikely', all_props_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
+            #   else if (grepl('Toss', all_props_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
+            #   else list()
+            # },
             minWidth = 120
           ),
-          injury_status = colDef(
-            show = FALSE
-          ),
+          # injury_status = colDef(
+          #   show = FALSE
+          # ),
           tidyteam = colDef(
             name = "Team",
             sortNALast = TRUE,
@@ -267,17 +265,17 @@ shinyServer(
           tidyplayer = colDef(
             name = "Player",
             sortNALast = TRUE,
-            style = function(value, index) {
-              if (grepl('Likely', all_props_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
-              else if (grepl('Unlikely', all_props_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
-              else if (grepl('Toss', all_props_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
-              else list()
-            },
+            # style = function(value, index) {
+            #   if (grepl('Likely', all_props_data()$injury_status[[index]])) list(color = "green", fontWeight = "bold")
+            #   else if (grepl('Unlikely', all_props_data()$injury_status[[index]])) list(color = "red", fontWeight = "bold")
+            #   else if (grepl('Toss', all_props_data()$injury_status[[index]])) list(color = "orange", fontWeight = "bold")
+            #   else list()
+            # },
             minWidth = 120
           ),
-          injury_status = colDef(
-            show = FALSE
-          ),
+          # injury_status = colDef(
+          #   show = FALSE
+          # ),
           tidyteam = colDef(
             name = "Team",
             sortNALast = TRUE,

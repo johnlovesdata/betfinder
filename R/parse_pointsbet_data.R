@@ -57,6 +57,31 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
                        prop_regex = '[a-z] Threes Over/Under$')
     }
+    if (prop %in% c('player to hit home run', 'player to hit hr')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Player To Hit a Home Run')
+    }
+    if (prop %in% c('player strikeouts ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Strikeouts Over/Under$')
+    }
+    if (prop %in% c('player strikeouts alt')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Pick Your Own - Pitcher Strikeouts')
+    }
+    if (prop %in% c('player total bases alt')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Pick Your Own - Player Total Bases')
+    }
+    if (prop %in% c('player hits alt')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Pick Your Own - Player Hits')
+    }
   }
   # if output_list is empty, error, else return as a data.frame
   if (!'output_list' %in% ls()) stop('no pointsbet ', prop, ' props returned')
