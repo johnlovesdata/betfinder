@@ -47,8 +47,7 @@ output_data_for_dashboard <- function(data_list, props_list,
     dplyr::select(-dplyr::ends_with('.x'), -dplyr::ends_with('.y')) %>%
     # projections
     dplyr::left_join(data_list$projections,
-                     by = c("sport", "prop", "tidyplayer", "tidyline", "tidyteam"))
-
+                     by = c("sport", "prop", "tidyplayer", "tidyteam"))
   # tidy up ----
   # book-level conversions
   props_df <- merged %>%
@@ -114,9 +113,7 @@ output_data_for_dashboard <- function(data_list, props_list,
                                                      count_books == 2 ~ best_prob / worst_prob,
                                                      count_books > 2 ~ best_prob / next_best_prob),
                   projected_odds = prob_to_american(projected_prob)) %>%
-    dplyr::mutate(best_books = gsub('pointsbet', 'pb',
-                                    gsub('fanduel', 'fd',
-                                         gsub('draftkings', 'dk', best_books)))) %>%
+    dplyr::mutate(best_books = gsub('draftkings, fanduel, pointsbet', 'dk, fd, pb', best_books)) %>%
     dplyr::mutate(
       tipoff_string = paste0(
         weekdays(tidygamedatetime, abbreviate = TRUE), ' ',

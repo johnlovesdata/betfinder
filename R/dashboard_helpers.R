@@ -40,10 +40,9 @@ get_projections <- function(dashboard_config = NULL) {
     nba_ftts_proj <- read.csv(dashboard_config$nba_ftts_proj_path)
     nba_ftts_tidy <- data.frame(
       sport = 'nba',
-      prop = 'ftts',
+      prop = 'first team to score',
       tidyplayer = 'team',
       tidyteam = nba_ftts_proj$tidyteam,
-      tidyline = nba_ftts_proj$projected_line,
       projected_prob = nba_ftts_proj$projected_prob)
     projections[[length(projections) + 1]] <- nba_ftts_tidy
   }
@@ -51,10 +50,9 @@ get_projections <- function(dashboard_config = NULL) {
     nba_fpts_proj <- read.csv(dashboard_config$nba_fpts_proj_path)
     nba_fpts_tidy <- data.frame(
       sport = 'nba',
-      prop = 'fpts',
+      prop = 'first player to score',
       tidyplayer = nba_fpts_proj$tidyplayer,
       tidyteam = nba_fpts_proj$tidyteam,
-      tidyline = nba_fpts_proj$projected_line,
       projected_prob = nba_fpts_proj$projected_prob)
     projections[[length(projections) + 1]] <- nba_fpts_tidy
   }

@@ -1,7 +1,7 @@
 get_fanduel_data <- function(sport, save_path = NULL,
                              mlb_tabs = c('hits-runs', 'same-game-parlay-', 'innings'),
                              nba_tabs = c('player-points', 'player-rebounds', 'player-assists', 'player-threes',
-                                      '1st-quarter'),
+                                      'player-combos', '1st-quarter', '2nd-quarter', '3rd-quarter', '4th-quarter'),
                              sleep_time = runif(1, 1.6, 3.2)) {
 
   # fanduel requires you to grab a main json for the day's games, then separate json's for all the props in a specific game

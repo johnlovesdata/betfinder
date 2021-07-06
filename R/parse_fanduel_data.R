@@ -116,11 +116,26 @@ parse_fanduel_data <- function(fanduel_data, sport, prop) {
         parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_name = 'To Hit A Home Run',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
-    # if (prop %in% c('player to hit home run', 'player to hit hr')) {
-    #   output_list[[length(output_list) + 1]] <-
-    #     parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_name = 'To Hit A Home Run',
-    #                   prop = prop, matchup = matchup, tipoff = tipoff)
-    # }
+    if (prop %in% c('player pts-reb-ast ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Pts \\+ Reb \\+ Ast$',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player pts-reb ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Pts \\+ Reb$',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player pts-ast ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Pts \\+ Ast$',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player reb-ast ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Reb \\+ Ast$',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
   }
 
   # if output_list is empty, error, else return as a data.frame

@@ -66,6 +66,9 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
       output_df$tidyline <- as.numeric(gsub('[A-Za-z| |+]', '', output_df$prop)) - .5
       output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
       }
+    if (grepl('double|hr', prop)) {
+      output_df$tidyou <- 'yes'
+    }
     # fix the prop name to be whatever the input arg is
     output_df$prop <- prop
     # handle any tidy values that weren't already handled

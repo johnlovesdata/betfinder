@@ -25,7 +25,7 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
     # since prop arg is flexible, set it here for output
     output_df$prop <- 'first player to score'
   }
-  if (grepl('alt$| ou$|tiers$|points|rebounds|assists|three| 3pts| pts| rebs| asts|hit', tolower(prop))) {
+  if (grepl('alt$| ou$|tiers$|points|rebounds|assists|three| 3pts| pts| rebs| asts|hit|double', tolower(prop))) {
     # handle special cases by prop type
     ## alt lines can be over or under, but need to extract direction and line from names
     if (grepl('alt$', tolower(prop))) {
