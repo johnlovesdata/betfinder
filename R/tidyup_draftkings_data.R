@@ -22,15 +22,17 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     output_df$prop <- 'first player to score'
   }
 
-  if (grepl('points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts|runs|strikeouts| hr|hits|rbi|double', tolower(prop))) {
+  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts|runs|strikeout| hr|hit|rbi|double', tolower(prop))) {
     # get names
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     # get tidy ou from label
-    output_df$tidyou <- ifelse(grepl('Over|Yes', as.character(output_df$label)), 'over',
-                        ifelse(grepl('Under|No', as.character(output_df$label)), 'under',
+    output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$label)), 'over',
+                        ifelse(grepl('Under', as.character(output_df$label)), 'under',
+                        ifelse(grepl('^no$', tolower(as.character(output_df$label))), 'no',
+                        ifelse(grepl('^yes$', tolower(as.character(output_df$label))), 'yes',
                                NA_character_
-                               ))
+                               ))))
     # get tidy line from the label
     num_part <- as.numeric(gsub('[A-Za-z| ]', '', output_df$label))
     output_df$tidyline <- num_part

@@ -1,4 +1,5 @@
 parse_pb_prop <- function(game_event, fixed_odds_markets, event_names, prop_regex = NULL) {
+
   elements <- which(grepl(prop_regex, event_names))
   selected_markets <- fixed_odds_markets[elements]
   outcomes <- lapply(selected_markets, '[[', 'outcomes')

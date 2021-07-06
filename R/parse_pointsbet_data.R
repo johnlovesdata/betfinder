@@ -82,6 +82,36 @@ parse_pointsbet_data <- function(pointsbet_data, prop) {
         parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
                       prop_regex = 'Pick Your Own - Player Hits')
     }
+    if (prop %in% c('player pts-reb-ast ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Pts \\+ Rebs \\+ Asts Over/Under')
+    }
+    if (prop %in% c('player pts-reb ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Points \\+ Rebounds Over/Under')
+    }
+    if (prop %in% c('player pts-ast ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Points \\+ Assists Over/Under')
+    }
+    if (prop %in% c('player reb-ast ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Assists \\+ Rebounds Over/Under')
+    }
+    if (prop %in% c('player double double')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Double-Double')
+    }
+    if (prop %in% c('player triple double')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Triple-Double')
+    }
   }
   # if output_list is empty, error, else return as a data.frame
   if (!'output_list' %in% ls()) stop('no pointsbet ', prop, ' props returned')
