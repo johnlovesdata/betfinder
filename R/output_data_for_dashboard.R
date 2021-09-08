@@ -7,7 +7,6 @@
 #' @export
 output_data_for_dashboard <- function(data_list, props_list,
                                       output_path = system.file('props.rds', package = 'betfinder')) {
-
   # combine all the props
   props_long <- list()
   for (i in props_list) {
@@ -96,7 +95,6 @@ output_data_for_dashboard <- function(data_list, props_list,
     ### get the next best probabilities when there are more than 1 unique value
     next_best_probs[[length(next_best_probs) + 1]] <-
       ifelse(length(unique(probs_vec)) == 1, NA_real_, min(probs_vec[probs_vec > min(probs_vec)]))
-
     # get the best odds in a nicely formatted character string
     best <- sel_row$best_odds
     sel_row$mean_odds <- NULL

@@ -7,15 +7,6 @@ get_rosters <- function(dashboard_config = NULL) {
   if (is.null(dashboard_config)) stop('get_rosters() needs dashboard_config arg')
   config_names <- names(dashboard_config)
   rosters <- list()
-  if ('nba_rosters_path' %in% config_names) {
-    nba_rosters <- read.csv(dashboard_config$nba_rosters_path)
-    nba_tidy <- data.frame(
-      sport = 'nba',
-      tidyteam = normalize_names(nba_rosters$TEAM_ABBREVIATION, key = get_key_path('nba', 'team')),
-      tidyplayer = normalize_names(nba_rosters$PLAYER_NAME, key = get_key_path('nba', 'player'))
-    )
-    rosters[['nba']] <- nba_tidy
-  }
   if ('mlb_rosters_path' %in% config_names) {
     mlb_rosters <- read.csv(dashboard_config$mlb_rosters_path)
     mlb_tidy <- data.frame(
@@ -25,6 +16,24 @@ get_rosters <- function(dashboard_config = NULL) {
     )
     rosters[['mlb']] <- mlb_tidy
 
+  }
+  if ('nba_rosters_path' %in% config_names) {
+    nba_rosters <- read.csv(dashboard_config$nba_rosters_path)
+    nba_tidy <- data.frame(
+      sport = 'nba',
+      tidyteam = normalize_names(nba_rosters$TEAM_ABBREVIATION, key = get_key_path('nba', 'team')),
+      tidyplayer = normalize_names(nba_rosters$PLAYER_NAME, key = get_key_path('nba', 'player'))
+    )
+    rosters[['nba']] <- nba_tidy
+  }
+  if ('nfl_rosters_path' %in% config_names) {
+    nfl_rosters <- read.csv(dashboard_config$nfl_rosters_path)
+    nfl_tidy <- data.frame(
+      sport = 'nfl',
+      tidyteam = normalize_names(nfl_rosters$player_team, key = get_key_path('nfl', 'team')),
+      tidyplayer = normalize_names(nfl_rosters$player_name, key = get_key_path('nfl', 'player'))
+    )
+    rosters[['nfl']] <- nfl_tidy
   }
   rosters <- do.call(rbind, rosters)
   return(rosters)

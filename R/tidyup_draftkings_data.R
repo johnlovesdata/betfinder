@@ -12,7 +12,6 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     # for flexible prop names, specify the value explicitly here
     output_df$prop <- 'first team to score'
   }
-
   if (prop %in% c('first player to score', 'fpts')) {
     # set tidyplayer and tidyamericanodds
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
@@ -21,8 +20,16 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     # for flexible props, specify the value explicitly here
     output_df$prop <- 'first player to score'
   }
+  if (prop %in% c('player any td', 'player first td')) {
+    # generate tidy names and odds
+    if (prop == 'player first td') output_df <- output_df[output_df$criterionName == 'First Scorer', ]
+    if (prop == 'player any td') output_df <- output_df[output_df$criterionName == 'Anytime Scorer', ]
+    output_df$tidyplayer <- normalize_names(output_df$label, key = key)
+    output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
+  }
 
-  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts|runs|strikeout| hr|hit|rbi|double', tolower(prop))) {
+
+  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts|runs|strikeout| hr|hit|rbi|double|pass|rush|att', tolower(prop))) {
     # get names
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
@@ -36,18 +43,19 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop,
     # get tidy line from the label
     num_part <- as.numeric(gsub('[A-Za-z| ]', '', output_df$label))
     output_df$tidyline <- num_part
+    if (all(is.na(output_df$tidyline))) output_df$tidyline <- as.numeric(output_df$line)
     # get the tidy odds
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
 
   }
 
   # tidyup the matchup! use the team abbreviations from the lookup
-  matchup_list <- strsplit(output_df$name, ' @ ')
+  matchup_list <- strsplit(gsub(' vs ', ' @ ', output_df$matchup), ' @ ')
   output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
   output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
 
   # tidyup the date! make sure this is EST
-  output_df$tidygamedatetime <- lubridate::as_datetime(output_df$startDate) - lubridate::hours(4)
+  output_df$tidygamedatetime <- lubridate::as_datetime(output_df$tipoff) - lubridate::hours(4)
   output_df$tidygamedatetime <- lubridate::round_date(output_df$tidygamedatetime, "30 minutes")
   lubridate::tz(output_df$tidygamedatetime) <- 'EST'
 

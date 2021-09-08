@@ -20,6 +20,13 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop,
     output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
     output_df$prop <- 'first player to score'
   }
+  if (prop %in% c('player any td', 'player first td')) {
+    # generate tidy names and odds
+    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)
+    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
+    output_df$prop <- prop
+  }
   if (grepl(' ou$| alt$| tiers$|points|rebounds|assists|three| 3pts| pts| rebs| asts|strikeouts|hit|double', prop)) {
     # handle special cases by prop type (alt, ou, tiers)
     if (grepl('alt$', prop)) {

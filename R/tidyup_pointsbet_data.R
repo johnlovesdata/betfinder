@@ -1,6 +1,5 @@
 tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
                                   key = get_key_path(sport = sport, prop = prop)) {
-
   if (nrow(pointsbet_data) < 1) stop('no pointsbet ', prop, ' available')
   # make the output from the input
   output_df <- pointsbet_data
@@ -16,7 +15,6 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
     output_df$prop <- 'first team to score'
   }
   if (prop %in% c('first player to score', 'fpts')) {
-
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$name))
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     output_df$tidyamericanodds <- ifelse(as.numeric(output_df$price) - 1 < 1,
@@ -25,7 +23,16 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
     # since prop arg is flexible, set it here for output
     output_df$prop <- 'first player to score'
   }
-  if (grepl('alt$| ou$|tiers$|points|rebounds|assists|three| 3pts| pts| rebs| asts|hit|double', tolower(prop))) {
+  if (prop %in% c('player first td', 'player any td')) {
+    hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$name))
+    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    output_df$tidyamericanodds <- ifelse(as.numeric(output_df$price) - 1 < 1,
+                                         -100 / (as.numeric(output_df$price) - 1),
+                                         (as.numeric(output_df$price) - 1) * 100)
+    # since prop arg is flexible, set it here for output
+    output_df$prop <- prop
+  }
+  if (grepl('alt$| ou$|tiers$|points|rebounds|assists|three| 3pts| pts| rebs| asts|hit|double|pass|rush|rec', tolower(prop))) {
     # handle special cases by prop type
     ## alt lines can be over or under, but need to extract direction and line from names
     if (grepl('alt$', tolower(prop))) {

@@ -8,6 +8,7 @@
 \alias{get_content}
 \alias{american_to_prob}
 \alias{prob_to_american}
+\alias{list_df_to_df}
 \title{Utility functions to make things work better}
 \usage{
 normalize_names(x, key, warn = TRUE)
@@ -21,6 +22,8 @@ get_content(uri, query)
 american_to_prob(odds)
 
 prob_to_american(probs)
+
+list_df_to_df(df)
 }
 \arguments{
 \item{x}{Vector of strings to normalize in \code{normalize_names}}
