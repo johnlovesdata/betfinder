@@ -232,6 +232,11 @@
     "aliases": ["Henderson Alvarez", "henderson alvarez", "hendersonalvarez"]
   },
   {
+    "name": "Yordan Alvarez",
+    "aliases": ["yordan alvarez", "yordanalvarez"]
+  },
+
+  {
     "name": "Jose Alvarez",
     "aliases": ["Jose Alvarez", "jose alvarez", "josealvarez"]
   },
@@ -1296,6 +1301,11 @@
     "aliases": ["Asdrubal Cabrera", "asdrubal cabrera", "asdrubalcabrera"]
   },
   {
+    "name": "Edward Cabrera",
+    "aliases": ["edward cabrera", "edwardcabrera"]
+  },
+
+  {
     "name": "Genesis Cabrera",
     "aliases": ["Genesis Cabrera", "genesis cabrera", "genesiscabrera"]
   },
@@ -2057,7 +2067,7 @@
   },
   {
     "name": "Travis d'Arnaud",
-    "aliases": ["Travis d'Arnaud", "travis d'arnaud", "travisd'arnaud"]
+    "aliases": ["travisdarnaud", "travis d'arnaud", "travisd'arnaud"]
   },
   {
     "name": "David Dahl",
@@ -2105,7 +2115,7 @@
   },
   {
     "name": "J.D. Davis",
-    "aliases": ["JD Davis", "j.d. davis", "j.d.davis"]
+    "aliases": ["JD Davis", "j.d. davis", "j.d.davis", "jddavis"]
   },
   {
     "name": "Jaylin Davis",
@@ -2170,6 +2180,10 @@
   {
     "name": "Chase De Jong",
     "aliases": ["Chase De Jong", "chase de jong", "chasedejong"]
+  },
+  {
+    "name": "Bryan De La Cruz",
+    "aliases": ["bryan de la cruz", "bryandelacruz"]
   },
   {
     "name": "Joel De La Cruz",
@@ -2289,7 +2303,7 @@
   },
   {
     "name": "Aledmys Díaz",
-    "aliases": ["Aledmys Díaz", "aledmys díaz", "aledmysdíaz"]
+    "aliases": ["Aledmys Diaz", "aledmys díaz", "aledmysdíaz", "aledmysdiaz"]
   },
   {
     "name": "Dayan Diaz",
@@ -2457,7 +2471,7 @@
   },
   {
     "name": "Matt Duffy",
-    "aliases": ["Matt Duffy", "matt duffy", "mattduffy"]
+    "aliases": ["Matthew Duffy", "matthew duffy", "matt duffy", "mattduffy", "matthewduffy"]
   },
   {
     "name": "Matt Duffy",
@@ -3661,7 +3675,7 @@
   },
   {
     "name": "Vladimir Guerrero Jr.",
-    "aliases": ["Vladimir Guerrero", "vladimir guerrero jr.", "vladimirguerrerojr"]
+    "aliases": ["Vladimir Guerrero", "vladimir guerrero jr.", "vladimirguerrerojr", "vladimirguerrero"]
   },
   {
     "name": "Taylor Guerrieri",
@@ -3689,7 +3703,7 @@
   },
   {
     "name": "Yuli Gurriel",
-    "aliases": ["Yuli Gurriel", "yuli gurriel", "yuligurriel"]
+    "aliases": ["Yulieski Gurriel", "yuli gurriel", "yuligurriel", "yulieskigurriel", "yulieski gurriel"]
   },
   {
     "name": "Jandel Gustave",
@@ -4066,6 +4080,10 @@
   {
     "name": "Yadiel Hernández",
     "aliases": ["Yadiel Hernández", "yadiel hernández", "yadielhernández", "Yadiel Hernandez", "yadiel hernandez", "yadielhernandez"]
+  },
+  {
+    "name": "Yonny Hernandez",
+    "aliases": ["yonny hernandez", "yonnyhernandez"]
   },
   {
     "name": "Dilson Herrera",
@@ -4928,6 +4946,10 @@
     "aliases": ["Michael Kopech", "michael kopech", "michaelkopech"]
   },
   {
+    "name": "Jackson Kowar",
+    "aliases": ["jackson kowar", "jacksonkowar"]
+  },
+  {
     "name": "Pete Kozma",
     "aliases": ["Pete Kozma", "pete kozma", "petekozma"]
   },
@@ -5268,6 +5290,11 @@
     "aliases": ["Tim Lopes", "tim lopes", "timlopes"]
   },
   {
+    "name": "Jack Lopez",
+    "aliases": ["jack lopez", "jacklopez"]
+  },
+
+  {
     "name": "Javier Lopez",
     "aliases": ["Javier Lopez", "javier lopez", "javierlopez"]
   },
@@ -5562,6 +5589,10 @@
   {
     "name": "Deven Marrero",
     "aliases": ["Deven Marrero", "deven marrero", "devenmarrero"]
+  },
+  {
+    "name": "Brandon Marsh",
+    "aliases": ["brandon marsh", "brandonmarsh"]
   },
   {
     "name": "Evan Marshall",
@@ -6020,6 +6051,10 @@
     "aliases": ["Ben Meyer", "ben meyer", "benmeyer"]
   },
   {
+    "name": "Jake Meyers",
+    "aliases": ["Ben Meyer", "jake meyers", "jakemeyers"]
+  },
+  {
     "name": "Will Middlebrooks",
     "aliases": ["Will Middlebrooks", "will middlebrooks", "willmiddlebrooks"]
   },
@@ -6134,6 +6169,10 @@
   {
     "name": "Adalberto Mondesi",
     "aliases": ["Adalberto Mondesi", "adalberto mondesi", "adalbertomondesi"]
+  },
+  {
+    "name": "Raul Mondesi",
+    "aliases": ["raul mondesi", "raulmondesi"]
   },
   {
     "name": "Mickey Moniak",
@@ -7647,6 +7686,11 @@
     "name": "Yacksel Rios",
     "aliases": ["Yacksel Rios", "yacksel rios", "yackselrios"]
   },
+  {
+    "name": "Alfonso Rivas",
+    "aliases": ["alfonso rivas", "alfonsorivas"]
+  },
+
   {
     "name": "Webster Rivas",
     "aliases": ["Webster Rivas", "webster rivas", "websterrivas"]
@@ -9401,7 +9445,7 @@
   },
   {
     "name": "Gio Urshela",
-    "aliases": ["Gio Urshela", "gio urshela", "giourshela"]
+    "aliases": ["Gio Urshela", "gio urshela", "giourshela", "giovannyurshela", "giovanny urshela", "Giovanny Urshela"]
   },
   {
     "name": "Chase Utley",
@@ -9551,6 +9595,11 @@
     "name": "Engelb Vielma",
     "aliases": ["Engelb Vielma", "engelb vielma", "engelbvielma"]
   },
+  {
+    "name": "Engelb Vielma",
+    "aliases": ["Matthew Vierling", "matthew vierling", "matt vierling", "mattvierling", "matthewvierling"]
+  },
+
   {
     "name": "Carlos Villanueva",
     "aliases": ["Carlos Villanueva", "carlos villanueva", "carlosvillanueva"]
@@ -9790,6 +9839,10 @@
   {
     "name": "Zack Weiss",
     "aliases": ["Zack Weiss", "zack weiss", "zackweiss"]
+  },
+  {
+    "name": "Alexander Wells",
+    "aliases": ["alexander wells", "alexanderwells", "alex wells", "alexwells"]
   },
   {
     "name": "Tyler Wells",
@@ -10330,5 +10383,22 @@
   {
     "name": "Peter Alonso",
     "aliases": ["peter alonso", "peteralonso"]
+  },
+  {
+    "name": "Kevin Smith",
+    "aliases": ["kevin smith", "kevinsmith", "KEVINSMITH"]
+  },
+  {
+    "name": "Cal Raleigh",
+    "aliases": ["calraleigh", "cal raleigh"]
+  },
+  {
+    "name": "Packy Naughton",
+    "aliases": ["packynaughton", "packy naughton"]
+  },
+  {
+    "name": "Jarren Duran",
+    "aliases": ["jarrenduran", "jarren duran"]
   }
+
 ]

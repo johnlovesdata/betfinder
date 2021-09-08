@@ -75,6 +75,7 @@ get_key_path <- function(sport, prop) {
 #' @rdname utils
 hacky_tidyup_player_names <- function(player_names) {
   output <- iconv(player_names, to = "ASCII//TRANSLIT")
+  output <- gsub(' \\(.*.', '', output)
   output <- tolower(gsub('[^[:alnum:]]', '', output))
   output <- gsub('jr$|sr$|ii$|iii$', '', output)
   return(output)
@@ -112,3 +113,20 @@ prob_to_american <- function(probs) {
   }
   return(unlist(output))
 }
+
+#' @rdname utils
+list_df_to_df <- function(df) {
+
+  df_names <- names(df)
+  new_df <- as.data.frame(matrix(nrow = nrow(df), ncol = ncol(df)))
+  names(new_df) <- df_names
+  for (i in df_names) {
+    if (class(df[[i]]) == 'list') {
+      new_df[[i]] <- unlist(df[[i]])
+    } else {
+      new_df[[i]] <- df[[i]]
+    }
+  }
+  return(new_df)
+}
+

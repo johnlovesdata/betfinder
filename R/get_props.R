@@ -17,8 +17,8 @@ get_props <- function(site, sport, prop, save_path = NULL) {
 
   # for each site, for each sport, call the specific site wrappers
   if (site %in% c('dk', 'draftkings')) {
-    dk_raw <- get_draftkings_data(sport = sport, save_path = save_path)
-    dk_parsed <- parse_draftkings_data(dk_raw, prop = prop)
+    dk_raw <- get_draftkings_data(sport = sport, sleep_time = .01, save_path = save_path)
+    dk_parsed <- parse_draftkings_data(dk_raw, sport = sport, prop = prop)
     dk_tidy <- tidyup_draftkings_data(dk_parsed, sport = sport, prop = prop)
     output_df <- dk_tidy
     output_df$timestamp <- Sys.time()
@@ -50,6 +50,7 @@ get_all_props <- function(props_path = system.file('config', 'props', 'props_lis
                           save_path = NULL) {
   # blow up the grid of sport, site, and prop
   args_df <- readRDS(props_path)
+  args_df <- args_df[args_df$active == 1, ]
   # loop through the massive set of arguments
   output_list <- list()
   for (i in 1:nrow(args_df)) {

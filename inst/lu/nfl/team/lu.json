@@ -1,0 +1,288 @@
+[
+  {
+    "name": "ARI",
+    "aliases": [
+      "ARI Cardinals",
+      "Cardinals",
+      "Arizona Cardinals"
+    ]
+  },
+  {
+    "name": "ATL",
+    "aliases": [
+      "Atlanta",
+      "ATL Falcons",
+      "Falcons",
+      "Atlanta Falcons"
+    ]
+  },
+  {
+    "name": "BAL",
+    "aliases": [
+      "Baltimore",
+      "BAL Ravens",
+      "Ravens",
+      "Baltimore Ravens"
+    ]
+  },
+  {
+    "name": "BUF",
+    "aliases": [
+      "BUF Bills",
+      "Bills",
+      "Buffalo Bills"
+    ]
+  },
+  {
+    "name": "CAR",
+    "aliases": [
+      "CAR Panthers",
+      "Panthers",
+      "Carolina Panthers"
+    ]
+  },
+  {
+    "name": "CHI",
+    "aliases": [
+      "CHI Bears",
+      "Bears",
+      "Chicago Bears"
+    ]
+  },
+  {
+    "name": "CIN",
+    "aliases": [
+      "CIN Bengals",
+      "Bengals",
+      "Cincinnati Bengals"
+    ]
+  },
+  {
+    "name": "CLE",
+    "aliases": [
+      "CLE Browns",
+      "Browns",
+      "Cleveland Browns"
+    ]
+  },
+  {
+    "name": "DAL",
+    "aliases": [
+      "DAL Cowboys",
+      "Cowboys",
+      "Dallas Cowboys"
+    ]
+  },
+  {
+    "name": "DEN",
+    "aliases": [
+      "DEN Broncos",
+      "Broncos",
+      "Denver Broncos"
+    ]
+  },
+  {
+    "name": "DET",
+    "aliases": [
+      "DET Lions",
+      "Lions",
+      "Detroit Lions"
+    ]
+  },
+  {
+    "name": "GB",
+    "aliases": [
+      "GB Packers",
+      "GBP",
+      "GBP Packers",
+      "Packers",
+      "Green Bay Packers"
+    ]
+  },
+  {
+    "name": "HOU",
+    "aliases": [
+      "HOU Texans",
+      "Texans",
+      "Houston Texans"
+    ]
+  },
+  {
+    "name": "IND",
+    "aliases": [
+      "IND Colts",
+      "Colts",
+      "Indianapolis Colts"
+    ]
+  },
+  {
+    "name": "JAX",
+    "aliases": [
+      "JAC",
+      "JAC Jaguars",
+      "JAX Jaguars",
+      "Jaguars",
+      "Jacksonville Jaguars"
+    ]
+  },
+  {
+    "name": "KC",
+    "aliases": [
+      "KCC",
+      "KC Chiefs",
+      "Chiefs",
+      "Kansas City Chiefs"
+    ]
+  },
+  {
+    "name": "LA",
+    "aliases": [
+      "LAR",
+      "LA Rams",
+      "Rams",
+      "Los Angeles Rams"
+    ]
+  },
+  {
+    "name": "LAC",
+    "aliases": [
+      "LAC",
+      "LA Chargers",
+      "Chargers",
+      "LA Chargers",
+      "Los Angeles Chargers"
+    ]
+  },
+  {
+    "name": "LV",
+    "aliases": [
+      "Las Vegas",
+      "LVR",
+      "LVG",
+      "LV Raiders",
+      "Raiders",
+      "LVG Raiders",
+      "Las Vegas Raiders"
+    ]
+  },
+  {
+    "name": "MIA",
+    "aliases": [
+      "Dolphins",
+      "MIA Dolphins",
+      "Miami Dolphins"
+    ]
+  },
+  {
+    "name": "MIN",
+    "aliases": [
+      "MIN Vikings",
+      "Vikings",
+      "Minnesota Vikings"
+    ]
+  },
+  {
+    "name": "NE",
+    "aliases": [
+      "NEP",
+      "NEW",
+      "NE Patriots",
+      "Patriots",
+      "New England Patriots"
+    ]
+  },
+  {
+    "name": "NO",
+    "aliases": [
+      "NOL",
+      "NOR",
+      "NO Saints",
+      "Saints",
+      "New Orleans Saints"
+    ]
+  },
+
+  {
+    "name": "NYG",
+    "aliases": [
+      "Giants",
+      "NY Giants",
+      "New York Giants"
+    ]
+  },
+  {
+    "name": "NYJ",
+    "aliases": [
+      "NY Jets",
+      "Jets",
+      "New York Jets"
+    ]
+  },
+  {
+    "name": "PHI",
+    "aliases": [
+      "PHI Eagles",
+      "Eagles",
+      "Philadelphia Eagles"
+    ]
+  },
+  {
+    "name": "PIT",
+    "aliases": [
+      "PIT Steelers",
+      "Steelers",
+      "Pittsburgh Steelers"
+    ]
+  },
+  {
+    "name": "SEA",
+    "aliases": [
+      "SEA Seahawks",
+      "Seahawks",
+      "Seattle Seahawks"
+    ]
+  },
+  {
+    "name": "SF",
+    "aliases": [
+      "SFO",
+      "SF 49ers",
+      "SFO 49ers",
+      "49ers",
+      "San Francisco 49ers"
+    ]
+  },
+  {
+    "name": "TB",
+    "aliases": [
+      "TPB",
+      "TAM",
+      "TAM Bucs",
+      "TAM Buccaneers",
+      "TPB Bucs",
+      "TPB Buccaneers",
+      "TB Bucs",
+      "TB Buccaneers",
+      "Bucs",
+      "Buccaneers",
+      "Tampa Bay Buccaneers"
+    ]
+  },
+  {
+    "name": "TEN",
+    "aliases": [
+      "TEN Titans",
+      "Titans",
+      "Tennessee Titans"
+    ]
+  },
+  {
+    "name": "WAS",
+    "aliases": [
+      "WFT",
+      "WAS Football Team",
+      "Washington Football Team",
+      "Football Team"
+    ]
+  }
+]

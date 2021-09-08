@@ -2,6 +2,8 @@ get_fanduel_data <- function(sport, save_path = NULL,
                              mlb_tabs = c('hits-runs', 'same-game-parlay-', 'innings'),
                              nba_tabs = c('player-points', 'player-rebounds', 'player-assists', 'player-threes',
                                       'player-combos', '1st-quarter', '2nd-quarter', '3rd-quarter', '4th-quarter'),
+                             nfl_tabs = c('player-props', 'same-game-parlay-', '1st-half', '2nd-half',
+                                          '1st-quarter', '2nd-quarter', '3rd-quarter', '4th-quarter'),
                              sleep_time = runif(1, 1.6, 3.2)) {
 
   # fanduel requires you to grab a main json for the day's games, then separate json's for all the props in a specific game
@@ -40,10 +42,11 @@ get_fanduel_data <- function(sport, save_path = NULL,
                         eventId = list(e))
     event_content <- get_content(uri = event_URI, query = event_query)
 
-    ## BUT WAIT THERES MORE - gotta grab each of the tabs for the specific props and stuff (this is a pain in the ass unless i can pass a list to the tab parameter?)
+    ## BUT WAIT THERES MORE - gotta grab each of the tabs for the specific props and stuff
 
     if (sport == 'mlb') tabs <- mlb_tabs
     else if (sport == 'nba') tabs <- nba_tabs
+    else if (sport == 'nfl') tabs <- nfl_tabs
     else stop('unupported sport')
 
     tab_list <- list()

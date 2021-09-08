@@ -1,7 +1,8 @@
 get_pointsbet_data <- function(sport, save_path = NULL,
-                               sleep_time = runif(1, 1.6, 3.2)) {
-  if (sport == 'nba') val <- 5
+                               sleep_time = runif(1, 0, 1)) {
   if (sport == 'mlb') val <- 14
+  if (sport == 'nba') val <- 5
+  if (sport == 'nfl') val <- 2
 
   main_uri <- paste0('https://api.il.pointsbet.com/api/v2/competitions/', val, '/events/featured')
   main_query <- list(
