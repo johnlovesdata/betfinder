@@ -29,7 +29,7 @@ parse_dk_prop <- function(offer_categories, prop_group, prop_subgroup, prop_name
     for (i in prop_content) {
       prop_outcomes_list[[length(prop_outcomes_list) + 1]] <- as.data.frame(do.call(rbind, i[['outcomes']]))
     }
-    prop_df <- as.data.frame(do.call(rbind, prop_outcomes_list))
+    prop_df <- dplyr::bind_rows(prop_outcomes_list)
 
     if(inherits(prop_df, 'list')) return()
     prop_df$matchup <- matchup

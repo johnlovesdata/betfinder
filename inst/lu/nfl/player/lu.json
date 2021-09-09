@@ -1,5 +1,17 @@
 [
   {
+    "name": "No Touchdown Scorer",
+    "aliases": ["notdscorer", "notouchdownscored", "No Touchdown Scored"]
+  },
+  {
+    "name": "TB Buccaneers Defense",
+    "aliases": ["tbbuccaneersdefense", "tampabaydst", "Tampa Bay D/ST", "Tampa Bay DST"]
+  },
+  {
+    "name": "DAL Cowboys Defense",
+    "aliases": ["dalcowboysdefense", "dallasdst", "Dallas D/ST", "Dallas DST"]
+  },
+  {
     "name": "Michal Menet",
     "aliases": ["michal menet", "MICHAL MENET", "michalmenet"]
   },
@@ -409,7 +421,7 @@
   },
   {
     "name": "A.J. Green",
-    "aliases": ["a.j. green", "A.J. GREEN", "ajgreen"]
+    "aliases": ["a.j. green", "A.J. GREEN", "ajgreen", "A.J. Green (ARI)"]
   },
   {
     "name": "Greg Dortch",
@@ -1605,7 +1617,7 @@
   },
   {
     "name": "Josh Allen",
-    "aliases": ["josh allen", "JOSH ALLEN", "joshallen"]
+    "aliases": ["josh allen", "JOSH ALLEN", "joshallen", "Josh Allen (BUF)", "joshallen(buf)"]
   },
   {
     "name": "Zack Moss",
@@ -2153,7 +2165,7 @@
   },
   {
     "name": "D.J. Moore",
-    "aliases": ["d.j. moore", "D.J. MOORE", "djmoore"]
+    "aliases": ["d.j. moore", "D.J. MOORE", "djmoore", "DJ Moore"]
   },
   {
     "name": "Aaron Parker",
@@ -4633,7 +4645,7 @@
   },
   {
     "name": "Khadarel Hodge",
-    "aliases": ["khadarel hodge", "KHADAREL HODGE", "khadarelhodge"]
+    "aliases": ["KhaDarel Hodge", "khadarel hodge", "KHADAREL HODGE", "khadarelhodge"]
   },
   {
     "name": "Quintez Cephus",
@@ -4981,7 +4993,7 @@
   },
   {
     "name": "A.J. Dillon",
-    "aliases": ["a.j. dillon", "A.J. DILLON", "ajdillon"]
+    "aliases": ["a.j. dillon", "A.J. DILLON", "ajdillon", "AJ Dillon"]
   },
   {
     "name": "Kylin Hill",
@@ -5869,7 +5881,7 @@
   },
   {
     "name": "Michael Pittman",
-    "aliases": ["michael pittman", "MICHAEL PITTMAN", "michaelpittman"]
+    "aliases": ["michael pittman", "MICHAEL PITTMAN", "michaelpittman", "Michael  Pittman Jr."]
   },
   {
     "name": "Shaquill Griffin",
@@ -6193,7 +6205,7 @@
   },
   {
     "name": "Marvin Jones",
-    "aliases": ["marvin jones", "MARVIN JONES", "marvinjones"]
+    "aliases": ["marvin jones", "MARVIN JONES", "marvinjones", "Marvin Jones Jr."]
   },
   {
     "name": "Jeff Cotton",
@@ -6233,11 +6245,11 @@
   },
   {
     "name": "Laviska Shenault",
-    "aliases": ["laviska shenault", "LAVISKA SHENAULT", "laviskashenault"]
+    "aliases": ["laviska shenault", "LAVISKA SHENAULT", "laviskashenault", "Laviska Shenault Jr."]
   },
   {
     "name": "D.J. Chark",
-    "aliases": ["d.j. chark", "D.J. CHARK", "djchark"]
+    "aliases": ["d.j. chark", "D.J. CHARK", "djchark", "DJ Chark", "DJ Chark Jr.", "D.J. Chark Jr."]
   },
   {
     "name": "Tim Jones",
@@ -7049,7 +7061,7 @@
   },
   {
     "name": "Tutu Atwell",
-    "aliases": ["tutu atwell", "TUTU ATWELL", "tutuatwell"]
+    "aliases": ["tutu atwell", "TUTU ATWELL", "tutuatwell", "Chatarius Atwell", "chatariusatwell"]
   },
   {
     "name": "Corey Linsley",
@@ -7369,11 +7381,11 @@
   },
   {
     "name": "Tre' McKitty",
-    "aliases": ["tre' mckitty", "TRE' MCKITTY", "tremckitty"]
+    "aliases": ["tre' mckitty", "TRE' MCKITTY", "tremckitty",  "Tre McKitty"]
   },
   {
     "name": "Donald Parham",
-    "aliases": ["donald parham", "DONALD PARHAM", "donaldparham"]
+    "aliases": ["donald parham", "DONALD PARHAM", "donaldparham", "Donald Parham Jr."]
   },
   {
     "name": "Jared Cook",
@@ -7893,7 +7905,7 @@
   },
   {
     "name": "Willie Snead",
-    "aliases": ["willie snead", "WILLIE SNEAD", "williesnead"]
+    "aliases": ["willie snead", "WILLIE SNEAD", "williesnead", "williesneadiv", "Willie Snead IV"]
   },
   {
     "name": "Cameron Tom",
@@ -8293,7 +8305,7 @@
   },
   {
     "name": "Preston Williams",
-    "aliases": ["preston williams", "PRESTON WILLIAMS", "prestonwilliams"]
+    "aliases": ["preston williams", "PRESTON WILLIAMS", "prestonwilliams", "prestonwiliams"]
   },
   {
     "name": "Cohl Cabral",
@@ -8649,7 +8661,7 @@
   },
   {
     "name": "Christopher Herndon",
-    "aliases": ["christopher herndon", "CHRISTOPHER HERNDON", "christopherherndon"]
+    "aliases": ["christopher herndon", "CHRISTOPHER HERNDON", "christopherherndon", "Chris Herndon", "chrisherndon"]
   },
   {
     "name": "Irv Smith",
@@ -9125,7 +9137,7 @@
   },
   {
     "name": "Matt Slater",
-    "aliases": ["matt slater", "MATT SLATER", "mattslater"]
+    "aliases": ["matt slater", "MATT SLATER", "mattslater", "Matthew Slater", "matthewslater"]
   },
   {
     "name": "N'Keal Harry",
@@ -10493,7 +10505,7 @@
   },
   {
     "name": "Keelan Cole",
-    "aliases": ["keelan cole", "KEELAN COLE", "keelancole"]
+    "aliases": ["keelan cole", "KEELAN COLE", "keelancole", "Keelan Cole Sr."]
   },
   {
     "name": "Braxton Berrios",
@@ -11273,7 +11285,7 @@
   },
   {
     "name": "Benny Snell",
-    "aliases": ["benny snell", "BENNY SNELL", "bennysnell"]
+    "aliases": ["benny snell", "BENNY SNELL", "bennysnell", "Benny Snell Jr."]
   },
   {
     "name": "Trey Edmunds",
@@ -12553,7 +12565,7 @@
   },
   {
     "name": "Ronald Jones",
-    "aliases": ["ronald jones", "RONALD JONES", "ronaldjones"]
+    "aliases": ["ronald jones", "RONALD JONES", "ronaldjones", "Ronald Jones II", "RonaldJonesII", "ronaldjonesii"]
   },
   {
     "name": "Darwin Thompson",
@@ -20614,5 +20626,9 @@
   {
     "name": "Saeed Blacknall",
     "aliases": ["saeed blacknall", "SAEED BLACKNALL", "saeedblacknall"]
+  },
+  {
+    "name": "Jaelen Raegor",
+    "aliases": ["jaelen raegor", "jaelenraegor"]
   }
 ]
