@@ -139,7 +139,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = NULL, main_bets
     # if output_list is empty, error
     if (!'output_list' %in% ls()) stop('no draftkings ', prop, ' returned')
     if (length(output_list) == 0) stop('no draftkings ', prop, ' returned')
-    output_df <- as.data.frame(apply(do.call(rbind, output_list), 2, unlist))
+    output_df <- dplyr::bind_rows(output_list)
     output_df$prop <- prop
 
     return(output_df)
