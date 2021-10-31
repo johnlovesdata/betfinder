@@ -5,7 +5,7 @@
 \alias{get_all_props}
 \title{Get lines and odds on prop bets for popular sports from popular betting sites}
 \usage{
-get_props(site, sport, prop, save_path = NULL)
+get_props(site, sport, prop, raw_data = NULL, save_path = NULL)
 
 get_all_props(
   props_path = system.file("config", "props", "props_list.rds", package = "betfinder"),

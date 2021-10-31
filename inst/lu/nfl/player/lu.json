@@ -4,6 +4,14 @@
     "aliases": ["notdscorer", "notouchdownscored", "No Touchdown Scored"]
   },
   {
+    "name": "BAL Ravens Defense",
+    "aliases": ["balravensdefense", "baltimoredst", "Baltimore D/ST", "Baltimore DST"]
+  },
+  {
+    "name": "LV Raiders Defense",
+    "aliases": ["lvraidersdefense", "lasvegasdst", "Las Vegas D/ST", "Las Vegas DST"]
+  },
+  {
     "name": "TB Buccaneers Defense",
     "aliases": ["tbbuccaneersdefense", "tampabaydst", "Tampa Bay D/ST", "Tampa Bay DST"]
   },

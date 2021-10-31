@@ -57,12 +57,14 @@ normalize_names <- function(x, key, warn = TRUE) {
 }
 
 #' @rdname utils
-get_key_path <- function(sport, prop) {
+get_key_path <- function(sport, prop, game_lines = FALSE) {
 
   # set the list of props for different key_types
   # TODO: set this via a config probably (another json)
   key_type <- character()
-  if (grepl('team|ftts', prop)) {
+  if (game_lines == TRUE) {
+    key_type <- 'team'
+  } else if (grepl('team|ftts', prop)) {
     key_type <- 'team'
   } else if (grepl('player|fpts', prop)) {
     key_type <- 'player'

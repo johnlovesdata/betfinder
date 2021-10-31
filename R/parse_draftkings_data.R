@@ -1,12 +1,11 @@
-parse_draftkings_data <- function(draftkings_data, sport, prop = NULL, main_bets = NULL) {
+parse_draftkings_data <- function(draftkings_data, sport, prop = NULL, game_lines = FALSE) {
 
-  if (!is.null(prop) && !is.null(main_bets)) stop('please choose a prop or main_bets, not both')
+  if (!is.null(prop) && game_lines == TRUE) stop('please choose a prop or game_lines, not both')
 
   output_list <- list()
 
   for (e in names(draftkings_data)) {
     game_event <- draftkings_data[[e]]
-
     # get matchup name and start time
     matchup <- game_event$event$name
     tipoff <- game_event$event$startDate
@@ -14,18 +13,15 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = NULL, main_bets
     # break out the offer markets, always necessary
     offer_categories <- game_event$eventCategories
     offer_category_names <- unlist(lapply(offer_categories, '[[', 'name'))
-
-    # if (!is.null(main_bets)) {
-    #   if (!('Game Lines') %in% offer_category_names) stop('no draftkings main bets available')
-    #   game_lines <- offer_categories[[which(offer_category_names == 'Game Lines')]]$componentizedOffers
-    #   game_line_names  <- unlist(lapply(game_lines, '[[', 'subcategoryName'))
-    #   if (!('Game') %in% game_line_names) stop('no draftkings main bets available')
-    #   main_bets <- game_lines[[which(game_line_names == 'Game')]]$offers[[1]]
-    #   output_df <- dplyr::bind_rows(lapply(main_bets, function(x) as.data.frame(do.call(rbind, x[['outcomes']]))))
-    #   output_df$bet_type <- ifelse(as.character(output_df$label) %in% c('NULL', 'Over', 'Under'), 'total_points',
-    #                                ifelse(as.character(output_df$line) == 'NULL', 'money_line', 'point_spread'))
-    #   output_list[[length(output_list) + 1]] <- output_df
-    # }
+    if (game_lines == TRUE) {
+      if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb')) {
+        output_list[[length(output_list) + 1]] <-
+          parse_dk_main(offer_categories, matchup = matchup, tipoff = tipoff)
+      }
+    }
+    if (is.null(prop)) {
+      next
+    }
     if (prop %in% c('first team to score', 'ftts')) {
       if (sport %in% c('nba', 'ncaaf', 'nfl')) {
         output_list[[length(output_list) + 1]] <-
@@ -38,30 +34,39 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = NULL, main_bets
                         prop = prop, matchup = matchup, tipoff = tipoff)
       }
     }
-    # if (prop %in% c('first player to score', 'fpts')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, 'First Field Goal', prop, player_prop_names)
-    # }
-    # if (prop %in% c('player points ou', 'player pts ou')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, 'Points', prop, player_prop_names)
-    # }
-    # if (prop %in% c('player assists ou', 'player asts ou')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, 'Assists', prop, player_prop_names)
-    # }
-    # if (prop %in% c('player rebounds ou', 'player rebs ou')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, 'Rebounds', prop, player_prop_names)
-    # }
-    # if (prop %in% c('player three-pointers ou', 'player 3pts ou')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, '3-Pointers', prop, player_prop_names)
-    # }
-    # if (prop %in% c('player most points')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, 'Top Point Scorer', prop, player_prop_names)
-    # }
-    # if (prop %in% c('player double double')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, 'Double-Double', prop, player_prop_names)
-    # }
-    # if (prop %in% c('player triple double')) {
-    #   output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, 'Triple-Double', prop, player_prop_names)
-    # }
+    if (prop %in% c('first player to score', 'fpts')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'First FG', prop_name = 'First Field Goal', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player points ou', 'player pts ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Points', prop_regex = ' Points$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player assists ou', 'player asts ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Assists', prop_regex = ' Assists$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player rebounds ou', 'player rebs ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Rebounds', prop_regex = ' Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player three-pointers ou', 'player 3pts ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Threes', prop_regex = ' Three Pointers Made$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player blocks ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Blocks', prop_regex = ' Blocks$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player steals ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Steals', prop_regex = ' Steals$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player turnovers ou', 'player to ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Turnovers', prop_regex = ' Turnovers$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player most points')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Top Point Scorer', prop_name = 'Leading Scorer of the Game', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player double double')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Double-Double', prop_regex = ' Double-Double$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player triple double')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Triple-Double', prop_regex = ' Triple-Double$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
     if (prop %in% c('player strikeouts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Strikeouts by Pitcher', prop_regex = 'Strikeouts Thrown',
@@ -133,7 +138,6 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = NULL, main_bets
         parse_dk_prop(offer_categories, prop_group = 'TD Scorers', prop_subgroup = 'TD Scorer', prop_regex = 'Touchdown Scorer',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
-
   }
 
     # if output_list is empty, error

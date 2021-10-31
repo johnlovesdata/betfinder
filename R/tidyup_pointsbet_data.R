@@ -52,7 +52,7 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
       ## set the over/under column values
       output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$name)), 'over', 'under')
       ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' Over | Under ', 'XX', as.character(output_df$name))
+      split_string <- gsub(' Over | Under | over | under ', 'XX', as.character(output_df$name))
       splitted <- strsplit(split_string, 'XX')
 
       splitted_name <- sapply(splitted, '[[', 1)

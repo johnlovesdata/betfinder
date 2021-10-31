@@ -4,6 +4,5 @@
   "nba_ftts_proj_path":["https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_first_to_score/first_team_to_score.csv.gz"],
   "nba_rosters_path":["/Users/jim/Documents/gambling_stuff/data/02_curated/nba_rosters/current.csv.gz"],
   "nba_lineups_path":["https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nba_lineups/rotowire.csv"],
-  "nfl_rosters_path":["https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nfl_rosters/current.csv"],
-  "mlb_rosters_path":["https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/mlb/rosters.csv"]
+  "nfl_rosters_path":["https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/data/02_curated/nfl_rosters/current.csv"]
 }

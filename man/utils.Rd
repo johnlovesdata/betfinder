@@ -13,7 +13,7 @@
 \usage{
 normalize_names(x, key, warn = TRUE)
 
-get_key_path(sport, prop)
+get_key_path(sport, prop, game_lines = FALSE)
 
 hacky_tidyup_player_names(player_names)
 
