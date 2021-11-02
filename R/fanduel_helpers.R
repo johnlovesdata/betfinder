@@ -1,5 +1,4 @@
-parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = NULL, prop, matchup, tipoff) {
-
+parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = NULL, matchup, tipoff) {
   if (!tab_name %in% names(game_event)) return()
   tab_content <- game_event[[tab_name]]
   # extract attachments
@@ -22,6 +21,7 @@ parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = N
     # run through the runners list and get american odds by player
     runner_list <- lapply(runners, function(x) {
       data.frame(participant = x[['runnerName']],
+                 handicap = x[['handicap']],
                  american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
     })
     # make a data.frame
@@ -54,5 +54,20 @@ parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = N
   prop_df$matchup <- matchup
   prop_df$tipoff <- tipoff
   return(prop_df)
+
+}
+
+parse_fd_main <- function(game_event, matchup, tipoff) {
+
+  ml_outputs <- list()
+  for (ml in c('Moneyline', 'Total Points', 'Spread Betting')) {
+    df <- parse_fd_prop(game_event, tab_name = 'main', prop_name = ml, matchup = matchup, tipoff = tipoff)
+    if (length(df) == 0) return()
+    df$Type <- ml
+    ml_outputs[[ml]] <- df
+  }
+  output_df <- do.call(rbind, ml_outputs)
+  return(output_df)
+
 }
 

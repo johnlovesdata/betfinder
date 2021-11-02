@@ -4,7 +4,20 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
   output_df <- draftkings_data
 
   if (game_lines == TRUE) {
-browser()
+
+    # fix the totals first
+    totals <- output_df[output_df$bet_type == 'Total', ]
+    new_totals_list <- list()
+    for (m in unique(totals$matchup)) {
+      mu <- totals[totals$matchup == m, ]
+      teams <- unlist(strsplit(m, ' @ '))
+      mu$label[[1]] <- teams[[1]]
+      mu$label[[2]] <- teams[[2]]
+      new_totals_list[[length(new_totals_list) + 1]] <- mu
+    }
+    new_totals <- dplyr::bind_rows(new_totals_list)
+    output_df <- dplyr::bind_rows(new_totals, output_df[output_df$bet_type != 'Total', ])
+
     output_df$tidyteam <- normalize_names(output_df$label, key = key)
     output_df$tidytype <- output_df$bet_type
     output_df$tidyamericanodds <- as.numeric(gsub('//+', '', output_df$oddsAmerican))

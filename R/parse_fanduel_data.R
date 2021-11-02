@@ -1,4 +1,4 @@
-parse_fanduel_data <- function(fanduel_data, sport, prop) {
+parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = FALSE) {
 
   # loop through fanduel_data and extract the correct prop
   output_list <- list()
@@ -7,6 +7,14 @@ parse_fanduel_data <- function(fanduel_data, sport, prop) {
     game_event <- fanduel_data[[e]]
     matchup <- game_event$main$attachments$events[[e]]$name
     tipoff <- game_event$main$attachments$events[[e]]$openDate
+
+    if (game_lines == TRUE) {
+      if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb')) {
+        output_list[[length(output_list) + 1]] <-
+          parse_fd_main(game_event, matchup = matchup, tipoff = tipoff)
+      }
+    }
+
     # extract correct props
     if (prop %in% c('first team to score', 'ftts')) {
       # get the right tab
@@ -15,177 +23,177 @@ parse_fanduel_data <- function(fanduel_data, sport, prop) {
       if (sport == 'nfl') tab_name <- 'main'
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = tab_name, prop_name = 'Team to Score First',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('first player to score', 'fpts')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'First Basket',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player points alt', 'player pts alt')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_points', prop_regex = 'Alt Points',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player points ou', 'player pts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_points', prop_regex = '- Points',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player points tiers', 'player pts tiers')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_points', prop_regex = 'To Score',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player assists alt', 'player asts alt')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_assists', prop_regex = 'Alt Assists',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player assists ou', 'player asts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_assists', prop_regex = '- Assists',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player assists tiers', 'player asts tiers')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_assists', prop_regex = 'To Record',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rebounds alt', 'player rebs alt')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_rebounds', prop_regex = 'Alt Rebounds',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rebounds ou', 'player rebs ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_rebounds', prop_regex = '- Rebounds',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rebounds tiers', 'player rebs tiers')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_rebounds', prop_regex = 'To Record',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player threes alt', 'player 3pts alt')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_threes', prop_regex = 'Alt 3-Pointers',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player threes ou', 'player 3pts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_threes', prop_regex = '- Made Threes',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player threes tiers', 'player 3pts tiers')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_threes', prop_regex = '[1-9]\\+ Made Threes',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player most points')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'Top Points Scorer',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player double double')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'To Record A Double Double',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player triple double')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'To Record A Triple Double',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player strikeouts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_regex = ' - Strikeouts',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player strikeouts alt')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_regex = '[^-] Strikeouts',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player hits tiers')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_regex = 'To Record [1-9]',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player to hit home run', 'player to hit hr')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'hits_runs', prop_name = 'To Hit A Home Run',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts+reb+ast ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Pts \\+ Reb \\+ Ast$',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts+reb ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Pts \\+ Reb$',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts+ast ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Pts \\+ Ast$',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player reb+ast ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_combos', prop_regex = ' - Reb \\+ Ast$',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rush atts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = ' - Rush Attempts',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rush yds ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = ' - Rushing Yds',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player recs ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = ' - Total Receptions$',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rec yds ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = ' - Receiving Yds$',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rush+rec yds ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = ' - Rushing \\+ Receiving Yds',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pass atts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = 'Pass Attempts',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pass yds ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = ' - Passing Yds',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pass tds ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_regex = 'Passing TD',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player any td')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_name = 'Any Time Touchdown Scorer',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player first td')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_name = 'First Touchdown Scorer',
-                      prop = prop, matchup = matchup, tipoff = tipoff)
+                      matchup = matchup, tipoff = tipoff)
     }
   }
 

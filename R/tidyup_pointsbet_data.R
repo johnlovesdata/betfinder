@@ -64,10 +64,10 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop,
       output_df$tidyline <- as.numeric(splitted_line)
     }
     ## tiers are always overs, but the lines are in the prop_details, not the handicap
-    if (grepl('tiers', tolower(prop))) {
+    if (grepl('tiers|double', tolower(prop))) {
       output_df$tidyou <- 'over'
       ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' To Make | To Get ', 'XX', output_df$name)
+      split_string <- gsub(' To Make | To Get | To Get [Aa]', 'XX', output_df$name)
       splitted <- strsplit(split_string, 'XX')
       splitted_name <- sapply(splitted, '[[', 1)
       splitted_name <- hacky_tidyup_player_names(splitted_name)
