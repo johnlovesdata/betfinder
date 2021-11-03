@@ -1,6 +1,4 @@
-parse_draftkings_data <- function(draftkings_data, sport, prop = NULL, game_lines = FALSE) {
-
-  if (!is.null(prop) && game_lines == TRUE) stop('please choose a prop or game_lines, not both')
+parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lines = FALSE) {
 
   output_list <- list()
 

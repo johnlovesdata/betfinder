@@ -1,10 +1,36 @@
-tidyup_fanduel_data <- function(fanduel_data, sport, prop,
-                                key = get_key_path(sport = sport, prop = prop)) {
+tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = FALSE,
+                                key = get_key_path(sport = sport, prop = prop, game_lines = game_lines)) {
 
   # make the output using the input
   output_df <- fanduel_data
-  prop <- tolower(prop)
+  if (game_lines == TRUE) {
 
+    # fix the totals first
+    output_df$newparticipant <- output_df$participant
+    totals <- output_df[output_df$Type == 'Total Points', ]
+    new_totals_list <- list()
+    for (m in unique(totals$matchup)) {
+      mu <- totals[totals$matchup == m, ]
+      teams <- unlist(strsplit(m, ' @ '))
+      mu$newparticipant[[1]] <- teams[[1]]
+      mu$newparticipant[[2]] <- teams[[2]]
+      new_totals_list[[length(new_totals_list) + 1]] <- mu
+    }
+    new_totals <- dplyr::bind_rows(new_totals_list)
+    output_df <- dplyr::bind_rows(new_totals, output_df[output_df$Type != 'Total Points', ])
+    # fix bet types
+    output_df$Type <- gsub(" Points", "", output_df$Type)
+    output_df$Type <- gsub(" Betting", "", output_df$Type)
+
+    output_df$tidyteam <- normalize_names(output_df$newparticipant, key = key)
+    output_df$tidyplayer <- 'team'
+    output_df$tidytype <- output_df$Type
+    output_df$tidyamericanodds <- as.numeric(gsub('//+', '', output_df$american_odds))
+    output_df$tidyline <- ifelse(output_df$handicap != 0, output_df$handicap, NA_real_)
+    output_df$tidyou <- ifelse(output_df$participant %in% c('Over', 'over'), 'over',
+                               ifelse(output_df$participant %in% c('Under', 'under'), 'under', NA_character_))
+
+  }
   # for each prop, append whatever tidy fields we can, which should make thte data useful across datasets
   if (prop %in% c('first team to score', 'ftts')) {
     # generate tidy names and odds
