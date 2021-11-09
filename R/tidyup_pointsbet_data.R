@@ -1,5 +1,7 @@
 tidyup_pointsbet_data <- function(pointsbet_data, sport, prop = FALSE, game_lines = FALSE,
                                   key = get_key_path(sport = sport, prop = prop, game_lines = game_lines)) {
+
+
   if (nrow(pointsbet_data) < 1) stop('no pointsbet ', prop, ' available')
   # make the output from the input
   output_df <- pointsbet_data
@@ -29,7 +31,15 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop = FALSE, game_line
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- as.character(output_df$groupByHeader)
     output_df$tidyline <- as.numeric(output_df$points)
-    output_df$tidyou <- ifelse(output_df$outcomeType %in% c('Over', 'Under'), tolower(output_df$outcomeType), NA_character_)
+    if ('outcomeType' %in% names(output_df)) {
+      output_df$tidyou <- ifelse(output_df$outcomeType %in% c('Over', 'Under'), tolower(output_df$outcomeType), NA_character_)
+    }
+    if (!'outcomeType' %in% names(output_df) & 'marketTypeCode' %in% names(output_df)) {
+      output_df$tidyou <- ifelse(grepl('OVER', output_df$marketTypeCode), 'over',
+                                 ifelse(grepl('UNDER', output_df$marketTypeCode), 'under', NA_character_))
+    }
+
+
     output_df$tidyamericanodds <- ifelse(as.numeric(output_df$price) - 1 < 1,
                                          -100 / (as.numeric(output_df$price) - 1),
                                          (as.numeric(output_df$price) - 1) * 100)

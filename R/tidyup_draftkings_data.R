@@ -2,6 +2,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
                                    key = get_key_path(sport = sport, prop = prop, game_lines = game_lines)) {
   # make the output using the input
   output_df <- draftkings_data
+  output_df <- output_df[!is.na(output_df$providerOutcomeId), ]
 
   if (game_lines == TRUE) {
 
