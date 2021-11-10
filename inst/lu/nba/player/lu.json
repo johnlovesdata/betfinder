@@ -3354,6 +3354,25 @@
   {
     "name": "Scottie Barnes",
     "aliases": ["scottie barnes", "scottiebarnes"]
+  },
+    {
+    "name": "Jalen Suggs",
+    "aliases": ["jalen suggs", "jalensuggs"]
+  },
+    {
+    "name": "Evan Mobley",
+    "aliases": ["evan mobley", "evanmobley"]
+  },
+    {
+    "name": "Jalen Green",
+    "aliases": ["jalen green", "jalengreen"]
+  },
+    {
+    "name": "Cade Cunningham",
+    "aliases": ["cade cunningham", "cadecunningham"]
+  },
+    {
+    "name": "Chris Duarte",
+    "aliases": ["chrisduarte", "chrisduarte"]
   }
-
 ]
