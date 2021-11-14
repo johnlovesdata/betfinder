@@ -40,7 +40,6 @@ get_rosters <- function(dashboard_config = NULL) {
 }
 
 get_projections <- function(dashboard_config = NULL) {
-
   # error out if missing an arg
   if (is.null(dashboard_config)) stop('get_projections() needs dashboard_config arg')
   config_names <- names(dashboard_config)

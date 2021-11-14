@@ -28,11 +28,13 @@ parse_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_lines
         parse_br_prop(game_event = game_event, category_name = 'Player Specials', prop_name = 'Player to Score the First Field Goal of the Game',
                       matchup = matchup, tipoff = tipoff)
     }
-    if (prop %in% c('player points alt', 'player pts alt')) {
-      output_list[[length(output_list) + 1]] <-
-        parse_br_prop(game_event = game_event, category_name = 'player_points', prop_regex = 'Alt Points',
-                      matchup = matchup, tipoff = tipoff)
-    }
+
+    # if (prop %in% c('player points alt', 'player pts alt')) {
+    #   output_list[[length(output_list) + 1]] <-
+    #     parse_br_prop(game_event = game_event, category_name = 'player_points', prop_regex = 'Alt Points',
+    #                   matchup = matchup, tipoff = tipoff)
+    # }
+
     if (prop %in% c('player points ou', 'player pts ou')) {
       output_list[[length(output_list) + 1]] <-
         parse_br_prop(game_event = game_event, category_name = 'player_points', prop_regex = '- Points',
