@@ -4,6 +4,7 @@
 #' @return list
 #' @export
 get_data_for_dashboard <- function(loc = c('local', 'server')) {
+browser()
 
   # get config with paths ----
   if (!(loc %in% c('local', 'server'))) {

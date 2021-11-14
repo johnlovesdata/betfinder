@@ -44,6 +44,7 @@ get_projections <- function(dashboard_config = NULL) {
   if (is.null(dashboard_config)) stop('get_projections() needs dashboard_config arg')
   config_names <- names(dashboard_config)
   projections <- list()
+  browser()
   if ('nba_ftts_proj_path' %in% config_names) {
     nba_ftts_proj <- read.csv(dashboard_config$nba_ftts_proj_path)
     nba_ftts_tidy <- data.frame(

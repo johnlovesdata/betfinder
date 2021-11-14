@@ -1,4 +1,8 @@
+#' get the main bets
+#' @param sport only works for nba right now
+#' @export
 get_main_bets <- function(sport) {
+
   # get the raw nba data
   dk_nba <- get_draftkings_data(sport)
   fd_nba <- get_fanduel_data(sport)
