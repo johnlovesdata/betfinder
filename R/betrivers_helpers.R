@@ -22,18 +22,18 @@ parse_br_prop <- function(game_event, category_name, prop_name = NULL, prop_rege
   }
 }
 
-#
-# parse_br_main <- function(game_event, matchup, tipoff) {
-#
-#   ml_outputs <- list()
-#   for (ml in c('Moneyline', 'Total Points', 'Spread Betting')) {
-#     df <- parse_br_prop(game_event, category_name = 'main', prop_name = ml, matchup = matchup, tipoff = tipoff)
-#     if (length(df) == 0) return()
-#     df$Type <- ml
-#     ml_outputs[[ml]] <- df
-#   }
-#   output_df <- do.call(rbind, ml_outputs)
-#   return(output_df)
-#
-# }
+
+parse_br_main <- function(game_event, matchup, tipoff) {
+
+  ml_outputs <- list()
+  for (ml in c('Moneyline', 'Total Points', 'Point Spread')) {
+    df <- parse_br_prop(game_event, category_name = 'Most Popular', prop_name = ml, matchup = matchup, tipoff = tipoff)
+    if (length(df) == 0) return()
+    df$Type <- ml
+    ml_outputs[[ml]] <- df
+  }
+  output_df <- dplyr::bind_rows(ml_outputs)
+  return(output_df)
+
+}
 

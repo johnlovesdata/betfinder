@@ -3,46 +3,30 @@ tidyup_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_line
 
 
   if (nrow(betrivers_data) < 1) stop('no betrivers ', prop, ' available')
+
   # make the output from the input
   output_df <- betrivers_data
+
   # game_lines
-  if (game_lines == TRUE){
+  if (game_lines == TRUE) {
     # fix the totals first
-    totals <- output_df[output_df$groupByHeader == 'Total', ]
+    totals <- output_df[output_df$Type == 'Total Points', ]
     new_totals_list <- list()
     for (m in unique(totals$matchup)) {
       mu <- totals[totals$matchup == m, ]
       teams <- unlist(strsplit(m, ' @ '))
-      mu$name[[1]] <- teams[[1]]
-      mu$name[[2]] <- teams[[2]]
+      mu$participantName[[1]] <- teams[[1]]
+      mu$participantName[[2]] <- teams[[2]]
       new_totals_list[[length(new_totals_list) + 1]] <- mu
     }
     new_totals <- dplyr::bind_rows(new_totals_list)
-    output_df <- dplyr::bind_rows(new_totals, output_df[output_df$groupByHeader != 'Total', ])
-    output_df$groupByHeader <- gsub("Point ", "", output_df$groupByHeader)
-    # then fix the rest of names
-    all_names <- as.character(output_df$name)
-    all_names <- gsub('\\+', '-', all_names)
-    split_names <- strsplit(all_names, ' -')
-    new_names <- unlist(lapply(split_names, '[[', 1))
-    output_df$name <- new_names
-
-    output_df$tidyteam <- normalize_names(as.character(output_df$name), key = key)
+    output_df <- dplyr::bind_rows(new_totals, output_df[output_df$Type != 'Total Points', ])
+    output_df$tidyteam <- normalize_names(as.character(output_df$participantName), key = key)
     output_df$tidyplayer <- 'team'
-    output_df$tidytype <- as.character(output_df$groupByHeader)
-    output_df$tidyline <- as.numeric(output_df$points)
-    if ('outcomeType' %in% names(output_df)) {
-      output_df$tidyou <- ifelse(output_df$outcomeType %in% c('Over', 'Under'), tolower(output_df$outcomeType), NA_character_)
-    }
-    if (!'outcomeType' %in% names(output_df) & 'marketTypeCode' %in% names(output_df)) {
-      output_df$tidyou <- ifelse(grepl('OVER', output_df$marketTypeCode), 'over',
-                                 ifelse(grepl('UNDER', output_df$marketTypeCode), 'under', NA_character_))
-    }
-
-
-    output_df$tidyamericanodds <- ifelse(as.numeric(output_df$price) - 1 < 1,
-                                         -100 / (as.numeric(output_df$price) - 1),
-                                         (as.numeric(output_df$price) - 1) * 100)
+    output_df$tidytype <- gsub(' Points|Point ', '', as.character(output_df$Type))
+    output_df$tidyline <- as.numeric(output_df$line)
+    output_df$tidyou <- ifelse(output_df$tidytype == 'Total', tolower(output_df$label), NA_character_)
+    output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
   }
 
   # for each prop, append tidy team, tidy opponent, tidy odds (numeric american odds)
