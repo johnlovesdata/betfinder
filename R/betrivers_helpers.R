@@ -13,14 +13,9 @@ parse_br_prop <- function(game_event, category_name, prop_name = NULL, prop_rege
     outcomes <- criterion_groups[[which(criterion_names == prop_name)]]$betOffers[[1]]$outcomes
     outcome_list <- list()
     for (o in outcomes) {
-      row_df <- data.frame(
-        label = o[['label']],
-        participantName = o[['participantName']],
-        oddsAmerican = as.numeric(o[['oddsAmerican']])
-      )
-      outcome_list[[length(outcome_list) + 1]] <- row_df
+      outcome_list[[length(outcome_list) + 1]] <- as.data.frame(o)
     }
-    outcome_df <- do.call(rbind, outcome_list)
+    outcome_df <- dplyr::bind_rows(outcome_list)
     outcome_df$matchup <- matchup
     outcome_df$tipoff <- tipoff
     return(outcome_df)

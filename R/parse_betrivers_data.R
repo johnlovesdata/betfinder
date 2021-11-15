@@ -20,7 +20,7 @@ parse_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_lines
       # get the right tab
       if (sport == 'nba') category_name <- 'Game'
       output_list[[length(output_list) + 1]] <-
-        parse_br_prop(game_event = game_event, category_name = category_name, prop_name = 'Team to Score First',
+        parse_br_prop(game_event = game_event, category_name = category_name, prop_name = "Next Team to Score - at Score 0-0",
                       matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('first player to score', 'fpts')) {
@@ -97,7 +97,7 @@ parse_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_lines
     }
     if (prop %in% c('player double double')) {
       output_list[[length(output_list) + 1]] <-
-        parse_br_prop(game_event = game_event, category_name = 'main', prop_name = 'To Record A Double Double',
+        parse_br_prop(game_event = game_event, category_name = 'Player Specials', prop_name = 'To record a double-double',
                       matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player triple double')) {
