@@ -46,6 +46,7 @@ parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = N
                    handicap = x[['handicap']],
                    american_odds = x[['winRunnerOdds']][['americanDisplayOdds']][['americanOdds']])
       })
+      if (length(rnrs) == 0) return()
       mkt_list[[length(mkt_list) + 1]] <- do.call(rbind, rnrs)
     }
   }

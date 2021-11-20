@@ -4,10 +4,10 @@
 get_game_lines <- function(sport) {
 
   # get the raw nba data
-  dk_sport <- get_draftkings_data(sport)
-  fd_sport <- get_fanduel_data(sport)
-  pb_sport <- get_pointsbet_data(sport)
-  br_sport <- get_betrivers_data(sport)
+  dk_sport <- get_draftkings_data(sport, sleep_time = 0)
+  fd_sport <- get_fanduel_data(sport, sleep_time = 0)
+  pb_sport <- get_pointsbet_data(sport, sleep_time = 0)
+  br_sport <- get_betrivers_data(sport, sleep_time = 0)
 
   # parse out the main bets
   dk_game_lines <- parse_draftkings_data(dk_sport, sport, game_lines = TRUE)

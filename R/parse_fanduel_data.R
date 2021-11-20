@@ -199,7 +199,8 @@ parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = F
 
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) stop('no fanduel ', prop, ' props returned')
-  output_df <- do.call(rbind, output_list)
+  output_df <- dplyr::bind_rows(output_list)
+  output_df <- output_df[!is.na(output_df$participant), ]
 
   return(output_df)
   }
