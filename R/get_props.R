@@ -54,6 +54,19 @@ get_props <- function(site, sport, prop, raw_data = NULL, save_path = NULL) {
     output_df$timestamp <- Sys.time()
     return(output_df)
   }
+
+  if (site %in% c('br', 'betrivers')) {
+    if (is.null(raw_data)) {
+      br_raw <- get_betrivers_data(sport = sport, sleep_time = .01, save_path = save_path)
+    } else {
+      br_raw <- raw_data
+    }
+    br_parsed <- parse_betrivers_data(br_raw, sport = sport, prop = prop)
+    br_tidy <- tidyup_betrivers_data(br_parsed, sport = sport, prop = prop)
+    output_df <- br_tidy
+    output_df$timestamp <- Sys.time()
+    return(output_df)
+  }
 }
 
 
