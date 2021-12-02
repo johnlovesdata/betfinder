@@ -136,6 +136,31 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
         parse_dk_prop(offer_categories, prop_group = 'TD Scorers', prop_subgroup = 'TD Scorer', prop_regex = 'Touchdown Scorer',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
+    if (prop %in% c('goalscorer', 'goals', 'player first goal', 'player any goal', 'player last goal')) {
+      # first/last/any tds are all in one big data.frame, which gets re-labeled correctly in tidyup_draftkings_data()
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Goalscorer', prop_regex = 'Goalscorer',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('shots')) {
+      # first/last/any tds are all in one big data.frame, which gets re-labeled correctly in tidyup_draftkings_data()
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Shots on Goal', prop_regex = 'Shots',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('assists')) {
+      # first/last/any tds are all in one big data.frame, which gets re-labeled correctly in tidyup_draftkings_data()
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Assists', prop_regex = 'Assists',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('points')) {
+      # first/last/any tds are all in one big data.frame, which gets re-labeled correctly in tidyup_draftkings_data()
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Points', prop_regex = 'Points',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+
   }
 
     # if output_list is empty, error

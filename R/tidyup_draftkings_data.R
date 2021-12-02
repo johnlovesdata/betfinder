@@ -58,25 +58,39 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     output_df$tidyplayer <- normalize_names(output_df$label, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
   }
+  if (prop %in% c('player any goal','goals', 'player first goal', 'player last goal')) {
+    criterion <- switch(prop,
+                        `goals` = 'Anytime Scorer',
+                        `player any goal` = 'Anytime Scorer',
+                        `player first goal` = 'First Scorer',
+                        `player last goal` = 'Last Scorer')
+    output_df <- output_df[output_df$criterionName == criterion, ]
+    output_df$tidyplayer <- output_df$label
+    output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
+  }
 
 
-  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts| blocks| steals| turnovers|runs|strikeout| hr|hit|rbi|double|pass|rush|att', tolower(prop))) {
+  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts| blocks| steals| turnovers|runs|strikeout| hr|hit|rbi|double|pass|rush|att|shots', tolower(prop))) {
     # get names
-    hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
-    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    if (sport != 'nhl') {
+      hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
+      output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    } else {
+      output_df$tidyplayer <- output_df$participant
+    }
     # get tidy ou from label
     output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$label)), 'over',
-                        ifelse(grepl('Under', as.character(output_df$label)), 'under',
-                        ifelse(grepl('^no$', tolower(as.character(output_df$label))), 'no',
-                        ifelse(grepl('^yes$', tolower(as.character(output_df$label))), 'yes',
-                               NA_character_
-                               ))))
+                               ifelse(grepl('Under', as.character(output_df$label)), 'under',
+                                      ifelse(grepl('^no$', tolower(as.character(output_df$label))), 'no',
+                                             ifelse(grepl('^yes$', tolower(as.character(output_df$label))), 'yes',
+                                                    NA_character_
+                                             ))))
     # get tidy line from the label
     num_part <- as.numeric(gsub('[A-Za-z| ]', '', output_df$label))
     output_df$tidyline <- num_part
     if (all(is.na(output_df$tidyline)) & ('line' %in% names(output_df))) {
       output_df$tidyline <- as.numeric(output_df$line)
-      }
+    }
     # get the tidy odds
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
 
@@ -84,8 +98,10 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
 
   # tidyup the matchup! use the team abbreviations from the lookup
   matchup_list <- strsplit(gsub(' vs ', ' @ ', output_df$matchup), ' @ ')
-  output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
-  output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
+  if (sport != 'nhl') {
+    output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
+    output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
+  }
 
   # tidyup the date! make sure this is EST
   output_df$tidygamedatetime <- lubridate::as_datetime(output_df$tipoff) - lubridate::hours(4)
