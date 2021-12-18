@@ -66,25 +66,29 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
         output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
       }
       else {
-      ## alt lines can be over or under, but need to extract direction and line from names
-      output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$name)), 'over', 'under')
-      ## get the name AND line out of the name; split everything first to make this easier
-      split_string <- gsub(' Over | Under ', 'XX', as.character(output_df$name))
-      splitted <- strsplit(split_string, 'XX')
-      splitted_name <- sapply(splitted, '[[', 1)
-      splitted_name <- hacky_tidyup_player_names(splitted_name)
-      splitted_line <- sapply(splitted, '[[', 2)
-      output_df$tidyplayer <- normalize_names(splitted_name, key = key)
-      output_df$tidyline <- as.numeric(splitted_line)
-      # set odds
-      output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
+        ## alt lines can be over or under, but need to extract direction and line from names
+        output_df$tidyou <- ifelse(grepl('Over', as.character(output_df$name)), 'over', 'under')
+        ## get the name AND line out of the name; split everything first to make this easier
+        split_string <- gsub(' Over | Under ', 'XX', as.character(output_df$name))
+        splitted <- strsplit(split_string, 'XX')
+        splitted_name <- sapply(splitted, '[[', 1)
+        splitted_name <- hacky_tidyup_player_names(splitted_name)
+        splitted_line <- sapply(splitted, '[[', 2)
+        output_df$tidyplayer <- normalize_names(splitted_name, key = key)
+        output_df$tidyline <- as.numeric(splitted_line)
+        # set odds
+        output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
       }
     }
     if (grepl('ou$', prop)) {
       prop_string <- as.character(output_df$name)
       player_part <- gsub(' Over$| Under$', '', prop_string)
       hacky_player <- hacky_tidyup_player_names(player_part)
-      output_df$tidyplayer <- normalize_names(hacky_player, key = key)
+      if (sport == 'nhl') {
+        output_df$tidyplayer <- player_part
+      } else {
+        output_df$tidyplayer <- normalize_names(hacky_player, key = key)
+      }
       output_df$tidyou <- ifelse(grepl('Over', output_df$name), 'over', 'under')
       ## set odds
       output_df$tidyamericanodds <- output_df$american_odds
@@ -98,7 +102,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
       # as kyle mentioned, tiers are >= values, so if we're calling it an over need to subtract half a point
       output_df$tidyline <- as.numeric(gsub('[A-Za-z| |+]', '', output_df$prop)) - .5
       output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
-      }
+    }
     if (grepl('double|hr', prop)) {
       output_df$tidyou <- 'yes'
     }
@@ -125,9 +129,13 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
   # tidyup the matchup! use the team abbreviations from the lookup
   output_df$matchup <- gsub("\\s*\\([^\\)]+\\)","",as.character(output_df$matchup))
   matchup_list <- strsplit(output_df$matchup, ' @ ')
-  output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
-  output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
-
+  if (sport != 'nhl') {
+    output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
+    output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
+  } else {
+    output_df$tidyawayteam <- unlist(lapply(matchup_list, '[[', 1))
+    output_df$tidyhometeam <- unlist(lapply(matchup_list, '[[', 2))
+  }
   # tidyup the date! make sure this is EST
   output_df$tidygamedatetime <- lubridate::as_datetime(output_df$tipoff) - lubridate::hours(4)
   output_df$tidygamedatetime <- lubridate::round_date(output_df$tidygamedatetime, "30 minutes")

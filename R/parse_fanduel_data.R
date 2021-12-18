@@ -9,7 +9,7 @@ parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = F
     tipoff <- game_event$main$attachments$events[[e]]$openDate
 
     if (game_lines == TRUE) {
-      if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb')) {
+      if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb', 'nhl')) {
         output_list[[length(output_list) + 1]] <-
           parse_fd_main(game_event, matchup = matchup, tipoff = tipoff)
       }
@@ -195,13 +195,23 @@ parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = F
         parse_fd_prop(game_event = game_event, tab_name = 'player_props', prop_name = 'First Touchdown Scorer',
                       matchup = matchup, tipoff = tipoff)
     }
+    if (prop %in% c('player goals', 'goals', 'goalscorer', 'player goals ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'player_goals', prop_regex = ' - Goals',
+                      matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('player shots ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'player_shots', prop_regex = ' - Shots',
+                      matchup = matchup, tipoff = tipoff)
+    }
   }
 
   # if output_list is empty, error, else return as a data.frame
   if (length(output_list) == 0) stop('no fanduel ', prop, ' props returned')
   output_df <- dplyr::bind_rows(output_list)
-  output_df <- output_df[!is.na(output_df$participant), ]
-
+  #output_df <- output_df[!is.na(output_df$participant), ]
+  output_df <- output_df[complete.cases(output_df), ]
   return(output_df)
   }
 
