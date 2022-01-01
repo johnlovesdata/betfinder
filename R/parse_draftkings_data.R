@@ -56,6 +56,10 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     if (prop %in% c('player turnovers ou', 'player to ou')) {
       output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Turnovers', prop_regex = ' Turnovers$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
+    if (prop %in% c('player steals plus blocks ou')) {
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Steals + Blocks', prop_regex = ' Steals \\+ Blocks$', prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+
     if (prop %in% c('player most points')) {
       output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Top Point Scorer', prop_name = 'Leading Scorer of the Game', prop = prop, matchup = matchup, tipoff = tipoff)
     }

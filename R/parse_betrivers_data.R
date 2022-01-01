@@ -9,8 +9,10 @@ parse_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_lines
     tipoff <- game_event$start
 
     if (game_lines == TRUE) {
+      browser()
+      gl_out <- parse_br_main(game_event = game_event, matchup = matchup, tipoff = tipoff)
       output_list[[length(output_list) + 1]] <-
-        parse_br_main(game_event, matchup = matchup, tipoff = tipoff)
+        parse_br_main(game_event = game_event, matchup = matchup, tipoff = tipoff)
       next
     }
 

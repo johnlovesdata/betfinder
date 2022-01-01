@@ -18,6 +18,7 @@ parse_br_prop <- function(game_event, category_name, prop_name = NULL, prop_rege
     outcome_df <- dplyr::bind_rows(outcome_list)
     outcome_df$matchup <- matchup
     outcome_df$tipoff <- tipoff
+    browser()
     return(outcome_df)
   }
 }
@@ -33,6 +34,7 @@ parse_br_main <- function(game_event, matchup, tipoff) {
     ml_outputs[[ml]] <- df
   }
   output_df <- dplyr::bind_rows(ml_outputs)
+  browser()
   return(output_df)
 
 }

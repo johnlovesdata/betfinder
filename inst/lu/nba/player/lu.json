@@ -1233,7 +1233,7 @@
   },
   {
     "name": "Juan Toscano-Anderson",
-    "aliases": ["juantoscanoanderson", "juan toscano-anderson", "JUAN TOSCANO-ANDERSON"]
+    "aliases": ["juantoscanoanderson", "juan toscano-anderson", "JUAN TOSCANO-ANDERSON", "juananderson"]
   },
   {
     "name": "Alen Smailagic",
@@ -3378,5 +3378,13 @@
     {
     "name": "Herbert Jones",
     "aliases": ["herbert jones", "herbertjones"]
+  },
+    {
+    "name": "Corey Kispert",
+    "aliases": ["corey kispert", "coreykispert"]
+  },
+    {
+    "name": "Ayo Dosunmu",
+    "aliases": ["ayo dosunmu", "ayodosunmu"]
   }
 ]
