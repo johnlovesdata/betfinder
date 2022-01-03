@@ -25,6 +25,25 @@ parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = F
         parse_fd_prop(game_event = game_event, tab_name = tab_name, prop_name = 'Team to Score First',
                       matchup = matchup, tipoff = tipoff)
     }
+
+    if (prop %in% c('first team to score q2')) {
+      # get the right tab
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = '2nd_quarter', prop_name = '2nd Quarter Team to Score First',
+                      matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('first team to score q3')) {
+      # get the right tab
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = '3rd_quarter', prop_name = '3rd Quarter Team to Score First',
+                      matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('first team to score q4')) {
+      # get the right tab
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = '4th_quarter', prop_name = '4th Quarter Team to Score First',
+                      matchup = matchup, tipoff = tipoff)
+    }
     if (prop %in% c('first player to score', 'fpts')) {
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'First Basket',
