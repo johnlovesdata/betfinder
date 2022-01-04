@@ -34,7 +34,6 @@ parse_br_main <- function(game_event, matchup, tipoff) {
     ml_outputs[[ml]] <- df
   }
   output_df <- dplyr::bind_rows(ml_outputs)
-  browser()
   return(output_df)
 
 }
