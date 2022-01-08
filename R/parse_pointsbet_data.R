@@ -3,8 +3,6 @@ parse_pointsbet_data <- function(pointsbet_data, prop = FALSE, game_lines = FALS
   output_list <- list()
   for (game_event in pointsbet_data) {
 
-
-
     # check for fixed odds markets, skip if they're not there
     if (!'fixedOddsMarkets' %in% names(game_event)) next
     fixed_odds_markets <- game_event$fixedOddsMarkets
@@ -22,6 +20,12 @@ parse_pointsbet_data <- function(pointsbet_data, prop = FALSE, game_lines = FALS
         parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
                        prop_regex = 'First Team to Score')
     }
+    if (prop %in% c('game made first fg')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Will the First Attempted Field Goal be Made?')
+    }
+
     if (prop %in% c('first player to score', 'fpts')) {
       output_list[[length(output_list) + 1]] <-
         parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,

@@ -46,6 +46,17 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop = FALSE, game_line
   }
 
   # for each prop, append tidy team, tidy opponent, tidy odds (numeric american odds)
+  if (prop %in% c('game made first fg')) {
+    output_df$tidyteam <- 'game'
+    output_df$tidyplayer <- 'game'
+    output_df$tidyou <- output_df$name
+    output_df$tidyamericanodds <- ifelse(as.numeric(output_df$price) - 1 < 1,
+                                         -100 / (as.numeric(output_df$price) - 1),
+                                         (as.numeric(output_df$price) - 1) * 100)
+    # since prop arg is flexible, set it here for output
+    output_df$prop <- 'game made first fg'
+  }
+
   if (prop %in% c('first team to score', 'ftts')) {
     # generate tidy names and odds
     output_df$tidyteam <- normalize_names(as.character(output_df$name), key = key)

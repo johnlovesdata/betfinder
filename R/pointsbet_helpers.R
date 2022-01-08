@@ -1,5 +1,4 @@
 parse_pb_prop <- function(game_event, fixed_odds_markets, event_names, prop_name = NULL, prop_regex = NULL) {
-
   if (!is.null(prop_name)) {
     elements <- which(event_names == prop_name)
   } else {
