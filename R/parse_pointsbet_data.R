@@ -25,6 +25,11 @@ parse_pointsbet_data <- function(pointsbet_data, prop = FALSE, game_lines = FALS
         parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
                       prop_regex = 'Will the First Attempted Field Goal be Made?')
     }
+    if (prop %in% c('game go to overtime', 'game go to ot')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
+                      prop_regex = 'Will There Be Overtime?')
+    }
 
     if (prop %in% c('first player to score', 'fpts')) {
       output_list[[length(output_list) + 1]] <-
