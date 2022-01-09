@@ -39,6 +39,15 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
     output_df$tidyplayer <- 'team'
     output_df$prop <- ifelse(prop == 'ftts', 'first team to score', prop)
   }
+  if (prop %in% c('game go to ot', 'game go to overtime')) {
+    # generate tidy names and odds
+    output_df$tidyteam <- 'game'
+    output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
+    output_df$tidyplayer <- 'game'
+    output_df$tidyou <- output_df$participant
+    output_df$prop <- 'game go to ot'
+  }
+
 
   if (prop %in% c('first player to score', 'fpts')) {
     # generate tidy names and odds

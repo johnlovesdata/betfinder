@@ -39,6 +39,16 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     # for flexible prop names, specify the value explicitly here
     output_df$prop <- 'first team to score'
   }
+  if (prop %in% c('game go to ot', 'game go to overtime')) {
+    # generate tidy names and odds
+    output_df$tidyteam <- 'game'
+    output_df$tidyplayer <- 'game'
+    output_df$tidyou <- output_df$label
+    output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
+    # for flexible prop names, specify the value explicitly here
+    output_df$prop <- 'game go to ot'
+  }
+
   if (prop %in% c('first player to score', 'fpts')) {
     # set tidyplayer and tidyamericanodds
     if ('participant' %in% names(output_df)) {

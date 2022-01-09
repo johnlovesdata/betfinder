@@ -25,7 +25,12 @@ parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = F
         parse_fd_prop(game_event = game_event, tab_name = tab_name, prop_name = 'Team to Score First',
                       matchup = matchup, tipoff = tipoff)
     }
-
+    if (prop %in% c('game go to ot', 'game go to overtime')) {
+      # get the right tab
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'main', prop_name = 'Will there be OverTime?',
+                      matchup = matchup, tipoff = tipoff)
+    }
     if (prop %in% c('first team to score q2')) {
       # get the right tab
       output_list[[length(output_list) + 1]] <-

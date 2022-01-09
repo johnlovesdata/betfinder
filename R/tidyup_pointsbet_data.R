@@ -47,6 +47,7 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop = FALSE, game_line
 
   # for each prop, append tidy team, tidy opponent, tidy odds (numeric american odds)
   if (prop %in% c('game made first fg', 'game go to overtime', 'game go to ot')) {
+    if (output_df$prop == 'game go to overtime') output_df$prop <- 'game go to ot'
     output_df$tidyteam <- 'game'
     output_df$tidyplayer <- 'game'
     output_df$tidyou <- output_df$name
