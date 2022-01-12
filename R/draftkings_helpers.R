@@ -1,5 +1,4 @@
 parse_dk_prop <- function(offer_categories, prop_group, prop_subgroup, prop_name = NULL, prop_regex = NULL, prop, matchup, tipoff) {
-
   offer_category_names <- unlist(lapply(offer_categories, '[[', 'name'))
 
   if (!prop_group %in% offer_category_names) return()
