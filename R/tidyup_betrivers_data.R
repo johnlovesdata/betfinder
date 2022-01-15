@@ -32,11 +32,14 @@ tidyup_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_line
   # for each prop, append tidy team, tidy opponent, tidy odds (numeric american odds)
   if (prop %in% c('first team to score', 'ftts')) {
     # generate tidy names and odds
-    split_teams <- strsplit(output_df$matchup, ' @ ')
-    away_teams <- unlist(lapply(split_teams, '[[', 1))
-    home_teams <- unlist(lapply(split_teams, '[[', 2))
-    team_name <- ifelse(output_df$label == 1, home_teams, away_teams)
-    output_df$tidyteam <- normalize_names(as.character(team_name), key = key)
+    output_df$tidyteam <- normalize_names(output_df$label, key = key)
+    if (!all(nchar(output_df$tidyteam) == 3)) {
+      split_teams <- strsplit(output_df$matchup, ' @ ')
+      away_teams <- unlist(lapply(split_teams, '[[', 1))
+      home_teams <- unlist(lapply(split_teams, '[[', 2))
+      team_name <- ifelse(output_df$label == 1, home_teams, away_teams)
+      output_df$tidyteam <- normalize_names(as.character(team_name), key = key)
+    }
     output_df$tidyplayer <- 'team'
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
     # since prop arg is flexible, set it here for output
