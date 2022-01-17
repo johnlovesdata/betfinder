@@ -3,5 +3,6 @@
 export(get_data_for_dashboard)
 export(get_game_lines)
 export(get_props)
+export(get_sportsbook_data)
 export(output_data_for_dashboard)
 importFrom(magrittr,"%>%")
