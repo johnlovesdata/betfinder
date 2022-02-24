@@ -182,9 +182,9 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     if (prop %in% c('goalie saves')) {
       # first/last/any tds are all in one big data.frame, which gets re-labeled correctly in tidyup_draftkings_data()
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Goalie Saves', prop_regex = 'Goalie Saves',
+        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Goalie Saves', prop_regex = 'Saves',
                       prop = prop, matchup = matchup, tipoff = tipoff)
-    }    
+    }
 
   }
 
