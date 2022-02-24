@@ -80,7 +80,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
   }
 
 
-  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts| blocks| steals| turnovers|runs|strikeout| hr|hit|rbi|double|pass|rush|att|shots', tolower(prop))) {
+  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts| blocks| steals| turnovers|runs|strikeout| hr|hit|rbi|double|pass|rush|att|shots|saves', tolower(prop))) {
     # get names
     if (sport != 'nhl') {
       hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
