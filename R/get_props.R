@@ -67,6 +67,19 @@ get_props <- function(site, sport, prop, raw_data = NULL, save_path = NULL) {
     output_df$timestamp <- Sys.time()
     return(output_df)
   }
+
+  if (site %in% c('bs', 'barstool')) {
+    if (is.null(raw_data)) {
+      bs_raw <- get_barstool_data(sport = sport, sleep_time = .01, save_path = save_path)
+    } else {
+      bs_raw <- raw_data
+    }
+    bs_parsed <- parse_barstool_data(bs_raw, sport = sport, prop = prop)
+    bs_tidy <- tidyup_barstool_data(bs_parsed, sport = sport, prop = prop)
+    output_df <- bs_tidy
+    output_df$timestamp <- Sys.time()
+    return(output_df)
+  }
 }
 
 
