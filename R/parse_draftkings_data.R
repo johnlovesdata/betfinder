@@ -23,7 +23,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     if (prop %in% c('first team to score', 'ftts')) {
       if (sport %in% c('nba', 'ncaaf', 'nfl')) {
         output_list[[length(output_list) + 1]] <-
-          parse_dk_prop(offer_categories, prop_group = 'Game Props', prop_subgroup = '1st/Last to Score', prop_name = '1st to Score',
+          parse_dk_prop(offer_categories, prop_group = 'Game Props', prop_subgroup = 'First to Score', prop_name = '1st to Score',
                         prop = prop, matchup = matchup, tipoff = tipoff)
       }
       if (sport == 'mlb') {
