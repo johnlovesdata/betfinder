@@ -81,7 +81,7 @@ get_props <- function(site, sport, prop, raw_data = NULL, save_path = NULL) {
     return(output_df)
   }
 
-  if (site %in% c('mgm', 'mgm')) {
+  if (site %in% c('mgm')) {
     if (is.null(raw_data)) {
       mgm_raw <- get_mgm_data(sport = sport, sleep_time = .01, save_path = save_path)
     } else {
