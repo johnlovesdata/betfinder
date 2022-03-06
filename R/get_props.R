@@ -80,6 +80,19 @@ get_props <- function(site, sport, prop, raw_data = NULL, save_path = NULL) {
     output_df$timestamp <- Sys.time()
     return(output_df)
   }
+
+  if (site %in% c('mgm', 'mgm')) {
+    if (is.null(raw_data)) {
+      mgm_raw <- get_mgm_data(sport = sport, sleep_time = .01, save_path = save_path)
+    } else {
+      mgm_raw <- raw_data
+    }
+    mgm_parsed <- parse_mgm_data(mgm_raw, sport = sport, prop = prop)
+    mgm_tidy <- tidyup_mgm_data(mgm_parsed, sport = sport, prop = prop)
+    output_df <- mgm_tidy
+    output_df$timestamp <- Sys.time()
+    return(output_df)
+  }
 }
 
 

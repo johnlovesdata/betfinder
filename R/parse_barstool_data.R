@@ -17,11 +17,11 @@ parse_barstool_data <- function(barstool_data, sport, prop = FALSE, game_lines =
 
     # extract correct props
 
-    # if (prop %in% c('first team to score', 'ftts')) {
-    #   output_list[[length(output_list) + 1]] <-
-    #     parse_bs_prop(game_event = game_event, prop_name = "Next Team to Score - at Score 0-0",
-    #                   matchup = matchup, tipoff = tipoff)
-    # }
+    if (prop %in% c('first team to score', 'ftts')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_bs_prop(game_event = game_event, prop_name = "Next Team to Score - at Score 0-0",
+                      matchup = matchup, tipoff = tipoff)
+    }
 
     if (prop %in% c('first player to score', 'fpts')) {
       output_list[[length(output_list) + 1]] <-
