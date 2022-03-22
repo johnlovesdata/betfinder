@@ -1073,7 +1073,7 @@
   },
   {
     "name": "Juancho Hernangomez",
-    "aliases": ["juanchohernangomez", "juancho hernangomez", "JUANCHO HERNANGOMEZ"]
+    "aliases": ["juanchohernangomez", "juancho hernangomez", "JUANCHO HERNANGOMEZ", "juanhernangomez"]
   },
   {
     "name": "Dillon Brooks",
@@ -1453,7 +1453,7 @@
   },
   {
     "name": "Moritz Wagner",
-    "aliases": ["moritzwagner", "moritz wagner", "MORITZ WAGNER"]
+    "aliases": ["moritzwagner", "moritz wagner", "MORITZ WAGNER", "mowagner"]
   },
   {
     "name": "Rui Hachimura",
@@ -3490,5 +3490,9 @@
   {
     "name": "Lindy Waters",
     "aliases": ["lindywaters", "lindy waters"]
+  },
+  {
+    "name": "Olivier Sarr",
+    "aliases": ["oliviersarr", "olivier sarr"]
   }
 ]
