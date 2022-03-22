@@ -50,6 +50,16 @@ tidyup_mgm_data <- function(mgm_data, sport, prop = FALSE, game_lines = FALSE,
     output_df$tidyamericanodds <- as.numeric(output_df$americanOdds)
     output_df$prop <- 'first player to score'
   }
+  if (prop %in% c('fpts by team')) {
+    output_df$tidyplayer <- normalize_names(output_df$name.value, key = key)
+    output_df$tidyamericanodds <- as.numeric(output_df$americanOdds)
+    output_df$prop <- 'first player to score by team'
+  }
+  if (prop %in% c('fpts by team')) {
+    output_df$tidyplayer <- normalize_names(output_df$name.value, key = key)
+    output_df$tidyamericanodds <- as.numeric(output_df$americanOdds)
+    output_df$prop <- 'first player to score by team'
+  }
 
   if (prop %in% c('player first td', 'player any td')) {
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$name))
@@ -60,6 +70,7 @@ tidyup_mgm_data <- function(mgm_data, sport, prop = FALSE, game_lines = FALSE,
     # since prop arg is flexible, set it here for output
     output_df$prop <- prop
   }
+
   if (grepl('alt$| ou$|tiers$|points|rebounds|assists|three| 3pts| pts| rebs| asts|hit|double|pass|rush|rec', tolower(prop))) {
     # handle special cases by prop type
     ## alt lines can be over or under, but need to extract direction and line from names

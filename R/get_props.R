@@ -1,6 +1,6 @@
 #' Get lines and odds on prop bets for popular sports from popular betting sites
 #'
-#' @param site \code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'
+#' @param site \code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', 'pointsbet'/'pb', 'betrivers'/'br', 'barstool'/'bs', 'mgm', 'caesar'/'csr'
 #' @param sport \code{character} sport, e.g. 'nba'
 #' @param prop \code{character} name of prop, e.g. 'first team to score'; see details for available props
 #' @param save_path \code{character} path to save jsons, if not \code{NULL}

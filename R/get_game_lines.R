@@ -8,6 +8,8 @@ get_game_lines <- function(sport) {
   fd_sport <- get_fanduel_data(sport, sleep_time = 0)
   pb_sport <- get_pointsbet_data(sport, sleep_time = 0)
   br_sport <- get_betrivers_data(sport, sleep_time = 0)
+  bs_sport <- get_barstool_data(sport, sleep_time = 0)
+  mgm_sport <- get_mgm_data(sport, sleep_time = 0)
 
   # parse out the main bets
   dk_game_lines <- parse_draftkings_data(dk_sport, sport, game_lines = TRUE)

@@ -10,10 +10,11 @@ parse_br_prop <- function(game_event, category_name, prop_name = NULL, prop_rege
   if (!is.null(prop_name)) {
 
     if (!prop_name %in% criterion_names) return()
-    outcomes <- criterion_groups[[which(criterion_names == prop_name)]]$betOffers[[1]]$outcomes
+    bet_offers <- criterion_groups[[which(criterion_names == prop_name)]]$betOffers
     outcome_list <- list()
-    for (o in outcomes) {
-      outcome_list[[length(outcome_list) + 1]] <- as.data.frame(o)
+    for (bo in bet_offers) {
+      outcomes <- bo[['outcomes']]
+      outcome_list[[length(outcome_list) + 1]] <- dplyr::bind_rows(outcomes)
     }
     outcome_df <- dplyr::bind_rows(outcome_list)
     outcome_df$matchup <- matchup

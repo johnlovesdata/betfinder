@@ -24,7 +24,7 @@ tidyup_barstool_data <- function(barstool_data, sport, prop = FALSE, game_lines 
     output_df$tidyteam <- normalize_names(as.character(output_df$participantName), key = key)
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- gsub(' Points|Point ', '', as.character(output_df$Type))
-    output_df$tidyline <- as.numeric(output_df$line)
+    output_df$tidyline <- as.numeric(output_df$line) / 1000
     output_df$tidyou <- ifelse(output_df$tidytype == 'Total', tolower(output_df$label), NA_character_)
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
   }

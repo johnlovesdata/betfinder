@@ -1,8 +1,19 @@
-parse_mgm_prop <- function(game_event, prop_name = NULL, matchup, tipoff) {
+parse_mgm_prop <- function(game_event, prop_name = FALSE, prop_regex = NULL, prop_not_regex = NULL, matchup, tipoff) {
   label_vec <- game_event$games$name.value
-  if (!prop_name %in% label_vec) return()
-  prop_content <- game_event$games[which(label_vec == prop_name), ]
-  outcomes_df <- as.data.frame(prop_content$results)
+  if (prop_name != FALSE & prop_name %in% label_vec) {
+    prop_content <- game_event$games[which(label_vec == prop_name), ]
+    outcomes_df <- as.data.frame(prop_content$results)
+
+  }
+  if (!is.null(prop_regex)) {
+    prop_content <- game_event$games[grepl(prop_regex, label_vec), ]
+    if (!is.null(prop_not_regex)) {
+      prop_content <- prop_content[!grepl(prop_not_regex, prop_content$name.value), ]
+    }
+
+    outcomes_df <- dplyr::bind_rows(prop_content$results)
+  }
+
   outcomes_df$matchup <- matchup
   outcomes_df$tipoff <- tipoff
   return(outcomes_df)

@@ -13,7 +13,7 @@ get_all_props(
 )
 }
 \arguments{
-\item{site}{\code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', and 'pointsbet'/'pb'}
+\item{site}{\code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', 'pointsbet'/'pb', 'betrivers'/'br', 'barstool'/'bs', 'mgm', 'caesar'/'csr'}
 
 \item{sport}{\code{character} sport, e.g. 'nba'}
 
