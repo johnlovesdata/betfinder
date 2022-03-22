@@ -60,6 +60,11 @@ tidyup_mgm_data <- function(mgm_data, sport, prop = FALSE, game_lines = FALSE,
     output_df$tidyamericanodds <- as.numeric(output_df$americanOdds)
     output_df$prop <- 'first player to score by team'
   }
+  if (prop %in% c('fpts exact method')) {
+    output_df$tidyplayer <- normalize_names(output_df$name.value, key = key)
+    output_df$tidyamericanodds <- as.numeric(output_df$americanOdds)
+    output_df$prop <- 'first player to score exact method'
+  }
 
   if (prop %in% c('player first td', 'player any td')) {
     hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$name))
