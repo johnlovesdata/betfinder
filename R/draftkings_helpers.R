@@ -56,7 +56,6 @@ parse_dk_main <- function(offer_categories, gl_subgroup = 'Game', matchup, tipof
   if (!gl_subgroup %in% gl_group_names) return()
   gl_subgroup_content <- game_lines_content[[which(gl_group_names == gl_subgroup)]]$offers[[1]]
   gl_subgroup_names <- unlist(lapply(gl_subgroup_content, '[[', 'label'))
-browser()
   out_list <- list()
   for (i in 1:length(gl_subgroup_content)) {
     bet_out <- dplyr::bind_rows(gl_subgroup_content[[i]]$outcomes)
