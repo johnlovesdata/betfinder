@@ -46,7 +46,7 @@ tidyup_barstool_data <- function(barstool_data, sport, prop = FALSE, game_lines 
   #   output_df$prop <- 'first team to score'
   # }
   if (prop %in% c('first player to score', 'fpts')) {
-    split_names <- strsplit(output_df$label, ', ')
+    split_names <- strsplit(as.character(output_df$label), ', ')
     first_names <- unlist(lapply(split_names, '[[', 2))
     last_names <- unlist(lapply(split_names, '[[', 1))
     hacky_names <- hacky_tidyup_player_names(paste0(first_names, ' ', last_names))

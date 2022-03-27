@@ -3,7 +3,7 @@ parse_bs_prop <- function(game_event, prop_name = NULL, prop_regex = NULL, match
   if (!prop_name %in% label_vec) return()
   prop_content <- game_event$betOffers[which(label_vec == prop_name)]
   outcomes <- lapply(prop_content, '[[', 'outcomes')
-  outcome_df <- dplyr::bind_rows(outcomes)
+  outcome_df <- as.data.frame(do.call(rbind, outcomes[[1]]))
   outcome_df$matchup <- matchup
   outcome_df$tipoff <- tipoff
   return(outcome_df)
