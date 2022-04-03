@@ -20,7 +20,7 @@ parse_pb_prop <- function(game_event, fixed_odds_markets, event_names, prop_name
 
 parse_pb_main <- function(game_event, fixed_odds_markets, event_names) {
   main_output_list <- list()
-  for (i in c('Point Spread', 'Moneyline', 'Total')) {
+  for (i in c('Point Spread', 'Moneyline', 'Total', 'Pick Your Own Line', 'Alternate Totals')) {
     mo <- parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names, prop_name = i)
     main_output_list[[length(main_output_list) + 1]] <- mo
   }

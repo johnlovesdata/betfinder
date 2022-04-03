@@ -2,13 +2,25 @@
 % Please edit documentation in R/get_game_lines.R
 \name{get_game_lines}
 \alias{get_game_lines}
-\title{get the main bets}
+\title{Get lines and odds on main bets for popular sports from popular betting sites}
 \usage{
-get_game_lines(sport)
+get_game_lines(site, sport, raw_data = NULL, save_path = NULL)
 }
 \arguments{
-\item{sport}{only works for nba right now}
+\item{site}{\code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', 'pointsbet'/'pb', 'betrivers'/'br', 'barstool'/'bs', 'mgm', 'caesar'/'csr'}
+
+\item{sport}{\code{character} sport, e.g. 'nba'}
+
+\item{raw_data}{\code{data.frame} defaults to NULL, but you can pass your pre-existing data.frame to be parsed}
+
+\item{save_path}{\code{character} path to save jsons, if not \code{NULL}}
+}
+\value{
+\code{data.frame} tidy game lines with tidy columns
 }
 \description{
-get the main bets
+Get lines and odds on main bets for popular sports from popular betting sites
+}
+\details{
+this code should pull moneylines, spreads, and totals, including alternate spreads and totals,
 }

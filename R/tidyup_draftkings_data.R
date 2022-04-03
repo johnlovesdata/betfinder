@@ -20,7 +20,9 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     new_totals <- dplyr::bind_rows(new_totals_list)
     output_df <- dplyr::bind_rows(new_totals, output_df[output_df$bet_type != 'Total', ])
 
-    output_df$tidyteam <- normalize_names(output_df$newlabel, key = key)
+    output_df$tidyteam <- ifelse(output_df$bet_type == 'Total', NA_character_,
+                                 normalize_names(output_df$newlabel, key = key, warn = FALSE))
+
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- output_df$bet_type
     output_df$tidyamericanodds <- as.numeric(gsub('//+', '', output_df$oddsAmerican))

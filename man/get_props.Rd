@@ -19,6 +19,8 @@ get_all_props(
 
 \item{prop}{\code{character} name of prop, e.g. 'first team to score'; see details for available props}
 
+\item{raw_data}{\code{data.frame} defaults to NULL, but you can pass your pre-existing data.frame to be parsed}
+
 \item{save_path}{\code{character} path to save jsons, if not \code{NULL}}
 }
 \value{
