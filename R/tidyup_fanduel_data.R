@@ -36,6 +36,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
     output_df$Type <- ifelse(grepl("Moneyline", output_df$Type), "Moneyline", output_df$Type)
 
     output_df$tidyteam <- normalize_names(output_df$newparticipant, key = key)
+    output_df$tidyteam <- ifelse(grepl("Total", output_df$Type), NA_character_, output_df$tidyteam)
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- output_df$Type
     output_df$tidyamericanodds <- as.numeric(gsub('//+', '', output_df$american_odds))

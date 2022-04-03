@@ -33,7 +33,7 @@ tidyup_pointsbet_data <- function(pointsbet_data, sport, prop = FALSE, game_line
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- ifelse(grepl("Total", output_df$groupByHeader), "Total",
                                  ifelse(grepl("Moneyline", output_df$groupByHeader), "Moneyline", "Spread"))
-    output_df$tidyline <- as.numeric(output_df$points)
+    output_df$tidyline <- ifelse(output_df$groupByHeader == "Moneyline", NA_real_, as.numeric(output_df$points))
     if ('outcomeType' %in% names(output_df)) {
       output_df$tidyou <- ifelse(grepl("^Over", output_df$name), "over",
                                  ifelse(grepl("^Under", output_df$name), "under", NA_character_))
