@@ -1,5 +1,5 @@
 get_pointsbet_data <- function(sport, save_path = NULL,
-                               sleep_time = runif(1, 0, 1)) {
+                               sleep_time = 0) {
   if (sport == 'mlb') val <- 14
   if (sport == 'nba') val <- 5
   if (sport == 'nfl') val <- 2

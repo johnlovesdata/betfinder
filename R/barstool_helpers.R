@@ -9,18 +9,16 @@ parse_bs_prop <- function(game_event, prop_name = NULL, prop_regex = NULL, match
   return(outcome_df)
 }
 
+parse_bs_game_lines <- function(game_event, exclude_alts, matchup, tipoff) {
 
-
-parse_bs_main <- function(game_event, matchup, tipoff) {
-
-  ml_outputs <- list()
-  for (ml in c('Moneyline', 'Total Points', 'Point Spread')) {
-    df <- parse_bs_prop(game_event, prop_name = ml, matchup = matchup, tipoff = tipoff)
+  gl_outputs <- list()
+  for (i in c('Moneyline', 'Total Points', 'Point Spread')) {
+    df <- parse_bs_prop(game_event, prop_name = i, matchup = matchup, tipoff = tipoff)
     if (length(df) == 0) return()
-    df$Type <- ml
-    ml_outputs[[ml]] <- df
+    df$Type <- i
+    gl_outputs[[i]] <- df
   }
-  output_df <- dplyr::bind_rows(ml_outputs)
+  output_df <- dplyr::bind_rows(gl_outputs)
   return(output_df)
 
 }

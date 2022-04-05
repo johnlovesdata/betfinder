@@ -1,4 +1,4 @@
-parse_barstool_data <- function(barstool_data, sport, prop = FALSE, game_lines = FALSE) {
+parse_barstool_data <- function(barstool_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, exclude_alts = TRUE) {
 
   # loop through barstool_data and extract the correct prop
   output_list <- list()
@@ -9,9 +9,8 @@ parse_barstool_data <- function(barstool_data, sport, prop = FALSE, game_lines =
     tipoff <- game_event$events[[1]]$start
 
     if (game_lines == TRUE) {
-      gl_out <- parse_bs_main(game_event = game_event, matchup = matchup, tipoff = tipoff)
-      output_list[[length(output_list) + 1]] <-
-        parse_bs_main(game_event = game_event, matchup = matchup, tipoff = tipoff)
+      gl_out <- parse_bs_game_lines(game_event = game_event, exclude_alts = exclude_alts, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- gl_out
       next
     }
 

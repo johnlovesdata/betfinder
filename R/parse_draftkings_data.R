@@ -1,9 +1,16 @@
-parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lines = FALSE) {
+parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, exclude_alts = TRUE) {
 
   output_list <- list()
 
   for (e in names(draftkings_data)) {
     game_event <- draftkings_data[[e]]
+
+    # nuke live games if specified, which is the default
+    if (exclude_live) {
+      status <- game_event$event$eventStatus$state
+      if (status == "STARTED") next
+    }
+
     # get matchup name and start time
     matchup <- game_event$event$name
     tipoff <- game_event$event$startDate
@@ -14,7 +21,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     if (game_lines == TRUE) {
       if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb')) {
         output_list[[length(output_list) + 1]] <-
-          parse_dk_main(offer_categories, matchup = matchup, tipoff = tipoff)
+          parse_dk_game_lines(offer_categories, exclude_alts = exclude_alts, matchup = matchup, tipoff = tipoff)
       }
     }
     if (is.null(prop)) {

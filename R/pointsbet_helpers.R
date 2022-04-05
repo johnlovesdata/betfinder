@@ -18,9 +18,15 @@ parse_pb_prop <- function(game_event, fixed_odds_markets, event_names, prop_name
   return(output_df)
 }
 
-parse_pb_main <- function(game_event, fixed_odds_markets, event_names) {
+parse_pb_game_lines <- function(game_event, fixed_odds_markets, event_names, exclude_alts) {
+  if (exclude_alts) {
+    game_lines <- c('Point Spread', 'Moneyline', 'Total')
+  } else {
+    game_lines <- c('Point Spread', 'Moneyline', 'Total', 'Pick Your Own Line', 'Alternate Totals')
+  }
+
   main_output_list <- list()
-  for (i in c('Point Spread', 'Moneyline', 'Total', 'Pick Your Own Line', 'Alternate Totals')) {
+  for (i in game_lines) {
     mo <- parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names, prop_name = i)
     main_output_list[[length(main_output_list) + 1]] <- mo
   }

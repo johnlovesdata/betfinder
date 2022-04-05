@@ -1,5 +1,5 @@
 get_draftkings_data <- function(sport, save_path = NULL,
-                                sleep_time = runif(1, 1.6, 3.2)) {
+                                sleep_time = 0) {
   # set the eventgroup based on the sport
   if (sport == 'nba') eg <- 88670846
   else if (sport == 'mlb') eg <- 88670847

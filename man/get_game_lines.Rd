@@ -4,12 +4,23 @@
 \alias{get_game_lines}
 \title{Get lines and odds on main bets for popular sports from popular betting sites}
 \usage{
-get_game_lines(site, sport, raw_data = NULL, save_path = NULL)
+get_game_lines(
+  site,
+  sport,
+  exclude_live = TRUE,
+  exclude_alts = FALSE,
+  raw_data = NULL,
+  save_path = NULL
+)
 }
 \arguments{
 \item{site}{\code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', 'pointsbet'/'pb', 'betrivers'/'br', 'barstool'/'bs', 'mgm', 'caesar'/'csr'}
 
 \item{sport}{\code{character} sport, e.g. 'nba'}
+
+\item{exclude_live}{\code{boolean} should live lines be excluded}
+
+\item{exclude_alts}{\code{boolean} should alternate lines be excluded}
 
 \item{raw_data}{\code{data.frame} defaults to NULL, but you can pass your pre-existing data.frame to be parsed}
 

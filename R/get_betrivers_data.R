@@ -1,4 +1,4 @@
-get_betrivers_data <- function(sport, save_path = NULL, sleep_time = runif(1, 1.6, 3.2)) {
+get_betrivers_data <- function(sport, save_path = NULL, sleep_time = 0) {
 
   # set the group_id_code by sport
   if (sport == 'nba') group_id_code <- 1000093652

@@ -24,7 +24,7 @@ parse_mgm_main <- function(game_event, matchup, tipoff) {
 
   ml_outputs <- list()
   for (ml in c('Moneyline', 'Total Points', 'Point Spread')) {
-    df <- parse_mgm_prop(game_event, category_name = 'Most Popular', prop_name = ml, matchup = matchup, tipoff = tipoff)
+    df <- parse_mgm_prop(game_event, prop_name = ml, matchup = matchup, tipoff = tipoff)
     if (length(df) == 0) return()
     df$Type <- ml
     ml_outputs[[ml]] <- df

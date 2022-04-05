@@ -37,7 +37,6 @@ parse_dk_prop <- function(offer_categories, prop_group, prop_subgroup, prop_name
       prop_df <- prop_df[!is.na(prop_df$label), ]
     }
 
-
     if(inherits(prop_df, 'list')) return()
     prop_df$matchup <- matchup
     prop_df$tipoff <- tipoff
@@ -46,10 +45,16 @@ parse_dk_prop <- function(offer_categories, prop_group, prop_subgroup, prop_name
 
 }
 
-parse_dk_main <- function(offer_categories, gl_subgroups = c('Game', 'Alternate Spread', 'Alternate Total'), matchup, tipoff) {
+parse_dk_game_lines <- function(offer_categories, exclude_alts, matchup, tipoff) {
   offer_category_names <- unlist(lapply(offer_categories, '[[', 'name'))
   if (!'Game Lines' %in% offer_category_names) return()
   game_lines_content <- offer_categories[[which(offer_category_names == 'Game Lines')]]$componentizedOffers
+
+  if (exclude_alts) {
+    gl_subgroups <- c('Game')
+  } else {
+    gl_subgroups <- c('Game', 'Alternate Spread', 'Alternate Total')
+  }
   gl_group_names <- unlist(lapply(game_lines_content, '[[', 'subcategoryName'))
 
   if (!any(gl_subgroups %in% gl_group_names)) return()

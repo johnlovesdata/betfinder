@@ -18,7 +18,7 @@ parse_mgm_data <- function(mgm_data, sport, prop = FALSE, game_lines = FALSE) {
     # extract correct props
     if (prop %in% c('first team to score', 'ftts')) {
       output_list[[length(output_list) + 1]] <-
-        parse_mgm_prop(game_event = game_event, category_name = 'Game', prop_name = "Next Team to Score - at Score 0-0",
+        parse_mgm_prop(game_event = game_event, prop_name = "Next Team to Score - at Score 0-0",
                       matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('first player to score', 'fpts')) {
