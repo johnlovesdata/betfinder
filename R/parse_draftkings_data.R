@@ -85,27 +85,27 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('player strikeouts ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Strikeouts by Pitcher', prop_regex = 'Strikeouts Thrown',
+        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Strikeouts', prop_regex = 'Strikeouts',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player hits ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Hits', prop_regex = 'Hits',
+        parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'Hits', prop_regex = 'Hits',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rbis ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'RBIs', prop_regex = 'RBIs',
+        parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'RBIs', prop_regex = 'RBIs',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player runs ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Runs Scored', prop_regex = 'Runs',
+        parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'Runs Scored', prop_regex = 'Runs',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player hrs ou', 'player home runs ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Home Runs', prop_regex = 'Home Run',
+        parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'Home Runs', prop_regex = 'Home Run',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rush atts ou')) {
