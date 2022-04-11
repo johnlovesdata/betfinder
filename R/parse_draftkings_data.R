@@ -90,7 +90,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     if (prop %in% c('player triple double')) {
       output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Triple-Double', prop_regex = ' Triple-Double$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
-    if (prop %in% c('player strikeouts ou')) {
+    if (prop %in% c('player strikeouts ou', 'strikeouts')) {
       output_list[[length(output_list) + 1]] <-
         parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Strikeouts', prop_regex = 'Strikeouts',
                       prop = prop, matchup = matchup, tipoff = tipoff)
@@ -100,7 +100,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
         parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'Hits', prop_regex = 'Hits',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
-    if (prop %in% c('player rbis ou')) {
+    if (prop %in% c('player rbis ou', 'rbis')) {
       output_list[[length(output_list) + 1]] <-
         parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'RBIs', prop_regex = 'RBIs',
                       prop = prop, matchup = matchup, tipoff = tipoff)
