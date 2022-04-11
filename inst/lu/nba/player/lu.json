@@ -233,7 +233,7 @@
   },
   {
     "name": "Tomas Satoransky",
-    "aliases": ["tomassatoransky", "tomas satoransky", "TOMAS SATORANSKY"]
+    "aliases": ["tomassatoransky", "tomas satoransky", "tomassatoranksky", "tomas satoranksky", "TOMAS SATORANSKY"]
   },
   {
     "name": "Ben McLemore",
@@ -1477,7 +1477,7 @@
   },
   {
     "name": "Garrison Mathews",
-    "aliases": ["garrisonmathews", "garrison mathews", "GARRISON MATHEWS", "Garrison Matthews"]
+    "aliases": ["garrisonmathews", "garrison mathews", "garrisonmatthews", "garrison matthews", "GARRISON MATHEWS", "Garrison Matthews"]
   },
   {
     "name": "Deni Avdija",
@@ -3494,5 +3494,29 @@
   {
     "name": "Olivier Sarr",
     "aliases": ["oliviersarr", "olivier sarr"]
+  },
+  {
+    "name": "Jericho Sims",
+    "aliases": ["jerichosims", "jericho sims"]
+  },
+  {
+    "name": "Usman Garuba",
+    "aliases": ["usmangaruba", "usman garuba"]
+  },
+  {
+    "name": "Isaiah Livers",
+    "aliases": ["isaiahlivers", "isaiah livers"]
+  },
+  {
+    "name": "Zavier Simpson",
+    "aliases": ["zaviersimpson", "zavier simpson"]
+  },
+  {
+    "name": "Georgio Skalaitzakis",
+    "aliases": ["georgioskalaitzakis", "georgio skalaitzakis"]
+  },
+  {
+    "name": "Brandon Boston Jr.",
+    "aliases": ["brandonboston", "brandon boston", "brandon boston jr."]
   }
 ]

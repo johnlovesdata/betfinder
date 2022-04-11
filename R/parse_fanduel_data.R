@@ -1,17 +1,24 @@
-parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = FALSE) {
+parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, exclude_alts = FALSE) {
 
   # loop through fanduel_data and extract the correct prop
   output_list <- list()
   for (e in names(fanduel_data)) {
     # subset the game event
     game_event <- fanduel_data[[e]]
+
+    # nuke live games if specified, which is the default
+    if (exclude_live) {
+      status <- game_event$main$attachments$events[[e]]$inPlay
+      if (status == TRUE) next
+    }
+
     matchup <- game_event$main$attachments$events[[e]]$name
     tipoff <- game_event$main$attachments$events[[e]]$openDate
 
     if (game_lines == TRUE) {
       if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb', 'nhl')) {
         output_list[[length(output_list) + 1]] <-
-          parse_fd_main(game_event, matchup = matchup, tipoff = tipoff)
+          parse_fd_game_lines(game_event, matchup = matchup, tipoff = tipoff, exclude_alts = exclude_alts)
       }
     }
 

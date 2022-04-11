@@ -7,7 +7,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
 
     # fix the totals first
     output_df$newparticipant <- output_df$participant
-    totals <- output_df[output_df$Type == 'Total Points', ]
+    totals <- output_df[grepl("Total", output_df$Type), ]
     new_totals_list <- list()
     for (m in unique(totals$matchup)) {
       mu <- totals[totals$matchup == m, ]
@@ -17,12 +17,26 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
       new_totals_list[[length(new_totals_list) + 1]] <- mu
     }
     new_totals <- dplyr::bind_rows(new_totals_list)
+    ## add back to output
     output_df <- dplyr::bind_rows(new_totals, output_df[output_df$Type != 'Total Points', ])
+    # fix the spreads
+    ## stupid 76ers break my regex
+    extracted_hc <- as.numeric(gsub('[A-Za-z +]|76ers', '', output_df$newparticipant))
+    new_handicap <- ifelse(is.na(extracted_hc), output_df$handicap, extracted_hc)
+    output_df$handicap <- new_handicap
+    ## split the newparticipant string to nuke the handicaps from string
+    newparticipant_tosplit <- gsub(' \\+| \\-', 'xxx', output_df$newparticipant)
+    newparticipant_split <- strsplit(newparticipant_tosplit, 'xxx')
+    newparticipant <- as.character(lapply(newparticipant_split, function(x) x[[1]]))
+    output_df$newparticipant <- newparticipant
+
     # fix bet types
-    output_df$Type <- gsub(" Points", "", output_df$Type)
-    output_df$Type <- gsub(" Betting", "", output_df$Type)
+    output_df$Type <- ifelse(grepl("Total", output_df$Type), "Total", output_df$Type)
+    output_df$Type <- ifelse(grepl("Spread", output_df$Type), "Spread", output_df$Type)
+    output_df$Type <- ifelse(grepl("Moneyline", output_df$Type), "Moneyline", output_df$Type)
 
     output_df$tidyteam <- normalize_names(output_df$newparticipant, key = key)
+    output_df$tidyteam <- ifelse(grepl("Total", output_df$Type), NA_character_, output_df$tidyteam)
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- output_df$Type
     output_df$tidyamericanodds <- as.numeric(gsub('//+', '', output_df$american_odds))
@@ -47,8 +61,6 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
     output_df$tidyou <- output_df$participant
     output_df$prop <- 'game go to ot'
   }
-
-
   if (prop %in% c('first player to score', 'fpts')) {
     # generate tidy names and odds
     hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)
@@ -136,6 +148,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
       output_df$tidyamericanodds <- output_df$american_odds
     }
   }
+
   # tidyup the matchup! use the team abbreviations from the lookup
   output_df$matchup <- gsub("\\s*\\([^\\)]+\\)","",as.character(output_df$matchup))
   matchup_list <- strsplit(output_df$matchup, ' @ ')

@@ -1,4 +1,4 @@
-get_barstool_data <- function(sport, save_path = NULL, sleep_time = runif(1, 1.6, 3.2)) {
+get_barstool_data <- function(sport, save_path = NULL, sleep_time = 0) {
 
   # set the main_URI by sport
   if (sport == 'nba') main_URI <- 'https://eu-offering.kambicdn.org/offering/v2018/pivusil/listView/basketball/nba/all/all/matches.json'

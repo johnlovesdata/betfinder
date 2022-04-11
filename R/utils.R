@@ -91,6 +91,7 @@ get_content <- function(uri, query) {
 }
 
 #' @rdname utils
+#' @export
 american_to_prob <- function(odds) {
   output <- list()
   for (o in odds) {
@@ -104,6 +105,7 @@ american_to_prob <- function(odds) {
 }
 
 #' @rdname utils
+#' @export
 prob_to_american <- function(probs) {
   output <- list()
   for (p in probs) {
@@ -117,6 +119,7 @@ prob_to_american <- function(probs) {
 }
 
 #' @rdname utils
+#' @export
 list_df_to_df <- function(df) {
 
   df_names <- names(df)

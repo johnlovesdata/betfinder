@@ -5,7 +5,7 @@ get_fanduel_data <- function(sport, save_path = NULL,
                              nfl_tabs = c('player-props', 'same-game-parlay-', '1st-half', '2nd-half',
                                           '1st-quarter', '2nd-quarter', '3rd-quarter', '4th-quarter'),
                              nhl_tabs = c('player-goals', 'player-points', 'player-assists', 'player-shots', 'goalie-props'),
-                             sleep_time = runif(1, 1.6, 3.2)) {
+                             sleep_time = 0) {
 
   # fanduel requires you to grab a main json for the day's games, then separate json's for all the props in a specific game
   main_URI <- 'https://sbapi.il.sportsbook.fanduel.com/api/content-managed-page'

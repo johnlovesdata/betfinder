@@ -37,7 +37,6 @@ parse_dk_prop <- function(offer_categories, prop_group, prop_subgroup, prop_name
       prop_df <- prop_df[!is.na(prop_df$label), ]
     }
 
-
     if(inherits(prop_df, 'list')) return()
     prop_df$matchup <- matchup
     prop_df$tipoff <- tipoff
@@ -46,25 +45,34 @@ parse_dk_prop <- function(offer_categories, prop_group, prop_subgroup, prop_name
 
 }
 
-parse_dk_main <- function(offer_categories, gl_subgroup = 'Game', matchup, tipoff) {
+parse_dk_game_lines <- function(offer_categories, exclude_alts, matchup, tipoff) {
   offer_category_names <- unlist(lapply(offer_categories, '[[', 'name'))
-
   if (!'Game Lines' %in% offer_category_names) return()
   game_lines_content <- offer_categories[[which(offer_category_names == 'Game Lines')]]$componentizedOffers
+
+  if (exclude_alts) {
+    gl_subgroups <- c('Game')
+  } else {
+    gl_subgroups <- c('Game', 'Alternate Spread', 'Alternate Total')
+  }
   gl_group_names <- unlist(lapply(game_lines_content, '[[', 'subcategoryName'))
 
-  if (!gl_subgroup %in% gl_group_names) return()
-  gl_subgroup_content <- game_lines_content[[which(gl_group_names == gl_subgroup)]]$offers[[1]]
-  gl_subgroup_names <- unlist(lapply(gl_subgroup_content, '[[', 'label'))
-  out_list <- list()
-  for (i in 1:length(gl_subgroup_content)) {
-    bet_out <- dplyr::bind_rows(gl_subgroup_content[[i]]$outcomes)
-    bet_out$bet_type <- gl_subgroup_content[[i]]$label
-    out_list[[length(out_list) + 1]] <- bet_out
+  if (!any(gl_subgroups %in% gl_group_names)) return()
+  gl_subgroups_content <- game_lines_content[which(gl_group_names %in% gl_subgroups)]
+  gl_offers <- lapply(gl_subgroups_content, function(x) x[['offers']][[1]])
+  output_list <- list()
+  # go through each of the offer groups
+  for (o in gl_offers) {
+    outcomes <- lapply(o, '[[', 'outcomes')
+    outcomes_df <- dplyr::bind_rows(outcomes)
+    output_list[[length(output_list) + 1]] <- outcomes_df
   }
 
-  out_df <- dplyr::bind_rows(out_list)
+  out_df <- dplyr::bind_rows(output_list)
   if (nrow(out_df) < 1) return()
+
+  out_df$bet_type <- ifelse(out_df$label %in% c("Over", "Under"), "Total",
+                            ifelse(is.na(out_df$line), "Moneyline", "Spread"))
 
   out_df$matchup <- matchup
   out_df$tipoff <- tipoff

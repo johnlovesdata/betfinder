@@ -21,7 +21,8 @@ tidyup_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_line
     }
     new_totals <- dplyr::bind_rows(new_totals_list)
     output_df <- dplyr::bind_rows(new_totals, output_df[output_df$Type != 'Total Points', ])
-    output_df$tidyteam <- normalize_names(as.character(output_df$participantName), key = key)
+    output_df$tidyteam <- normalize_names(as.character(output_df$participantName), key = key, warn = FALSE)
+    output_df$tidyteam <- ifelse(grepl('Total', output_df$Type), NA_character_, output_df$tidyteam)
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- gsub(' Points|Point ', '', as.character(output_df$Type))
     output_df$tidyline <- as.numeric(output_df$line)

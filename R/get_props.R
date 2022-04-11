@@ -3,6 +3,7 @@
 #' @param site \code{character} book site; support 'fanduel'/'fd', 'draftkings'/'dk', 'pointsbet'/'pb', 'betrivers'/'br', 'barstool'/'bs', 'mgm', 'caesar'/'csr'
 #' @param sport \code{character} sport, e.g. 'nba'
 #' @param prop \code{character} name of prop, e.g. 'first team to score'; see details for available props
+#' @param raw_data \code{data.frame} defaults to NULL, but you can pass your pre-existing data.frame to be parsed
 #' @param save_path \code{character} path to save jsons, if not \code{NULL}
 #' @details available props include: 'player points alt', 'player points ou', 'player points tiers', 'first team to score', 'first player to score'
 #' @return \code{data.frame} tidy props with tidy columns

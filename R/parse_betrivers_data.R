@@ -1,15 +1,22 @@
-parse_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_lines = FALSE) {
+parse_betrivers_data <- function(betrivers_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, exclude_alts = FALSE) {
 
   # loop through betrivers_data and extract the correct prop
   output_list <- list()
   for (e in names(betrivers_data)) {
     # subset the game event
     game_event <- betrivers_data[[e]]
+
+    # nuke live games if specified, which is the default
+    if (exclude_live) {
+      status <- game_event$state
+      if (status == "STARTED") next
+    }
+
     matchup <- game_event$name
     tipoff <- game_event$start
 
     if (game_lines == TRUE) {
-      gl_out <- parse_br_main(game_event = game_event, matchup = matchup, tipoff = tipoff)
+      gl_out <- parse_br_game_lines(game_event = game_event, matchup = matchup, tipoff = tipoff)
       output_list[[length(output_list) + 1]] <- gl_out
       next
     }

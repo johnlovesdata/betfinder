@@ -29,7 +29,6 @@ parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = N
     prop_df$matchup <- matchup
     prop_df$tipoff <- tipoff
     return(prop_df)
-
   }
   if (!is.null(prop_regex)) {
     if (!any(grepl(prop_regex, bet_markets$name))) return()
@@ -58,16 +57,22 @@ parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = N
 
 }
 
-parse_fd_main <- function(game_event, matchup, tipoff) {
+parse_fd_game_lines <- function(game_event, matchup, tipoff, exclude_alts) {
 
-  ml_outputs <- list()
-  for (ml in c('Moneyline', 'Total Points', 'Spread Betting')) {
-    df <- parse_fd_prop(game_event, tab_name = 'main', prop_name = ml, matchup = matchup, tipoff = tipoff)
-    if (length(df) == 0) return()
-    df$Type <- ml
-    ml_outputs[[ml]] <- df
+  gl_outputs <- list()
+  if (exclude_alts) {
+    game_lines <- c('Moneyline', 'Total Points', 'Spread Betting')
+  } else {
+    game_lines <- c('Moneyline', 'Total Points', 'Spread Betting', 'Alternative Total Points', 'Alternative Spreads')
   }
-  output_df <- do.call(rbind, ml_outputs)
+
+  for (i in game_lines) {
+    df <- parse_fd_prop(game_event, tab_name = 'main', prop_name = i, matchup = matchup, tipoff = tipoff)
+    if (length(df) == 0) next
+    df$Type <- i
+    gl_outputs[[length(gl_outputs) + 1]] <- df
+  }
+  output_df <- do.call(rbind, gl_outputs)
   return(output_df)
 
 }
