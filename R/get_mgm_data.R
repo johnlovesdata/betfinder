@@ -2,22 +2,24 @@ get_mgm_data <- function(sport, save_path = NULL, sleep_time = 0) {
 
   # set the main_URI by sport
   if (sport == 'nba') {
-    sport_path <- '/Users/jim/Documents/gambling_stuff/mgm_jsons/'
+    git_trees <- jsonlite::fromJSON('https://api.github.com/repos/jimtheflash/gambling_stuff/git/trees/main?recursive=1')
+    tree <- git_trees$tree
+    blobs <- tree[tree$type == 'blob', ]
+    path_df <- blobs[grepl('data/01_raw/mgm_jsons', blobs$path), ]
+    paths <- path_df$path
+
   } else {
     stop('sport not supported')
   }
-
-  # list the events
-  event_file_list <- list.files(sport_path)
-
   # loop through those files and output some lists of event lists
   event_list <- list()
-  for (e in event_file_list) {
-    fn <- paste0(sport_path, e)
-    game_event <- jsonlite::fromJSON(fn, flatten = TRUE)
+  for (p in paths) {
+    game_event <- jsonlite::fromJSON(paste0('https://raw.githubusercontent.com/jimtheflash/gambling_stuff/main/', p), flatten = TRUE)
     event_list[[length(event_list) + 1]] <- game_event
 
     if (!is.null(save_path)) {
+      e <- gsub('01_raw', '', p)
+      e <- gsub('[^0-9]', '', e)
       fn <- paste0(sport, '_mgm_', e, '_', as.numeric(Sys.time()), '.json')
       jsonlite::write_json(game_event, file.path(save_path, fn))
       R.utils::gzip(file.path(save_path, fn), ext='gz')

@@ -1,4 +1,5 @@
 parse_mgm_prop <- function(game_event, prop_name = FALSE, prop_regex = NULL, prop_not_regex = NULL, matchup, tipoff) {
+
   label_vec <- game_event$games$name.value
   if (prop_name != FALSE & prop_name %in% label_vec) {
     prop_content <- game_event$games[which(label_vec == prop_name), ]
@@ -14,6 +15,7 @@ parse_mgm_prop <- function(game_event, prop_name = FALSE, prop_regex = NULL, pro
     outcomes_df <- dplyr::bind_rows(prop_content$results)
   }
 
+  if (!('outcomes_df' %in% ls())) return()
   outcomes_df$matchup <- matchup
   outcomes_df$tipoff <- tipoff
   return(outcomes_df)

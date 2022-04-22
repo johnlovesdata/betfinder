@@ -72,7 +72,7 @@ parse_fd_game_lines <- function(game_event, matchup, tipoff, exclude_alts) {
     df$Type <- i
     gl_outputs[[length(gl_outputs) + 1]] <- df
   }
-  output_df <- do.call(rbind, gl_outputs)
+  output_df <- dplyr::bind_rows(gl_outputs)
   return(output_df)
 
 }
