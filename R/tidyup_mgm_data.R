@@ -46,7 +46,8 @@ tidyup_mgm_data <- function(mgm_data, sport, prop = FALSE, game_lines = FALSE,
     # output_df$prop <- 'first team to score'
   }
   if (prop %in% c('first player to score', 'fpts')) {
-    output_df$tidyplayer <- normalize_names(output_df$name.value, key = key)
+    hacky_player_names <- hacky_tidyup_player_names(output_df$name.value)
+    output_df$tidyplayer <- normalize_names(hacky_player_names, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$americanOdds)
     output_df$prop <- 'first player to score'
   }
