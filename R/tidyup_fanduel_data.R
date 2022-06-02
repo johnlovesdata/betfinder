@@ -39,6 +39,7 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
     output_df$tidyteam <- ifelse(grepl("Total", output_df$Type), NA_character_, output_df$tidyteam)
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- output_df$Type
+    output_df$tidygame_part <- output_df$game_part
     output_df$tidyamericanodds <- as.numeric(gsub('//+', '', output_df$american_odds))
     output_df$tidyline <- ifelse(output_df$handicap != 0, output_df$handicap, NA_real_)
     output_df$tidyou <- ifelse(output_df$participant %in% c('Over', 'over'), 'over',
@@ -67,6 +68,13 @@ tidyup_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = 
     output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
     output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
     output_df$prop <- 'first player to score'
+  }
+  if (prop %in% c('fpts by team')) {
+    # generate tidy names and odds
+    hacky_tidyplayer <- hacky_tidyup_player_names(output_df$participant)
+    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    output_df$tidyamericanodds <- as.numeric(output_df$american_odds)
+    output_df$prop <- 'first player to score by team'
   }
   if (prop %in% c('player any td', 'player first td')) {
     # generate tidy names and odds

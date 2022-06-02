@@ -1,4 +1,4 @@
-parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, exclude_alts = FALSE) {
+parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, exclude_alts = FALSE, game_part = "full") {
 
   # loop through fanduel_data and extract the correct prop
   output_list <- list()
@@ -18,7 +18,7 @@ parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = F
     if (game_lines == TRUE) {
       if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb', 'nhl')) {
         output_list[[length(output_list) + 1]] <-
-          parse_fd_game_lines(game_event, matchup = matchup, tipoff = tipoff, exclude_alts = exclude_alts)
+          parse_fd_game_lines(game_event, matchup = matchup, tipoff = tipoff, exclude_alts = exclude_alts, game_part = game_part)
       }
     }
 
@@ -30,6 +30,11 @@ parse_fanduel_data <- function(fanduel_data, sport, prop = FALSE, game_lines = F
       if (sport == 'nfl') tab_name <- 'main'
       output_list[[length(output_list) + 1]] <-
         parse_fd_prop(game_event = game_event, tab_name = tab_name, prop_name = 'Team to Score First',
+                      matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('fpts by team')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_fd_prop(game_event = game_event, tab_name = 'first_basket', prop_name = 'First Team Basket Scorer',
                       matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('game go to ot', 'game go to overtime')) {
