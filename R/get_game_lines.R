@@ -61,7 +61,7 @@ get_game_lines <- function(site, sport, exclude_live = TRUE, exclude_alts = FALS
     } else {
       br_raw <- raw_data
     }
-    br_parsed <- parse_betrivers_data(br_raw, sport = sport, game_lines = TRUE)
+    br_parsed <- parse_betrivers_data(br_raw, sport = sport, game_lines = TRUE, exclude_live = exclude_live, exclude_alts = exclude_alts)
     br_tidy <- tidyup_betrivers_data(br_parsed, sport = sport, game_lines = TRUE)
     output_df <- br_tidy
     output_df$timestamp <- Sys.time()

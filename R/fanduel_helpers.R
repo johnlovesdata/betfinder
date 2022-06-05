@@ -57,7 +57,7 @@ parse_fd_prop <- function(game_event, tab_name, prop_name = NULL, prop_regex = N
 
 }
 
-parse_fd_game_lines <- function(game_event, matchup, tipoff, exclude_alts) {
+parse_fd_game_lines <- function(game_event, matchup, tipoff, exclude_alts, game_part) {
 
   gl_outputs <- list()
   if (exclude_alts) {
@@ -66,13 +66,19 @@ parse_fd_game_lines <- function(game_event, matchup, tipoff, exclude_alts) {
     game_lines <- c('Moneyline', 'Total Points', 'Spread Betting', 'Alternative Total Points', 'Alternative Spreads')
   }
 
+  if (game_part == 'q1') selected_tab <- '1st_quarter'
+  if (game_part == 'q2') selected_tab <- '2nd_quarter'
+  if (game_part == 'q3') selected_tab <- '3rd_quarter'
+  if (game_part == 'q4') selected_tab <- '4th_quarter'
+  if (game_part == 'full') selected_tab <- 'main'
   for (i in game_lines) {
-    df <- parse_fd_prop(game_event, tab_name = 'main', prop_name = i, matchup = matchup, tipoff = tipoff)
+    df <- parse_fd_prop(game_event, tab_name = selected_tab, prop_name = i, matchup = matchup, tipoff = tipoff)
     if (length(df) == 0) next
     df$Type <- i
     gl_outputs[[length(gl_outputs) + 1]] <- df
   }
   output_df <- dplyr::bind_rows(gl_outputs)
+  output_df$game_part <- game_part
   return(output_df)
 
 }
