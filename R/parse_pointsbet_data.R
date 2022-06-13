@@ -41,7 +41,7 @@ parse_pointsbet_data <- function(pointsbet_data, prop = FALSE, game_lines = FALS
     if (prop %in% c('first player to score', 'fpts')) {
       power_hour <- try(parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
                                       prop_regex = '^Power Hour First Basket$'))
-      if ('try-error' %in% class(power_hour)) {
+      if ('try-error' %in% class(power_hour) | nrow(power_hour) == 0) {
         output_list[[length(output_list) + 1]] <-
           parse_pb_prop(game_event = game_event, fixed_odds_markets = fixed_odds_markets, event_names = event_names,
                         prop_regex = '^First Basket$')
