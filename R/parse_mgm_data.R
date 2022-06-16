@@ -29,7 +29,7 @@ parse_mgm_data <- function(mgm_data, sport, prop = FALSE, game_lines = FALSE) {
     if (prop %in% c('fpts by team')) {
       output_list[[length(output_list) + 1]] <-
         parse_mgm_prop(game_event = game_event,
-                       prop_regex = 'First Field Goal -', prop_not_regex = 'Exact Method',
+                       prop_regex = 'First Field Goal Scorer -', prop_not_regex = 'Exact Method',
                        matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('fpts exact method')) {
