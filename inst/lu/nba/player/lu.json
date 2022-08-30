@@ -177,7 +177,7 @@
   },
   {
     "name": "Kevin Knox II",
-    "aliases": ["kevinknox", "kevin knox ii", "KEVIN KNOX II"]
+    "aliases": ["kevinknox", "kevin knox ii", "KEVIN KNOX II", "Kevin Knox"]
   },
   {
     "name": "Svi Mykhailiuk",
@@ -505,7 +505,7 @@
   },
   {
     "name": "Harry Giles III",
-    "aliases": ["harrygiles", "harry giles iii", "HARRY GILES III"]
+    "aliases": ["harrygiles", "harry giles iii", "HARRY GILES III", "Harry Giles"]
   },
   {
     "name": "Chimezie Metu",
@@ -725,7 +725,7 @@
   },
   {
     "name": "Larry Nance Jr.",
-    "aliases": ["larrynance", "larry nance jr.", "LARRY NANCE JR."]
+    "aliases": ["larrynance", "larry nance jr.", "LARRY NANCE JR.", "Larry Nance"]
   },
   {
     "name": "Cedi Osman",
@@ -1653,7 +1653,7 @@
   },
   {
     "name": "Kira Lewis Jr.",
-    "aliases": ["kiralewis", "kira lewis jr.", "KIRA LEWIS JR."]
+    "aliases": ["kiralewis", "kira lewis jr.", "KIRA LEWIS JR.", "Kira Lewis"]
   },
   {
     "name": "Breein Tyree",
@@ -2229,7 +2229,7 @@
   },
   {
     "name": "Nicolas Claxton",
-    "aliases": ["nicolasclaxton", "nicolas claxton", "NICOLAS CLAXTON"]
+    "aliases": ["nicolasclaxton", "nicolas claxton", "NICOLAS CLAXTON", "Nicolas Claxton"]
   },
   {
     "name": "Greg Whittington",
@@ -2265,7 +2265,7 @@
   },
   {
     "name": "Gary Payton II",
-    "aliases": ["garypayton", "gary payton ii", "GARY PAYTON II", "garypaytonll"]
+    "aliases": ["garypayton", "gary payton ii", "GARY PAYTON II", "garypaytonll", "Gary Payton"]
   },
   {
     "name": "Donta Hall",
@@ -2357,7 +2357,7 @@
   },
   {
     "name": "Derrick Walton Jr.",
-    "aliases": ["derrickwalton", "derrick walton jr.", "DERRICK WALTON JR."]
+    "aliases": ["derrickwalton", "derrick walton jr.", "DERRICK WALTON JR.", "Derrick Walton"]
   },
   {
     "name": "Shamorie Ponds",
@@ -2741,7 +2741,7 @@
   },
   {
     "name": "Charlie Brown Jr.",
-    "aliases": ["charliebrown", "charlesbrown", "charlie brown jr.", "CHARLIE BROWN JR.", "charles brown", "Charles Brown"]
+    "aliases": ["charliebrown", "charlesbrown", "charlie brown jr.", "CHARLIE BROWN JR.", "charles brown", "Charles Brown", "Charlie Brown"]
   },
   {
     "name": "Dragan Bender",
@@ -3392,8 +3392,8 @@
     "aliases": ["davion mitchell", "davionmitchell"]
   },
   {
-    "name": "Duane Washington",
-    "aliases": ["dwayne washington", "duanewashington"]
+    "name": "Duane Washington Jr.",
+    "aliases": ["dwayne washington", "duanewashington", "Duane Washington"]
   },
   {
     "name": "Jock Landale",
@@ -3401,7 +3401,7 @@
   },
   {
     "name": "Joshua Primo",
-    "aliases": ["joshua primo", "joshuaprimo", "josh primo", "joshprimo"]
+    "aliases": ["joshua primo", "joshuaprimo", "josh primo", "joshprimo", "Josh Primo"]
   },
   {
     "name": "Jared Butler",
@@ -3409,7 +3409,7 @@
   },
   {
     "name": "David Duke Jr.",
-    "aliases": ["david duke", "davidduke", "daviddukejr", "davidjrduke"]
+    "aliases": ["david duke", "davidduke", "daviddukejr", "davidjrduke", "David Duke"]
   },
   {
     "name": "Sandro Mamukelashvili",
@@ -3473,7 +3473,7 @@
   },
   {
     "name": "Greg Brown",
-    "aliases": ["gregbrown", "greg brown"]
+    "aliases": ["gregbrown", "greg brown", "Greg Brown"]
   },
   {
     "name": "Keon Johnson",
@@ -3488,8 +3488,8 @@
     "aliases": ["brandonwilliams", "brandon williams"]
   },
   {
-    "name": "Lindy Waters",
-    "aliases": ["lindywaters", "lindy waters"]
+    "name": "Lindy Waters III",
+    "aliases": ["lindywaters", "lindy waters", "Lindy Waters"]
   },
   {
     "name": "Olivier Sarr",
@@ -3518,5 +3518,13 @@
   {
     "name": "Brandon Boston Jr.",
     "aliases": ["brandonboston", "brandon boston", "brandon boston jr."]
+  },
+  {
+    "name": "Chaundee Brown Jr.",
+    "aliases": ["Chaundee Brown"]
+  },
+  {
+    "name": "Trey Murphy III",
+    "aliases": ["Trey Murphy"]
   }
 ]
