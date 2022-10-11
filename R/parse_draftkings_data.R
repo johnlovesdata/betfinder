@@ -186,6 +186,21 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
         parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Goalie Saves', prop_regex = 'Saves',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
+    if (prop %in% c('fg made')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'D/ST Props', prop_subgroup = 'FG Made', prop_regex = 'Field Goal Made',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('kicking pts')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'D/ST Props', prop_subgroup = 'Kicking Pts', prop_regex = 'Kicking Points',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('pat made')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'D/ST Props', prop_subgroup = 'PAT Made', prop_regex = 'Extra Point Made',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
 
   }
 

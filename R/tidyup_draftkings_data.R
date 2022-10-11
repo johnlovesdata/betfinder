@@ -20,8 +20,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     new_totals <- dplyr::bind_rows(new_totals_list)
     output_df <- dplyr::bind_rows(new_totals, output_df[output_df$bet_type != 'Total', ])
 
-    output_df$tidyteam <- ifelse(output_df$bet_type == 'Total', NA_character_,
-                                 normalize_names(output_df$newlabel, key = key, warn = FALSE))
+    output_df$tidyteam <- ifelse(output_df$bet_type == 'Total', NA_character_, output_df$newlabel)
 
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- output_df$bet_type
@@ -35,7 +34,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
   # for each prop, append whatever tidy fields we can, which should make thte data useful across datasets
   if (prop %in% c('first team to score', 'ftts')) {
     # generate tidy names and odds
-    output_df$tidyteam <- normalize_names(output_df$label, key = key)
+    output_df$tidyteam <- output_df$label
     output_df$tidyplayer <- 'team'
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
     # for flexible prop names, specify the value explicitly here
@@ -54,11 +53,11 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
   if (prop %in% c('first player to score', 'fpts')) {
     # set tidyplayer and tidyamericanodds
     if ('participant' %in% names(output_df)) {
-      hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
+      hacky_tidyplayer <- as.character(output_df$participant)
     } else if ('label' %in% names(output_df)) {
-      hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$label))
+      hacky_tidyplayer <- as.character(output_df$label)
     }
-    output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+    output_df$tidyplayer <- hacky_tidyplayer
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
     # for flexible props, specify the value explicitly here
     output_df$prop <- 'first player to score'
@@ -67,7 +66,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     # generate tidy names and odds
     if (prop == 'player first td') output_df <- output_df[output_df$criterionName == 'First Scorer', ]
     if (prop == 'player any td') output_df <- output_df[output_df$criterionName == 'Anytime Scorer', ]
-    output_df$tidyplayer <- normalize_names(output_df$label, key = key)
+    output_df$tidyplayer <- output_df$label
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
   }
   if (prop %in% c('player any goal','goals', 'player first goal', 'player last goal')) {
@@ -82,11 +81,11 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
   }
 
 
-  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts| blocks| steals| turnovers|runs|strikeout| hr|hit|rbi|double|pass|rush|att|shots|saves', tolower(prop))) {
+  if (grepl(' ou$| $tiers|points|rebounds|assists|three-pointers| pts| 3pts| rebs| asts| blocks| steals| turnovers|runs|strikeout| hr|hit|rbi|double|pass|rush|att|shots|saves|fg|kicking|pat', tolower(prop))) {
     # get names
     if (sport != 'nhl') {
-      hacky_tidyplayer <- hacky_tidyup_player_names(as.character(output_df$participant))
-      output_df$tidyplayer <- normalize_names(hacky_tidyplayer, key = key)
+      hacky_tidyplayer <- (as.character(output_df$participant))
+      output_df$tidyplayer <- hacky_tidyplayer
     } else {
       output_df$tidyplayer <- output_df$participant
     }
@@ -111,8 +110,8 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
   # tidyup the matchup! use the team abbreviations from the lookup
   matchup_list <- strsplit(gsub(' vs ', ' @ ', output_df$matchup), ' @ ')
   if (sport != 'nhl') {
-    output_df$tidyawayteam <- normalize_names(unlist(lapply(matchup_list, '[[', 1)), key = get_key_path(sport, 'team'))
-    output_df$tidyhometeam <- normalize_names(unlist(lapply(matchup_list, '[[', 2)), key = get_key_path(sport, 'team'))
+    output_df$tidyawayteam <- unlist(lapply(matchup_list, '[[', 1))
+    output_df$tidyhometeam <- unlist(lapply(matchup_list, '[[', 2))
   }
 
   # tidyup the date! make sure this is EST
