@@ -64,8 +64,6 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
   }
   if (prop %in% c('player any td', 'player first td')) {
     # generate tidy names and odds
-    if (prop == 'player first td') output_df <- output_df[output_df$criterionName == 'First Scorer', ]
-    if (prop == 'player any td') output_df <- output_df[output_df$criterionName == 'Anytime Scorer', ]
     output_df$tidyplayer <- output_df$label
     output_df$tidyamericanodds <- as.numeric(output_df$oddsAmerican)
   }
