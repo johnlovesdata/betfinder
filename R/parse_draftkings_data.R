@@ -117,32 +117,32 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('player rush atts ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'RB/WR Props', prop_subgroup = 'Rush Attempts', prop_regex = 'Rushing Attempts',
+        parse_dk_prop(offer_categories, prop_group = 'Rush/Rec Props', prop_subgroup = 'Rush Attempts', prop_regex = 'Rushing Attempts',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rush yds ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'RB/WR Props', prop_subgroup = 'Rush Yds', prop_regex = 'Rushing Yards',
+        parse_dk_prop(offer_categories, prop_group = 'Rush/Rec Props', prop_subgroup = 'Rush Yds', prop_regex = 'Rushing Yards',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player recs ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'RB/WR Props', prop_subgroup = 'Receptions', prop_regex = 'Receptions',
+        parse_dk_prop(offer_categories, prop_group = 'Rush/Rec Props', prop_subgroup = 'Receptions', prop_regex = 'Receptions',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rec yds ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'RB/WR Props', prop_subgroup = 'Rec Yds', prop_regex = 'Receiving Yards',
+        parse_dk_prop(offer_categories, prop_group = 'Rush/Rec Props', prop_subgroup = 'Rec Yds', prop_regex = 'Receiving Yards',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rush+rec yds ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'RB/WR Props', prop_subgroup = 'Rush + Rec Yds', prop_regex = 'Rushing \\+ Receiving Yards',
+        parse_dk_prop(offer_categories, prop_group = 'Rush/Rec Props', prop_subgroup = 'Rush + Rec Yds', prop_regex = 'Rushing \\+ Receiving Yards',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pass atts ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'QB Props', prop_subgroup = 'Pass Attempts', prop_regex = 'Passing Attempts',
+        parse_dk_prop(offer_categories, prop_group = 'Passing Props', prop_subgroup = 'Pass Attempts', prop_regex = 'Passing Attempts',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pass yds ou')) {
@@ -152,7 +152,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('player pass tds ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'QB Props', prop_subgroup = 'Pass TDs', prop_regex = 'Passing Touchdowns',
+        parse_dk_prop(offer_categories, prop_group = 'Passing Props', prop_subgroup = 'Pass TDs', prop_regex = 'Passing Touchdowns',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player any td')) {
