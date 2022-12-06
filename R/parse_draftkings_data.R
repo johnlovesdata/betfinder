@@ -55,7 +55,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
       output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Rebounds', prop_regex = ' Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts-rebs-asts ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Pts, Reb & Ast', prop_regex = ' Points \\+ Assists \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Pts + Reb + Ast', prop_regex = ' Points \\+ Assists \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts-rebs ou')) {
       output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Pts + Reb', prop_regex = ' Points \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
