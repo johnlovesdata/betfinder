@@ -46,49 +46,49 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
       output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = '1st Basket Props', prop_subgroup = 'First FG', prop_name = 'First Field Goal', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player points ou', 'player pts ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Points', prop_regex = ' Points$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Points', prop_subgroup = 'Points', prop_regex = ' Points$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player assists ou', 'player asts ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Assists', prop_regex = ' Assists$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Assists', prop_subgroup = 'Assists', prop_regex = ' Assists$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rebounds ou', 'player rebs ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Rebounds', prop_regex = ' Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Rebounds', prop_subgroup = 'Rebounds', prop_regex = ' Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts-rebs-asts ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Pts + Reb + Ast', prop_regex = ' Points \\+ Assists \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Combos', prop_subgroup = 'Pts + Reb + Ast', prop_regex = ' Points \\+ Assists \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts-rebs ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Pts + Reb', prop_regex = ' Points \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Combos', prop_subgroup = 'Pts + Reb', prop_regex = ' Points \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player pts-asts ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Pts + Ast', prop_regex = ' Points \\+ Assists$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Combos', prop_subgroup = 'Pts + Ast', prop_regex = ' Points \\+ Assists$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rebs-asts ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Ast + Reb', prop_regex = ' Assists \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Combos', prop_subgroup = 'Ast + Reb', prop_regex = ' Assists \\+ Rebounds$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player three-pointers ou', 'player 3pts ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Threes', prop_regex = ' Three Pointers Made$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Threes', prop_subgroup = 'Threes', prop_regex = ' Three Pointers Made$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player blocks ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Blocks', prop_regex = ' Blocks$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Blocks/Steals', prop_subgroup = 'Blocks ', prop_regex = ' Blocks$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player steals ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Steals', prop_regex = ' Steals$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Blocks/Steals', prop_subgroup = 'Steals ', prop_regex = ' Steals$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player turnovers ou', 'player to ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Turnovers', prop_regex = ' Turnovers$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Turnovers', prop_subgroup = 'Turnovers', prop_regex = ' Turnovers$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player steals plus blocks ou')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Steals + Blocks', prop_regex = ' Steals \\+ Blocks$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Blocks/Steals', prop_subgroup = 'Steals + Blocks', prop_regex = ' Steals \\+ Blocks$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player most points')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Top Point Scorer', prop_name = 'Leading Scorer of the Game', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Points', prop_subgroup = 'Leading Scorer', prop_name = 'Leading Scorer of the Game', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player double double')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Double-Double', prop_regex = ' Double-Double$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Combos', prop_subgroup = 'Double-Double', prop_regex = ' Double-Double$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player triple double')) {
-      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Triple-Double', prop_regex = ' Triple-Double$', prop = prop, matchup = matchup, tipoff = tipoff)
+      output_list[[length(output_list) + 1]] <- parse_dk_prop(offer_categories, prop_group = 'Player Combos', prop_subgroup = 'Triple-Double', prop_regex = ' Triple-Double$', prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player strikeouts ou', 'strikeouts')) {
       output_list[[length(output_list) + 1]] <-
