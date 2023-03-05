@@ -1,15 +1,15 @@
 get_draftkings_data <- function(sport, save_path = NULL,
                                 sleep_time = 0) {
   # set the eventgroup based on the sport
-  if (sport == 'nba') eg <- 88670846
-  else if (sport == 'mlb') eg <- 88670847
-  else if (sport == 'nhl') eg <- 88670853
-  else if (sport == 'nfl') eg <- 88670561
-  else if (sport == 'ncaaf') eg <- 88670775
+  if (sport == 'nba') eg <- 42648
+  else if (sport == 'mlb') eg <- 84240
+  else if (sport == 'nhl') eg <- 42133
+  else if (sport == 'nfl') eg <- 88808
+  else if (sport == 'ncaaf') eg <- 87637
   else stop(sport, ' is not yet supported')
 
   # get the big ol' json from dk - this has all the nba markets
-  main_uri <- paste0('https://sportsbook-us-il.draftkings.com//sites/US-IL-SB/api/v4/eventgroups/', eg)
+  main_uri <- paste0('https://sportsbook-us-il.draftkings.com//sites/US-IL-SB/api/v5/eventgroups/', eg)
   main_query <- list(
     includePromotions = list('true'),
     format = list('json')
@@ -21,7 +21,7 @@ get_draftkings_data <- function(sport, save_path = NULL,
   event_list <- list()
   for (e in event_ids) {
     Sys.sleep(sleep_time)
-    event_uri <- paste0('https://sportsbook-us-il.draftkings.com//sites/US-IL-SB/api/v2/event/', e)
+    event_uri <- paste0('https://sportsbook-us-il.draftkings.com//sites/US-IL-SB/api/v3/event/', e)
     event_query <- list(
       includePromotions = list('true'),
       format = list('json'))
