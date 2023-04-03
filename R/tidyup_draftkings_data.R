@@ -20,7 +20,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     new_totals <- dplyr::bind_rows(new_totals_list)
     output_df <- dplyr::bind_rows(new_totals, output_df[output_df$bet_type != 'Total', ])
 
-    output_df$tidyteam <- ifelse(output_df$bet_type == 'Total', NA_character_, output_df$newlabel)
+    output_df$tidyteam <- ifelse(output_df$bet_type == 'Total', output_df$matchup, output_df$newlabel)
 
     output_df$tidyplayer <- 'team'
     output_df$tidytype <- output_df$bet_type
