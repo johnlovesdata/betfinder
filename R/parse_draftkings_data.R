@@ -1,4 +1,4 @@
-parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, exclude_alts = TRUE) {
+parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lines = FALSE, exclude_live = TRUE, offer_category = 'Game Lines', gl_subgroups = c('Game')) {
 
   output_list <- list()
 
@@ -21,7 +21,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     if (game_lines == TRUE) {
       if (sport %in% c('nba', 'ncaaf', 'nfl', 'mlb', 'nhl')) {
         output_list[[length(output_list) + 1]] <-
-          parse_dk_game_lines(offer_categories, exclude_alts = exclude_alts, matchup = matchup, tipoff = tipoff)
+          parse_dk_game_lines(offer_categories, offer_category = offer_category, gl_subgroups = gl_subgroups, matchup = matchup, tipoff = tipoff)
       }
     }
     if (is.null(prop)) {

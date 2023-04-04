@@ -9,7 +9,7 @@
 #' @details this code should pull moneylines, spreads, and totals, including alternate spreads and totals,
 #' @return \code{data.frame} tidy game lines with tidy columns
 #' @export
-get_game_lines <- function(site, sport, exclude_live = TRUE, exclude_alts = FALSE, raw_data = NULL, save_path = NULL) {
+get_game_lines <- function(site, sport, exclude_live = TRUE, exclude_alts = FALSE, raw_data = NULL, save_path = NULL, offer_category = 'Game Lines', gl_subgroups = c('Game')) {
 
   # fix case errors for users
   site <- tolower(site)
@@ -22,7 +22,7 @@ get_game_lines <- function(site, sport, exclude_live = TRUE, exclude_alts = FALS
     } else {
       dk_raw <- raw_data
     }
-    dk_parsed <- parse_draftkings_data(dk_raw, sport = sport, game_lines = TRUE, exclude_live = exclude_live, exclude_alts = exclude_alts)
+    dk_parsed <- parse_draftkings_data(dk_raw, sport = sport, game_lines = TRUE, exclude_live = exclude_live, offer_category = offer_category, gl_subgroups = gl_subgroups)
     dk_tidy <- tidyup_draftkings_data(dk_parsed, sport = sport, game_lines = TRUE)
     output_df <- dk_tidy
     output_df$timestamp <- Sys.time()

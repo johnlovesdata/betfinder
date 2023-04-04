@@ -45,16 +45,11 @@ parse_dk_prop <- function(offer_categories, prop_group, prop_subgroup, prop_name
 
 }
 
-parse_dk_game_lines <- function(offer_categories, exclude_alts, matchup, tipoff) {
+parse_dk_game_lines <- function(offer_categories, offer_category = 'Game Lines', gl_subgroups = c('Game'), matchup, tipoff) {
   offer_category_names <- unlist(lapply(offer_categories, '[[', 'name'))
-  if (!'Game Lines' %in% offer_category_names) return()
-  game_lines_content <- offer_categories[[which(offer_category_names == 'Game Lines')]]$componentizedOffers
+  if (!offer_category %in% offer_category_names) return()
+  game_lines_content <- offer_categories[[which(offer_category_names == offer_category)]]$componentizedOffers
 
-  if (exclude_alts) {
-    gl_subgroups <- c('Game')
-  } else {
-    gl_subgroups <- c('Game', 'Alternate Spread', 'Alternate Total')
-  }
   gl_group_names <- unlist(lapply(game_lines_content, '[[', 'subcategoryName'))
 
   if (!any(gl_subgroups %in% gl_group_names)) return()
