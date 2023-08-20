@@ -8,7 +8,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
 
     # fix the totals first
     output_df$newlabel <- output_df$label
-    totals <- output_df[output_df$bet_type == 'Total', ]
+    totals <- na.omit(output_df[output_df$bet_type == 'Total', ])
     new_totals_list <- list()
     for (m in unique(totals$matchup)) {
       mu <- totals[totals$matchup == m, ]
@@ -19,6 +19,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     }
     new_totals <- dplyr::bind_rows(new_totals_list)
     output_df <- dplyr::bind_rows(new_totals, output_df[output_df$bet_type != 'Total', ])
+    output_df <- output_df[!is.na(output_df$providerOutcomeId), ]
 
     output_df$tidyteam <- ifelse(output_df$bet_type == 'Total', output_df$matchup, output_df$newlabel)
 
