@@ -188,13 +188,13 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     if (prop %in% c('player any td')) {
       # first/last/any tds are all in one big data.frame, which gets re-labeled correctly in tidyup_draftkings_data()
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'TD Scorers', prop_subgroup = 'Anytime TD Scorer', prop_name = 'Anytime Touchdown Scorer',
+        parse_dk_prop(offer_categories, prop_group = 'TD Scorers', prop_subgroup = 'TD Scorer', prop_name = 'Anytime TD Scorer',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player first td')) {
       # first/last/any tds are all in one big data.frame, which gets re-labeled correctly in tidyup_draftkings_data()
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'TD Scorers', prop_subgroup = 'First TD Scorer', prop_name = 'First Touchdown Scorer',
+        parse_dk_prop(offer_categories, prop_group = 'TD Scorers', prop_subgroup = 'TD Scorer', prop_name = 'First TD Scorer',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('goalscorer', 'goals', 'player first goal', 'player any goal', 'player last goal')) {
