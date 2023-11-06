@@ -197,14 +197,14 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
         parse_dk_prop(offer_categories, prop_group = 'TD Scorers', prop_subgroup = 'TD Scorer', prop_name = 'First TD Scorer',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
-    if (prop %in% c('goalscorer', 'goals', 'player first goal', 'player any goal', 'player last goal')) {
+    if (prop %in% c('goalscorer', 'goals', 'player any goal')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Goalscorer', prop_regex = 'Goalscorer',
+        parse_dk_prop(offer_categories, prop_group = 'Goalscorer', prop_subgroup = 'Goalscorer', prop_regex = 'Goalscorers',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('shots')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Shots', prop_regex = 'Shots',
+        parse_dk_prop(offer_categories, prop_group = 'Shots on Goal', prop_subgroup = 'Player Shots on Goal', prop_regex = 'Shots on Goal',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('assists')) {
