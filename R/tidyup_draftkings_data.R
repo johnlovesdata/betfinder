@@ -129,6 +129,9 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
     output_df$prop <- prop
   }
 
+  output_df <- output_df[!duplicated(output_df), ]
+
+
   # deliver
   return(output_df)
 
