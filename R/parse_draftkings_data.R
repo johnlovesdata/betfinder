@@ -92,12 +92,12 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('player strikeouts ou', 'strikeouts')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Strikeouts', prop_regex = 'Strikeouts',
+        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Strikeouts Thrown', prop_regex = 'Strikeouts',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('pitcher walks ou', 'walks')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Walks', prop_regex = 'Walks',
+        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Walks Allowed', prop_regex = 'Walks',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('pitcher outs ou', 'outs')) {
@@ -112,7 +112,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('pitcher earned runs ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Earned Runs', prop_regex = 'Earned Runs',
+        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Earned Runs Allowed', prop_regex = 'Earned Runs',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player hits ou')) {
