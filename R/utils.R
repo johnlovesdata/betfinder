@@ -85,7 +85,11 @@ hacky_tidyup_player_names <- function(player_names) {
 
 #' @rdname utils
 get_content <- function(uri, query) {
-  resp <- httr::GET(uri, query = query, encode = 'json')
+  hdrs <- c(
+    'User-Agent'='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'Accept'='*/*'
+  )
+  resp <- httr::GET(uri, query = query, encode = 'json', httr::add_headers(.headers = hdrs))
   output <- httr::content(resp)
   return(output)
 }
