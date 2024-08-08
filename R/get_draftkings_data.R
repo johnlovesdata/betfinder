@@ -11,7 +11,6 @@ get_draftkings_data <- function(sport, save_path = NULL,
   # get the big ol' json from dk - this has all the nba markets
   main_uri <- paste0('https://sportsbook-nash-usil.draftkings.com/sites/US-IL-SB/api/v5/eventgroups/', eg)
   main_query <- list(
-    includePromotions = list('true'),
     format = list('json')
   )
   main_content <- get_content(main_uri, main_query)
