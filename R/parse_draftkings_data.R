@@ -92,7 +92,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('player strikeouts ou', 'strikeouts')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Strikeouts Thrown', prop_regex = 'Strikeouts',
+        parse_dk_prop(offer_categories, prop_group = 'Pitcher Props', prop_subgroup = 'Strikeouts Thrown O/U', prop_regex = 'Strikeouts',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('pitcher walks ou', 'walks')) {
@@ -142,7 +142,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('player hrs ou', 'player home runs ou')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'Home Runs', prop_regex = 'Home Run',
+        parse_dk_prop(offer_categories, prop_group = 'Batter Props', prop_subgroup = 'Home Runs O/U', prop_regex = 'Home Run',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('player rush atts ou')) {
