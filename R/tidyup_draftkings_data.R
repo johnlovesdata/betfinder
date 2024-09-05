@@ -93,7 +93,7 @@ tidyup_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_li
                                ifelse(grepl('Under', as.character(output_df$label)), 'under',
                                       ifelse(grepl('^no$', tolower(as.character(output_df$label))), 'no',
                                              ifelse(grepl('^yes$', tolower(as.character(output_df$label))), 'yes',
-                                                    NA_character_
+                                                    output_df$label
                                              ))))
     # get tidy line from the label
     num_part <- as.numeric(gsub('[A-Za-z| ]', '', output_df$label))
