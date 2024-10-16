@@ -219,7 +219,12 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('points')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Points', prop_regex = 'Points',
+        parse_dk_prop(offer_categories, prop_group = 'Points', prop_subgroup = 'Points', prop_regex = 'Points',
+                      prop = prop, matchup = matchup, tipoff = tipoff)
+    }
+    if (prop %in% c('points ou')) {
+      output_list[[length(output_list) + 1]] <-
+        parse_dk_prop(offer_categories, prop_group = 'Points', prop_subgroup = 'Points O/U', prop_regex = 'Points',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('goalie saves')) {
