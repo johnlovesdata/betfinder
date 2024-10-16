@@ -214,7 +214,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('blocked shots')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Player Props', prop_subgroup = 'Blocked Shots', prop_regex = 'Blocked Shots',
+        parse_dk_prop(offer_categories, prop_group = 'Blocks', prop_subgroup = 'Blocks O/U', prop_regex = 'Blocks',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('points')) {
