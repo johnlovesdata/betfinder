@@ -30,7 +30,7 @@ get_draftkings_data <- function(sport, save_path = NULL, sleep_time = 0) {
     'Sec-Ch-Ua-Platform'='"macOS"',
     'Sec-Fetch-Dest'='empty',
     'Sec-Fetch-Mode'='cors',
-    'Sec-Fetch-Site'='same-site', 
+    'Sec-Fetch-Site'='same-site',
     'User-Agent'='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
   )
   ## query

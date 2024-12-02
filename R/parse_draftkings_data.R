@@ -229,7 +229,7 @@ parse_draftkings_data <- function(draftkings_data, sport, prop = FALSE, game_lin
     }
     if (prop %in% c('goalie saves')) {
       output_list[[length(output_list) + 1]] <-
-        parse_dk_prop(offer_categories, prop_group = 'Goalie Props', prop_subgroup = 'Saves', prop_regex = 'Saves',
+        parse_dk_prop(offer_categories, prop_group = 'Goalie Props', prop_subgroup = 'Saves O/U', prop_regex = 'Saves',
                       prop = prop, matchup = matchup, tipoff = tipoff)
     }
     if (prop %in% c('fg made')) {
